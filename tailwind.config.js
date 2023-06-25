@@ -113,7 +113,16 @@ module.exports = {
         2200: '2200ms',
         2400: '2400ms',
       },
+      keyframes: {
+        'pan-text-rtl' : {
+          '0%' : {transform: 'translate(0%)'},
+          '100%': {transform: 'translate(-50%)'},
+        },
+      },
+      animation: {
+        'pan-text-rtl' : 'pan-text-rtl 30s linear infinite backwards',
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 }

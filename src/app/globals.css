@@ -2,26 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.debug {
+  border: solid 1px magenta;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+
+  html::-webkit-scrollbar {
+    display: none;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  /* Hide scrollbar for IE, Edge and Firefox */
+  html {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    @apply flex flex-col items-center justify-start bg-marabunta-yellow/10;
+  }
+
+  body {
+    @apply max-w-[1920px] w-full bg-white;
+  }
+
+  main {
+    @apply absolute top-0 left-0 h-full w-full p-24 flex flex-col items-center justify-between;
+  }
+
+  nav {
+    width: 100vh;
+    transform-origin: left top;
+    transform: rotate(-90deg) translateX(-100%);
+  }
+
 }
