@@ -20,7 +20,7 @@ const Navbar = () => {
                 </li>
             </ul>
             <Link href={"/"} className={"relative"} passHref>
-                <Image src={"/svg/marabunta-white.svg"} alt={"Marabunta, ir a inicio"} width={140} height={28} />
+                <Image src={"/images/svg/marabunta-white.svg"} alt={"Marabunta, ir a inicio"} width={140} height={28} />
             </Link>
         </nav>
     );

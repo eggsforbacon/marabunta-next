@@ -23,7 +23,7 @@ const _defaults: { [key: string]: string } = {
 }
 
 export const TextField = (props: _CProps) => {
-    const baseClassName: string = `${props.overrideSize || _defaults["size"]} ${props.overrideBorderRadius || _defaults["borderRadius"]} ${props.overrideBackgroundAndBorder || _defaults["background&border"]} ${props.overrideText || _defaults["text"]}`;
+    const baseClassName: string = `focus:ring-0 ${props.overrideSize || _defaults["size"]} ${props.overrideBorderRadius || _defaults["borderRadius"]} ${props.overrideBackgroundAndBorder || _defaults["background&border"]} ${props.overrideText || _defaults["text"]}`;
     const finalClassName: string = `${baseClassName} ${props.className}`;
 
     return (

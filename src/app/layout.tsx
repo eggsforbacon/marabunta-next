@@ -2,7 +2,7 @@ import './globals.css'
 import {Montserrat} from 'next/font/google';
 import React from "react";
 import Navbar from "@/components/ui/Navbar";
-import {Footer} from "@/components/ui/Footer";
+import {Footer} from "@/components/ui/Footer/Footer";
 
 const montserrat = Montserrat({subsets: ['latin', 'latin-ext']});
 

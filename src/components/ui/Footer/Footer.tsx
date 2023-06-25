@@ -4,39 +4,18 @@ import {Behance, Facebook, Instagram, Linkedin} from "react-bootstrap-icons";
 import {TextField} from "@/components/ui/TextField";
 import {Checkbox} from "@/components/ui/Checkbox";
 import {Button} from "@/components/ui/Button";
+import {FooterLogo} from "@/components/ui/Footer/FooterLogo";
 
 export const Footer = () => {
-    const services = [
-        "Estrategia", "Mercadeo", "Comunicaciones", "Diseño Web", "Redes Sociales",
-        "Estrategia", "Mercadeo", "Comunicaciones", "Diseño Web", "Redes Sociales",
-        "Estrategia", "Mercadeo", "Comunicaciones", "Diseño Web", "Redes Sociales",
-        "Estrategia", "Mercadeo", "Comunicaciones", "Diseño Web", "Redes Sociales",
-    ];
-
     return (
         <footer className={"flex flex-col items-stretch justify-end"}>
-            <section className={"max-w-full w-full overflow-hidden bg-marabunta-red px-1"}>
-                <section className={"flex"}>
-                    <section className={"flex items-center gap-4 py-1 animate-pan-text-rtl [&>p]:last-of-type:pl-0"}>
-                        {services.map((service) => {
-                            return (
-                                <>
-                                    <p className={"uppercase text-off-white font-medium tracking-[0.104em] text-center whitespace-nowrap"}>{service}</p>
-                                    <p>|</p>
-                                </>
-                            );
-                        })}
-                    </section>
-                </section>
-            </section>
-            {/*The scrolling thing*/}
-            <section className={"flex flex-col items-stretch justify-center bg-neutral-900"}>
+            <section className={"flex flex-col items-stretch justify-center bg-off-black"}>
                 <section
-                    className={"relative flex flex-col pb-8 pt-16 items-center justify-end border-b-solid border-b-2 border-b-neutral-600"}>
-                    <Image src={"/svg/marabunta-white.svg"} alt={"Marabunta"} width={1400} height={280}/>
+                    className={"relative flex flex-col pb-8 pt-16 items-center justify-end gap-4 border-b-solid border-b-2 border-b-neutral-600"}>
+                    <FooterLogo />
                     <p className={"uppercase tracking-[0.04em] font-medium text-neutral-400"}>Una marca Prensa&<span
                         className={"font-bold"}>Entretenimiento</span></p>
-                    <Image src={"/svg/yellowDecorator.svg"} alt={""} width={680} height={680} loading={"lazy"}
+                    <Image src={"/images/svg/yellowDecorator.svg"} alt={""} width={680} height={680} loading={"lazy"}
                            quality={100}
                            className={"absolute -bottom-[20px] -left-20"}/>
                 </section>
@@ -97,7 +76,7 @@ export const Footer = () => {
                 </section>
             </section>
             {/*Footer itself*/}
-            <section className={"bg-off-black w-full p-6 flex items-center justify-center text-off-white/60"}>
+            <section className={"bg-neutral-950 w-full p-6 flex items-center justify-center text-off-white/60"}>
                 <p>Marabunta&reg; Agencia Creativa &#x2022; Comunicamos Ideas &copy; 2023</p>
             </section>
             {/*Footnote*/}
