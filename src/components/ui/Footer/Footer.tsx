@@ -8,7 +8,7 @@ import {FooterLogo} from "@/components/ui/Footer/FooterLogo";
 
 export const Footer = () => {
     return (
-        <footer className={"flex flex-col items-stretch justify-end"}>
+        <footer className={"flex flex-col items-stretch justify-end overflow-x-clip"}>
             <section className={"flex flex-col items-stretch justify-center bg-off-black"}>
                 <section
                     className={"relative flex flex-col pb-8 pt-16 items-center justify-end gap-4 border-b-solid border-b-2 border-b-neutral-600"}>

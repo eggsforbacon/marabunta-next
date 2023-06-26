@@ -17,7 +17,7 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 
-    @apply flex flex-col items-center justify-start bg-marabunta-yellow/10;
+    @apply flex flex-col items-center justify-start dark:bg-neutral-900 bg-marabunta-yellow/10;
   }
 
   body {
