@@ -21,11 +21,11 @@
   }
 
   body {
-    @apply max-w-[1920px] w-full bg-white;
+    @apply max-w-[1920px] min-h-screen w-full bg-white;
   }
 
   main {
-    @apply absolute top-0 left-0 h-full w-full p-24 flex flex-col items-center justify-between;
+    @apply h-full w-full;
   }
 
   nav {

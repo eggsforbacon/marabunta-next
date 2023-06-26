@@ -1,7 +1,13 @@
-export default function Home() {
-  return (
-    <main>
+import React from "react";
+import {WhatsappButton} from "@/components/ui/WhatsAppButton";
 
-    </main>
-  )
+export default function Home() {
+    return (
+        <main>
+            <WhatsappButton />
+            <div className={"h-[200vh] px-24 pb-24 "}>
+
+            </div>
+        </main>
+    )
 }

@@ -2,13 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 const Navbar = () => {
 
     const [visible, setVisible] = useState(true);
     const [hovered, setHovered] = useState(false);
     const [focused, setFocused] = useState(false);
+
+    const navRef = useRef(null);
 
     const handleMouseEnter = () => {
         setHovered(true);
@@ -62,9 +64,10 @@ const Navbar = () => {
     }, [focused, hovered]);
 
     return (
-        <nav onMouseEnter={handleMouseEnter}
+        <nav ref={navRef}
+             onMouseEnter={handleMouseEnter}
              onMouseLeave={handleMouseLeave}
-             className={`transition-opacity duration-500 ease-in-out ${visible ? 'opacity-100' : 'opacity-0'} sticky z-40 max-h-[5rem] bg-off-black text-sm text-white uppercase flex flex-row-reverse items-center justify-between px-6 py-7`}>
+             className={`transition-opacity duration-500 ease-in-out ${visible ? 'opacity-100' : 'opacity-0'} sticky top-0 left-0 z-40 max-h-[5rem] bg-off-black text-sm text-white uppercase flex flex-row-reverse items-center justify-between px-6 py-7`}>
             <ul className={"relative flex items-center flex-row-reverse justify-start gap-7 px-8"}>
                 <li>
                     <Link onFocus={handleFocus} onBlur={handleBlur} href={"/"}>Nosotros</Link>
@@ -80,7 +83,8 @@ const Navbar = () => {
                 </li>
             </ul>
             <Link href={"/"} className={"relative"} passHref onFocus={handleFocus} onBlur={handleBlur}>
-                <Image src={"/images/svg/marabunta-white.svg"} alt={"Marabunta, ir a inicio"} width={140} height={28} priority/>
+                <Image src={"/images/svg/marabunta-white.svg"} alt={"Marabunta, ir a inicio"} width={140} height={28}
+                       priority/>
             </Link>
         </nav>
     );

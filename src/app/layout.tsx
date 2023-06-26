@@ -1,8 +1,8 @@
 import './globals.css'
 import {Montserrat} from 'next/font/google';
 import React from "react";
-import Navbar from "@/components/ui/Navbar";
 import {Footer} from "@/components/ui/Footer/Footer";
+import Navbar from "@/components/ui/Navbar";
 
 const montserrat = Montserrat({subsets: ['latin', 'latin-ext']});
 
@@ -31,11 +31,9 @@ export default function RootLayout({
     return (
         <html lang="es_CO">
         <body className={montserrat.className}>
-        <div className={"min-h-screen"}>
         <Navbar />
         {children}
-        </div>
-        <Footer />
+        <Footer/>
         </body>
         </html>
     )
