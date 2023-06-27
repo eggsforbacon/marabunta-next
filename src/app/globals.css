@@ -29,11 +29,11 @@
   main {
     @apply bg-off-white mb-[100vh] relative min-h-screen w-full z-10;
   }
+}
 
-  nav {
-    width: 100vh;
-    transform-origin: left top;
-    transform: rotate(-90deg) translateX(-100%);
+@layer components {
+  .nav-rotate {
+    transform: rotate(-90deg)  translateX(-50%);
   }
 
 }
