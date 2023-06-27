@@ -1,7 +1,7 @@
 import Link from "next/link";
-import {FooterLogo} from "@/components/ui/Footer/FooterLogo";
-import {FooterForm} from "@/components/ui/Footer/FooterForm";
-import {ScrollToTop} from "@/components/ui/Footer/ScrollToTop";
+import {FooterLogo} from "@/components/Footer/FooterLogo";
+import {FooterForm} from "@/components/Footer/FooterForm";
+import {ScrollToTop} from "@/components/Footer/ScrollToTop";
 
 export const Footer = () => {
     const linkHoverStyle: string = "inline-block relative before:content-[''] before:absolute before:-bottom-4 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-1 before:opacity-0 before:transition-all before:duration-300 before:bg-marabunta-red hover:before:w-full hover:before:opacity-100 transition-all duration-300 hover:scale-105 hover:text-marabunta-red";

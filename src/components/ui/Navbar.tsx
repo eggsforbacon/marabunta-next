@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MarabuntaSVG from "@/components/ui/Footer/MarabuntaSVG";
+import {MarabuntaHor} from "@/components/ui/svg/MarabuntaHor";
 
 type _PProps = {
     current? : "/" | "/work" | "/contact" | "/blog",
@@ -27,7 +27,7 @@ const Navbar = (props : _PProps) => {
                 </li>
             </ul>
             <Link href={"/"} className={"relative -rotate-90"} passHref>
-                <MarabuntaSVG className={"fill-white ml-16 pl-20 w-52 -mt-1 transition duration-200 ease-in-out hover:fill-marabunta-cyan"}/>
+                <MarabuntaHor className={"fill-white ml-16 pl-20 w-52 -mt-1 transition duration-200 ease-in-out hover:fill-marabunta-cyan"}/>
             </Link>
         </nav>
     );

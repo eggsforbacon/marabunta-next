@@ -1,7 +1,7 @@
 import * as React from "react"
 import { SVGProps } from "react"
 
-const MarabuntaSVG = (props: SVGProps<SVGSVGElement>) => (
+export const MarabuntaHor = (props: SVGProps<SVGSVGElement>) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlSpace="preserve"
@@ -15,5 +15,4 @@ const MarabuntaSVG = (props: SVGProps<SVGSVGElement>) => (
             className={props.className}
         />
     </svg>
-)
-export default MarabuntaSVG
+);
