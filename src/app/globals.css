@@ -8,16 +8,18 @@
 
 @layer base {
 
-  html::-webkit-scrollbar {
+  *::-webkit-scrollbar {
     display: none;
   }
 
   /* Hide scrollbar for IE, Edge and Firefox */
-  html {
+  * {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+  }
 
-    @apply flex flex-col items-center justify-start dark:bg-neutral-900 bg-marabunta-yellow/10;
+  html {
+    @apply relative flex flex-col items-center justify-start dark:bg-neutral-900 bg-marabunta-yellow/10;
   }
 
   body {
@@ -25,7 +27,7 @@
   }
 
   main {
-    @apply h-full w-full;
+    @apply bg-off-white mb-[100vh] relative min-h-screen w-full z-10;
   }
 
   nav {

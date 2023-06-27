@@ -118,9 +118,16 @@ module.exports = {
           '0%' : {transform: 'translate(0%)'},
           '100%': {transform: 'translate(-50%)'},
         },
+        'float-up-sm': {
+          '0%': {transform: 'translateY(0px)'},
+          '50%': {transform: 'translateY(-16px)'},
+          '100%': {transform: 'translateY(0px)'},
+        },
       },
       animation: {
         'pan-text-rtl' : 'pan-text-rtl 30s linear infinite backwards',
+        'float-up-sm': 'float-up-sm 16s ease-in-out infinite forwards',
+
       },
     },
   },
