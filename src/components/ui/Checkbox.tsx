@@ -9,9 +9,9 @@ type _CProps = {
 }
 
 const _defaults : {[key : string] : string} = {
-    "background&border" : "checked:bg-marabunta-red/20 checked:border-marabunta-red/20",
-    "ring" : "focus:ring-offset-0 focus:ring-marabunta-red focus:border-0",
-    "text" : "text-marabunta-red/30",
+    "background&border" : "checked:bg-marabunta-cyan/20 checked:border-marabunta-cyan/20",
+    "ring" : "focus:ring-offset-0 focus:ring-marabunta-cyan focus:border-0",
+    "text" : "text-marabunta-cyan/30",
 }
 
 export const Checkbox = (props : _CProps) => {

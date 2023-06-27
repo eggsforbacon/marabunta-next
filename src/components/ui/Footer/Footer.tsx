@@ -10,10 +10,10 @@ export const Footer = () => {
             <footer
                 className={"fixed bottom-0 z-[1] h-screen flex flex-col items-stretch justify-end overflow-x-clip w-full"}>
                 <section
-                    className={"flex flex-col items-stretch justify-end gap-32 bg-off-black relative z-0 h-full w-full"}>
-                    <section className={"absolute box-border -top-16 left-0 w-full h-full flex flex-col items-center justify-start px-16 py-56"}>
+                    className={"flex pb-4 flex-col items-stretch justify-end gap-32 bg-off-black relative z-0 h-full w-full"}>
+                    <section className={"absolute box-border -top-16 left-0 w-full h-full flex flex-col items-center justify-center px-72 pt-16"}>
                         <ScrollToTop className={"animate-float-up-sm border-2 p-6 rounded-full border-transparent transition duration-300 ease-back hover:border-marabunta-yellow"} />
-                        <ul className={"w-full flex items-center h-full justify-center gap-32 text-4xl font-medium text-off-white"}>
+                        <ul className={"w-full grid grid-cols-5 place-items-center h-96 justify-center gap-28 text-5xl !tracking-[-0.05em] font-light text-off-white"}>
                             <li><Link passHref
                                       className={"transition duration-300 ease-in-out hover:cursor-pointer [&>*]:transition [&>*]:duration-300 [&>*]:ease-in-out focus:[&>*]:scale-95 focus:text-marabunta-red"}
                                       href={"https://www.facebook.com/marabuntaagencia"} target={"_blank"}
@@ -21,9 +21,16 @@ export const Footer = () => {
                                 <p className={linkHoverStyle}>Facebook</p></Link>
                             </li>
                             <li><Link passHref
-                                      className={"transition duration-300 ease-in-out hover:cursor-pointer hover:scale-110 focus:scale-95 hover:text-marabunta-red focus:text-marabunta-red"}
-                                      href={"https://www.instagram.com/marabuntaagenciacreativa/"} target={"_blank"}
-                                      rel={"noreferrer"}><p className={linkHoverStyle}>Instagram</p></Link>
+                                      className={"transition duration-300 ease-in-out hover:cursor-pointer [&>*]:transition [&>*]:duration-300 [&>*]:ease-in-out hover:[&>*]:scale-110 focus:[&>*]:scale-95 hover:text-marabunta-red focus:text-marabunta-red"}
+                                      href={"https://co.linkedin.com/company/marabunta"} target={"_blank"}
+                                      rel={"noreferrer"}>
+                                <p className={linkHoverStyle}>Linkedin</p></Link>
+                            </li>
+                            <li><Link passHref
+                                      className={"transition duration-300 ease-in-out hover:cursor-pointer [&>*]:transition [&>*]:duration-300 [&>*]:ease-in-out focus:[&>*]:scale-95 focus:text-marabunta-red"}
+                                      href={"mailto:info@marabunta.co"} target={"_blank"}
+                                      rel={"noreferrer"}>
+                                <p className={linkHoverStyle}>E-mail</p></Link>
                             </li>
                             <li><Link passHref
                                       className={"transition duration-300 ease-in-out hover:cursor-pointer [&>*]:transition [&>*]:duration-300 [&>*]:ease-in-out hover:[&>*]:scale-110 focus:[&>*]:scale-95 hover:text-marabunta-red focus:text-marabunta-red"}
@@ -31,25 +38,24 @@ export const Footer = () => {
                                       rel={"noreferrer"}>
                                 <p className={linkHoverStyle}>Behance</p></Link></li>
                             <li><Link passHref
-                                      className={"transition duration-300 ease-in-out hover:cursor-pointer [&>*]:transition [&>*]:duration-300 [&>*]:ease-in-out hover:[&>*]:scale-110 focus:[&>*]:scale-95 hover:text-marabunta-red focus:text-marabunta-red"}
-                                      href={"https://co.linkedin.com/company/marabunta"} target={"_blank"}
-                                      rel={"noreferrer"}>
-                                <p className={linkHoverStyle}>Linkedin</p></Link>
+                                      className={"transition duration-300 ease-in-out hover:cursor-pointer hover:scale-110 focus:scale-95 hover:text-marabunta-red focus:text-marabunta-red"}
+                                      href={"https://www.instagram.com/marabuntaagenciacreativa/"} target={"_blank"}
+                                      rel={"noreferrer"}><p className={linkHoverStyle}>Instagram</p></Link>
                             </li>
                         </ul>
                     </section>
                     <section className={"py-8 px-16 flex items-center relative justify-between"}>
-                        <ul className={"flex flex-col items-start justify-start gap-4 text-off-white font-medium"}>
+                        <ul className={"flex flex-col items-start justify-start gap-2 text-off-white font-light"}>
                             <li><Link
-                                className={"transition duration-300 ease-in-out hover:text-marabunta-red focus:text-marabunta-red"}
+                                className={"transition duration-300 ease-in-out hover:text-marabunta-cyan focus:text-marabunta-cyan"}
                                 href={"tel:+576024072035"} target={"_blank"} rel={"noreferrer"}>(602) 407 2035</Link>
                             </li>
                             <li><Link
-                                className={"transition duration-300 ease-in-out hover:text-marabunta-red focus:text-marabunta-red"}
+                                className={"transition duration-300 ease-in-out hover:text-marabunta-cyan focus:text-marabunta-cyan"}
                                 href={"mailto:info@marabunta.co"} target={"_blank"}
                                 rel={"noreferrer"}>info@marabunta.co</Link></li>
                             <li><Link
-                                className={"transition duration-300 ease-in-out hover:text-marabunta-red focus:text-marabunta-red"}
+                                className={"transition duration-300 ease-in-out hover:text-marabunta-cyan focus:text-marabunta-cyan"}
                                 href={"https://goo.gl/maps/2tR1LGMZnG4zo3CSA"} target={"_blank"} rel={"noreferrer"}>Calle
                                 8
                                 oeste #28-45, Cali</Link></li>
@@ -59,7 +65,7 @@ export const Footer = () => {
                     <FooterForm />
                 </section>
                 {/*Footer itself*/}
-                <section className={"bg-neutral-950 w-full p-6 flex items-center justify-center text-off-white/60"}>
+                <section className={"bg-neutral-950 w-full p-5 flex items-center justify-center text-off-white/60"}>
                     <p>Marabunta&reg; Agencia Creativa &#x2022; Comunicamos Ideas &copy; 2023</p>
                 </section>
                 {/*Footnote*/}

@@ -126,7 +126,7 @@ module.exports = {
       },
       animation: {
         'pan-text-rtl' : 'pan-text-rtl 30s linear infinite backwards',
-        'float-up-sm': 'float-up-sm 16s ease-in-out infinite forwards',
+        'float-up-sm': 'float-up-sm 5s ease-in-out infinite forwards',
 
       },
     },
