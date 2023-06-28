@@ -51,7 +51,7 @@ module.exports = {
         },
         'marabunta': {
           'red': '#e3032f',
-          'cyan': '#50c1e0',
+          'cyan': '#5dbfdc',
           'yellow': '#fcea1e',
         },
       },
