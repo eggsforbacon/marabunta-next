@@ -8,7 +8,7 @@ export const FooterLogo = () => {
         <Link href={"/"} passHref
               className={"relative focus:outline-none focus:cursor-pointer hover:[&>*>path]:fill-marabunta-cyan"}
         >
-            <MarabuntaVer className={"h-32 fill-white transition duration-200 ease-in-out hover:fill-marabunta-cyan"} />
+            <MarabuntaVer className={"h-32 fill-off-white transition duration-200 ease-in-out hover:fill-marabunta-cyan"} />
         </Link>
     );
 }

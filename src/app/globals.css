@@ -23,11 +23,11 @@
   }
 
   body {
-    @apply max-w-[1920px] min-h-screen w-full bg-white;
+    @apply max-w-[1920px] min-h-screen w-full bg-white bg-off-black;
   }
 
   main {
-    @apply bg-off-white mb-[100vh] relative min-h-screen w-full z-10;
+    @apply flex relative min-h-screen w-full z-10;
   }
 }
 

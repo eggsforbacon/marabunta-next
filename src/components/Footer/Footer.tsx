@@ -8,12 +8,12 @@ export const Footer = () => {
     return (
         <>
             <footer
-                className={"fixed bottom-0 z-[1] h-screen flex flex-col items-stretch justify-end overflow-x-clip w-full"}>
+                className={"fixed bottom-0 z-[1] h-screen max-h-[1089px] flex flex-col items-stretch justify-end overflow-x-clip w-full max-w-[1920px]"}>
                 <section
                     className={"flex pb-4 flex-col items-stretch justify-end gap-32 bg-off-black relative z-0 h-full w-full"}>
-                    <section className={"absolute box-border -top-16 left-0 w-full h-full flex flex-col items-center justify-center px-72 pt-16"}>
+                    <section className={"absolute box-border -top-16 left-0 w-full h-full flex flex-col items-center justify-center lg:px-32 xl:px-52 2xl:px-72 pt-16"}>
                         <ScrollToTop className={"animate-float-up-sm border-2 p-6 rounded-full border-transparent transition duration-300 ease-back hover:border-marabunta-yellow"} />
-                        <ul className={"w-full grid grid-cols-5 place-items-center h-96 justify-center gap-28 text-5xl !tracking-[-0.05em] font-light text-off-white"}>
+                        <ul className={"w-full grid grid-flow-col grid-cols-max place-items-center h-96 justify-center md:gap-8 lg:gap-10 xl:gap-14 2xl:gap-16 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl !tracking-[-0.05em] font-light text-off-white"}>
                             <li><Link passHref
                                       className={"transition duration-300 ease-in-out hover:cursor-pointer [&>*]:transition [&>*]:duration-300 [&>*]:ease-in-out focus:[&>*]:scale-95 focus:text-marabunta-red"}
                                       href={"https://www.facebook.com/marabuntaagencia"} target={"_blank"}
