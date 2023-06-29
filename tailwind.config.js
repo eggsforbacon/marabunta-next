@@ -123,11 +123,15 @@ module.exports = {
           '50%': {transform: 'translateY(-16px)'},
           '100%': {transform: 'translateY(0px)'},
         },
+        'wave-left' : {
+          '0%': {transform: 'translateX(0) scale(var(--tw-scale-x), var(--tw-scale-y))'},
+          '100%': {transform: 'translateX(-100%) scale(var(--tw-scale-x), var(--tw-scale-y))'},
+        },
       },
       animation: {
         'pan-text-rtl' : 'pan-text-rtl 30s linear infinite backwards',
         'float-up-sm': 'float-up-sm 5s ease-in-out infinite forwards',
-
+        'wave-left': 'wave-left 45s ease-in-out infinite',
       },
     },
   },
