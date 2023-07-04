@@ -55,7 +55,7 @@ export const ContactForm = () => {
                        label={"Cuéntanos más acerca de tu idea"} focusedLabel={textFieldFocusLabelStyle}
                        className={textFieldStyle}/>
             <label className={"text-lg font-semibold"}>¿Qué podemos hacer por ti?</label>
-            <section className={"flex flex-wrap flex-row items-start justify-between"}>
+            <section className={"flex flex-wrap flex-row items-start justify-between gap-4"}>
                 {
                     services.map((col, i) => {
                         return (
