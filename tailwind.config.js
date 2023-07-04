@@ -53,6 +53,8 @@ module.exports = {
           'red': '#e3032f',
           'cyan': '#5dbfdc',
           'yellow': '#fcea1e',
+
+          'muted-red' : '#e62e2e',
         },
       },
       backgroundImage: {

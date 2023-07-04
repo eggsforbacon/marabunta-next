@@ -1,6 +1,6 @@
 "use client";
 
-import React, {HTMLInputTypeAttribute, useState} from "react";
+import React, {Dispatch, HTMLInputTypeAttribute, SetStateAction, useState} from "react";
 
 type _CProps = {
     className?: string,
@@ -12,7 +12,7 @@ type _CProps = {
     overrideLabel?: string,
     focusedLabel?: string,
 
-    type?: HTMLInputTypeAttribute,
+    type?: HTMLInputTypeAttribute | "area",
     required?: boolean,
     name?: string,
     autoComplete?: string,
@@ -29,32 +29,42 @@ const _defaults: { [key: string]: string } = {
 }
 
 export const TextField = (props: _CProps) => {
-    const [focused, setFocused] = useState(false);
+    const [focused, setFocused] : [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
+    const [hasText, setHasText] : [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
 
-    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    const handleFocus = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFocused(true);
     };
 
-    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFocused(false);
+        const field = props.type !== "area" ? e.target as HTMLInputElement : e.target as HTMLTextAreaElement;
+        setHasText(field.value.trim().length !== 0);
     };
 
     const labelPosition = {
         "default": "top-1/2 -translate-y-1/2 left-10",
+        "default-area": "top-4 left-10",
         "active": `top-0 -translate-y-1/2 left-8`,
     };
 
     const baseOuter: string = `relative ${props.overrideSize || _defaults["size"]} `;
-    const baseLabel: string = `absolute z-10 pointer-events-none transition-all duration-300 ease-quintic ${focused ? labelPosition.active : labelPosition.default} ${props.overrideBackground || _defaults["background"]} ${focused ? props.focusedLabel || `text-sm px-4 ${props.overrideText || _defaults["text"]}` : props.overrideLabel || _defaults["label"]}`;
-    const baseClassName: string = `focus:ring-0 h-full w-full relative ${props.overrideBorderRadius || _defaults["borderRadius"]} ${props.overrideBackground || _defaults["background"]} ${props.overrideBorder || _defaults["border"]} ${props.overrideText || _defaults["text"]}`;
+    const baseLabel: string = `absolute z-10 pointer-events-none transition-all duration-300 ease-quintic ${focused ? labelPosition.active : props.type === "area" ? labelPosition["default-area"] : labelPosition.default} ${props.overrideBackground || _defaults["background"]} ${focused ? props.focusedLabel || `text-sm px-4 ${props.overrideText || _defaults["text"]}` : props.overrideLabel || _defaults["label"]} ${hasText && !focused ? "opacity-0 select-none" : ""}`;
+    const baseClassName: string = `resize-none focus:ring-0 h-full w-full relative ${props.overrideBorderRadius || _defaults["borderRadius"]} ${props.overrideBackground || _defaults["background"]} ${props.overrideBorder || _defaults["border"]} ${props.overrideText || _defaults["text"]}`;
     const finalClassName: string = `${baseClassName} ${props.className}`;
 
     return (
         <div className={baseOuter}>
             <label className={baseLabel}>{props.label || ""}</label>
-            <input type={props.type} className={finalClassName} name={props.name}
-                   required={props.required} autoComplete={props.autoComplete}
-                   onFocus={handleFocus} onBlur={handleBlur}/>
+            {props.type !== "area" ?
+                <input type={props.type} className={finalClassName} name={props.name}
+                       required={props.required} autoComplete={props.autoComplete}
+                       onFocus={handleFocus} onBlur={handleBlur}/>
+                :
+                <textarea className={finalClassName} name={props.name}
+                          required={props.required} autoComplete={props.autoComplete}
+                          onFocus={handleFocus} onBlur={handleBlur}/>
+            }
         </div>
     );
 }
