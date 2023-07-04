@@ -31,7 +31,7 @@ export default function RootLayout({
         <html lang="es_CO">
         <body className={montserrat.className}>
         {children}
-        <div className={"h-[100vh] max-h-[1089px]"} />
+        <div className={"h-[100vh] max-h-[1089px] max-w-[1920px] w-full"} />
         <Footer />
         </body>
         </html>

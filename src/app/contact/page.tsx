@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <main>
             <Navbar current={"/contact"}/>
-            <span className={"aspect-square z-50 h-16 absolute top-6 right-6 md:debug"} />
+            <span className={"aspect-square z-50 h-16 absolute top-6 right-6"} />
             <section className={"flex relative flex-col bg-marabunta-red items-center justify-start pt-16 2xl:pt-0 w-full px-6 md:px-12 lg:px-24 xl:px-32"}>
                 <section
                     className={"flex flex-col bg-off-white rounded-2xl bottom-8 2xl:max-h-[56rem] max-w-[56rem] w-full 2xl:absolute 2xl:right-16 2xl:top-8 py-8 px-20 shadow-2xl"}>

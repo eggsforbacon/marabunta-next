@@ -10,7 +10,7 @@ type _CProps = {
 
 export const ActionCard = (props : _CProps) => {
     return (
-        <span className={"w-120 h-36 flex items-start justify-start gap-2"}>
+        <span className={"max-w-[28rem] h-36 flex items-start justify-start gap-2"}>
             <span className={"rounded-lg aspect-square p-2"}>
                 {props.icon}
             </span>

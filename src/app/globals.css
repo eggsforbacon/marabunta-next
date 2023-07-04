@@ -23,7 +23,7 @@
   }
 
   body {
-    @apply max-w-[1920px] min-h-screen w-full bg-white bg-off-black;
+    @apply max-w-[1920px] min-h-screen w-full bg-off-black;
   }
 
   main {
