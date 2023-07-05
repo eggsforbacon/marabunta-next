@@ -5,7 +5,7 @@ import {TextField} from "@/components/ui/TextField";
 
 export const FooterForm = () => {
     return (
-        <form className={"absolute left-1/2 bottom-48 md:bottom-4 -translate-x-1/2 flex flex-col items-center justify-start gap-4"}>
+        <form className={"absolute left-1/2 bottom-36 hidden md:flex md:bottom-4 -translate-x-1/2 flex-col items-center justify-start gap-4"}>
             <section className={"flex flex-col items-center justify-end gap-4"}>
                 <TextField type={"email"} required name={"email"} label={"Déjanos tu correo"}
                            overrideText={"text-neutral-200"} focusedLabel={"px-4 text-marabunta-cyan"}

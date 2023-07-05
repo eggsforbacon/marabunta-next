@@ -29,7 +29,7 @@ export const Intro = () => {
     });
 
     return (
-        <section className={"bg-marabunta-red w-full h-224 relative"}>
+        <section className={"bg-marabunta-red w-full h-224 relative overflow-x-clip"}>
             <Image src={"/images/home/svg/top-bezel.svg"} alt={"no-alt"} width={1920} height={286}
                    className={"absolute -top-44 select-none scale-[1.1]"} priority quality={100}/>
             <div className={"absolute -top-10 left-44"}>
