@@ -8,7 +8,6 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        '104': '24rem',
         '112': '26rem',
         '120': '28rem',
         '128': '30rem',
@@ -25,7 +24,6 @@ module.exports = {
         '424': '106rem',
       },
       width: {
-        '104': '24rem',
         '112': '26rem',
         '120': '28rem',
         '128': '30rem',

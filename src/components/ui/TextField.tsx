@@ -20,7 +20,7 @@ type _CProps = {
 }
 
 const _defaults: { [key: string]: string } = {
-    "size": "h-14 w-104 px-4",
+    "size": "h-14 w-96",
     "borderRadius": "rounded-lg",
     "background": "bg-off-black",
     "border": "border-solid border-2 border-neutral-300/50",
@@ -43,8 +43,8 @@ export const TextField = (props: _CProps) => {
     };
 
     const labelPosition = {
-        "default": "top-1/2 -translate-y-1/2 left-10",
-        "default-area": "top-4 left-10",
+        "default": "top-1/2 -translate-y-1/2 left-6",
+        "default-area": "top-4 left-6",
         "active": `top-0 -translate-y-1/2 left-8`,
     };
 
