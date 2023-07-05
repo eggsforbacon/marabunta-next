@@ -20,12 +20,12 @@ type _CProps = {
 }
 
 const _defaults: { [key: string]: string } = {
-    "size": "h-14 w-96",
+    "size": "h-14 w-80 md:w-96",
     "borderRadius": "rounded-lg",
     "background": "bg-off-black",
     "border": "border-solid border-2 border-neutral-300/50",
-    "text": "text-off-white",
-    "label": "text-neutral-500 font-medium",
+    "text": "text-off-white md:text-base text-sm",
+    "label": "text-neutral-500 font-medium md:text-base text-sm",
 }
 
 export const TextField = (props: _CProps) => {

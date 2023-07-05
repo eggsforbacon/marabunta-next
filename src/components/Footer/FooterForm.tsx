@@ -5,7 +5,7 @@ import {TextField} from "@/components/ui/TextField";
 
 export const FooterForm = () => {
     return (
-        <form className={"absolute left-1/2 -translate-x-1/2 flex flex-col items-center justify-start gap-4"}>
+        <form className={"absolute left-1/2 bottom-48 md:bottom-4 -translate-x-1/2 flex flex-col items-center justify-start gap-4"}>
             <section className={"flex flex-col items-center justify-end gap-4"}>
                 <TextField type={"email"} required name={"email"} label={"Déjanos tu correo"}
                            overrideText={"text-neutral-200"} focusedLabel={"px-4 text-marabunta-cyan"}
@@ -16,9 +16,9 @@ export const FooterForm = () => {
                         className={"hover:cursor-pointer focus:outline-0 transition duration-200 ease-quintic-in-out hover:bg-marabunta-cyan/80 focus:bg-marabunta-cyan/80 hover:border-marabunta-cyan focus:scale-95 hover:!scale-105"}
                 />
                 <section
-                    className={"mt-16 mb-2 opacity-40 transition duration-500 ease-in-out hover:opacity-100 flex items-center justify-start gap-4"}>
+                    className={"md:mt-16 mb-2 opacity-40 transition duration-500 ease-in-out hover:opacity-100 flex items-stretch justify-center w-4/5 md:w-full gap-4"}>
                     <Checkbox required />
-                    <p className={"text-sm text-neutral-300"}>He leído y aceptado los <Link
+                    <p className={"text-start text-xs md:text-sm text-neutral-300"}>He leído y aceptado los <Link
                         className={"underline underline-offset-4 transition duration-200 ease-in-out hover:text-marabunta-cyan"}
                         href={"/legal"}>términos
                         de uso de datos y condiciones</Link></p>
