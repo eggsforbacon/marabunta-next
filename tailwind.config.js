@@ -51,8 +51,55 @@ module.exports = {
           'red': '#e3032f',
           'cyan': '#5dbfdc',
           'yellow': '#fcea1e',
-
-          'muted-red' : '#e62e2e',
+        },
+        'projects': {
+          'cali-sonreir': {
+            'orange': '#f06d3f',
+            'yellow': '#fdd22d',
+            'green': '#279a5b',
+            'purple': '#4d2d68',
+          },
+          'pueblo-22': {
+            'fuchsia': '#a01880',
+            'cyan': '#009aa3',
+            'yellow': '#f7b905',
+            'salmon-red': '#e8494b',
+            'emerald-green': '#20a069',
+          },
+          'clinicannabis': {
+            'caribbean-green': '#00B451',
+            'GO-green': "#00AC69",
+            'persian-green': "#00A98F",
+            'viridian-green': '#009490',
+            'midnight-green': "#005361",
+            'rich-black': "#0C3A41",
+          },
+          'panamericanos-21': {
+            'yellow': '#fcdc00',
+            'pink': '#e5077e',
+            'ocean-blue': '#160b8b',
+            'sky-blue': '#1b9cd9',
+          },
+          'fondo-mixto': {
+            'red': '#f22536',
+            'blue': '#1a47bc',
+            'gray': '#55565b',
+          },
+          'pueblo-21': {
+            'purple': '#3a3173',
+            'teal': '#00a594',
+            'yellow': '#f5b508',
+            'fuchsia': '#9c197b',
+            'rose-red': '#e64a4a',
+          },
+          'ambientales': {
+            'green': '#016c38',
+            'blue': '#0f1e49',
+          },
+          'bio-expo': {
+            'lime': '#8fb51d',
+            'blue': '#0072aa',
+          },
         },
       },
       backgroundImage: {

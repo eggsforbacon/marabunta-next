@@ -22,9 +22,9 @@ export const projects: {
             ],
         },
         cover: <Image src={"/images/projects/placeholder-image.svg"}
-                      alt={"A placeholder image"}
+                      alt={"A placeholder image"} quality={100}
                       width={1920} height={1080} loading={"lazy"}
-                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-full w-auto !scale-100 max-w-none"}/>,
+                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-full w-auto max-w-none"}/>,
     },
     {
         direction: "downwards",
@@ -39,7 +39,7 @@ export const projects: {
             ],
         },
         cover: <Image src={"/images/projects/placeholder-image.svg"}
-                      alt={"A placeholder image"}
+                      alt={"A placeholder image"} quality={100}
                       width={1920} height={1080} loading={"lazy"}
                       className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-auto w-full max-w-none"}/>,
     },
@@ -91,7 +91,7 @@ export const projects: {
         cover: <Image src={"/images/projects/fondo-mixto/cover.png"}
                       alt={"Un fondo azul en una textura ligeramente granulada, dando la apariencia de porosidad, hace de fondo para el nuevo logo del Fondo Mixto, en color gris con una textura metálica. Toda la escena parece estar iluminada desde arriba a la izquierda."}
                       width={1920} height={1080} loading={"lazy"} quality={100}
-                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-full w-auto !scale-100 max-w-none"}/>,
+                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-full w-auto max-w-none"}/>,
     },
     {
         direction: "right to left",
@@ -105,7 +105,7 @@ export const projects: {
             ],
         },
         cover: <video loop muted autoPlay playsInline height={1080} width={1920}
-                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-full w-auto !scale-100 max-w-none"}>
+                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 w-full h-auto scale-105 max-w-none"}>
             <source src={"/videos/projects/fiesta-de-mi-pueblo-21/cover.webm"}/>
         </video>
     },

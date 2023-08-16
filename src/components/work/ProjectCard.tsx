@@ -34,23 +34,6 @@ export const ProjectCard = (props: _CProps) => {
         "upwards": "translate-y-2",
     };
 
-    const metadataFlexMap: { [key in ProjectCardDirection]: string } = {
-        "none": "",
-        "right to left": "",
-        "left to right": "",
-        "downwards": "",
-        "upwards": "",
-    }
-
-    const chipsFlexMap: { [key in ProjectCardDirection]: string } = {
-        "none": "",
-        "right to left": "",
-        "left to right": "",
-        "downwards": "",
-        "upwards": "",
-    }
-
-
     const handleMouseEnter = () => {
         setProjectIsHovered(true);
     };
@@ -68,7 +51,7 @@ export const ProjectCard = (props: _CProps) => {
                     {props.cover}
                 </div>
                 <section className={"text-off-white min-w-[42rem] flex flex-col items-center justify-center gap-6"}>
-                    <h2 className={`text-6xl cursor-default transition-all duration-300 ease-circular-in-out ${projectIsHovered ? "font-semibold" : "font-light"}`}>{props.metadata.title}</h2>
+                    <h2 className={`text-center text-6xl cursor-default transition-all duration-300 ease-circular-in-out ${projectIsHovered ? "font-semibold" : "font-light"}`}>{props.metadata.title}</h2>
                     <ul className={"flex-wrap flex items-center justify-center gap-4 w-4/5"}>
                         {props.metadata.chips.map((d, i) => {
                             return (
