@@ -36,12 +36,12 @@ export const Intro = () => {
     const x = useTransform(
         scrollYProgress,
         [0, 0.25, 0.8],
-        ["-40%", "10%", "70%"]
+        ["-40%", "35%", "100%"]
     );
     const opacity = useTransform(
         scrollYProgress,
-        [0.1, 0.25, 0.7],
-        ["0.1", "1", "0"]
+        [0.1, 0.25, 0.8],
+        ["0.1", "0.8", "0"]
     )
 
     const cardVariants: Variants = {
@@ -60,10 +60,12 @@ export const Intro = () => {
     };
 
     return (
-        <section className={"bg-marabunta-red w-full h-224 relative overflow-x-clip text-off-white"}>
+        <section className={"bg-marabunta-red w-full h-224 relative overflow-x-clip text-off-white z-10"}>
             <Image src={"/images/home/svg/top-bezel.svg"} alt={"no-alt"} width={1920} height={286}
                    className={"absolute -top-44 select-none scale-[1.1]"} priority quality={100}/>
-            <section className={"absolute -top-10 left-20 w-full h-full"}>
+            <Image src={"/images/home/svg/bottom-bezel.svg"} alt={"no-alt"} width={1920} height={286}
+                   className={"absolute -bottom-24 right-20 select-none scale-[1.25]"} priority quality={100}/>
+            <section className={"absolute -top-10 left-0 w-full h-full"}>
                 <p className={"sr-only"}>Nosotros somos Marabunta</p>
                 <motion.div
                     className={"absolute -top-36 left-136 w-fit h-fit"}
@@ -89,6 +91,8 @@ export const Intro = () => {
                 <p className={"text-2xl font-base"}>{"Buscamos materializar ideas,"}<br/>{"cumplir sueños y generar"}<br/>{"en cada proyecto experiencias"}<br/>{"llenas de creatividad."}
                 </p>
             </motion.article>
+            <Image src={"/images/home/svg/black-key-bezel.svg"} alt={"no-alt"} width={1920} height={286}
+                   className={"absolute -bottom-128 select-none scale-[1.75] z-30"} priority quality={100}/>
         </section>
     );
 }
