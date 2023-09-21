@@ -4,15 +4,18 @@ import are from "../../../public/json/somos.json";
 import {useLottie, useLottieInteractivity} from "lottie-react";
 import Image from "next/image";
 import {motion, useScroll, useTransform, Variants} from "framer-motion";
+import {useWindowSize} from "@uidotdev/usehooks";
+import {breakPoints} from "@/types/common";
 
 export const Intro = () => {
 
     const {scrollYProgress} = useScroll();
+    const {width: windowWidth} = useWindowSize();
 
     const options = {
         animationData: are,
-        height: 640,
         width: 1138,
+        height: 640,
     }
 
     const lottieObj = useLottie(options,);
@@ -60,35 +63,35 @@ export const Intro = () => {
     };
 
     return (
-        <section className={"bg-marabunta-red w-full h-224 relative overflow-x-clip text-off-white z-10"}>
+        <section className={"bg-marabunta-red w-full h-224 md:h-208 lg:h-224 relative overflow-x-clip text-off-white z-10 flex flex-col items-center justify-end"}>
             <Image src={"/images/home/svg/top-bezel.svg"} alt={"no-alt"} width={1920} height={286}
-                   className={"absolute -top-44 select-none scale-[1.1]"} priority quality={100}/>
+                   className={"absolute -top-12 md:-top-24 lg:-top-36 xl:-top-44 select-none scale-[1.1]"} priority quality={100}/>
             <Image src={"/images/home/svg/bottom-bezel.svg"} alt={"no-alt"} width={1920} height={286}
-                   className={"absolute -bottom-24 right-20 select-none scale-[1.25]"} priority quality={100}/>
+                   className={"absolute -bottom-10 lg:-bottom-24 right-20 select-none scale-[1.6] md:scale-125"} priority quality={100}/>
             <section className={"absolute -top-10 left-0 w-full h-full"}>
                 <p className={"sr-only"}>Nosotros somos Marabunta</p>
                 <motion.div
-                    className={"absolute -top-36 left-136 w-fit h-fit"}
-                    style={{x, opacity}}
+                    className={"absolute -top-28 md:-top-44 lg:-top-36 -left-2 md:left-4 lg:left-56 xl:left-112 2xl:left-136 w-120 md:w-fit h-120 md:h-fit"}
+                    style={windowWidth! < breakPoints.md ?? false ? {} : {x, opacity}}
                 >
                     <Image src={"/images/home/png/marabuntaVerticalRed.png"}
                            alt={"Marabunta en rojo, separado en 3 grupos de sílabas alineado a la derecha, en minúsculas"}
                            width={640} height={360} loading={"lazy"} quality={100}
-                           className={"scale-90"}/>
+                           className={"scale-[.8] md:scale-75 lg:scale-[.8] 2xl:scale-90"}/>
                 </motion.div>
-                <div className={"h-256 aspect-square absolute top-0 left-0"}>
+                <div className={"h-128 md:h-144 lg:h-192 xl:h-224 2xl:h-256 aspect-square absolute top-16 md:top-24 lg:top-12 2xl:top-0 -left-8 md:-left-12 xl:left-12 2xl:left-0"}>
                     {Animation}
                 </div>
-                <h2 className={"absolute top-28 left-32 uppercase tracking-wide font-semibold text-5xl"}>Nosotros</h2>
+                <h2 className={"absolute top-28 left-4 md:left-12 xl:left-32 uppercase tracking-wide font-semibold text-2xl md:text-4xl xl:text-5xl"}>Nosotros</h2>
             </section>
             <motion.article
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.4 }}
                 variants={cardVariants}
-                className={"absolute right-32 bottom-56 flex flex-col items-start justify-center gap-6 text-start"}>
-                <h3 className={"text-3xl font-bold"}>{"Trabajamos en equipo,"}<br/>{"le ponemos el alma a todo"}<br/>{"lo que hacemos"}</h3>
-                <p className={"text-2xl font-base"}>{"Buscamos materializar ideas,"}<br/>{"cumplir sueños y generar"}<br/>{"en cada proyecto experiencias"}<br/>{"llenas de creatividad."}
+                className={"relative md:absolute text-center md:text-start right-0 md:right-8 lg:right-12 xl:right-32 bottom-44 md:bottom-72 2xl:bottom-56 flex flex-col items-stretch md:items-start justify-center gap-6"}>
+                <h3 className={"text-2xl lg:text-3xl font-bold"}>{"Trabajamos en equipo,"}<br/>{"le ponemos el alma a todo"}<br/>{"lo que hacemos"}</h3>
+                <p className={"text-xl lg:text-2xl font-base"}>{"Buscamos materializar ideas,"}<br/>{"cumplir sueños y generar"}<br/>{"en cada proyecto experiencias"}<br/>{"llenas de creatividad."}
                 </p>
             </motion.article>
             <Image src={"/images/home/svg/black-key-bezel.svg"} alt={"no-alt"} width={1920} height={286}
