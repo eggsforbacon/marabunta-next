@@ -27,7 +27,7 @@ export const ServiceChip = (props: _CProps & _ChipType) => {
 
     return (
         <Link href={props.href}
-              className={`flex items-center border-solid border-2 border-off-white/50 text-off-white/50 text-sm font-light justify-center px-4 py-2 rounded-full box-border transition duration-300 delay-75 cursor-default ease-exponential-in-out ${_hoverClasses[props.category]}`}>
+              className={`flex items-center border-solid border-2 border-off-white/50 text-off-white/50 text-xs md:text-sm font-light justify-center px-4 py-2 rounded-full box-border transition duration-300 delay-75 cursor-default ease-exponential-in-out ${_hoverClasses[props.category]}`}>
             {_LocNames[props.name]}
         </Link>
     );

@@ -41,7 +41,7 @@ export const projects: {
         cover: <Image src={"/images/projects/placeholder-image.svg"}
                       alt={"A placeholder image"} quality={100}
                       width={1920} height={1080} loading={"lazy"}
-                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-auto w-full max-w-none object-cover"}/>,
+                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-full w-auto xl:h-auto xl:w-full max-w-none object-cover"}/>,
     },
     {
         direction: "left to right",
@@ -58,7 +58,7 @@ export const projects: {
         cover: <Image src={"/images/projects/clinicannabis/cover.png"}
                       alt={"Una tarjeta con textura porosa y de color blanco que lee 'Clinicannabis. Centro de Medicina Ancestral de Orígenes' bajo el logotipo de Clinicannabis, todo en un tono verde azulado. La tarjeta está inclinada hacia la izquierda con un ángulo agudo, sobre un folio verde con una textura similar al fommy, del mismo color que la inscripción de la tarjeta y con la misma inclinación."}
                       width={1920} height={1080} loading={"lazy"} quality={100}
-                      className={"text-off-white h-full aspect-video object-cover"}/>,
+                      className={"absolute text-off-white h-full aspect-video object-cover"}/>,
     },
     {
         direction: "upwards",
@@ -72,7 +72,7 @@ export const projects: {
             ],
         },
         cover: <video loop muted autoPlay playsInline height={1080} width={1920}
-                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-auto w-full !scale-100 max-w-none object-cover"}>
+                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-full w-auto lg:h-auto lg:w-full max-w-none object-cover"}>
             <source src={"/videos/projects/juegos-panamericanos-21/cover.webm"}/>
         </video>
     },
@@ -105,7 +105,7 @@ export const projects: {
             ],
         },
         cover: <video loop muted autoPlay playsInline height={1080} width={1920}
-                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 w-full h-full object-contain"}>
+                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 w-auto h-full object-cover"}>
             <source src={"/videos/projects/fiesta-de-mi-pueblo-21/cover.webm"}/>
         </video>
     },
@@ -122,7 +122,7 @@ export const projects: {
         cover: <Image src={"/images/projects/promotores-ambientales/cover.png"}
                       alt={"Una cama de hojas verdes grandes hace de fondo para el logotipo de 'Promotores Ambientales', en blanco."}
                       width={1920} height={1080} loading={"lazy"} quality={100}
-                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-auto w-full !scale-100 max-w-none object-cover"}/>,
+                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-full w-auto lg:h-auto lg:w-full max-w-none object-cover"}/>,
     },
     {
         direction: "downwards",
@@ -137,6 +137,6 @@ export const projects: {
         cover: <Image src={"/images/projects/bio-expo-19/cover.png"}
                       alt={"Una ballena azul saliendo del océano hacia la izquierda de la pantalla, con el logotipo de la exposición en el fondo."}
                       width={1920} height={1080} loading={"lazy"} quality={100}
-                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-auto w-full !scale-100 max-w-none object-cover"}/>,
+                      className={"text-off-white absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 h-full w-auto lg:h-auto lg:w-full max-w-none object-cover"}/>,
     },
 ];
