@@ -196,14 +196,21 @@ module.exports = {
                     '50%': {scale: "1 1.5"},
                     '100%': {transformOrigin: "center", rotate: "360deg"},
                 },
+                'rotate-geoid': {
+                    '0%': {transformOrigin: "center", rotate: "0deg"},
+                    '50%': {scale: "1.1 1.15"},
+                    '100%': {transformOrigin: "center", rotate: "360deg"},
+                },
             },
             animation: {
                 'pan-text-rtl': 'pan-text-rtl 30s linear infinite backwards',
                 'float-up-sm': 'float-up-sm 5s ease-in-out infinite forwards',
                 'wave-left': 'wave-left 45s ease-in-out infinite',
                 'rotate-blob': "rotate-blob linear 20s infinite",
+                'rotate-geoid': "rotate-geoid linear 25s infinite",
+                'rotate-geoid-reverse': "rotate-geoid linear 25s infinite both reverse",
             },
         },
     },
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [require("@tailwindcss/forms"), require("tailwindcss-animation")],
 }

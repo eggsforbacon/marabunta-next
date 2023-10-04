@@ -28,6 +28,8 @@
   "devDependencies": {
     "lottie-react": "^2.4.0",
     "react-bootstrap-icons": "^1.10.3",
-    "react-scroll": "^1.8.9"
+    "react-scroll": "^1.8.9",
+    "react-use-measure": "^2.1.1",
+    "tailwindcss-animation": "^1.0.1"
   }
 }

@@ -1,7 +1,8 @@
+@import "./styles/custom-svgs.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 @layer base {
   .debug {
@@ -36,4 +37,7 @@
     transform: rotate(-90deg)  translateX(-50%);
   }
 
+  .filter-goo {
+    filter: url(#goo);
+  }
 }
