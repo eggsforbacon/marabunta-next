@@ -7,14 +7,14 @@ import {getDictionary} from "@/lib/dictionary";
 import {Locale} from "@/i18n.config";
 
 export default async function Home({params : {lang}} : {params : {lang : Locale}}) {
-    const { page } = await getDictionary(lang);
+    const { nav, home } = await getDictionary(lang);
 
     return (
         <main>
-            <Navbar lang={lang} s={page.nav} current={"/"}/>
+            <Navbar lang={lang} s={nav} current={"/"}/>
             <section className={"flex flex-col bg-off-white w-full"}>
                 <Hero />
-                <Intro />
+                <Intro s={home.intro} />
                 <Key360 />
                 <p>This is content</p><br/>
                 <p>This is content</p><br/>

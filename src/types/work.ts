@@ -1,5 +1,5 @@
-export type ServiceNames = "Social Marketing" | "Communication Strategies" | "Event Production" | "POP Material" |
-    "Media Production" | "Digital Marketing" | "Brand Activation" | "Media Campaign" | "Web";
+export type ServiceNames = "Social Marketing" | "Marketing Social" | "Communication Strategies" | "Estrategia Comunicativa" | "Event Production" | "Producción de Eventos" | "POP Material" | "Material POP" |
+    "Media Production" | "Producción de Medios" | "Digital Marketing" | "Marketing Digital" | "Brand Activation" | "Activación de Marca" | "Media Campaign" | "Campaña de Medios" | "Web";
 
 export type ServiceCategories = "Communication" | "Events" | "Digital Media";
 

@@ -1,10 +1,150 @@
 {
-  "page": {
-    "nav": {
-      "home": "Nosotros",
-      "work": "Trabajo",
-      "blog": "Blog",
-      "contact": "Contacto"
+  "nav": {
+    "home": "Nosotros",
+    "work": "Trabajo",
+    "blog": "Blog",
+    "contact": "Contacto"
+  },
+  "home": {
+    "intro": {
+      "sr": "Nosotros somos Marabunta",
+      "title": "Trabajamos en equipo,",
+      "copy": "le ponemos el alma\na todo lo que hacemos",
+      "body": "Buscamos materializar ideas,\ncumplir sueños y generar\nen cada proyecto experiencias\nllenas de creatividad"
     }
+  },
+  "work": {
+    "heading": "Comunicamos Ideas",
+    "copy": "Estos son algunos de los proyectos que hemos ayudado a construir.",
+    "projects": [
+      {
+        "title": "Cali, Volvamos a Sonreír",
+        "categories": [
+          "Marketing Social",
+          "Producción de Eventos",
+          "Campaña de Medios",
+          "Material POP",
+          "Producción de Medios"
+        ]
+      },
+      {
+        "title": "La Fiesta de mi Pueblo, lo que Somos",
+        "categories": [
+          "Marketing Social",
+          "Producción de Eventos",
+          "Campaña de Medios",
+          "Material POP",
+          "Producción de Medios"
+        ]
+      },
+      {
+        "title": "Clinicannabis",
+        "categories": [
+          "Marketing Digital",
+          "Producción de Eventos",
+          "Web",
+          "Producción de Medios",
+          "Campaña de Medios"
+        ]
+      },
+      {
+        "title": "Juegos Panamericanos Junior 2021",
+        "categories": [
+          "Producción de Medios",
+          "Producción de Eventos",
+          "Campaña de Medios",
+          "Material POP"
+        ]
+      },
+      {
+        "title": "Rebranding Fondo Mixto",
+        "categories": [
+          "Estrategia Comunicativa",
+          "Producción de Medios",
+          "Campaña de Medios",
+          "Material POP",
+          "Activación de Marca"
+        ]
+      },
+      {
+        "title": "Fiesta de mi Pueblo",
+        "categories": [
+          "Producción de Medios",
+          "Producción de Eventos",
+          "Campaña de Medios",
+          "Material POP"
+        ]
+      },
+      {
+        "title": "Promotores Ambientales",
+        "categories": [
+          "Estrategia Comunicativa",
+          "Producción de Medios",
+          "Material POP"
+        ]
+      },
+      {
+        "title": "BIO Expo 2019",
+        "categories": [
+          "Producción de Medios",
+          "Material POP",
+          "Producción de Eventos"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "actions": {
+      "talk": "Hablemos",
+      "talkDetail": "¿Tienes dudas? Escríbenos por correo.",
+      "visit": "Visítanos",
+      "visitDetail": "Encuéntranos en nuestras oficinas",
+      "call": "Llámanos",
+      "callDetail": "De lunes a viernes, de 8am a 5pm."
+    },
+    "card": {
+      "title": "¿Tienes una idea",
+      "remark": "creativa?",
+      "prompt": "Cuéntanos más acerca de ti y materialicemos juntos tu idea.",
+      "form": {
+        "name": "Tu nombre",
+        "mail": "Tu correo",
+        "comment": "Cuéntanos más acerca de tu idea"
+      },
+      "headings": [
+        "Comunicación",
+        "Eventos y Promoción",
+        "Medios Digitales"
+      ],
+      "categories": [
+        [
+          "Mercadeo social",
+          "Estrategia de comunicación"
+        ],
+        [
+          "Alquiler de elementos",
+          "Producción de eventos",
+          "Producción de material POP",
+          "Producción audiovisual"
+        ],
+        [
+          "Marketing digital",
+          "Activación de marca",
+          "Plan de medios",
+          "Diseño y desarrollo web"
+        ]
+      ],
+      "whatCanWeDo": "¿Qué podemos hacer por ti?",
+      "send": "¡Comencemos!"
+    }
+  },
+  "footer": {
+    "email": "Déjanos tu correo",
+    "talk": "¡Hablemos!",
+    "terms": {
+      "read": "He leído y aceptado los",
+      "link": "términos de uso de datos y condiciones"
+    },
+    "footNote": "Marabunta® Agencia Creativa • Comunicamos Ideas © 2023"
   }
 }

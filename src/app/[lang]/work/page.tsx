@@ -7,11 +7,11 @@ import {getDictionary} from "@/lib/dictionary";
 
 export default async function Work({params : {lang}} : {params : {lang : Locale}}) {
 
-    const { page } = await getDictionary(lang);
+    const { nav, work } = await getDictionary(lang);
 
     return (
         <main>
-            <Navbar current={"/work"} withBorder s={page.nav} lang={lang}/>
+            <Navbar current={"/work"} withBorder s={nav} lang={lang}/>
             <section className={"absolute h-full w-full top-0 left-0 z-0 overflow-clip"}>
                 <span className={"absolute top-0 left-0 bg-off-black w-full h-full"}/>
                 <span
@@ -42,12 +42,11 @@ export default async function Work({params : {lang}} : {params : {lang : Locale}
             <section
                 className={"flex text-off-white flex-col w-full relative z-10 items-center justify-start gap-16 xl:gap-32 py-32 px-8 xl:px-16 overflow-clip"}>
                 <h1 className={`cursor-default uppercase text-center lg:text-start font-bold text-off-white tracking-[0.1em] md:tracking-[0.15em] lg:tracking-normal lg:text-off-white/40 text-4xl md:text-7xl xl:text-8xl relative lg:font-light transition-all duration-300 delay-150 ease-quartic-in-out hover:tracking-[0.15em] hover:font-bold hover:text-off-white`}
-                >Comunicamos Ideas
+                >{work.heading}
                 </h1>
-                <p className={"md:w-192 text-center text-xl"}>Aquí hay algunos de los proyectos que hemos ayudado a
-                    construir.</p>
+                <p className={"md:w-192 text-center text-xl"}>{work.copy}</p>
                 <ul className={"flex flex-col items-stretch justify-start gap-24 lg:gap-44 w-full"}>
-                    {projects.map((project, index) => {
+                    {(await projects(lang)).map((project, index) => {
                         return (
                             <ProjectCard key={`project${index}`} index={index} metadata={project.metadata}
                                          direction={project.direction}

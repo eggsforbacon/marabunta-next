@@ -1,10 +1,150 @@
 {
-  "page": {
-    "nav": {
-      "home": "About",
-      "work": "Work",
-      "blog": "Blog",
-      "contact": "Contact"
+  "nav": {
+    "home": "About",
+    "work": "Work",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "home": {
+    "intro": {
+      "sr": "We are Marabunta",
+      "title": "We are marabunta.\nWe work together,",
+      "copy": "putting our souls\ninto everything we do.",
+      "body": "We seek to realize ideas,\nfulfill dreams and bring\nto each project experiences\nfilled with creativity"
     }
+  },
+  "work": {
+    "heading": "We Communicate Ideas",
+    "copy": "These are some of the projects we have helped bring to life.",
+    "projects": [
+      {
+        "title": "Cali, let's Smile Again (Cali, Volvamos a Sonreír)",
+        "categories": [
+          "Social Marketing",
+          "Event Production",
+          "Media Campaign",
+          "POP Material",
+          "Media Production"
+        ]
+      },
+      {
+        "title": "The Fiesta of my People, who we are (La Fiesta de mi Pueblo, lo que Somos)",
+        "categories": [
+          "Social Marketing",
+          "Event Production",
+          "Media Campaign",
+          "POP Material",
+          "Media Production"
+        ]
+      },
+      {
+        "title": "Clinicannabis",
+        "categories": [
+          "Digital Marketing",
+          "Event Production",
+          "Web",
+          "Media Production",
+          "Media Campaign"
+        ]
+      },
+      {
+        "title": "Junior Pan-American Games 2021",
+        "categories": [
+          "Media Production",
+          "Event Production",
+          "Media Campaign",
+          "POP Material"
+        ]
+      },
+      {
+        "title": "Fondo Mixto Rebranding",
+        "categories": [
+          "Communication Strategies",
+          "Media Production",
+          "Media Campaign",
+          "POP Material",
+          "Brand Activation"
+        ]
+      },
+      {
+        "title": "Fiesta of my People (Fiesta de mi Pueblo)",
+        "categories": [
+          "Media Production",
+          "Event Production",
+          "Media Campaign",
+          "POP Material"
+        ]
+      },
+      {
+        "title": "Environmental Promoters (Promotores Ambientales)",
+        "categories": [
+          "Communication Strategies",
+          "Media Production",
+          "POP Material"
+        ]
+      },
+      {
+        "title": "BIO Expo 2019",
+        "categories": [
+          "Media Production",
+          "POP Material",
+          "Event Production"
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "actions": {
+      "talk": "Let's have a word",
+      "talkDetail": "Got any doubts? Send us an email.",
+      "visit": "Pay us a visit",
+      "visitDetail": "Come and meet us at our offices",
+      "call": "Give us a call",
+      "callDetail": "Monday to Friday, from 8am to 5pm."
+    },
+    "card": {
+      "title": "Got an idea that's",
+      "remark": "creative?",
+      "prompt": "Tell us more about yourself and let's bring your idea to life together.",
+      "form": {
+        "name": "Your name",
+        "mail": "Your email",
+        "comment": "Tell us more about your idea"
+      },
+      "headings": [
+        "Communication",
+        "Events and Promo",
+        "Digital Media"
+      ],
+      "categories": [
+        [
+          "Social Marketing",
+          "Communication Strategy"
+        ],
+        [
+          "Equipment rental",
+          "Event production",
+          "POP material production",
+          "Audiovisual production"
+        ],
+        [
+          "Digital Marketing",
+          "Brand activation",
+          "Digital media plan",
+          "Web design and development"
+        ]
+      ],
+      "whatCanWeDo": "What can we do for you?",
+      "send": "Let's get started!"
+    }
+  },
+  "footer": {
+    "email": "Leave us your email",
+    "talk": "Let's talk!",
+    "terms": {
+      "read": "I've read and accepted the",
+      "link": "terms of data use and conditions"
+    },
+    "footNote": "Marabunta® Creative Agency • We Communicate Ideas © 2023"
   }
 }
