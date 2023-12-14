@@ -7,7 +7,7 @@ export type Dictionary = {
         "blog": string,
         "contact": string
     },
-    "home" : {
+    "home": {
         "intro": {
             "sr": string,
             "title": string,
@@ -18,16 +18,16 @@ export type Dictionary = {
     "work": {
         "heading": string,
         "copy": string,
-        "projects": {"title" : string, "categories" : ServiceNames[]}[]
+        "projects": { "title": string, "categories": ServiceNames[] }[]
     },
     "contact": {
         "actions": {
             "talk": string,
             "talkDetail": string,
-            "visit" : string,
-            "visitDetail" : string,
-            "call" : string,
-            "callDetail" : string,
+            "visit": string,
+            "visitDetail": string,
+            "call": string,
+            "callDetail": string,
         },
         "card": {
             "title": string,
@@ -42,6 +42,26 @@ export type Dictionary = {
             "categories": string[][],
             "whatCanWeDo": string,
             "send": string,
+        }
+    },
+    "legal": {
+        "title": string,
+        "update": string,
+        "navigation": {
+            "data": string,
+            "terms": string,
+        },
+        "data": {
+            "title": string,
+            "paragraph1": [string, string, string],
+            "purposes": string[],
+            "paragraph2": string,
+            "paragraph3": string,
+            "paragraph4": [string, string, string, string, string]
+        },
+        "tos": {
+            "title": string,
+            content : string[]
         }
     },
     "footer": {

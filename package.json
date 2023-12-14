@@ -34,9 +34,10 @@
     "@formatjs/intl-localematcher": "^0.5.2",
     "@react-three/drei": "^9.92.1",
     "@types/negotiator": "^0.6.3",
+    "@types/react-scroll": "^1.8.10",
     "lottie-react": "^2.4.0",
     "react-bootstrap-icons": "^1.10.3",
-    "react-scroll": "^1.8.9",
+    "react-scroll": "^1.9.0",
     "react-use-measure": "^2.1.1",
     "tailwindcss-animation": "^1.0.1"
   }
