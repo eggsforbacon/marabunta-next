@@ -16,7 +16,6 @@ export const metadata: Metadata = {
             media: '(prefers-color-scheme: light)'
         },
     ],
-    viewport: 'width=device-width, initial-scale=1',
 }
 
 export default function NotFoundCatchAll() {

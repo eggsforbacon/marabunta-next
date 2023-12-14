@@ -2,12 +2,16 @@ import Navbar from "@/components/ui/Navbar";
 import {ProjectCard} from "@/components/work/ProjectCard";
 import React from "react";
 import {projects} from "@/model/projects";
+import {Locale} from "@/i18n.config";
+import {getDictionary} from "@/lib/dictionary";
 
-export default function Work() {
+export default async function Work({params : {lang}} : {params : {lang : Locale}}) {
+
+    const { page } = await getDictionary(lang);
 
     return (
         <main>
-            <Navbar current={"/work"} withBorder/>
+            <Navbar current={"/work"} withBorder s={page.nav} lang={lang}/>
             <section className={"absolute h-full w-full top-0 left-0 z-0 overflow-clip"}>
                 <span className={"absolute top-0 left-0 bg-off-black w-full h-full"}/>
                 <span
@@ -48,7 +52,7 @@ export default function Work() {
                             <ProjectCard key={`project${index}`} index={index} metadata={project.metadata}
                                          direction={project.direction}
                                          cardHeight={project.cardHeight} cardWidth={project.cardWidth}
-                                         cover={project.cover}/>
+                                         cover={project.cover} lang={lang}/>
                         );
                     })}
                 </ul>

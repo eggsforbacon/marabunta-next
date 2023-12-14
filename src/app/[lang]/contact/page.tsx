@@ -4,11 +4,15 @@ import {ContactForm} from "@/components/contact/ContactForm";
 import {ActionCard} from "@/components/contact/ActionCard";
 import {Behance, Chat, Facebook, Geo, Instagram, Linkedin, Telephone} from "react-bootstrap-icons";
 import Link from "next/link";
+import {getDictionary} from "@/lib/dictionary";
+import {Locale} from "@/i18n.config";
 
-export default function Home() {
+export default async function Home({params : {lang}} : {params : {lang : Locale}}) {
+    const { page } = await getDictionary(lang);
+
     return (
         <main>
-            <Navbar current={"/contact"}/>
+            <Navbar current={"/contact"} s={page.nav} lang={"es"}/>
             <span className={"aspect-square z-50 h-16 absolute top-6 right-6"} />
             <section className={"flex relative flex-col bg-marabunta-red items-center justify-start pt-24 2xl:pt-0 w-full px-4 md:px-12 lg:px-24 xl:px-32"}>
                 <section

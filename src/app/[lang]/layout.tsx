@@ -2,6 +2,7 @@ import './globals.css'
 import {Montserrat} from 'next/font/google';
 import React from "react";
 import {Footer} from "@/components/Footer/Footer";
+import {i18n, Locale} from "@/i18n.config";
 
 const montserrat = Montserrat({subsets: ['latin', 'latin-ext']});
 
@@ -22,17 +23,24 @@ export const metadata = {
     ]
 }
 
-export default function RootLayout({
-                                       children,
-                                   }: {
-    children: React.ReactNode
-}) {
+export async function generateStaticParams() {
+    return i18n.locales.map(locale => ({lang: locale}));
+}
+
+export default function RootLayout(
+    {
+        children,
+        params,
+    }: {
+        children: React.ReactNode,
+        params: {lang : Locale},
+    }) {
     return (
-        <html lang="es_CO">
+        <html lang={params.lang}>
         <body className={montserrat.className}>
         {children}
-        <div className={"h-[100vh] max-h-[1089px] max-w-[1920px] w-full"} />
-        <Footer />
+        <div className={"h-[100vh] max-h-[1089px] max-w-[1920px] w-full"}/>
+        <Footer lang={params.lang}/>
         </body>
         </html>
     )

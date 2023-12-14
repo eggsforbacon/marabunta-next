@@ -1,4 +1,4 @@
-@import "./styles/custom-svgs.css";
+@import "styles/custom-svgs.css";
 
 @tailwind base;
 @tailwind components;
@@ -39,5 +39,9 @@
 
   .filter-goo {
     filter: url(#goo);
+  }
+
+  .orthographic-rotate {
+    transform: translate3d(-50%, -50%, 0) rotate3d(1, 0, 0, 55deg) rotate3d(0, 0, 1, 25deg);
   }
 }

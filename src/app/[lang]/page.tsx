@@ -3,11 +3,15 @@ import Navbar from "@/components/ui/Navbar";
 import {Hero} from "@/components/home/Hero";
 import {Intro} from "@/components/home/Intro";
 import {Key360} from "@/components/home/Key360";
+import {getDictionary} from "@/lib/dictionary";
+import {Locale} from "@/i18n.config";
 
-export default function Home() {
+export default async function Home({params : {lang}} : {params : {lang : Locale}}) {
+    const { page } = await getDictionary(lang);
+
     return (
         <main>
-            <Navbar current={"/"}/>
+            <Navbar lang={lang} s={page.nav} current={"/"}/>
             <section className={"flex flex-col bg-off-white w-full"}>
                 <Hero />
                 <Intro />

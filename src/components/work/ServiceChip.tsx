@@ -1,8 +1,10 @@
 import {ServiceCategories, ServiceChip as _ChipType, ServiceNames} from "@/types/work";
-import Link from "next/link";
+import LocaleLink from "@/components/ui/LocaleLink";
+import {Locale} from "@/i18n.config";
 
 type _CProps = {
     href: string,
+    lang : Locale,
 }
 
 export const ServiceChip = (props: _CProps & _ChipType) => {
@@ -26,9 +28,9 @@ export const ServiceChip = (props: _CProps & _ChipType) => {
     }
 
     return (
-        <Link href={props.href}
+        <LocaleLink lang={props.lang} href={props.href}
               className={`flex items-center border-solid border-2 border-off-white/50 text-off-white/50 text-xs md:text-sm font-light justify-center px-4 py-2 rounded-full box-border transition duration-300 delay-75 cursor-default ease-exponential-in-out ${_hoverClasses[props.category]}`}>
             {_LocNames[props.name]}
-        </Link>
+        </LocaleLink>
     );
 }

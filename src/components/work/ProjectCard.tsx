@@ -3,15 +3,17 @@
 import {ProjectCardDirection, ProjectCardMetadata} from "@/types/work";
 import {ServiceChip} from "@/components/work/ServiceChip";
 import React, {ReactNode, useState} from "react";
+import {Locale} from "@/i18n.config";
 
 type _CProps = {
     index: number,
     direction?: ProjectCardDirection,
     cardWidth?: string,
     cardHeight?: string,
-    metadata: ProjectCardMetadata
-    cover: ReactNode
-    highlightColor? : string
+    metadata: ProjectCardMetadata,
+    cover: ReactNode,
+    highlightColor? : string,
+    lang : Locale,
 }
 
 export const ProjectCard = (props: _CProps) => {
@@ -56,7 +58,7 @@ export const ProjectCard = (props: _CProps) => {
                         {props.metadata.chips.map((d, i) => {
                             return (
                                 <li key={`project${props.index}Chip${i}`}>
-                                    <ServiceChip href={d.href} name={d.name} category={d.category}/>
+                                    <ServiceChip lang={props.lang} href={d.href} name={d.name} category={d.category}/>
                                 </li>
                             );
                         })}

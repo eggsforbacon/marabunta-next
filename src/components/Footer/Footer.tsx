@@ -2,8 +2,9 @@ import Link from "next/link";
 import {FooterLogo} from "@/components/Footer/FooterLogo";
 import {FooterForm} from "@/components/Footer/FooterForm";
 import {ScrollToTop} from "@/components/Footer/ScrollToTop";
+import {Locale} from "@/i18n.config";
 
-export const Footer = () => {
+export const Footer = ({lang} : {lang : Locale}) => {
     const linkHoverStyle: string = "inline-block relative before:content-[''] before:absolute before:-bottom-4 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-1 before:opacity-0 before:transition-all before:duration-300 before:bg-marabunta-red hover:before:w-full hover:before:opacity-100 transition-all duration-300 hover:scale-105 hover:text-marabunta-red";
     const socials : string = "transition duration-300 ease-in-out hover:cursor-pointer [&>*]:transition [&>*]:duration-300 [&>*]:ease-in-out focus:[&>*]:scale-95 focus:text-marabunta-red";
     
@@ -62,9 +63,9 @@ export const Footer = () => {
                                 8
                                 oeste #28-45, Cali</Link></li>
                         </ul>
-                        <FooterLogo/>
+                        <FooterLogo lang={lang}/>
                     </section>
-                    <FooterForm />
+                    <FooterForm lang={lang}/>
                 </section>
                 {/*Footer itself*/}
                 <section className={"bg-neutral-950 w-full p-5 flex items-center justify-center text-center text-sm md:text-base text-off-white/60"}>

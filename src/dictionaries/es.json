@@ -1,0 +1,10 @@
+{
+  "page": {
+    "nav": {
+      "home": "Nosotros",
+      "work": "Trabajo",
+      "blog": "Blog",
+      "contact": "Contacto"
+    }
+  }
+}

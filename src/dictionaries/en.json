@@ -1,0 +1,10 @@
+{
+  "page": {
+    "nav": {
+      "home": "About",
+      "work": "Work",
+      "blog": "Blog",
+      "contact": "Contact"
+    }
+  }
+}
