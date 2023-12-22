@@ -65,8 +65,8 @@ module.exports = {
                     'black': '#101010'
                 },
                 'marabunta': {
-                    'red': '#e3032f',
-                    'cyan': '#5dbfdc',
+                    'red': '#e20830',
+                    'cyan': '#51c1e1',
                     'yellow': '#fcea1e',
                 },
                 'projects': {

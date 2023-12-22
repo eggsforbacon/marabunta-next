@@ -85,7 +85,7 @@ export const Intro = ({s}: { s: { [key: string]: any } }) => {
             <section className={"absolute -top-10 left-0 w-full h-full"}>
                 <p className={"sr-only"}>{s.sr}</p>
                 <motion.div
-                    className={"absolute -top-28 md:-top-44 lg:-top-36 -left-2 md:left-4 lg:left-56 xl:left-112 2xl:left-136 w-120 md:w-fit h-120 md:h-fit"}
+                    className={"absolute -top-28 md:-top-44 lg:-top-36 -left-2 md:left-4 lg:left-56 xl:left-112 2xl:left-136 w-120 md:w-fit h-120 md:h-fit pointer-events-none select-none"}
                     style={windowWidth! < breakPoints.md ?? false ? {} : {x, opacity}}
                 >
                     <Image src={"/images/home/png/marabuntaVerticalRed.png"}
@@ -113,7 +113,7 @@ export const Intro = ({s}: { s: { [key: string]: any } }) => {
                 </p>
             </motion.article>
             <Image src={"/images/home/svg/black-key-bezel.svg"} alt={"no-alt"} width={1920} height={286}
-                   className={"absolute -bottom-128 select-none scale-[1.75] z-30"} priority quality={100}/>
+                   className={"absolute -bottom-128 select-none scale-[1.75] z-30 pointer-events-none"} priority quality={100}/>
         </section>
     );
 }

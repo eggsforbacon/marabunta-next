@@ -2,7 +2,7 @@
 
 import {usePathname} from "next/navigation";
 import {Globe} from "react-bootstrap-icons";
-import {Dispatch, SetStateAction} from "react";
+import {Dispatch, SetStateAction, useEffect} from "react";
 import {i18n} from "@/i18n.config";
 import Link from "next/link";
 
@@ -10,22 +10,26 @@ const LanguageSwitcher = ({state} : {state : [boolean, Dispatch<SetStateAction<b
     const pathname = usePathname();
     const [open, setOpen] = state;
 
+    useEffect(() => {
+        console.log(pathname)
+    }, [pathname]);
+
     const redirectedPathname = (locale: string) => {
         if (!pathname) return '/';
 
         const pathnameIsMissingLocale = i18n.locales.every(
             locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
         );
-
         if (pathnameIsMissingLocale) {
             if (locale === i18n.defaultLocale) return pathname;
             return `/${locale}${pathname}`;
         } else {
             const segments = pathname.split('/');
             const isHome = segments.length === 2;
-            if (isHome) return '/';
+            if (isHome) return `/${locale === i18n.defaultLocale ? '' : locale}`;
 
             segments.splice(1,1);
+            console.log(segments);
             return segments.join('/');
         }
     }

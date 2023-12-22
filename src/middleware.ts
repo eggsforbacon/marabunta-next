@@ -1,11 +1,10 @@
 import type {NextRequest} from 'next/server';
 import {NextResponse} from 'next/server';
 
-import {i18n, Locale} from '@/i18n.config';
+import {i18n} from '@/i18n.config';
 
 import {match as matchLocale} from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
-import {headers} from "next/headers";
 
 function getLocale(request: NextRequest): string | undefined {
     const negotiatorHeaders: Record<string, string> = {};
@@ -18,12 +17,6 @@ function getLocale(request: NextRequest): string | undefined {
     return matchLocale(languages, locales, i18n.defaultLocale);
 }
 
-export const localeHeaderKey = "x-marabunta-locale";
-
-export function getLocaleFromHeaderOnServer() : Locale {
-    return (headers().get(localeHeaderKey) ?? 'es') as Locale;
-}
-
 export function middleware(request: NextRequest) {
     const pathname = request.nextUrl.pathname;
     const pathnameIsMissingLocale = i18n.locales.every(
@@ -32,25 +25,14 @@ export function middleware(request: NextRequest) {
 
     const locale = getLocale(request);
     const headersWithLocale = new Headers(request.headers);
-    headersWithLocale.set(localeHeaderKey, locale ?? i18n.defaultLocale);
 
     if (pathnameIsMissingLocale) {
 
-        if (locale === i18n.defaultLocale) {
-            return NextResponse.rewrite(
-                new URL(
-                    `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
-                    request.url
-                )
-            );
-        }
-
-        return NextResponse.redirect(
+        return NextResponse.rewrite(
             new URL(
-                `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
+                `/${i18n.defaultLocale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
                 request.url
-            ),
-            {headers: headersWithLocale}
+            )
         );
     }
     return NextResponse.next({headers: headersWithLocale});

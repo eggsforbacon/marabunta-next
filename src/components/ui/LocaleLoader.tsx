@@ -3,7 +3,7 @@
 import {useEffect} from "react";
 import {Locale} from "@/i18n.config";
 
-const LocaleLoader = ({locale} : {locale : Locale}) => {
+export default function LocaleLoader({locale} : {locale : Locale}) {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -15,5 +15,3 @@ const LocaleLoader = ({locale} : {locale : Locale}) => {
         <></>
     );
 }
-
-export default LocaleLoader;

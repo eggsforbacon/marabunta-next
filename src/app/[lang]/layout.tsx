@@ -1,7 +1,7 @@
 import './globals.css'
 import {Montserrat} from 'next/font/google';
 import React from "react";
-import {Footer} from "@/components/Footer/Footer";
+import Footer from "@/components/Footer/Footer";
 import {i18n, Locale} from "@/i18n.config";
 import LocaleLoader from "@/components/ui/LocaleLoader";
 

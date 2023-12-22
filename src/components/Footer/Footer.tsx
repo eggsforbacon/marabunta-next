@@ -5,7 +5,7 @@ import {ScrollToTop} from "@/components/Footer/ScrollToTop";
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/lib/dictionary";
 
-export const Footer = async ({lang} : {lang : Locale}) => {
+export default async function Footer ({lang} : {lang : Locale}) {
     const { footer } = await getDictionary(lang);
 
     const linkHoverStyle: string = "inline-block relative before:content-[''] before:absolute before:-bottom-4 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-1 before:opacity-0 before:transition-all before:duration-300 before:bg-marabunta-red hover:before:w-full hover:before:opacity-100 transition-all duration-300 hover:scale-105 hover:text-marabunta-red";
