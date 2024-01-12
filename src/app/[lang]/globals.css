@@ -44,4 +44,14 @@
   .orthographic-rotate {
     transform: translate3d(-50%, -50%, 0) rotate3d(1, 0, 0, 55deg) rotate3d(0, 0, 1, 25deg);
   }
+
+  .dotted-background {
+    background-image: radial-gradient(circle at 1px 1px, rgba(245, 245, 245, 0.6) 1px, transparent 0);
+    background-size: 50px 30px;
+  }
+
+  .dotted-background-expand {
+    background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0);
+    background-size: 52px 32px;
+  }
 }
