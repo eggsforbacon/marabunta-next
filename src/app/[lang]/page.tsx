@@ -2,9 +2,12 @@ import React from "react";
 import Navbar from "@/components/ui/Navbar";
 import {Hero} from "@/components/home/Hero";
 import {Intro} from "@/components/home/Intro";
-import {Key360} from "@/components/home/Key360";
 import {getDictionary} from "@/lib/dictionary";
 import {Locale} from "@/i18n.config";
+import Services from "@/components/home/Services";
+import Reel from "@/components/home/Reel";
+import Strategy from "@/components/home/Strategy";
+import CallToAction from "@/components/home/CallToAction";
 
 export default async function Home({params : {lang}} : {params : {lang : Locale}}) {
     const { nav, home } = await getDictionary(lang);
@@ -12,18 +15,13 @@ export default async function Home({params : {lang}} : {params : {lang : Locale}
     return (
         <main>
             <Navbar lang={lang} s={nav} current={"/"}/>
-            <section className={"flex flex-col bg-off-white w-full"}>
+            <section className={"flex flex-col bg-black w-full"}>
                 <Hero />
                 <Intro s={home.intro} />
-                <Key360 />
-                <p>This is content</p><br/>
-                <p>This is content</p><br/>
-                <p>This is content</p><br/>
-                <p>This is content</p><br/>
-                <p>This is content</p><br/>
-                <p>This is content</p><br/>
-                <p>This is content</p><br/>
-                <p>This is content</p><br/>
+                <Services s={home.services}  lang={lang}/>
+                <Reel />
+                <Strategy />
+                <CallToAction />
             </section>
         </main>
     )

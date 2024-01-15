@@ -112,8 +112,6 @@ export const Intro = ({s}: { s: { [key: string]: any } }) => {
                     key={i}>{p}<br/></span>)}
                 </p>
             </motion.article>
-            <Image src={"/images/home/svg/black-key-bezel.svg"} alt={"no-alt"} width={1920} height={286}
-                   className={"absolute -bottom-128 select-none scale-[1.75] z-30 pointer-events-none"} priority quality={100}/>
         </section>
     );
 }

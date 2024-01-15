@@ -204,6 +204,18 @@ module.exports = {
                     '50%': {scale: "1.1 1.15"},
                     '100%': {transformOrigin: "center", rotate: "360deg"},
                 },
+                'fade-out-in': {
+                    '0%, 100%': {opacity: '1'},
+                    '25%, 50%': {opacity: '0'},
+                },
+                'fade-in': {
+                  '0%': {opacity: '0'},
+                  '100%': {opacity: '1'},
+                },
+                'slide-infinite': {
+                    '0%': {transform: 'translateX(0)'},
+                    '100%': {transform: 'translateX(calc(-100% - 1rem))'},
+                },
             },
             animation: {
                 'pan-text-rtl': 'pan-text-rtl 30s linear infinite backwards',
@@ -212,6 +224,9 @@ module.exports = {
                 'rotate-blob': "rotate-blob linear 20s infinite",
                 'rotate-geoid': "rotate-geoid linear 25s infinite",
                 'rotate-geoid-reverse': "rotate-geoid linear 25s infinite both reverse",
+                'fade-out-in': "fade-out-in 1s ease-in-out 1 both",
+                'fade-in': "fade-in 1s ease-in-out 1 both",
+                'slide-infinite': "slide-infinite linear 50s infinite both",
             },
         },
     },

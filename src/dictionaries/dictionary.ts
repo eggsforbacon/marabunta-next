@@ -13,7 +13,16 @@ export type Dictionary = {
             "title": string,
             "copy": string,
             "body": string,
-        }
+        },
+        "services": {
+            "title": string,
+            "remark": string,
+            "categories": {
+                "titles": string[],
+                "descriptions": string[],
+            },
+            "cta": string,
+        },
     },
     "work": {
         "heading": string,

@@ -40,7 +40,7 @@ export const BlobPlayground = () => {
                     <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="25"/>
                     <feColorMatrix
                         in="blur"
-                        values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 75 -12"
+                        values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 60 -12"
                     />
                 </filter>
             </svg>

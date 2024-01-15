@@ -11,6 +11,30 @@
       "title": "Trabajamos en equipo,",
       "copy": "le ponemos el alma\na todo lo que hacemos",
       "body": "Buscamos materializar ideas,\ncumplir sueños y generar\nen cada proyecto experiencias\nllenas de creatividad"
+    },
+    "services": {
+      "title": "Lo que hacemos ",
+      "remark": "por ti",
+      "categories": {
+        "titles": [
+          "Estrategia",
+          "Marketing",
+          "Branding",
+          "Audiovisual",
+          "Animación",
+          "Medios Interactivos",
+          "Eventos"
+        ],
+        "descriptions": [
+          "Transformamos tus ideas en planes sólidos. Con nuestras estrategias digitales, diseñamos planes que destacan tu marca en el mundo digital. Nuestros planes de medios aseguran que tu mensaje llegue a la audiencia correcta en el momento adecuado.",
+          "Conectamos tu marca con audiencias de manera innovadora. A través el Marketing Digital, llevamos tu presencia al mundo digital, maximizando la visibilidad. También hacemos Marketing Social, construyendo relaciones.",
+          "Damos vida a tu identidad de marca, con producción de material POP que crea elementos visuales atractivos para reforzar tu identidad. ¿Necesitas reinventarte? Con nuestros de servicios de rebranding, revitalizamos tu marca, creando una nueva narrativa visual que destaca en un entorno en constante evolución.",
+          "Capturamos momentos y contamos historias. Desde la producción audiovisual hasta contenido para redes sociales, fusionamos elementos visuales y auditivos para dejar una impresión duradera.",          "Hacemos que tus ideas cobren vida. Tanto en 2D como en 3D, creamos animaciones llenas de creatividad y estilo para cautivar a tu audiencia.",
+          "Rompemos barreras entre tu marca y tu audiencia. Desde la Realidad Virtual hasta la Realidad Aumentada y el Desarrollo, creamos experiencias interactivas que cautivan y dejan una impresión duradera.",
+          "Hacemos que cada evento sea inolvidable. Desde el Alquiler de Material para Eventos hasta la Producción de Eventos, cuidamos cada detalle para crear experiencias memorables."
+        ]
+      },
+      "cta": "Mira nuestro trabajo"
     }
   },
   "work": {
@@ -179,7 +203,7 @@
     },
     "tos": {
       "title": "Política De Privacidad Y Condiciones De Uso",
-      "content" : [
+      "content": [
         "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA podrá bloquear el acceso al sitio WEB por cualquier utilización que considere irregular e iniciar las investigaciones necesarias de acuerdo a los protocolos correspondientes con fundamento en la Ley 1273 de 2009 y entablar las acciones legales correspondientes.",
         "De igual forma, las secciones, aplicativos de acceso y emisiones electromagnéticas provenientes de este sistema virtual de información cuentan con los mecanismos de seguridad necesarios para controlar su acceso y utilización, por parte de PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA, el titular de los datos podrá actualizar y rectificar las informaciones recogidas, pudiendo ejercer así, el derecho de Habeas Data tanto presencialmente como por escrito tal y como lo contempla el artículo 15 de la Constitución Política de Colombia.",
         "La información registrada en éste sistema virtual de información, corresponde a los datos suministrados por el usuario suscritos bajo la gravedad del juramento y ceñido a los postulados de la buena fe. El usuario acepta que de faltar con los postulados anteriormente señalados está incurriendo en un delito y tendrá que atenerse a las consecuencias que para ello contraiga el Código Penal.",

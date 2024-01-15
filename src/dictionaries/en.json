@@ -11,6 +11,30 @@
       "title": "We are marabunta.\nWe work together,",
       "copy": "putting our souls\ninto everything we do.",
       "body": "We seek to realize ideas,\nfulfill dreams and bring\nto each project experiences\nfilled with creativity"
+    },
+    "services": {
+      "title": "What we do ",
+      "remark": "for you",
+      "categories": {
+        "titles": [
+          "Strategy",
+          "Marketing",
+          "Branding",
+          "Audiovisual",
+          "Animation",
+          "Interactive Media",
+          "Events"
+        ],
+        "descriptions": [
+          "We turn your ideas into concrete plans. With our digital strategies, we design plans that make your brand stand out in the digital world. Our media plans ensure that your message reaches the right audience at the right time, and with brand activation we create unique experiences that drive interaction and remembrance, pushing your brand beyond conventional boundaries.",
+          "We connect your brand with audiences in an innovative way. Through Digital Marketing, we take your presence online, maximizing brand visibility. We also do Social Marketing, building authentic relationships through impactful campaigns that not only talk, but also listen.",
+          "We bring your brand identity to life, with POP production that creates compelling visual elements to strengthen your identity. Looking to reinvent yourself? With our rebranding services, we revitalize your brand, creating a new visual narrative that stands out in an ever-evolving landscape.",
+          "We capture moments and tell stories. From audiovisual production to social media content, we fuse visual and auditory elements to leave a lasting impression.",
+          "We tear apart barriers between your brand and your audience. From Virtual Reality to Augmented Reality as well as Development, we create interactive experiences that captivate and leave a lifelong experience.",
+          "We make every event unforgettable. From Event Equipment Rentals to Event Production, we take care of every detail to create memorable experiences."
+        ]
+      },
+      "cta": "Take a look at our work"
     }
   },
   "work": {
