@@ -18,7 +18,7 @@ export default async function Home({params : {lang}} : {params : {lang : Locale}
             <section className={"flex flex-col bg-black w-full"}>
                 <Hero />
                 <Intro s={home.intro} />
-                <Services s={home.services}  lang={lang}/>
+                <Services s={home.services} lang={lang}/>
                 <Reel />
                 <Strategy />
                 <CallToAction />

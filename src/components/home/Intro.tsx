@@ -38,13 +38,13 @@ export const Intro = ({s}: { s: { [key: string]: any } }) => {
 
     const x = useTransform(
         scrollYProgress,
-        [0, 0.25, 0.8],
-        ["-40%", "35%", "100%"]
+        [0, 0.15, 0.8],
+        ["-40%", "55%", "100%"]
     );
     const opacity = useTransform(
         scrollYProgress,
-        [0.1, 0.25, 0.8],
-        ["0.1", "0.8", "0"]
+        [0, 0.05, 0.8],
+        ["0.1", "0.8", "0.5"]
     )
 
     const cardVariants: Variants = {
@@ -104,7 +104,7 @@ export const Intro = ({s}: { s: { [key: string]: any } }) => {
                 whileInView="onscreen"
                 viewport={{once: true, amount: 0.4}}
                 variants={cardVariants}
-                className={"relative md:absolute text-center md:text-start right-0 md:right-8 lg:right-12 xl:right-32 bottom-44 md:bottom-72 2xl:bottom-56 flex flex-col items-stretch md:items-start justify-center gap-6"}>
+                className={"relative md:absolute text-center md:text-start right-0 md:right-12 lg:right-20 xl:right-64 top-40 md:top-64 2xl:top-44 flex flex-col items-stretch md:items-start justify-center gap-6"}>
                 <h3 className={"text-2xl lg:text-3xl font-bold"}>{splitTitle()}<br/>{(s.copy as string).split('\n').map((p, i) =>
                     <span
                         key={i}>{p}<br/></span>)}</h3>

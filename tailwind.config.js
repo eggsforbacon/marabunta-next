@@ -68,6 +68,7 @@ module.exports = {
                     'red': '#e20830',
                     'cyan': '#51c1e1',
                     'yellow': '#fcea1e',
+                    'yellow-alt': '#fdd24c',
                 },
                 'projects': {
                     'cali-sonreir': {
