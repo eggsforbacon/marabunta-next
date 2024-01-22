@@ -35,8 +35,36 @@
           "Hacemos que cada evento sea inolvidable. Desde el Alquiler de Material para Eventos hasta la Producción de Eventos, cuidamos cada detalle para crear experiencias memorables."
         ]
       },
-      "cta": "Mira nuestro trabajo"
-    }
+      "cta": "Mira nuestro trabajo",
+      "brands": "Nuestros Aliados"
+    },
+    "strategy": [
+      {
+        "title": "Cliente",
+        "subtitle": "¿Tienes una idea?",
+        "description": "Déjala en nuestras manos. Contamos con un equipo de profesionales que pueden volverla realidad, dejando huella en tu audiencia."
+      },
+      {
+        "title": "Conceptua\nlización",
+        "subtitle": "Escuchamos tus ideas y les damos forma",
+        "description": "Creamos soluciones enfocadas en su entorno y sus necesidades."
+      },
+      {
+        "title": "Comuni\ncación",
+        "subtitle": "Planteamos las estrategias necesarias para difundir y posicionar tu idea",
+        "description": "Creamos y ejecutamos planes de medios para que tu proyecto logre el mayor alcance. Traducimos tus ideas en imágenes a través de fotografías, spots y videos para redes sociales; y también podemos convertirlas en piezas sonoras como podcasts, cápsulas o cuñas radiales."
+      },
+      {
+        "title": "Diseño Gráfico",
+        "subtitle": "Desarrollamos estrategias visuales que generen emociones",
+        "description": "Atendemos tu objetivo de comunicación. Conceptualizamos y desarrollamos identidad de marca y/o branding, piezas digitales multimedia, ambientación de espacios y modelado 3D, desarrollo de software y productos editoriales."
+      },
+      {
+        "title": "Producción y Montaje",
+        "subtitle": "Llevamos tus ideas a la realidad",
+        "description": "Somos expertos en la producción logística y el montaje de grandes eventos que dejan huella a nivel local, nacional e internacional. Nuestro objetivo es generar experiencias que transformen vidas."
+      }
+    ]
   },
   "work": {
     "heading": "Comunicamos Ideas",

@@ -35,8 +35,36 @@
           "We make every event unforgettable. From Event Equipment Rentals to Event Production, we take care of every detail to create memorable experiences."
         ]
       },
-      "cta": "Take a look at our work"
-    }
+      "cta": "Take a look at our work",
+      "brands": "Our Allies"
+    },
+    "strategy": [
+      {
+        "title": "Client",
+        "subtitle": "Got an idea?",
+        "description": "Leave it to us. Our team of professionals works to make it a reality, leaving a mark on your target audience."
+      },
+      {
+        "title": "Conceptua\nlization",
+        "subtitle": "We listen to your ideas and shape them",
+        "description": "We build solutions focused on their environment and needs."
+      },
+      {
+        "title": "Communi\ncation",
+        "subtitle": "We set the strategies needed to broadcast and settle your idea",
+        "description": "We create and run media plans for your project to get a top reach. We translate your ideas into images through photography, spots and social media reels; we can also turn them into sound through podcasts, radio capsules or spots."
+      },
+      {
+        "title": "Graphic Design",
+        "subtitle": "We develop visual strategies that evoke emotion",
+        "description": "We meet your communication goals. We conceptualize and develop brand identity and/or branding, digital media works, space ambience and 3D modeling, software development and editorial products."
+      },
+      {
+        "title": "Rigging and Staging",
+        "subtitle": "We take your ideas to life",
+        "description": "We are experts in the logistical production and staging of large events that leave their mark locally, nationally and internationally. We are committed to generating experiences that transform lives."
+      }
+    ]
   },
   "work": {
     "heading": "We Communicate Ideas",

@@ -1,5 +1,11 @@
 import {ServiceNames} from "@/types/work";
 
+type StrategyCard = {
+    "title" : string,
+    "subtitle" : string,
+    "description" : string,
+}
+
 export type Dictionary = {
     "nav": {
         "home": string,
@@ -22,7 +28,9 @@ export type Dictionary = {
                 "descriptions": string[],
             },
             "cta": string,
+            "brands" : string,
         },
+        "strategy" : StrategyCard[]
     },
     "work": {
         "heading": string,

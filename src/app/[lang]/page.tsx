@@ -20,7 +20,7 @@ export default async function Home({params : {lang}} : {params : {lang : Locale}
                 <Intro s={home.intro} />
                 <Services s={home.services} lang={lang}/>
                 <Reel />
-                <Strategy />
+                <Strategy s={home.strategy}/>
                 <CallToAction />
             </section>
         </main>

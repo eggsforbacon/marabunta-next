@@ -58,7 +58,7 @@ export default function Reel() {
                         src="/videos/reel2022.mp4"
                         type="video/mp4"/>
                 </video>
-                <div ref={cursorRef} className={"border-4 border-off-black opacity-0 h-2 aspect-square rounded-full z-[1000] pointer-events-none absolute -top-16 -left-52 bg-off-white transition-all duration-200 ease-in-out group-hover:opacity-100 group-hover:h-32 text-2xl font-bold inline-flex items-center justify-center gap-2 px-4"}>
+                <div ref={cursorRef} className={"border-4 border-off-black opacity-0 h-2 aspect-square rounded-full z-[1000] pointer-events-none absolute -top-16 -left-52 bg-off-white transition-all duration-200 ease-in-out group-hover:opacity-100 group-hover:h-32 text-2xl font-bold inline-flex items-center justify-center gap-2 pl-2"}>
                     <PlayFill size={72} />
                     <p className={"bg-clip-text text-transparent bg-black absolute -bottom-10 left-1/2 -translate-x-1/2"}>{playing ? "Pausar" : "Reproducir"}</p>
                 </div>
