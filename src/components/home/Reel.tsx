@@ -44,19 +44,18 @@ export default function Reel() {
         const reel = (e.target as HTMLVideoElement);
         if (playing) reel.pause();
         else reel.play();
-
         setPlaying(!playing);
     }
 
     return (
         <section className={"bg-black pt-16 pb-44"}>
-            <div className={"mx-32 relative group"}>
+            <div className={"lg:mx-32 relative group"}>
                 <video autoPlay muted={muted} loop playsInline height={1920*.85} onContextMenu={toggleMute} onClick={togglePlay}
                        width={1920*.85}
-                       className={"w-full h-full rounded-2xl border-off-white/50 border-4 cursor-none"}> {/* bottom-44 md:bottom-24 lg:-bottom-9 xl:-bottom-24 2xl:-bottom-9 -translate-x-1/2 md:translate-x-0 left-[55%] md:-right-44 lg:-right-[14rem] xl:-right-72 2xl:-right-[14rem] scale-[2] md:scale-125 lg:scale-100 xl:scale-75 2xl:scale-100 */}
+                       className={"w-full aspect-[4/5] lg:aspect-auto object-cover lg:h-full rounded-2xl border-off-white/50 border-4 cursor-none"}> {/* bottom-44 md:bottom-24 lg:-bottom-9 xl:-bottom-24 2xl:-bottom-9 -translate-x-1/2 md:translate-x-0 left-[55%] md:-right-44 lg:-right-[14rem] xl:-right-72 2xl:-right-[14rem] scale-[2] md:scale-125 lg:scale-100 xl:scale-75 2xl:scale-100 */}
                     <source
-                        src="/videos/reel2022.mp4"
-                        type="video/mp4"/>
+                        src="/videos/webm/reel2022.webm"
+                        type="video/webm"/>
                 </video>
                 <div ref={cursorRef} className={"border-4 border-off-black opacity-0 h-2 aspect-square rounded-full z-[1000] pointer-events-none absolute -top-16 -left-52 bg-off-white transition-all duration-200 ease-in-out group-hover:opacity-100 group-hover:h-32 text-2xl font-bold inline-flex items-center justify-center gap-2 pl-2"}>
                     <PlayFill size={72} />

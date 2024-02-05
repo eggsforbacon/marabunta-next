@@ -1,12 +1,11 @@
 'use client';
 
 import {usePathname} from "next/navigation";
-import {Globe} from "react-bootstrap-icons";
 import {Dispatch, SetStateAction, useEffect} from "react";
-import {i18n} from "@/i18n.config";
+import {i18n, Locale} from "@/i18n.config";
 import Link from "next/link";
 
-const LanguageSwitcher = ({state} : {state : [boolean, Dispatch<SetStateAction<boolean>>]}) => {
+const LanguageSwitcher = ({state, lang} : {state : [boolean, Dispatch<SetStateAction<boolean>>], lang : Locale}) => {
     const pathname = usePathname();
     const [open, setOpen] = state;
 
@@ -41,7 +40,7 @@ const LanguageSwitcher = ({state} : {state : [boolean, Dispatch<SetStateAction<b
             onClick={() => {
                 setOpen(!open);
             }}>
-                <Globe className={"cursor-pointer"} size={24}/>
+                <p className={"cursor-pointer"}>{lang.toUpperCase()}</p>
                 <div className={`z-0 transition duration-300 ease-in-out ${open ? "opacity-100 pointer-events-auto translate-y-20 lg:translate-y-0 lg:translate-x-0" : "opacity-0 select-none pointer-events-none -translate-y-full lg:translate-y-0 lg:-translate-x-full"} absolute -top-4 -left-4 lg:left-16 py-4 px-8 rounded-2xl bg-off-black shadow-2xl `}>
                     <ul>
                         {i18n.locales.map((loc, i) => {

@@ -1,4 +1,3 @@
-import 'server-only';
 import type {Locale} from '@/i18n.config';
 import {Dictionary} from "@/dictionaries/dictionary";
 

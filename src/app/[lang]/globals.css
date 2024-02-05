@@ -30,6 +30,10 @@
   main {
     @apply flex relative min-h-screen w-full z-10;
   }
+
+  .select option {
+    @apply bg-white/40 backdrop-blur-lg !text-red-500;
+  }
 }
 
 @layer components {
@@ -43,6 +47,11 @@
 
   .orthographic-rotate {
     transform: translate3d(-50%, -50%, 0) rotate3d(1, 0, 0, 55deg) rotate3d(0, 0, 1, 25deg);
+  }
+
+  .packed-dotted-background {
+    background-image: radial-gradient(circle at 1px 1px, rgba(245, 245, 245, 0.6) 1px, transparent 0);
+    background-size: 20px 20px;
   }
 
   .dotted-background {

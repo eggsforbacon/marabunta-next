@@ -10,15 +10,15 @@ type _CProps = {
 
 export const ActionCard = (props : _CProps) => {
     return (
-        <span className={"max-w-[28rem] h-36 flex items-start justify-start gap-2"}>
+        <Link href={props.action.href} className={"max-w-[28rem] h-36 flex items-start justify-start gap-2"}>
             <span className={"rounded-lg aspect-square p-2"}>
                 {props.icon}
             </span>
-            <section className={"text-off-white transition duration-200 ease-in-out hover:text-off-black flex flex-col items-start justify-start gap-3"}>
+            <section className={"text-off-white transition duration-200 ease-in-out peer hover:text-marabunta-red flex flex-col items-start justify-start gap-3"}>
                 <h3 className={"font-bold text-lg"}>{props.heading}</h3>
                 <h3 className={"text-base"}>{props.subtitle}</h3>
-                <Link className={"font-semibold text-base"} href={props.action.href}>{props.action.label}</Link>
+                <p className={"font-semibold text-base"}>{props.action.label}</p>
             </section>
-        </span>
+        </Link>
     );
 }

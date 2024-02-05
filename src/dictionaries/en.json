@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "About",
-    "work": "Work",
+    "work": "Works",
     "blog": "Blog",
     "contact": "Contact"
   },
@@ -45,12 +45,12 @@
         "description": "Leave it to us. Our team of professionals works to make it a reality, leaving a mark on your target audience."
       },
       {
-        "title": "Conceptua\nlization",
+        "title": "Concept",
         "subtitle": "We listen to your ideas and shape them",
-        "description": "We build solutions focused on their environment and needs."
+        "description": "We build solutions focused on their environment and needs. Our approach focuses on customization and efficiency, making sure to offer solutions tailored to your specific challenges, with a creative touch that goes beyond the conventional."
       },
       {
-        "title": "Communi\ncation",
+        "title": "Communication",
         "subtitle": "We set the strategies needed to broadcast and settle your idea",
         "description": "We create and run media plans for your project to get a top reach. We translate your ideas into images through photography, spots and social media reels; we can also turn them into sound through podcasts, radio capsules or spots."
       },

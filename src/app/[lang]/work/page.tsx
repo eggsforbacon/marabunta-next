@@ -1,60 +1,218 @@
+"use client";
+
 import Navbar from "@/components/ui/Navbar";
-import {ProjectCard} from "@/components/work/ProjectCard";
-import React from "react";
-import {projects} from "@/model/projects";
+import React, {useEffect, useRef, useState} from "react";
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/lib/dictionary";
+import ProjectCard from "@/components/work/ProjectCard";
+import Image from "next/image";
+import {ArrowLeft, ArrowRight} from "react-bootstrap-icons";
+import {motion} from "framer-motion";
+import Link from "next/link";
+import useScreenSize from "@/hooks/useScreenSize";
 
-export default async function Work({params : {lang}} : {params : {lang : Locale}}) {
+export default function Work({params: {lang}}: { params: { lang: Locale } }) {
 
-    const { nav, work } = await getDictionary(lang);
+    const [nav, setNav] = useState<{ [key: string]: any }>([]);
+    const [work, setWork] = useState<{ [key: string]: any }>([]);
+    const [mouse, setMouse] = useState({x: 0, y: 0});
+
+    const boundingRef = useRef<DOMRect | null>(null);
+
+    const { width } = useScreenSize();
+
+    useEffect(() => {
+        getDictionary(lang).then((d) => {
+            setNav(d.nav);
+            setWork(d.work);
+        });
+    }, [lang]);
+
+    const handleVisorOver = (e: React.MouseEvent<HTMLSpanElement>) => {
+        if (!boundingRef.current) return;
+        const x = e.clientX - boundingRef.current.left;
+        const y = e.clientY - boundingRef.current.top;
+        setMouse({x, y});
+
+    };
+
+    const covers = [
+        <Image key={0} src={"/images/projects/panamericanos/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={1} src={"/images/projects/fiesta-23/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={2} src={"/images/projects/indervalle/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={3} src={"/images/projects/invencible/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={4} src={"/images/projects/humedal/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={5} src={"/images/projects/rap-valle/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={6} src={"/images/projects/cali-sonreir/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={7} src={"/images/projects/clinicannabis/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={8} src={"/images/projects/ecopanitas/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={9} src={"/images/projects/humedales/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={10} src={"/images/projects/buenaventura/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={11} src={"/images/projects/turismo-38/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={12} src={"/images/projects/telepacifico/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={13} src={"/images/projects/carrozas-fiesta/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+    ];
+
+    const content = [
+        <article key={0} className={"absolute top-0 left-0 w-full h-full"}>
+            <Image src={"/images/projects/panamericanos/fore.jpg"} alt={""} width={504} height={672} quality={100}
+                   className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
+        </article>,
+        <article key={1} className={"absolute top-0 left-0 w-full h-full"}>
+            <Image src={"/images/projects/fiesta-23/fore.png"} alt={""} width={504} height={672}
+                   className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none"}/>
+        </article>,
+        <article key={2} className={"absolute top-0 left-0 w-full h-full"}>
+            <Image src={"/images/projects/indervalle/fore.jpg"} alt={""} width={504} height={672} quality={100}
+                   className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
+        </article>,
+        <article key={3} className={"absolute top-0 left-0 w-full h-full"}>
+
+        </article>,
+        <article key={4} className={"absolute top-0 left-0 w-full h-full"}>
+
+        </article>,
+        <article key={5} className={"absolute top-0 left-0 w-full h-full"}>
+
+        </article>,
+        <article key={6} className={"absolute top-0 left-0 w-full h-full"}>
+
+        </article>,
+        <article key={7} className={"absolute top-0 left-0 w-full h-full"}>
+
+        </article>,
+        <article key={8} className={"absolute top-0 left-0 w-full h-full"}>
+
+        </article>,
+        <article key={9} className={"absolute top-0 left-0 w-full h-full"}>
+
+        </article>,
+        <article key={10} className={"absolute top-0 left-0 w-full h-full"}>
+
+        </article>,
+        <article key={11} className={"absolute top-0 left-0 w-full h-full"}>
+
+        </article>,
+        <article key={12} className={"absolute top-0 left-0 w-full h-full"}>
+
+        </article>,
+        <article key={13} className={"absolute top-0 left-0 w-full h-full"}>
+
+        </article>,
+    ];
+
+    const hrefs = [
+        "https://www.behance.net/MarabuntaAgencia",
+        "https://www.behance.net/MarabuntaAgencia",
+        "https://www.behance.net/MarabuntaAgencia",
+        "https://www.behance.net/MarabuntaAgencia",
+        "https://www.behance.net/MarabuntaAgencia",
+        "https://www.behance.net/MarabuntaAgencia",
+        "https://www.behance.net/MarabuntaAgencia",
+        "https://www.behance.net/MarabuntaAgencia",
+        "https://www.behance.net/MarabuntaAgencia",
+        "https://www.behance.net/MarabuntaAgencia",
+        "https://www.behance.net/MarabuntaAgencia",
+        "https://www.behance.net/MarabuntaAgencia",
+    ];
 
     return (
-        <main>
+        <main className={"h-screen lg:h-full bg-off-black overflow-clip"}>
             <Navbar current={"/work"} withBorder s={nav} lang={lang}/>
-            <section className={"absolute h-full w-full top-0 left-0 z-0 overflow-clip"}>
-                <span className={"absolute top-0 left-0 bg-off-black w-full h-full"}/>
+            <span
+                className={"absolute top-0 w-full left-0 h-full pointer-events-none packed-dotted-background opacity-30 overflow-hidden"}/>
+            <motion.div
+                drag={width > 768 ? 'x' : 'y'}
+                dragConstraints={width > 768 ? {
+                    right: 550,
+                    left: -6350,
+                } : {
+                    top: -6350,
+                    bottom: 120
+                }}
+                className={"box-border w-screen lg:w-fit cursor-grab lg:min-h-screen relative flex flex-col lg:flex-row items-center justify-start py-16 lg:p-16 gap-6 [perspective:10000px] active:cursor-grabbing"}
+                onMouseMove={handleVisorOver}
+                onMouseEnter={e => {
+                    boundingRef.current = e.currentTarget.getBoundingClientRect();
+                }} onMouseLeave={(e) => {
+                if (typeof window !== "undefined" && boundingRef.current !== null) {
+                    setMouse({x: window.screen.width / 2, y: window.screen.height / 2});
+                }
+                boundingRef.current = null;
+            }}>
+                {covers.map((s, i) => {
+                    return (
+                        <ProjectCard i={i} key={i} mouse={mouse} href={hrefs[i]}>
+                            {s}
+                            {content[i]}
+                        </ProjectCard>
+                    );
+                })}
+            </motion.div>
+            <section
+                className={"absolute -bottom-2 pb-12 w-full lg:w-auto lg:pb-0 lg:bottom-12 left-1/2 -translate-x-1/2 flex flex-col lg:flex-row items-center justify-center gap-4 text-off-white text-xl"}>
                 <span
-                    className={"absolute top-168 md:top-128 lg:top-72 2xl:top-[17rem] right-[12%] lg:right-[24%] xl:right-[32%] 2xl:right-[38%] h-72 md:h-120 2xl:h-128 aspect-square bg-gradient-to-bl from-projects-cali-sonreir-orange/30 to-projects-cali-sonreir-yellow/60 rounded-full animate-rotate-blob"}/>{/*Cali volvamos a sonreír*/}
-                <span
-                    className={"absolute top-256 md:top-288 lg:top-[60rem] xl:top-256 2xl:top-[70rem] left-[2%] lg:left-[18%] h-56 md:h-80 2xl:h-96 aspect-square bg-gradient-to-l from-projects-pueblo-22-fuchsia/60 to-projects-pueblo-22-cyan/30 rounded-full animate-rotate-blob"}/>{/*Fiesta de mi pueblo 2022*/}
-                <span
-                    className={"absolute top-288 md:top-320 lg:top-[90rem] xl:top-[98rem] 2xl:top-384 right-[6%] lg:right-[12%] 2xl:right-[18%] h-72 md:h-96 2xl:h-112 aspect-square bg-gradient-to-tl from-projects-pueblo-22-yellow/30 to-projects-pueblo-22-salmon-red/60 rounded-full animate-rotate-blob"}/>{/*Fiesta de mi pueblo 2022*/}
-                <span
-                    className={"absolute top-[100rem] md:top-[124rem] lg:top-[124rem] xl:top-[128rem] 2xl:top-[132rem] right-[12%] lg:right-[32%] xl:right-[42%] h-96 md:h-144 lg:h-120 2xl:h-128 aspect-square bg-gradient-to-t from-projects-clinicannabis-caribbean-green/60 to-projects-clinicannabis-viridian-green/30 rounded-full animate-rotate-blob"}/>{/*Clinicannabis*/}
-                <span
-                    className={"absolute top-[152rem] md:top-[184rem] lg:top-[172rem] xl:top-[178rem] 2xl:top-[176rem] lg:left-[8%] h-72 md:h-112 lg:h-128 aspect-square bg-gradient-to-tr from-projects-panamericanos-21-yellow/30 to-projects-panamericanos-21-pink/60 rounded-full animate-rotate-blob"}/>{/*Panamericanos Junior 2021*/}
-                <span
-                    className={"absolute top-[164rem] md:top-[198rem] lg:top-[196rem] xl:top-[216rem] right-0 lg:right-[8%] h-52 md:h-80 lg:h-96 2xl:h-80 aspect-square bg-gradient-to-r from-projects-panamericanos-21-ocean-blue/60 to-projects-panamericanos-21-sky-blue/30 rounded-full animate-rotate-blob"}/>{/*Panamericanos Junior 2021*/}
-                <span
-                    className={"absolute top-[180rem] md:top-[224rem] lg:top-[236rem] xl:top-[246rem] right-[19%] md:right-1/4 lg:right-[64%] h-112 md:h-136 aspect-square bg-gradient-to-br from-projects-fondo-mixto-red/30 to-projects-fondo-mixto-blue/60 rounded-full animate-rotate-blob"}/>{/*Fondo Mixto*/}
-                <span
-                    className={"absolute top-[232rem] md:top-[276rem] lg:top-[284rem] left-[20%] lg:left-[40%] h-96 md:h-144 lg:h-128 aspect-square bg-gradient-to-b from-projects-pueblo-21-purple/60 to-projects-pueblo-21-teal/30 rounded-full animate-rotate-blob"}/>{/*Fiesta de mi pueblo 2021*/}
-                <span
-                    className={"absolute top-[264rem] md:top-[324rem] lg:top-[328rem] xl:top-[336rem] 2xl:top-[338rem] left-[8%] h-80 md:h-144 lg:h-96 2xl:h-80 aspect-square bg-gradient-to-bl from-projects-ambientales-blue/30 to-projects-ambientales-green/60 rounded-full animate-rotate-blob"}/>{/*Promotores ambientales*/}
-                <span
-                    className={"absolute top-[298rem] md:top-[358rem] lg:top-[376rem] xl:top-[386rem] 2xl:top-[390rem] right-[38%] h-56 md:h-128 aspect-square bg-gradient-to-tl from-white/10 to-projects-bio-expo-lime/80 rounded-full animate-rotate-blob"}/>{/*Bio Expo*/}
-                <span
-                    className={"absolute top-[304rem] md:top-[374rem] lg:top-[402rem] xl:top-[416rem] left-[36%] md:left-[68%] lg:left-[8%] h-44 md:h-72 aspect-square bg-gradient-to-t from-projects-bio-expo-blue/80 to-white/10 rounded-full animate-rotate-blob"}/>{/*Bio Expo*/}
-                <div className={"top-0 left-0 absolute h-full w-full backdrop-blur-3xl"}/>
-                {/*Screen*/}
+                    className={"lg:hidden bg-gradient-to-t from-off-black via-off-black/70 absolute bottom-0 w-full left-0 h-64"}/>
+                <button
+                    className={"hidden lg:flex items-center gap-2 bg-off-white/10 border-none backdrop-blur-xl rounded-lg p-2"}>
+                    <ArrowLeft/>Anterior
+                </button>
+                <select
+                    className={"form-select bg-off-white/10 border-none backdrop-blur-2xl rounded-lg py-2 px-8 text-start text-ellipsis text-xl w-80"}>
+                    <option value={"1"}>Juegos Panamericanos Junior 2021</option>
+                    <option value={"2"}>Fiesta de mi Pueblo: Lo que Somos</option>
+                    <option value={"3"}>Juegos Nacionales</option>
+                    <option value={"4"}>Valle Invencible</option>
+                    <option value={"5"}>Soy Humedal</option>
+                    <option value={"6"}>Rap del Valle</option>
+                    <option value={"7"}>Cali, Volvamos a Sonreír</option>
+                    <option value={"8"}>Clinicannabis</option>
+                    <option value={"9"}>Seamos ecopanitas invencibles</option>
+                    <option value={"10"}>Humedales Valle del Cauca</option>
+                    <option value={"11"}>Buenaventura</option>
+                    <option value={"12"}>Encuentro de Autoridades Nacionales de Turismo</option>
+                    <option value={"13"}>Telepacífico</option>
+                    <option value={"14"}>Fiesta de mi Pueblo: Caravanas</option>
+                </select>
+                <select
+                    className={"form-select bg-off-white/10 border-none backdrop-blur-xl rounded-lg py-2 px-8 text-start text-ellipsis text-xl w-80 lg:w-64"}>
+                    <option value={"1"}>Estrategia Digital</option>
+                    <option value={"2"}>Marketing</option>
+                    <option value={"3"}>Producción Audiovisual</option>
+                    <option value={"4"}>Material POP</option>
+                    <option value={"5"}>Activación de Marca</option>
+                    <option value={"6"}>Plan de Medios</option>
+                    <option value={"7"}>Branding</option>
+                    <option value={"8"}>Producción de Medios</option>
+                    <option value={"9"}>Animación 3D y 2D</option>
+                    <option value={"10"}>Experiencias Interactivas</option>
+                </select>
+                <button
+                    className={"hidden lg:flex items-center gap-2 bg-off-white/10 border-none backdrop-blur-xl rounded-lg p-2"}>Siguiente<ArrowRight/>
+                </button>
             </section>
             <section
-                className={"flex text-off-white flex-col w-full relative z-10 items-center justify-start gap-16 xl:gap-32 py-32 px-8 xl:px-16 overflow-clip"}>
-                <h1 className={`cursor-default uppercase text-center lg:text-start font-bold text-off-white tracking-[0.1em] md:tracking-[0.15em] lg:tracking-normal lg:text-off-white/40 text-4xl md:text-7xl xl:text-8xl relative lg:font-light transition-all duration-300 delay-150 ease-quartic-in-out hover:tracking-[0.15em] hover:font-bold hover:text-off-white`}
-                >{work.heading}
-                </h1>
-                <p className={"md:w-192 text-center text-xl"}>{work.copy}</p>
-                <ul className={"flex flex-col items-stretch justify-start gap-24 lg:gap-44 w-full"}>
-                    {(await projects(lang)).map((project, index) => {
-                        return (
-                            <ProjectCard key={`project${index}`} index={index} metadata={project.metadata}
-                                         direction={project.direction}
-                                         cardHeight={project.cardHeight} cardWidth={project.cardWidth}
-                                         cover={project.cover} lang={lang}/>
-                        );
-                    })}
-                </ul>
+                className={"absolute top-28 lg:top-12 -translate-x-1/2 left-1/2 lg:translate-x-0 lg:left-28 flex items-center justify-center gap-2 font-light tracking-wide text-off-white text-lg"}>
+                <Link
+                    className={"w-44 text-center box-border lg:box-content lg:w-auto bg-off-white/10 border-none backdrop-blur-2xl rounded-lg w- py-2 px-8 lg:text-start text-lg"}
+                    href={"https://www.behance.net/MarabuntaAgencia"} target={"_blank"}>Behance</Link>
+                <Link
+                    className={"w-44 text-center box-border lg:box-content lg:w-auto bg-off-white/10 border-none backdrop-blur-2xl rounded-lg w- py-2 px-8 lg:text-start text-lg"}
+                    href={"https://www.instagram.com/marabuntaagenciacreativa/"} target={"_blank"}>Instagram</Link>
             </section>
         </main>
     );

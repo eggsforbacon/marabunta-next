@@ -18,19 +18,19 @@ export default function Strategy({s}: { s: { [key: string]: any } }) {
     ];
 
     const colors = [
+        "text-off-white lg:text-off-black",
+        "text-off-white lg:text-off-white",
         "text-off-black",
-        "text-off-white",
-        "text-off-black",
-        "text-off-white",
-        "text-off-black",
+        "text-off-white lg:text-off-white",
+        "text-off-white lg:text-off-black",
     ];
 
     const borderColors = [
-        "border-r-off-black",
-        "border-r-off-white",
-        "border-r-off-black",
-        "border-r-off-white",
-        "border-r-off-black",
+        "lg:border-r-off-black",
+        "lg:border-r-off-white",
+        "lg:border-r-off-black",
+        "lg:border-r-off-white",
+        "lg:border-r-off-black",
     ];
 
     const z = [
@@ -42,27 +42,27 @@ export default function Strategy({s}: { s: { [key: string]: any } }) {
     ];
 
     const images = [
-        <Image key={0} src={"/images/home/webp/360/1.webp"} alt={""} width={1920} height={1080}
-               className={"absolute saturate-0 brightness-75 -left-52 top-0 h-full max-w-none object-cover"}/>,
+        <Image key={0} src={"/images/home/webp/360/1.webp"} alt={""} width={1920} height={1080} quality={88}
+               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 scale-[1.5] -left-80 lg:-left-52 top-10 lg:top-0 h-full max-w-none object-contain lg:object-cover"}/>,
         <Image key={1} src={"/images/home/webp/360/2.webp"} alt={""} width={1920} height={1080}
-               className={"absolute saturate-0 brightness-75 -left-52 top-0 h-full max-w-none object-cover"}/>,
+               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-75 -left-52 top-0 h-full max-w-none object-cover"}/>,
         <Image key={2} src={"/images/home/webp/360/3.webp"} alt={""} width={1920} height={1080}
-               className={"absolute saturate-0 brightness-75 -right-96 top-0 h-full max-w-none object-cover"}/>,
+               className={"absolute scale-125 lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 -right-96 -top-20 lg:top-0 h-full max-w-none object-contain lg:object-cover"}/>,
         <Image key={3} src={"/images/home/webp/360/4.webp"} alt={""} width={1920} height={1080}
-               className={"absolute saturate-0 brightness-125 -right-120 top-14 h-full max-w-none object-cover"}/>,
+               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-125 -right-112 lg:-right-120 top-0 lg:top-14 h-full max-w-none object-cover"}/>,
         <Image key={4} src={"/images/home/webp/360/5.webp"} alt={""} width={1920} height={1080}
-               className={"absolute saturate-0 brightness-75 -left-52 top-0 h-full max-w-none object-cover"}/>
+               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-75 -left-52 top-0 h-full max-w-none object-cover"}/>
     ];
 
     return (
-        <section className={"text-off-white  bg-black relative h-[302.5rem]"}>
+        <section className={"text-off-white  bg-black relative h-[175rem] lg:h-[302.5rem]"}>
 
             {
                 cards.map((c, i) => {
                     return (
                         <StrategyCard title={c.title} subtitle={c.subtitle} description={c.description} angle={i * 90}
                                       background={backgrounds[i]} color={colors[i]} borderRColor={borderColors[i]}
-                                      z={z[i]} image={images[i]} key={i} angleColor={backgrounds[i] === "bg-marabunta-cyan" ? "text-off-white" : undefined}/>
+                                      z={z[i]} image={images[i]} key={i} angleColor={backgrounds[i] === "bg-marabunta-cyan" ? "text-off-white" : backgrounds[i] === "bg-marabunta-yellow-alt" ? "text-off-white lg:text-off-black" : undefined}/>
                     );
                 })
             }

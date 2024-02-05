@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Nosotros",
-    "work": "Trabajo",
+    "work": "Trabajos",
     "blog": "Blog",
     "contact": "Contacto"
   },
@@ -45,12 +45,12 @@
         "description": "Déjala en nuestras manos. Contamos con un equipo de profesionales que pueden volverla realidad, dejando huella en tu audiencia."
       },
       {
-        "title": "Conceptua\nlización",
+        "title": "Concepto",
         "subtitle": "Escuchamos tus ideas y les damos forma",
-        "description": "Creamos soluciones enfocadas en su entorno y sus necesidades."
+        "description": "Creamos soluciones enfocadas en su entorno y sus necesidades. Nuestro enfoque se centra en la personalización y la eficiencia, asegurándonos de ofrecer respuestas adaptadas a tus desafíos específicos, con un toque creativo que va más allá de lo convencional."
       },
       {
-        "title": "Comuni\ncación",
+        "title": "Comunicación",
         "subtitle": "Planteamos las estrategias necesarias para difundir y posicionar tu idea",
         "description": "Creamos y ejecutamos planes de medios para que tu proyecto logre el mayor alcance. Traducimos tus ideas en imágenes a través de fotografías, spots y videos para redes sociales; y también podemos convertirlas en piezas sonoras como podcasts, cápsulas o cuñas radiales."
       },

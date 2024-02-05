@@ -4,6 +4,8 @@ import React from "react";
 import useMeasure from 'react-use-measure';
 import {animated, useTrail} from "@react-spring/web";
 import liquid from "../../../public/json/liquid.json";
+import redLiquid from "../../../public/json/red.json";
+import blueLiquid from "../../../public/json/blue.json";
 import {useLottie} from "lottie-react";
 
 const fast = {mass: 10, tension: 120, friction: 80}
@@ -23,15 +25,32 @@ export const BlobPlayground = () => {
         api.start({xy: [e.clientX - left, e.clientY - top]})
     }
 
-    const liquidOptions = {
-        animationData: liquid,
+    const baseOptions = {
         loop: true,
         autoplay: true,
         width: 1920,
         height: 1080,
     }
 
+    const liquidOptions = {
+        animationData: liquid,
+        ...baseOptions,
+    };
+
+    const blueOptions = {
+        animationData: blueLiquid,
+        ...baseOptions
+    };
+
+    const redOptions = {
+        animationData: redLiquid,
+        ...baseOptions
+    };
+
+
     const {View: Liquid} = useLottie(liquidOptions,);
+    const {View: Blue} = useLottie(blueOptions,);
+    const {View: Red} = useLottie(redOptions,);
 
     return (
         <div className={"absolute top-0 bottom-0 right-0 left-0"}>
@@ -44,15 +63,21 @@ export const BlobPlayground = () => {
                     />
                 </filter>
             </svg>
-            <div ref={ref} className={"absolute w-full h-full filter-goo select-none bg-transparent"}
+            <div ref={ref} className={"absolute w-full h-full lg:filter-goo select-none bg-transparent"}
                  onMouseMove={handleMouseMove}>
                 {trail.map((props, index) => (
                     <animated.div
-                        className={"absolute will-change-transform rounded-full bg-marabunta-cyan/[0.8] opacity-100 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] [&:nth-child(1)]:aspect-square [&:nth-child(1)]:h-20 [&:nth-child(2)]:aspect-square [&:nth-child(2)]:h-36 [&:nth-child(3)]:aspect-square [&:nth-child(3)]:h-44 after:content-[''] after:absolute after:top-4 after:left-4 after:w-4 after:h-4 after:rounded-full after:bg-marabunta-cyan/[0.8]"}
+                        className={"hidden lg:block absolute will-change-transform rounded-full bg-marabunta-cyan/[0.8] opacity-100 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] [&:nth-child(1)]:aspect-square [&:nth-child(1)]:h-20 [&:nth-child(2)]:aspect-square [&:nth-child(2)]:h-36 [&:nth-child(3)]:aspect-square [&:nth-child(3)]:h-44 after:content-[''] after:absolute after:top-4 after:left-4 after:w-4 after:h-4 after:rounded-full after:bg-marabunta-cyan/[0.8]"}
                         key={index} style={{transform: props.xy.to(trans)}}/>
                 ))}
-                <div className={"absolute bottom-0 left-0 h-full w-full"}>
+                <div className={"absolute bottom-0 right-0 h-full w-full object-cover lg:block hidden"}>
                     {Liquid}
+                </div>
+                <div className={"absolute top-28 lg:hidden right-44 w-full object-cover scale-[2.1]"}>
+                    {Blue}
+                </div>
+                <div className={"absolute bottom-20 lg:hidden right-48 w-full object-cover scale-[2]"}>
+                    {Red}
                 </div>
             </div>
         </div>
