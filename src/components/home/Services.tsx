@@ -94,7 +94,7 @@ export default function Services({s, lang}: { s: { [key: string]: any }, lang: L
                         </div>
                         <span
                             className={"hidden lg:block pointer-events-none lg:top-0 lg:absolute w-full h-full bg-gradient-to-t from-black via-black/40 via-45% to-black/0"}/>
-                        <LocaleLink lang={lang} href={"/work"}
+                        <LocaleLink lang={lang} href={"/portafolio"}
                             className={"lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 px-8 py-4 text-base lg:text-xl font-normal text-off-white border-off-white border bg-transparent rounded-xl transition-all duration-200 ease-in-out hover:font-bold hover:scale-110 cursor-pointer"}>
                             {s.cta}
                         </LocaleLink>

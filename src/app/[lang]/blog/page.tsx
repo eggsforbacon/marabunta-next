@@ -11,21 +11,20 @@ export default async function Blog({params : {lang}} : {params : {lang : Locale}
 
     return (
         <main>
-            <Navbar withBorder s={nav} lang={lang} current={"/blog"} />
+            <Navbar s={nav} lang={lang} current={"/blog"} />
             <section
                 className={"flex flex-col bg-off-black w-full items-center justify-start gap-8 text-off-white overflow-x-clip"}>
                 <span
                     className={"absolute top-0 w-full left-0 h-full pointer-events-none packed-dotted-background opacity-30 overflow-hidden"}/>
                 <div
-                    className={"relative flex flex-col items-center lg:items-stretch justify-start w-full pt-20 lg:pt-0"}>
+                    className={"relative flex flex-col items-center lg:items-stretch justify-start w-full pt-20 lg:pt-32"}>
                     <div
-                        className={"flex flex-col gap-6 lg:gap-0 lg:flex-row items-center justify-between px-16 py-8 text-center lg:text-start"}>
+                        className={"flex flex-col gap-6 lg:gap-0 lg:flex-row items-center justify-between px-64 py-8 text-center lg:text-start"}>
                         <h1 className={"text-5xl lg:text-6xl font-bold"}>Blog</h1>
-                        <p className={"lg:w-128"}>Historias contadas desde el lente de nuestra experiencia. Vivencias,
-                            tips y tendencias que impulsan tu marca a un nuevo nivel.</p>
+                        <p className={"text-end lg:w-128"}>Historias contadas desde el lente de nuestra experiencia.</p>
                     </div>
                     <span className={"h-px bg-neutral-300 w-full"}/>
-                    <ul className={"hidden uppercase font-normal text-lg lg:flex items-center justify-start gap-16 px-16 py-4"}>
+                    <ul className={"hidden uppercase font-normal text-lg lg:flex items-center justify-start gap-16 px-64 py-4"}>
                         <li><LocaleLink
                             className={"transition-all duration-200 ease-in-out hover:font-black hover:underline hover:decoration hover:decoration-marabunta-white hover:text-marabunta-white"}
                             lang={lang} href={"/blog/marabunta"}>Marabunta</LocaleLink></li>

@@ -132,7 +132,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
 
     return (
         <main className={"h-screen lg:h-full bg-off-black overflow-clip"}>
-            <Navbar current={"/work"} withBorder s={nav} lang={lang}/>
+            <Navbar current={"/portafolio"} withBorder s={nav} lang={lang}/>
             <span
                 className={"absolute top-0 w-full left-0 h-full pointer-events-none packed-dotted-background opacity-30 overflow-hidden"}/>
             <motion.div

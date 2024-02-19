@@ -62,7 +62,7 @@ module.exports = {
             colors: {
                 'off': {
                     'white': '#FAFAFA',
-                    'black': '#101010'
+                    'black': '#0e0e0e'
                 },
                 'marabunta': {
                     'red': '#e20830',

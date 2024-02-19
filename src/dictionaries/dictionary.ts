@@ -9,6 +9,7 @@ type StrategyCard = {
 export type Dictionary = {
     "nav": {
         "home": string,
+        "services": string,
         "work": string,
         "blog": string,
         "contact": string

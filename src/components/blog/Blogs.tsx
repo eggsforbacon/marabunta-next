@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function Blogs({lang}: { lang: Locale }) {
     return (
-        <section className={"relative flex flex-col items-stretch justify-start gap-8 w-full px-6 lg:px-16"}>
-            <h2 className={"text-center lg:text-start text-3xl lg:text-6xl font-bold"} >Nuestro artículo <span className={"text-marabunta-red"}>recomendado <br className={"lg:hidden"}/>de febrero</span></h2>
+        <section className={"relative flex flex-col items-stretch justify-start gap-8 w-full px-6 lg:px-16 2xl:px-64"}>
+            <h2 className={"text-center lg:text-start text-3xl lg:text-4xl 2xl:text-6xl font-bold"} >Nuestro artículo <span className={"text-marabunta-red"}>recomendado <br className={"lg:hidden"}/>de febrero</span></h2>
             <BlogCard author={"Comunicaciones Marabunta"} featured lang={lang} title={"Recibimos al 2024 con una identidad renovada"} excerpt={"Descubre cómo nos reinventamos este nuevo año, nuestra nueva linea gráfica, nuestro proceso creativo y nuestras metas."} publishedDate={"2024-01-10"} slug={"el-articulo-del-mes"} category={"marabunta"}>
                 <Image src={"/images/blog/temp_covers/featured.png"} alt={"A really cool texture"} height={1920} width={1920}
                        className={"absolute lg:scale-125 lg:top-12 lg:-left-16 scale-[3.4] top-44 left-32 lg:brightness-100 brightness-75"}/>
@@ -15,7 +15,7 @@ export default function Blogs({lang}: { lang: Locale }) {
                           excerpt={"La música y el arte nos mueven en marabunta"}
                           publishedDate={"2024-02-01"} slug={"nuestro-top-de-caratulas-2023"} category={"marabunta"} weight={1}>
                     <Image src={"/images/blog/temp_covers/fear.jpg"} alt={"A really cool texture"} height={1920} width={1920}
-                           className={"absolute scale-[1.75] lg:scale-125 top-20"}/>
+                           className={"absolute scale-[1.75] lg:scale-[1.5] top-20"}/>
                 </BlogCard>
                 <BlogCard author={"Diseño Marabunta"} lang={lang} title={"El Lettering como herramienta para elevar tu marca"}
                           excerpt={"Dale un toque creativo al nombre de tu marca"}
