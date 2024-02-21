@@ -62,6 +62,14 @@ export type Dictionary = {
             "send": string,
         }
     },
+    "blog": {
+        "title": string,
+        "copy": string,
+        "categories": string[],
+        "featured": string,
+        "featuredRemark": string,
+        "by": string,
+    },
     "legal": {
         "title": string,
         "update": string,

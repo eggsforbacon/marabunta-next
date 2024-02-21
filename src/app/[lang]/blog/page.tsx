@@ -7,7 +7,7 @@ import LocaleLink from "@/components/ui/LocaleLink";
 
 export default async function Blog({params : {lang}} : {params : {lang : Locale}}) {
 
-    const {nav} = await getDictionary(lang);
+    const {nav, blog} = await getDictionary(lang);
 
     return (
         <main>
@@ -19,34 +19,34 @@ export default async function Blog({params : {lang}} : {params : {lang : Locale}
                 <div
                     className={"relative flex flex-col items-center lg:items-stretch justify-start w-full pt-20 lg:pt-32"}>
                     <div
-                        className={"flex flex-col gap-6 lg:gap-0 lg:flex-row items-center justify-between px-64 py-8 text-center lg:text-start"}>
-                        <h1 className={"text-5xl lg:text-6xl font-bold"}>Blog</h1>
-                        <p className={"text-end lg:w-128"}>Historias contadas desde el lente de nuestra experiencia.</p>
+                        className={"flex flex-col gap-6 lg:gap-0 lg:flex-row items-center justify-between md:px-52 lg:px-44 xl:px-64 py-8 text-center lg:text-start"}>
+                        <h1 className={"text-5xl lg:text-6xl font-bold"}>{blog.title}</h1>
+                        <p className={"text-center lg:text-end lg:w-128"}>{blog.copy}</p>
                     </div>
                     <span className={"h-px bg-neutral-300 w-full"}/>
                     <ul className={"hidden uppercase font-normal text-lg lg:flex items-center justify-start gap-16 px-64 py-4"}>
                         <li><LocaleLink
                             className={"transition-all duration-200 ease-in-out hover:font-black hover:underline hover:decoration hover:decoration-marabunta-white hover:text-marabunta-white"}
-                            lang={lang} href={"/blog/marabunta"}>Marabunta</LocaleLink></li>
+                            lang={lang} href={"/blog/marabunta"}>{blog.categories[0]}</LocaleLink></li>
                         <li><LocaleLink
                             className={"transition-all duration-200 ease-in-out hover:font-black hover:underline hover:decoration hover:decoration-marabunta-red hover:text-marabunta-red"}
-                            lang={lang} href={"/blog/design"}>Diseño</LocaleLink></li>
+                            lang={lang} href={"/blog/design"}>{blog.categories[1]}</LocaleLink></li>
                         <li><LocaleLink
                             className={"transition-all duration-200 ease-in-out hover:font-black hover:underline hover:decoration hover:decoration-marabunta-cyan hover:text-marabunta-cyan"}
-                            lang={lang} href={"/blog/strategy"}>Estrategia</LocaleLink></li>
+                            lang={lang} href={"/blog/strategy"}>{blog.categories[2]}</LocaleLink></li>
                         <li><LocaleLink
                             className={"transition-all duration-200 ease-in-out hover:font-black hover:underline hover:decoration hover:decoration-marabunta-yellow hover:text-marabunta-yellow"}
-                            lang={lang} href={"/blog/prod"}>Producción</LocaleLink></li>
+                            lang={lang} href={"/blog/prod"}>{blog.categories[3]}</LocaleLink></li>
                     </ul>
                     <select
                         className={"mt-6 lg:hidden form-select bg-off-white/10 border-none backdrop-blur-2xl rounded-lg py-2 px-8 text-start text-ellipsis text-xl w-80"}>
-                        <option value={"1"}>Marabunta</option>
-                        <option value={"2"}>Diseño</option>
-                        <option value={"3"}>Estrategia</option>
-                        <option value={"4"}>Producción</option>
+                        <option value={"1"}>{blog.categories[0]}</option>
+                        <option value={"2"}>{blog.categories[1]}</option>
+                        <option value={"3"}>{blog.categories[2]}</option>
+                        <option value={"4"}>{blog.categories[3]}</option>
                     </select>
                 </div>
-                <Blogs lang={lang}/>
+                <Blogs lang={lang} s={blog}/>
                 {/*<section className={"w-full relative bg-marabunta-cyan flex flex-col py-16 px-6"}>*/}
                 {/*    <form*/}
                 {/*          className={"w-full lg:w-192 h-full flex flex-col justify-start items-center lg:px-8 text-off-black"}>*/}

@@ -147,6 +147,19 @@
       }
     ]
   },
+  "blog": {
+    "title": "Blog",
+    "copy": "Historias contadas desde el lente de nuestra experiencia.",
+    "categories": [
+      "Marabunta",
+      "Diseño",
+      "Estrategia",
+      "Producción"
+    ],
+    "featured": "Nuestro artículo",
+    "featuredRemark": "recomendado de ",
+    "by": "por"
+  },
   "contact": {
     "actions": {
       "talk": "Hablemos",

@@ -29,7 +29,6 @@ export default function SearchFilterBar() {
                         className={"text-off-black"} size={14}/></button>
                 </div>
                 <button onClick={() => {
-                    console.log("Button clicked")
                     setFiltersOpen(!filtersOpen)
                 }}
                         className={`z-20 relative p-4 transition-all duration-200 ease-in-out ${filtersOpen ? "border-transparent" : "border-neutral-400"} border-2 rounded-lg flex items-center justify-between bg-off-white w-72`}>
@@ -73,7 +72,6 @@ export default function SearchFilterBar() {
                                                       overrideText={checkboxText} overrideRing={checkboxRing}
                                                       onChange={(e) => {
                                                           e.stopPropagation();
-                                                          console.log("Checkbox changed");
                                                       }}/>
                                             <label className={"text-start"}>{cat}</label>
                                         </li>

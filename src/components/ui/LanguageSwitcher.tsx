@@ -1,17 +1,13 @@
 'use client';
 
 import {usePathname} from "next/navigation";
-import {Dispatch, SetStateAction, useEffect} from "react";
+import {Dispatch, SetStateAction} from "react";
 import {i18n, Locale} from "@/i18n.config";
 import Link from "next/link";
 
 const LanguageSwitcher = ({state, lang} : {state : [boolean, Dispatch<SetStateAction<boolean>>], lang : Locale}) => {
     const pathname = usePathname();
     const [open, setOpen] = state;
-
-    useEffect(() => {
-        console.log(pathname)
-    }, [pathname]);
 
     const redirectedPathname = (locale: string) => {
         if (!pathname) return '/';
@@ -28,7 +24,6 @@ const LanguageSwitcher = ({state, lang} : {state : [boolean, Dispatch<SetStateAc
             if (isHome) return `/${locale === i18n.defaultLocale ? '' : locale}`;
 
             segments.splice(1,1);
-            console.log(segments);
             return segments.join('/');
         }
     }

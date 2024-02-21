@@ -147,6 +147,19 @@
       }
     ]
   },
+  "blog": {
+    "title": "Blog",
+    "copy": "Stories we tell from under the lens of our experience.",
+    "categories": [
+      "Marabunta",
+      "Design",
+      "Strategy",
+      "Production"
+    ],
+    "featured": "Featured article",
+    "featuredRemark": "this ",
+    "by": "by"
+  },
   "contact": {
     "actions": {
       "talk": "Let's have a word",
