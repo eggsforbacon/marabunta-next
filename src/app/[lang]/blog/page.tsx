@@ -4,8 +4,10 @@ import {getDictionary} from "@/lib/dictionary";
 import Blogs from "@/components/blog/Blogs";
 import React from "react";
 import LocaleLink from "@/components/ui/LocaleLink";
+import { Blog } from "@/interfaces/blog";
+import { getBlogs, getMonthlyFeatured, getMonth, mapStrapiToBlog} from "@/services/blog";
 
-export default async function Blog({params : {lang}} : {params : {lang : Locale}}) {
+export default async function BlogPage({params : {lang}} : {params : {lang : Locale}}) {
 
     const {nav, blog} = await getDictionary(lang);
 
@@ -47,14 +49,6 @@ export default async function Blog({params : {lang}} : {params : {lang : Locale}
                     </select>
                 </div>
                 <Blogs lang={lang} s={blog}/>
-                {/*<section className={"w-full relative bg-marabunta-cyan flex flex-col py-16 px-6"}>*/}
-                {/*    <form*/}
-                {/*          className={"w-full lg:w-192 h-full flex flex-col justify-start items-center lg:px-8 text-off-black"}>*/}
-                {/*        <h3>¿No te quieres perder de nada?</h3>*/}
-                {/*        <p>¡Suscríbete a nuestro newsletter!</p>*/}
-                {/*        <TextField label={"Tu Correo"} />*/}
-                {/*    </form>*/}
-                {/*</section>*/}
             </section>
         </main>
     );

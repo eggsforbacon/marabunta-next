@@ -8,7 +8,7 @@ import LocaleLoader from "@/components/ui/LocaleLoader";
 const montserrat = Montserrat({subsets: ['latin', 'latin-ext']});
 
 export const metadata = {
-    title: 'Marabunta - Agencia Creativa',
+    title: 'Marabunta Agencia Creativa',
     description: 'Comunicamos Ideas',
     icons: [
         {

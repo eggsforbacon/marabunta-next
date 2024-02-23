@@ -14,6 +14,7 @@ export namespace Blog {
         date: string,
         title: string,
         slug: string,
+        twClass? : string,
         category: Category,
         featured: boolean,
         description: string,
@@ -29,6 +30,76 @@ export namespace Blog {
         localizations: [Object]
     }
 
+    export const EmptyImageAttributes : Strapi.ImageAttributes = {
+        data: {
+            id: 0,
+            attributes: {
+                name: "",
+                alternativeText: null,
+                caption: null,
+                width: 0,
+                height: 0,
+                formats: {
+                    thumbnail: {
+                        name: "",
+                        hash: "",
+                        ext: "",
+                        mime: "",
+                        path: null,
+                        width: 0,
+                        height: 0,
+                        size: 0,
+                        url: ""
+                    },
+                    small: {
+                        name: "",
+                        hash: "",
+                        ext: "",
+                        mime: "",
+                        path: null,
+                        width: 0,
+                        height: 0,
+                        size: 0,
+                        url: ""
+                    },
+                    medium: {
+                        name: "",
+                        hash: "",
+                        ext: "",
+                        mime: "",
+                        path: null,
+                        width: 0,
+                        height: 0,
+                        size: 0,
+                        url: ""
+                    },
+                    large: {
+                        name: "",
+                        hash: "",
+                        ext: "",
+                        mime: "",
+                        path: null,
+                        width: 0,
+                        height: 0,
+                        size: 0,
+                        url: ""
+                    }
+                },
+                hash: "",
+                ext: "",
+                mime: "",
+                size: 0,
+                url: "/uploads/thumbnail_marabunta_texture_577967f127.webp",
+                previewUrl: null,
+                provider: "",
+                provider_metadata: null,
+                createdAt: "",
+                updatedAt: ""
+            }
+        }
+    }
+
+
     export const EmptyAttributes : Attributes = {
         date: "",
         title: "Not found",
@@ -43,8 +114,8 @@ export namespace Blog {
         publishedAt: "",
         locale: "",
         author: "",
-        cover: {} as Strapi.ImageAttributes,
-        thumbnail: {} as Strapi.ImageAttributes,
+        cover: EmptyImageAttributes,
+        thumbnail: EmptyImageAttributes,
         localizations: [Object]
     }
 }
