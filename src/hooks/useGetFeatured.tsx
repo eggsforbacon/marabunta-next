@@ -3,7 +3,6 @@
 import {Locale} from "@/i18n.config";
 import useSWR from "swr";
 import {Strapi} from "@/interfaces/strapi";
-import {API_URL, STRAPI_TOKEN} from "@/config";
 import {mapStrapiToBlog, normalizeLocale} from "@/services/blog";
 import {fetchURI} from "@/lib/api";
 import {Blog} from "@/interfaces/blog";
@@ -14,13 +13,13 @@ export default function useGetFeatured(locale: Locale, fallback : Blog.Attribute
     const options = {
         "method": "GET",
         "headers": {
-            "Authorization": `Bearer ${STRAPI_TOKEN}`
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
         }
     }
 
     const normalizedMonth = `${month}`.padStart(2, '0');
     const { data, error } = useSWR<Strapi.MultipleResponse>(
-        [`${API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[featured][$eq]=true&filters[fecha][$contains]=-${normalizedMonth}-&sort=fecha%3Adesc&populate=*`, options],
+        [`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[featured][$eq]=true&filters[fecha][$contains]=-${normalizedMonth}-&sort=fecha%3Adesc&populate=*`, options],
         fetchURI<Strapi.MultipleResponse>,
     );
     const array : Blog.Attributes[] = [];

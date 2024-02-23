@@ -1,4 +1,3 @@
-import {API_URL, STRAPI_TOKEN} from "@/config";
 import {Strapi} from "@/interfaces/strapi";
 import {fetchURI} from "@/lib/api";
 import {Month} from "@/types/common";
@@ -14,12 +13,19 @@ export async function getBlogs(locale? : Locale) {
     const options = {
         "method": "GET",
         "headers": {
-            "Authorization": `Bearer ${STRAPI_TOKEN}`
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
         },
-        next: { cache: "no-store", tags: ['blogs']},
     }
 
-    const {data: blogs, error} = await fetchURI<Strapi.MultipleResponse>(`${API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&sort=fecha%3Adesc&populate=*`, options);
+    const {data, error} = await fetchURI<Strapi.MultipleResponse>(`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&sort=fecha%3Adesc&populate=*`, options);
+
+    const blogs: Blog.Attributes [] = [];
+
+    if (data !== null) data.forEach((blog) => {
+        const attributes: { [key: string]: any; } = blog.attributes;
+        blogs.push({...mapStrapiToBlog(attributes), featured: false});
+    });
+
     return {blogs};
 }
 
@@ -27,16 +33,23 @@ export async function getMonthlyFeatured(month: Month, locale? : Locale) {
     const options = {
         "method": "GET",
         "headers": {
-            "Authorization": `Bearer ${STRAPI_TOKEN}`
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
         },
-        next: { cache: "no-store", tags: ['blogs']},
     }
 
     const normalizedMonth = `${month}`.padStart(2, '0');
-    console.error("Month: ", normalizedMonth);
+    const {data} = await fetchURI<Strapi.MultipleResponse>(`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[featured][$eq]=true&filters[fecha][$contains]=-${normalizedMonth}-&sort=fecha%3Adesc&populate=*`, options);
+    const featuredArray: Blog.Attributes[] = [];
+    let featured: Blog.Attributes = Blog.EmptyAttributes;
 
-    const {data: featured} = await fetchURI<Strapi.MultipleResponse>(`${API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[featured][$eq]=true&filters[fecha][$contains]=-${normalizedMonth}-&sort=fecha%3Adesc&populate=*`, options);
-    console.error("Featured: ", featured);
+    if (data !== null && data.length !== 0) {
+        data.forEach((feat) => {
+            const attributes : {[key : string] : any} = feat.attributes;
+            featuredArray.push({...mapStrapiToBlog(attributes), featured: true});
+        });
+
+        featured = featuredArray[0];
+    }
     return {featured}
 }
 
@@ -44,11 +57,11 @@ export async function searchTitle(query : string, locale? : Locale) {
     const options = {
         "method": "GET",
         "headers": {
-            "Authorization": `Bearer ${STRAPI_TOKEN}`
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
         }
     }
 
-    const {data: result} = await fetchURI<Strapi.MultipleResponse>(`${API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[titulo][$contains]=${query}&sort=fecha%3Adesc&populate=*`, options);
+    const {data: result} = await fetchURI<Strapi.MultipleResponse>(`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[titulo][$contains]=${query}&sort=fecha%3Adesc&populate=*`, options);
     return {result}
 }
 

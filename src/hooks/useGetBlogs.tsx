@@ -3,7 +3,6 @@
 import {Locale} from "@/i18n.config";
 import useSWR from "swr";
 import {Strapi} from "@/interfaces/strapi";
-import {API_URL, STRAPI_TOKEN} from "@/config";
 import {fetchURI} from "@/lib/api";
 import {Blog} from "@/interfaces/blog";
 import {mapStrapiToBlog, normalizeLocale} from "@/services/blog";
@@ -13,11 +12,11 @@ export default function useGetBlogs(lang: Locale, fallback: Blog.Attributes[]) :
     const options = {
         "method": "GET",
         "headers": {
-            "Authorization": `Bearer ${STRAPI_TOKEN}`
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
         },
     }
     const {data, error} = useSWR<Strapi.MultipleResponse>(
-        [`${API_URL}/notas?locale=${normalizeLocale(lang ?? "es")}&sort=fecha%3Adesc&populate=*`, options],
+        [`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(lang ?? "es")}&sort=fecha%3Adesc&populate=*`, options],
         fetchURI<Strapi.MultipleResponse>,
     );
 
