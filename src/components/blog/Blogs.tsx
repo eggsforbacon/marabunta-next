@@ -8,21 +8,21 @@ import useSWR from 'swr';
 import {Blog} from "@/interfaces/blog";
 import {ScrollToNewsLetter} from "@/components/blog/ScrollToNewsletter";
 import React from "react";
+import {useBlogStore} from "@/store/blogs";
 
 export default function Blogs({lang, s}: { lang: Locale, s: { [key: string]: any } }) {
 
-    // swr was SO SO SO infinitely clean, I'm gushing so happy w it
+    const { filter } = useBlogStore();
 
     const {blog, months} = s;
-
     const month = getMonth();
 
     const {
         data: {blogs},
-    } = useSWR(['getBlogs', lang], () => getBlogs(lang), {fallbackData: {blogs: [Blog.EmptyAttributes]}});
+    } = useSWR(['getBlogs', lang, filter], () => getBlogs(lang, filter), {fallbackData: {blogs: [Blog.EmptyAttributes]}});
     const {
         data: {featuredArray},
-    } = useSWR(['getMonthlyFeatured', 1, lang], () => getMonthlyFeatured(month, lang), {fallbackData: {featuredArray: []}});
+    } = useSWR(['getMonthlyFeatured', 1, lang, filter], () => getMonthlyFeatured(month, lang), {fallbackData: {featuredArray: []}});
 
     const featured = featuredArray[0];
 
@@ -37,7 +37,7 @@ export default function Blogs({lang, s}: { lang: Locale, s: { [key: string]: any
             className={"relative flex flex-col items-stretch justify-start gap-8 lg:gap-16 w-full px-6 lg:px-16 2xl:px-64"}>
             <ScrollToNewsLetter className={"z-30 lg:-mb-32 hidden lg:grid place-items-center aspect-square w-28 sticky top-32 right-6 lg:ml-[60rem] xl:ml-[78rem] 2xl:ml-[86rem] animate-float-up-sm border-2 p-6 rounded-full border-transparent transition duration-300 ease-back hover:border-marabunta-cyan hover:bg-off-black"} />
             {
-                featured ? (
+                featured && filter === "" ? (
                     <>
                         <h2 className={"text-center lg:text-start text-3xl lg:text-4xl 2xl:text-6xl font-bold"}>{blog.featured}
                             <span

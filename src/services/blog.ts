@@ -9,15 +9,17 @@ export const normalizeLocale = (locale : Locale) => {
     return locale;
 }
 
-export async function getBlogs(locale? : Locale) {
+export async function getBlogs(locale? : Locale, filter?: Blog.Category | "") {
     const options = {
         "method": "GET",
         "headers": {
             "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
         },
     }
-
-    const {data} = await fetchURI<Strapi.MultipleResponse>(`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&sort=fecha%3Adesc&populate=*`, options);
+    console.log(filter);
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&${filter !== "" && filter !== undefined && `filters[categoria][$eq]=${filter}&`}sort=fecha%3Adesc&populate=*`;
+    console.log(url)
+    const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
 
     const blogs: Blog.Attributes [] = [];
 
@@ -25,7 +27,7 @@ export async function getBlogs(locale? : Locale) {
         const attributes: { [key: string]: any; } = blog.attributes;
         blogs.push({...mapStrapiToBlog(attributes), featured: false});
     });
-
+    console.log(">>>", data);
     return {blogs};
 }
 
@@ -36,9 +38,9 @@ export async function getMonthlyFeatured(month: Month, locale? : Locale) {
             "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
         },
     }
-
     const normalizedMonth = `${month}`.padStart(2, '0');
-    const {data} = await fetchURI<Strapi.MultipleResponse>(`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[featured][$eq]=true&filters[fecha][$contains]=-${normalizedMonth}-&sort=fecha%3Adesc&populate=*`, options);
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[featured][$eq]=true&filters[fecha][$contains]=-${normalizedMonth}-&sort=fecha%3Adesc&populate=*`;
+    const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
     const featuredArray: Blog.Attributes[] = [];
 
     if (data !== null) {

@@ -1,26 +1,29 @@
-import {create, Mutate, StoreApi} from "zustand";
-import {posts} from "@/meilisearch";
+import {create} from "zustand";
+import {Blog} from "@/interfaces/blog";
+import Category = Blog.Category;
 
 interface BlogsState {
     query : string;
     search: (term : string) => void;
     page: number;
     changePage: (to : number) => void;
-    filters: string[];
-    filter: (by: string) => void;
+    filter: Category | "";
+    changeFilter: (to: Category | "") => void;
 }
 
 export const useBlogStore = create<BlogsState>()((set) => ({
     query: '',
-    search: (term) => set((state) => ({query: term})),
+    search: (term) => set((_) => ({query: term})),
     page: 1,
-    changePage: (to) => set((state) => ({page: to})),
-    filters: [],
-    filter: (by) => set((state) => {
-        const alreadyAFilter = state.filters.includes(by);
-        if (alreadyAFilter) return {filters: state.filters.filter((f) => f !== by)};
+    changePage: (to) => set((_) => ({page: to})),
+    filter: "",
+    changeFilter: (to) => set((state) => {
+        const alreadyAFilter = state.filter === to;
+        const reset = to === "";
+        if (alreadyAFilter) return {filter: state.filter};
+        if (reset) return {filter: ""}
         return {
-            filters: state.filters.concat(by)
+            filter: to
         };
     }),
 }));
