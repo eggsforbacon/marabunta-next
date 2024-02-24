@@ -22,7 +22,7 @@ export enum Months {
     SEPTEMBER,
     OCTOBER,
     NOVEMBER,
-    DECEMBER
+    DECEMBER,
 }
 
 export type Month = NumberValues<typeof Months>

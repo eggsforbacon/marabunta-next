@@ -4,16 +4,15 @@ import {getDictionary} from "@/lib/dictionary";
 import Blogs from "@/components/blog/Blogs";
 import React from "react";
 import LocaleLink from "@/components/ui/LocaleLink";
-import { Blog } from "@/interfaces/blog";
-import { getBlogs, getMonthlyFeatured, getMonth, mapStrapiToBlog} from "@/services/blog";
+import NewsletterForm from "@/components/blog/NewsletterForm";
 
-export default async function BlogPage({params : {lang}} : {params : {lang : Locale}}) {
+export default async function BlogPage({params: {lang}}: { params: { lang: Locale } }) {
 
-    const {nav, blog} = await getDictionary(lang);
+    const {nav, blog, common: {months}, footer: {terms}} = await getDictionary(lang);
 
     return (
         <main>
-            <Navbar s={nav} lang={lang} current={"/blog"} />
+            <Navbar s={nav} lang={lang} current={"/blog"}/>
             <section
                 className={"flex flex-col bg-off-black w-full items-center justify-start gap-8 text-off-white overflow-x-clip"}>
                 <span
@@ -48,7 +47,18 @@ export default async function BlogPage({params : {lang}} : {params : {lang : Loc
                         <option value={"4"}>{blog.categories[3]}</option>
                     </select>
                 </div>
-                <Blogs lang={lang} s={blog}/>
+                <Blogs lang={lang} s={{blog, months}}/>
+                <span className={"w-full h-px bg-off-white/50"}/>
+                <section
+                    id={"newsletter"}
+                    className={"relative text-off-white w-full flex flex-col items-center justify-start gap-8"}>
+                    <p className={"text-4xl md:text-5xl px-6 text-center md:px-0 text-off-white lg:text-off-white/80 font-bold lg:font-normal transition-all duration-300 ease-in-out hover:tracking-wider hover:font-bold hover:text-off-white"}>{blog.end}</p>
+                    <section
+                        className={"w-full bg-black px-6 lg:px-16 2xl:px-64 py-32 flex flex-col items-center lg:items-stretch justify-start gap-16"}>
+                        <h3 className={"text-center lg:text-start text-xl md:text-2xl xl:text-3xl font-semibold tracking-widest"}>{blog.endRemark}</h3>
+                        <NewsletterForm lang={lang} s={{blog, terms}} />
+                    </section>
+                </section>
             </section>
         </main>
     );

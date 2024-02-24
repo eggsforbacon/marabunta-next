@@ -1,4 +1,20 @@
 {
+  "common": {
+    "months": [
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre",
+      "Octubre",
+      "Noviembre",
+      "Diciembre"
+    ]
+  },
   "nav": {
     "home": "Identidad",
     "services": "Servicios",
@@ -158,7 +174,18 @@
     ],
     "featured": "Nuestro artículo",
     "featuredRemark": "recomendado de ",
-    "by": "por"
+    "by": "por",
+    "stayTuned": "Pronto conocerás nuestro ",
+    "stayTunedRemark": "artículo recomendado de ",
+    "end": "Eso es todo por ahora",
+    "endRemark": "¿No te quieres perder de nada?",
+    "newsletter": {
+      "title": "¡Escríbenos un correo!",
+      "copy": "Suscríbete a nuestro newsletter y nunca te pierdas de nuestro blog",
+      "email": "¿A dónde te escribimos?",
+      "nextBlog": "Una idea para el blog (Opcional)",
+      "subscribe": "Suscribirme"
+    }
   },
   "contact": {
     "actions": {

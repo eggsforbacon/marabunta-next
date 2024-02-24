@@ -14,7 +14,6 @@ export namespace Blog {
         date: string,
         title: string,
         slug: string,
-        twClass? : string,
         category: Category,
         featured: boolean,
         description: string,

@@ -17,7 +17,7 @@ export async function getBlogs(locale? : Locale) {
         },
     }
 
-    const {data, error} = await fetchURI<Strapi.MultipleResponse>(`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&sort=fecha%3Adesc&populate=*`, options);
+    const {data} = await fetchURI<Strapi.MultipleResponse>(`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&sort=fecha%3Adesc&populate=*`, options);
 
     const blogs: Blog.Attributes [] = [];
 
@@ -40,17 +40,14 @@ export async function getMonthlyFeatured(month: Month, locale? : Locale) {
     const normalizedMonth = `${month}`.padStart(2, '0');
     const {data} = await fetchURI<Strapi.MultipleResponse>(`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[featured][$eq]=true&filters[fecha][$contains]=-${normalizedMonth}-&sort=fecha%3Adesc&populate=*`, options);
     const featuredArray: Blog.Attributes[] = [];
-    let featured: Blog.Attributes = Blog.EmptyAttributes;
 
-    if (data !== null && data.length !== 0) {
+    if (data !== null) {
         data.forEach((feat) => {
             const attributes : {[key : string] : any} = feat.attributes;
             featuredArray.push({...mapStrapiToBlog(attributes), featured: true});
         });
-
-        featured = featuredArray[0];
     }
-    return {featured}
+    return {featuredArray}
 }
 
 export async function searchTitle(query : string, locale? : Locale) {

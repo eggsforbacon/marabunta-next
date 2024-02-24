@@ -1,4 +1,20 @@
 {
+  "common": {
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ]
+  },
   "nav": {
     "home": "Identity",
     "services": "Services",
@@ -156,9 +172,20 @@
       "Strategy",
       "Production"
     ],
-    "featured": "Featured article",
+    "featured": "Featured article ",
     "featuredRemark": "this ",
-    "by": "by"
+    "by": "by",
+    "stayTuned": "Stay tuned for our ",
+    "stayTunedRemark": "featured article this ",
+    "end": "That's it for now",
+    "endRemark": "Don't want to miss a beat?",
+    "newsletter": {
+      "title": "Hit our inbox!",
+      "copy": "Suscribe to our newsletter and never miss a blogpost again",
+      "email": "Where should we email you?",
+      "nextBlog": "An idea for the blog (Optional)",
+      "subscribe": "Subscribe"
+    }
   },
   "contact": {
     "actions": {

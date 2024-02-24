@@ -7,6 +7,9 @@ type StrategyCard = {
 }
 
 export type Dictionary = {
+    "common": {
+        "months": string[];
+    },
     "nav": {
         "home": string,
         "services": string,
@@ -69,6 +72,17 @@ export type Dictionary = {
         "featured": string,
         "featuredRemark": string,
         "by": string,
+        "stayTuned": string,
+        "stayTunedRemark": string,
+        "end": string,
+        "endRemark": string,
+        "newsletter": {
+            "title": string,
+            "copy": string,
+            "email": string,
+            "nextBlog": string,
+            "subscribe": string,
+        }
     },
     "legal": {
         "title": string,
