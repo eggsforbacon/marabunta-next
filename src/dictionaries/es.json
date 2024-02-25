@@ -164,6 +164,7 @@
     ]
   },
   "blog": {
+    "loading": "Trayendo los últimos blogs, sólo para ti...",
     "title": "Blog",
     "copy": "Historias contadas desde el lente de nuestra experiencia.",
     "categories": [
@@ -178,6 +179,7 @@
       "estrategia": "Haz crecer tu negocio con estrategias de marketing y digital. Encuentra el camino hacia el éxito con nuestras guías y consejos prácticos.",
       "producción": "Organiza eventos memorables y optimiza tu logística con nuestros artículos sobre producción y eventos. Desde planificación hasta ejecución, te ayudamos a brillar."
     },
+    "dropdownDefaultOption": "Escoge un tema",
     "featured": "Nuestro artículo",
     "latest": "Lo último",
     "featuredRemark": "recomendado de ",

@@ -16,9 +16,7 @@ export async function getBlogs(locale? : Locale, filter?: Blog.Category | "") {
             "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
         },
     }
-    console.log(filter);
     const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&${filter !== "" && filter !== undefined && `filters[categoria][$eq]=${filter}&`}sort=fecha%3Adesc&populate=*`;
-    console.log(url)
     const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
 
     const blogs: Blog.Attributes [] = [];
@@ -27,7 +25,7 @@ export async function getBlogs(locale? : Locale, filter?: Blog.Category | "") {
         const attributes: { [key: string]: any; } = blog.attributes;
         blogs.push({...mapStrapiToBlog(attributes), featured: false});
     });
-    console.log(">>>", data);
+
     return {blogs};
 }
 

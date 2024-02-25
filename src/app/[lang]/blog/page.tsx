@@ -18,9 +18,9 @@ export default async function BlogPage({params: {lang}}: { params: { lang: Local
                 <span
                     className={"absolute top-0 w-full left-0 h-full pointer-events-none packed-dotted-background opacity-30 overflow-hidden"}/>
                 <div
-                    className={"relative w-full flex flex-col gap-6 lg:gap-0 lg:flex-row items-center justify-between md:px-52 lg:px-44 xl:px-64 pb-8 pt-28 lg:pt-40 text-center lg:text-start"}>
+                    className={"relative w-full flex flex-col gap-6 lg:gap-0 lg:flex-row items-center md:items-start lg:items-center justify-between md:justify-start lg:justify-between px-16 lg:px-44 xl:px-64 pb-8 pt-28 lg:pt-40 text-center lg:text-start"}>
                     <h1 className={"text-5xl lg:text-6xl font-bold"}>{blog.title}</h1>
-                    <p className={"text-center lg:text-end lg:w-128"}>{blog.copy}</p>
+                    <p className={"text-center md:text-start lg:text-end lg:w-128"}>{blog.copy}</p>
                 </div>
                 <span className={"relative h-px bg-neutral-300 w-full"}/>
                 <> {/* Blogs context */}

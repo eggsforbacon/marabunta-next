@@ -3,15 +3,21 @@
 import React from "react";
 import {useBlogStore} from "@/store/blogs";
 import {X} from "react-bootstrap-icons";
+import BlogDropdownMenu from "@/components/blog/BlogDropdownMenu";
 
 export default function BlogFilters({s}: { s: { [key: string]: any } }) {
 
     const {blog} = s;
 
-    const { filter, changeFilter : setFilter } = useBlogStore();
+    const { filter, changeFilter : setFilter, toggleDropdown } = useBlogStore();
+
+    function closeFilters() {
+        setFilter("");
+        toggleDropdown(false);
+    }
 
     return (
-        <div className={"w-full flex items-center md:justify-center lg:justify-start"}>
+        <div className={"w-full flex items-center px-6 md:justify-center lg:justify-start"}>
             <ul className={"hidden uppercase font-normal text-lg lg:flex items-center justify-start gap-16 px-64"}>
                 <li>
                     <button
@@ -34,18 +40,23 @@ export default function BlogFilters({s}: { s: { [key: string]: any } }) {
                         onClick={() => setFilter(blog.categories[3].toLowerCase())}>{blog.categories[3]}</button>
                 </li>
                 <li>
-                    <button
+                    <button disabled={filter === ""}
                         className={`${filter !== "" ? "opacity-100" : "opacity-0"} transition-all duration-200 ease-in-out border-2 border-off-white/40 hover:border-off-white group p-2 flex items-center justify-center rounded-full`}
                         onClick={() => setFilter("")}><X className={"transition-all duration-200 ease-in-out group-hover:fill-off-white fill-off-white/40"}/></button>
                 </li>
             </ul>
-            <select
-                className={"mt-6 lg:hidden form-select bg-off-white/10 border-none backdrop-blur-2xl rounded-lg py-2 px-8 text-start text-ellipsis text-xl w-80"}>
-                <option value={"1"}>{blog.categories[0]}</option>
-                <option value={"2"}>{blog.categories[1]}</option>
-                <option value={"3"}>{blog.categories[2]}</option>
-                <option value={"4"}>{blog.categories[3]}</option>
-            </select>
+            <div
+                className={`relative mt-6 lg:hidden w-full flex items-center justify-stretch ${filter !== "" ? "gap-4" : "gap-0"}`}>
+                <BlogDropdownMenu
+                    defaultOption={blog.dropdownDefaultOption}
+                    options={blog.categories}/>
+                <button
+                    disabled={filter === ""}
+                    className={`flex-none ${filter !== "" ? "opacity-100 p-2" : "opacity-0 w-0 p-0"} transition-all duration-200 ease-in-out border-2 border-off-white/40 hover:border-off-white group p-2 flex items-center justify-center rounded-full`}
+                    onClick={closeFilters}><X
+                    className={"transition-all duration-200 ease-in-out group-hover:fill-off-white fill-off-white/40"}/>
+                </button>
+            </div>
         </div>
     );
 }

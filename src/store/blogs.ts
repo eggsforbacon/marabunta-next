@@ -9,6 +9,8 @@ interface BlogsState {
     changePage: (to : number) => void;
     filter: Category | "";
     changeFilter: (to: Category | "") => void;
+    dropdownState: boolean;
+    toggleDropdown : (open : boolean) => void;
 }
 
 export const useBlogStore = create<BlogsState>()((set) => ({
@@ -26,4 +28,6 @@ export const useBlogStore = create<BlogsState>()((set) => ({
             filter: to
         };
     }),
+    dropdownState: false,
+    toggleDropdown: (open) => set((_) => ({dropdownState: open})),
 }));

@@ -20,7 +20,7 @@ export default function Blogs({lang, s}: { lang: Locale, s: { [key: string]: any
 
     const {
         data: {blogs},
-    } = useSWR(['getBlogs', lang, filter], () => getBlogs(lang, filter), {fallbackData: {blogs: [Blog.EmptyAttributes]}});
+    } = useSWR(['getBlogs', lang, filter], () => getBlogs(lang, filter), {fallbackData: {blogs: []}});
     const {
         data: {featuredArray},
     } = useSWR(['getMonthlyFeatured', 1, lang, filter], () => getMonthlyFeatured(month, lang), {fallbackData: {featuredArray: []}});
@@ -51,7 +51,6 @@ export default function Blogs({lang, s}: { lang: Locale, s: { [key: string]: any
 
     function renderBlogs() {
         const filteredBlogs = filter !== "" && blogs.length !== 1 ? blogs.slice(1) : blogs;
-        console.log(filteredBlogs);
         return filteredBlogs.map((blog, i) => {
             const weight: 1 | 2 | 3 = i % 3 === 0 ? 3 : i % 2 === 0 ? 2 : 1;
             const {
@@ -75,9 +74,9 @@ export default function Blogs({lang, s}: { lang: Locale, s: { [key: string]: any
                     <Image
                         src={`${process.env.NEXT_PUBLIC_STRAPI_URL ?? ""}${thumbnail.data.attributes.url}`}
                         alt={thumbnail.data.attributes.alternativeText! ?? "No alt text"}
-                        objectFit={"cover"}
                         height={thumbnail.data.attributes.height}
                         width={thumbnail.data.attributes.width}
+                        priority={i <= 1}
                         className={styles[weight]}/>
                 </BlogCard>
             );
@@ -117,7 +116,7 @@ export default function Blogs({lang, s}: { lang: Locale, s: { [key: string]: any
                     </>
                 ) : (
                     <>
-                        <div className={"flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-0"}>
+                        <div className={"flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 lg:gap-0 md:-mx-6 md:px-16 lg:mx-0 lg:px-0"}>
                             <h2 className={"text-4xl md:text-5xl lg:text-6xl text-off-white font-bold tracking-wider"}>{filter.toUpperCase()}</h2>
                             <p className={"text-start lg:w-128"}>{blog.categoryDescriptions[filter]}</p>
                         </div>
@@ -125,11 +124,11 @@ export default function Blogs({lang, s}: { lang: Locale, s: { [key: string]: any
                             <Link href={`/blog/${blogs[0].slug}`}
                                 className={`flex items-stretch box-border p-2 rounded-2xl ${categoryStyles[filter].outer}`}>
                                 <div
-                                    className={`w-full h-144 lg:h-136 rounded-2xl border-2 ${categoryStyles[filter].inner} flex flex-col items-start justify-start pt-8 pb-16 px-16 gap-16`}>
+                                    className={`w-full h-128 md:h-144 lg:h-136 rounded-2xl border-2 ${categoryStyles[filter].inner} flex flex-col items-start justify-start pt-8 pb-16 px-6 lg:px-16 gap-16`}>
                                     <label>{blog.latest}</label>
                                     <div className={"flex flex-col items-start justify-end gap-4 h-full"}>
-                                        <h1 className={"text-7xl lg:text-8xl font-bold"}>{blogs[0].title}</h1>
-                                        <p className={"text-2xl lg:text-3xl font-semibold"}>{blogs[0].excerpt}</p>
+                                        <h1 className={"text-4xl lg:text-8xl font-bold"}>{blogs[0].title}</h1>
+                                        <p className={"text-xl lg:text-3xl font-semibold"}>{blogs[0].excerpt}</p>
                                     </div>
                                 </div>
                             </Link>
@@ -152,8 +151,7 @@ export default function Blogs({lang, s}: { lang: Locale, s: { [key: string]: any
                     :
                     <>
                         <div className={"text-off-white w-full flex flex-col items-center justify-center gap-6"}>
-                            <h2 className={"text-3xl lg:text-4xl"}>{blog.notFound}</h2>
-                            <p className={"text-xl lg:text-2xl"}>{blog.notFoundCTA}</p>
+                            <h2 className={"text-center font-semi-bold text-xl lg:text-53xl"}>{blog.loading}</h2>
                         </div>
                         <span className={"w-full h-px bg-off-white/50"}/>
                     </>

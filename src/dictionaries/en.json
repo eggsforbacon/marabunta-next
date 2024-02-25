@@ -164,6 +164,7 @@
     ]
   },
   "blog": {
+    "loading": "Fetching the latest blogs, just for you...",
     "title": "Blog",
     "copy": "Stories we tell from under the lens of our experience.",
     "categories": [
@@ -178,6 +179,7 @@
       "strategy": "Grow your business with marketing and digital strategies. Find the path to success with our practical guides and advice.",
       "production": "Organize memorable events and optimize your logistics with our articles on production and events. From planning to execution, we help you shine."
     },
+    "dropdownDefaultOption": "Pick a topic",
     "featured": "Featured article ",
     "latest": "Latest",
     "featuredRemark": "this ",

@@ -70,6 +70,7 @@ export type Dictionary = {
         "copy": string,
         "categories": string[],
         "categoryDescriptions": {[key : string] : string}
+        "dropdownDefaultOption": string,
         "featured": string,
         "latest": string,
         "featuredRemark": string,
