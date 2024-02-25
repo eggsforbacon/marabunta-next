@@ -69,9 +69,13 @@ export type Dictionary = {
         "title": string,
         "copy": string,
         "categories": string[],
+        "categoryDescriptions": {[key : string] : string}
         "featured": string,
+        "latest": string,
         "featuredRemark": string,
         "by": string,
+        "notFound": string,
+        "notFoundCTA": string,
         "stayTuned": string,
         "stayTunedRemark": string,
         "end": string,

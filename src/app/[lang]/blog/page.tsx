@@ -24,18 +24,16 @@ export default async function BlogPage({params: {lang}}: { params: { lang: Local
                 </div>
                 <span className={"relative h-px bg-neutral-300 w-full"}/>
                 <> {/* Blogs context */}
-                    <BlogFilters s={{blog}} />
+                    <BlogFilters s={{blog}}/>
                     <Blogs lang={lang} s={{blog, months}}/>
                 </>
-                <span className={"w-full h-px bg-off-white/50"}/>
                 <section
                     id={"newsletter"}
                     className={"relative text-off-white w-full flex flex-col items-center justify-start gap-8"}>
-                    <p className={"text-4xl md:text-5xl px-6 text-center md:px-0 text-off-white lg:text-off-white/80 font-bold lg:font-normal transition-all duration-300 ease-in-out hover:tracking-wider hover:font-bold hover:text-off-white"}>{blog.end}</p>
                     <section
                         className={"w-full bg-black px-6 lg:px-16 2xl:px-64 py-32 flex flex-col items-center lg:items-stretch justify-start gap-16"}>
                         <h3 className={"text-center lg:text-start text-xl md:text-2xl xl:text-3xl font-semibold tracking-widest"}>{blog.endRemark}</h3>
-                        <NewsletterForm lang={lang} s={{blog, terms}} />
+                        <NewsletterForm lang={lang} s={{blog, terms}}/>
                     </section>
                 </section>
             </section>

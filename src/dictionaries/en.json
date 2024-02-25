@@ -172,9 +172,18 @@
       "Strategy",
       "Production"
     ],
+    "categoryDescriptions": {
+      "marabunta": "Discover the latest from Marabunta: news, ideas, and updates. Explore our world and find your favorites, from top lists to music albums.",
+      "design": "Immerse yourself in the world of design with trends, tips, and inspiration. Find your creativity and bring it to life with our ideas and resources.",
+      "strategy": "Grow your business with marketing and digital strategies. Find the path to success with our practical guides and advice.",
+      "production": "Organize memorable events and optimize your logistics with our articles on production and events. From planning to execution, we help you shine."
+    },
     "featured": "Featured article ",
+    "latest": "Latest",
     "featuredRemark": "this ",
     "by": "by",
+    "notFound": "Woah! It's empty right now",
+    "notFoundCTA": "But stay tuned, we'll have something for you soon",
     "stayTuned": "Stay tuned for our ",
     "stayTunedRemark": "featured article this ",
     "end": "That's it for now",
