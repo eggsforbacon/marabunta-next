@@ -1,6 +1,5 @@
 "use client"
 
-import {Locale} from "@/i18n.config";
 import useSWR from "swr";
 import {getSingleBlog} from "@/services/blog";
 import {Blog} from "@/interfaces/blog";
@@ -18,23 +17,23 @@ export default function SlugContent({slug, s}: { slug: string, s: { [_: string]:
     const {title, date, author, excerpt, cover, body, category} = post;
 
     const outerColor: { [key in Blog.Category]: string } = {
-        ["marabunta"]: "bg-neutral-300",
-        ["diseño"]: "bg-red-300",
-        ["design"]: "bg-red-300",
-        ["estrategia"]: "bg-sky-300",
-        ["strategy"]: "bg-sky-300",
-        ["producción"]: "bg-amber-300",
-        ["production"]: "bg-amber-300",
+        ["marabunta"]: "bg-neutral-200",
+        ["diseño"]: "bg-marabunta-red",
+        ["design"]: "bg-marabunta-red",
+        ["estrategia"]: "bg-marabunta-cyan",
+        ["strategy"]: "bg-marabunta-cyan",
+        ["producción"]: "bg-marabunta-yellow-alt",
+        ["production"]: "bg-marabunta-yellow-alt",
     }
 
-    const innerColor: { [key in Blog.Category]: string } = {
-        ["marabunta"]: "bg-off-white",
-        ["diseño"]: "bg-red-100",
-        ["design"]: "bg-red-100",
-        ["estrategia"]: "bg-sky-100",
-        ["strategy"]: "bg-sky-100",
-        ["producción"]: "bg-amber-100",
-        ["production"]: "bg-amber-100",
+    const titleColor : { [key in Blog.Category]: string } = {
+        ["marabunta"]: "text-off-black",
+        ["diseño"]: "text-off-white",
+        ["design"]: "text-off-white",
+        ["estrategia"]: "text-off-white",
+        ["strategy"]: "text-off-white",
+        ["producción"]: "text-off-black",
+        ["production"]: "text-off-black",
     }
 
     const { month, day, year } = (() => {
@@ -53,12 +52,12 @@ export default function SlugContent({slug, s}: { slug: string, s: { [_: string]:
     return (
         <article
             className={`relative h-full ${outerColor[category]} flex flex-col items-stretch justify-start gap-4 pt-24 lg:py-32 lg:px-6`}>
-            <div className={"z-0 sticky top-0 left-0 w-full lg:relative flex flex-col lg:flex-row lg:items-center lg:justify-around px-6 lg:px-44 py-32"}>
-                <h1 className={"text-3xl lg:text-6xl font-bold max-w-xl"}>{title}</h1>
+            <div className={`z-0 sticky top-0 left-0 w-full lg:relative flex flex-col lg:flex-row lg:items-center lg:justify-around px-6 lg:px-44 py-32 ${titleColor[category]}`}>
+                <h1 className={"text-3xl lg:text-7xl font-bold max-w-3xl"}>{title}</h1>
                 <p className={"text-xl lg:text-end lg:text-2xl font-semibold max-w-xl"}>{excerpt}</p>
                 <span className={`block lg:hidden w-ful h-96 ${outerColor[category]}`} />
             </div>
-            <section className={`lg:mt-0 -mt-96 relative flex flex-col items-stretch justify-start gap-16 lg:gap-32 overflow-clip rounded-2xl ${innerColor[category]} pb-32`}>
+            <section className={`lg:mt-0 -mt-96 relative flex flex-col items-stretch justify-start gap-16 lg:gap-32 overflow-clip rounded-2xl bg-off-white pb-32`}>
                 <div className={"overflow-clip w-full aspect-video relative"}>
                     <Image src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${cover.data.attributes.url}`} alt={cover.data.attributes.alternativeText ?? "No alt"}
                            width={cover.data.attributes.width} height={cover.data.attributes.height} priority quality={100}
@@ -103,7 +102,7 @@ export default function SlugContent({slug, s}: { slug: string, s: { [_: string]:
                     </section>
                 </div>
             </section>
-            <section className={`relative rounded-2xl ${innerColor[category]} p-16`}>  {/*recommended*/}
+            <section className={`relative rounded-2xl bg-off-white p-16`}>  {/*recommended*/}
 
             </section>
             <section className={"relative p-16"}> {/* newsletter */}

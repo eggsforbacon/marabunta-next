@@ -120,3 +120,7 @@ export function mapStrapiToBlog (attributes : {[key : string] : any}) : Blog.Att
         localizations: [{}] as [Object]
     }
 }
+
+export function shareToTwitter(slug : string, shareText : string) {
+    return `https://twitter.com/intent/share?text=${shareText}%0A%0Ahttps%3A//marabunta.co/blog/${slug}`;
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import {Newspaper} from "react-bootstrap-icons";
+import {EnvelopePaperHeart} from "react-bootstrap-icons";
 
 export const ScrollToNewsLetter = (props : {className : string,}) => {
     return (
@@ -10,7 +10,7 @@ export const ScrollToNewsLetter = (props : {className : string,}) => {
                 section!.scrollIntoView( { behavior: 'smooth', block: 'start' } );
             }
         }}>
-            <Newspaper size={48} className={"fill-white"}/>
+            <EnvelopePaperHeart size={48} className={"fill-white"}/>
         </button>
     );
 }
