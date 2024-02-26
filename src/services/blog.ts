@@ -50,7 +50,39 @@ export async function getMonthlyFeatured(month: Month, locale? : Locale) {
     return {featuredArray}
 }
 
-export async function searchTitle(query : string, locale? : Locale) {
+export async function getSingleBlog(slug : string) {
+    const options = {
+        "method": "GET",
+        "headers": {
+            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
+        }
+    }
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?populate=*`;
+    const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
+
+    let singlePost;
+    if (data !== null) {
+        for (const feat of data) {
+            const attributes : {[key : string] : any} = feat.attributes;
+            if (attributes.slug === slug) {
+                singlePost = attributes;
+                break;
+            }
+        }
+    }
+    let post;
+
+    try {
+        post = mapStrapiToBlog(singlePost!);
+        console.log(post);
+    } catch (e) {
+        post = Blog.EmptyAttributes;
+    }
+
+    return {post}
+}
+
+export async function searchByTitle(query : string, locale? : Locale) {
     const options = {
         "method": "GET",
         "headers": {

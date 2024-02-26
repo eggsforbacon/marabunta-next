@@ -196,6 +196,9 @@
       "email": "Where should we email you?",
       "nextBlog": "An idea for the blog (Optional)",
       "subscribe": "Subscribe"
+    },
+    "entry" : {
+      "publishedOn": "Published"
     }
   },
   "contact": {

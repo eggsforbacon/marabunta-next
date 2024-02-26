@@ -87,6 +87,9 @@ export type Dictionary = {
             "email": string,
             "nextBlog": string,
             "subscribe": string,
+        },
+        "entry" : {
+            "publishedOn" : string,
         }
     },
     "legal": {

@@ -146,7 +146,7 @@ export default function Blogs({lang, s}: { lang: Locale, s: { [key: string]: any
                             }
                         </div>
                         <span className={"w-full h-px bg-off-white/50"}/>
-                        <p className={"text-4xl md:text-5xl px-6 text-center md:px-0 text-off-white lg:text-off-white/80 font-bold lg:font-normal transition-all duration-300 ease-in-out hover:tracking-wider hover:font-bold hover:text-off-white"}>{blog.end}</p>
+                        <p className={"text-4xl md:text-5xl py-16 px-6 text-center md:px-0 text-off-white lg:text-off-white/80 font-bold lg:font-normal transition-all duration-300 ease-in-out hover:tracking-wider hover:font-bold hover:text-off-white"}>{blog.end}</p>
                     </>
                     :
                     <>
