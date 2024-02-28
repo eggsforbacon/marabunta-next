@@ -13,24 +13,24 @@ export default function Strategy({s}: { s: { [key: string]: any } }) {
         "bg-marabunta-cyan",
         "bg-marabunta-red",
         "bg-marabunta-yellow-alt",
-        "bg-off-black",
+        "bg-marabunta-red",
         "bg-marabunta-cyan"
     ];
 
     const colors = [
-        "text-off-white lg:text-off-black",
         "text-off-white lg:text-off-white",
-        "text-off-black",
         "text-off-white lg:text-off-white",
-        "text-off-white lg:text-off-black",
+        "text-off-black lg:text-off-white",
+        "text-off-white lg:text-off-white",
+        "text-off-white",
     ];
 
     const borderColors = [
-        "lg:border-r-off-black",
         "lg:border-r-off-white",
-        "lg:border-r-off-black",
         "lg:border-r-off-white",
-        "lg:border-r-off-black",
+        "lg:border-r-off-white",
+        "lg:border-r-off-white",
+        "lg:border-r-off-white",
     ];
 
     const z = [
@@ -41,17 +41,23 @@ export default function Strategy({s}: { s: { [key: string]: any } }) {
         "z-10",
     ];
 
+    /* <Image key={0} src={"/images/home/webp/360/1.webp"} alt={""} width={1920} height={1080}
+               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 left-0 h-full max-w-none object-cover"}/>  */
+
     const images = [
-        <Image key={0} src={"/images/home/webp/360/1.webp"} alt={""} width={1920} height={1080} quality={88}
-               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 scale-[1.5] -left-80 lg:-left-52 top-10 lg:top-0 h-full max-w-none object-contain lg:object-cover"}/>,
+        <video key={0} playsInline loop muted controls={false} autoPlay
+               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 left-0 h-full max-w-none object-cover"}
+               width={1920} height={1080}>
+            <source src={"/videos/webm/360/1.webm"} type={"video/webm"}/>
+        </video>,
         <Image key={1} src={"/images/home/webp/360/2.webp"} alt={""} width={1920} height={1080}
-               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-75 -left-52 top-0 h-full max-w-none object-cover"}/>,
+               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 -left-2 h-full max-w-none object-cover"}/>,
         <Image key={2} src={"/images/home/webp/360/3.webp"} alt={""} width={1920} height={1080}
-               className={"absolute scale-125 lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 -right-96 -top-20 lg:top-0 h-full max-w-none object-contain lg:object-cover"}/>,
+               className={"absolute scale-125 lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 -left-6 -top-20 lg:top-0 h-full max-w-none object-cover"}/>,
         <Image key={3} src={"/images/home/webp/360/4.webp"} alt={""} width={1920} height={1080}
-               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-125 -right-112 lg:-right-120 top-0 lg:top-14 h-full max-w-none object-cover"}/>,
+               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-125 -left-2 top-0 lg:top-14 h-full max-w-none object-cover"}/>,
         <Image key={4} src={"/images/home/webp/360/5.webp"} alt={""} width={1920} height={1080}
-               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-75 -left-52 top-0 h-full max-w-none object-cover"}/>
+               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-75 -left-2 top-0 h-full max-w-none object-cover"}/>
     ];
 
     return (
@@ -62,7 +68,8 @@ export default function Strategy({s}: { s: { [key: string]: any } }) {
                     return (
                         <StrategyCard title={c.title} subtitle={c.subtitle} description={c.description} angle={i * 90}
                                       background={backgrounds[i]} color={colors[i]} borderRColor={borderColors[i]}
-                                      z={z[i]} image={images[i]} key={i} angleColor={backgrounds[i] === "bg-marabunta-cyan" ? "text-off-white" : backgrounds[i] === "bg-marabunta-yellow-alt" ? "text-off-white lg:text-off-black" : undefined}/>
+                                      z={z[i]} image={images[i]} key={i}
+                                      angleColor={backgrounds[i] === "bg-marabunta-cyan" ? "text-off-white" : i === 3 ? "text-off-white lg:text-off-black" : undefined}/>
                     );
                 })
             }

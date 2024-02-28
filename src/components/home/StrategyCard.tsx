@@ -32,7 +32,7 @@ export default function StrategyCard(
     return (
         <div
             className={`${color} flex flex-col justify-end items-stretch w-full h-[35rem] lg:h-[60.5rem] ${background} sticky bottom-0 left-0 ${z} overflow-clip`}>
-            <div className={"hidden lg:block h-full w-full object-cover lg:w-[35%] absolute right-0 overflow-clip top-0"}>
+            <div className={"hidden lg:block h-full w-full object-cover lg:w-full absolute right-0 overflow-clip top-0"}>
                 {image}
                 <span
                     className={`${background} mix-blend-overlay pointer-events-none absolute top-0 left-0 w-full h-full`}/>
