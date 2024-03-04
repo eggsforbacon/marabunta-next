@@ -78,7 +78,7 @@ module.exports = {
                         'purple': '#4d2d68',
                     },
                     'pueblo-22': {
-                        'fuchsia': '#a01880',
+                        'fuchsia': '#750c62',
                         'cyan': '#009aa3',
                         'yellow': '#f7b905',
                         'salmon-red': '#e8494b',
