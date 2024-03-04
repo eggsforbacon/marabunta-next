@@ -16,3 +16,8 @@ export type ProjectCardMetadata = {
     chips : ServiceChip[]
 }
 
+export type AboutClinicannabis = {
+    title : string,
+    articles : string[]
+}
+

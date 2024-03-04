@@ -115,7 +115,14 @@
           "Web",
           "Media Production",
           "Media Campaign"
-        ]
+        ],
+        "about": {
+          "title": "Concept",
+          "articles": [
+            "Clinicannabis is recognized as the only clinic certified in the management of medical cannabis in the southwest of the country. It has different medical care services to improve the quality of life of patients, through tailored alternatives focused on medical cannabis, advanced physiotherapy, serum therapy, functional medicine and alternative medicine, and an Wellness Experience Center for wellness and education on a healthy lifestyle. In addition, it has a medical expert team to provide humanized care and high quality cannabis-based medicines.",
+            "This clinic hosted the Iberoamerican Seminar on Cannabinoids in Clinical Practice in Cali. A great city and academic event that took place on June 16, 2023 in 4 cities total and brought together experts and leaders around medical cannabis in the world; to deliver conceptual and practical tools to health professionals on how to take advantage of the therapeutic effects of this plant."
+          ]
+        }
       },
       {
         "title": "Junior Pan-American Games 2021",
