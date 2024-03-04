@@ -167,6 +167,15 @@
           "Material POP",
           "Producción de Eventos"
         ]
+      },
+      "soyHumedal" : {
+        "title": "Soy Humedal",
+        "categories": [
+          "Producción de Medios"
+        ],
+        "about": {
+
+        }
       }
     }
   },
