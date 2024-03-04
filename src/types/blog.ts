@@ -1,4 +1,4 @@
-import {Strapi} from "@/interfaces/strapi";
+import {Strapi} from "@/types/strapi";
 
 export namespace Blog {
     export type Category =

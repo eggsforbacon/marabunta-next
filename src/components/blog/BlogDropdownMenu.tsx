@@ -2,7 +2,7 @@
 
 import React, {useEffect, useState} from "react";
 import {useBlogStore} from "@/store/blogs";
-import {Blog} from "@/interfaces/blog";
+import {Blog} from "@/types/blog";
 
 export default function BlogDropdownMenu({defaultOption, options}: { defaultOption? : string, options: string[] }) {
 

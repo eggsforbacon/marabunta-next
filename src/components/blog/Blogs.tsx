@@ -3,20 +3,21 @@
 import BlogCard from "@/components/blog/BlogCard";
 import {Locale} from "@/i18n.config";
 import Image from "next/image";
-import {getBlogs, getMonth, getMonthlyFeatured} from "@/services/blog";
+import {getBlogs, getMonthlyFeatured} from "@/services/blog";
+import {getCurrentMonth} from "@/services/common";
 import useSWR from 'swr';
-import {Blog} from "@/interfaces/blog";
+import {Blog} from "@/types/blog";
 import {ScrollToNewsLetter} from "@/components/blog/ScrollToNewsletter";
 import React from "react";
 import {useBlogStore} from "@/store/blogs";
 import Link from "next/link";
 
-export default function Blogs({lang, s}: { lang: Locale, s: { [key: string]: any } }) {
+export default function Blogs({lang, s}: { lang: Locale, s: { [_: string]: any } }) {
 
     const {filter} = useBlogStore();
 
     const {blog, months} = s;
-    const month = getMonth();
+    const month = getCurrentMonth();
 
     const {
         data: {blogs},

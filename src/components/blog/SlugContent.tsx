@@ -2,7 +2,7 @@
 
 import useSWR from "swr";
 import {getSingleBlog} from "@/services/blog";
-import {Blog} from "@/interfaces/blog";
+import {Blog} from "@/types/blog";
 import {type BlocksContent, BlocksRenderer} from '@strapi/blocks-react-renderer';
 import Image from "next/image";
 

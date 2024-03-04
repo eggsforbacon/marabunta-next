@@ -8,9 +8,10 @@ import Services from "@/components/home/Services";
 import Reel from "@/components/home/Reel";
 import Strategy from "@/components/home/Strategy";
 import CallToAction from "@/components/home/CallToAction";
+import Team from "@/components/home/Team";
 
 export default async function Home({params : {lang}} : {params : {lang : Locale}}) {
-    const { nav, home } = await getDictionary(lang);
+    const { nav, home} = await getDictionary(lang);
 
     return (
         <main>
@@ -21,6 +22,7 @@ export default async function Home({params : {lang}} : {params : {lang : Locale}
                 <Services s={home.services} lang={lang}/>
                 <Reel />
                 <Strategy s={home.strategy}/>
+                <Team /*s={home.team}*/ />
                 <CallToAction />
             </section>
         </main>

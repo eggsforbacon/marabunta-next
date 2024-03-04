@@ -1,21 +1,11 @@
-import {Strapi} from "@/interfaces/strapi";
+import {Strapi} from "@/types/strapi";
 import {fetchURI} from "@/lib/api";
 import {Month} from "@/types/common";
 import {Locale} from "@/i18n.config";
-import {Blog} from "@/interfaces/blog";
-
-export const normalizeLocale = (locale : Locale) => {
-    if (locale === "es") return "es-CO";
-    return locale;
-}
+import {Blog} from "@/types/blog";
+import {normalizeLocale, options} from "@/services/common";
 
 export async function getBlogs(locale? : Locale, filter?: Blog.Category | "") {
-    const options = {
-        "method": "GET",
-        "headers": {
-            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
-        },
-    }
     const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&${filter !== "" && filter !== undefined && `filters[categoria][$eq]=${filter}&`}sort=fecha%3Adesc&populate=*`;
     const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
 
@@ -30,12 +20,6 @@ export async function getBlogs(locale? : Locale, filter?: Blog.Category | "") {
 }
 
 export async function getMonthlyFeatured(month: Month, locale? : Locale) {
-    const options = {
-        "method": "GET",
-        "headers": {
-            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
-        },
-    }
     const normalizedMonth = `${month}`.padStart(2, '0');
     const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[featured][$eq]=true&filters[fecha][$contains]=-${normalizedMonth}-&sort=fecha%3Adesc&populate=*`;
     const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
@@ -51,12 +35,6 @@ export async function getMonthlyFeatured(month: Month, locale? : Locale) {
 }
 
 export async function getSingleBlog(slug : string) {
-    const options = {
-        "method": "GET",
-        "headers": {
-            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
-        }
-    }
     const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?populate=*`;
     const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
 
@@ -83,24 +61,11 @@ export async function getSingleBlog(slug : string) {
 }
 
 export async function searchByTitle(query : string, locale? : Locale) {
-    const options = {
-        "method": "GET",
-        "headers": {
-            "Authorization": `Bearer ${process.env.NEXT_PUBLIC_STRAPI_TOKEN}`
-        }
-    }
-
     const {data: result} = await fetchURI<Strapi.MultipleResponse>(`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[titulo][$contains]=${query}&sort=fecha%3Adesc&populate=*`, options);
     return {result}
 }
 
-export function getMonth() : Month {
-    const d = new Date();
-    const month = d.getMonth();
-    return (month + 1) as Month;
-}
-
-export function mapStrapiToBlog (attributes : {[key : string] : any}) : Blog.Attributes {
+function mapStrapiToBlog (attributes : {[key : string] : any}) : Blog.Attributes {
     return {
         date: attributes.fecha,
         title: attributes.titulo,

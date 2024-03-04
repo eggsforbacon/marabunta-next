@@ -1,5 +1,5 @@
 import {create} from "zustand";
-import {Blog} from "@/interfaces/blog";
+import {Blog} from "@/types/blog";
 import Category = Blog.Category;
 
 interface BlogsState {
