@@ -86,8 +86,8 @@
   "work": {
     "heading": "Comunicamos Ideas",
     "copy": "Estos son algunos de los proyectos que hemos ayudado a construir.",
-    "projects": [
-      {
+    "projects": {
+      "cali":{
         "title": "Cali, Volvamos a Sonreír",
         "categories": [
           "Marketing Social",
@@ -97,7 +97,7 @@
           "Producción de Medios"
         ]
       },
-      {
+      "fiestaMiPrueblo2022": {
         "title": "La Fiesta de mi Pueblo, lo que Somos",
         "categories": [
           "Marketing Social",
@@ -107,7 +107,7 @@
           "Producción de Medios"
         ]
       },
-      {
+      "clinicannabis": {
         "title": "Clinicannabis",
         "categories": [
           "Marketing Digital",
@@ -115,9 +115,16 @@
           "Web",
           "Producción de Medios",
           "Campaña de Medios"
-        ]
+        ],
+        "about": {
+          "title": "Concepto",
+          "articles": [
+            "Clinicannabis es la única clínica certificada en el manejo del cannabis medicinal en el suroccidente del país. Cuenta con diferentes opciones para  <strong>mejorar la calidad de vida de los pacientes,</strong> a través de alternativas personalizadas enfocadas en cannabis medicinal, fisioterapia avanzada, sueroterapia, medicina funcional y medicina alternativa y un Centro de Experiencia para el bienestar y aprendizaje de un estilo de vida saludable. Además, cuenta con un equipo médico experto en brindar atención humanizada y medicamentos a base de cannabis de alta calidad.",
+            "<strong>Esta clínica fue anfitriona en Cali del Seminario Iberoamericano de Cannabinoides en la Práctica Clínica.</strong>Un gran evento de ciudad y académico que se realizó el 16 de junio de 2023 en 4 ciudades del país y que reunió a expertos y líderes en torno al cannabis medicinal en el mundo; para entregar herramientas conceptuales y prácticas a los profesionales de la salud para hacer uso de los efectos terapéuticos de esta planta."
+          ]
+        }
       },
-      {
+      "panamericanos": {
         "title": "Juegos Panamericanos Junior 2021",
         "categories": [
           "Producción de Medios",
@@ -126,7 +133,7 @@
           "Material POP"
         ]
       },
-      {
+      "fondoMixto": {
         "title": "Rebranding Fondo Mixto",
         "categories": [
           "Estrategia Comunicativa",
@@ -136,7 +143,7 @@
           "Activación de Marca"
         ]
       },
-      {
+      "fiestaMiPrueblo2023": {
         "title": "Fiesta de mi Pueblo",
         "categories": [
           "Producción de Medios",
@@ -145,7 +152,7 @@
           "Material POP"
         ]
       },
-      {
+      "promotores": {
         "title": "Promotores Ambientales",
         "categories": [
           "Estrategia Comunicativa",
@@ -153,7 +160,7 @@
           "Material POP"
         ]
       },
-      {
+      "bioExpo": {
         "title": "BIO Expo 2019",
         "categories": [
           "Producción de Medios",
@@ -161,7 +168,7 @@
           "Producción de Eventos"
         ]
       }
-    ]
+    }
   },
   "blog": {
     "loading": "Trayendo los últimos blogs, sólo para ti...",
