@@ -39,7 +39,7 @@ export type Dictionary = {
     "work": {
         "heading": string,
         "copy": string,
-        "projects": {[key : string] : { "title": string, "categories": ServiceNames[], "about": AboutClinicannabis }}
+        "projects": {[key : string] : { "title": string, "subtitle"?: string, "categories": ServiceNames[], "about": AboutClinicannabis }}
     },
     "contact": {
         "actions": {

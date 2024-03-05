@@ -86,8 +86,8 @@
   "work": {
     "heading": "We Communicate Ideas",
     "copy": "These are some of the projects we have helped bring to life.",
-    "projects": [
-      {
+    "projects": {
+      "cali": {
         "title": "Cali, let's Smile Again (Cali, Volvamos a Sonreír)",
         "categories": [
           "Social Marketing",
@@ -97,7 +97,7 @@
           "Media Production"
         ]
       },
-      {
+      "fiestaMiPrueblo2022": {
         "title": "The Fiesta of my People, who we are (La Fiesta de mi Pueblo, lo que Somos)",
         "categories": [
           "Social Marketing",
@@ -107,8 +107,9 @@
           "Media Production"
         ]
       },
-      {
-        "title": "Clinicannabis",
+      "clinicannabis": {
+        "title": "Seminar <br />Ibero-american",
+        "subtitle": "in clinical practice",
         "categories": [
           "Digital Marketing",
           "Event Production",
@@ -124,7 +125,7 @@
           ]
         }
       },
-      {
+      "panamericanos": {
         "title": "Junior Pan-American Games 2021",
         "categories": [
           "Media Production",
@@ -133,7 +134,7 @@
           "POP Material"
         ]
       },
-      {
+      "fondoMixto": {
         "title": "Fondo Mixto Rebranding",
         "categories": [
           "Communication Strategies",
@@ -143,7 +144,7 @@
           "Brand Activation"
         ]
       },
-      {
+      "fiestaMiPrueblo2023": {
         "title": "Fiesta of my People (Fiesta de mi Pueblo)",
         "categories": [
           "Media Production",
@@ -152,7 +153,7 @@
           "POP Material"
         ]
       },
-      {
+      "promotores": {
         "title": "Environmental Promoters (Promotores Ambientales)",
         "categories": [
           "Communication Strategies",
@@ -160,7 +161,7 @@
           "POP Material"
         ]
       },
-      {
+      "bioExpo": {
         "title": "BIO Expo 2019",
         "categories": [
           "Media Production",
@@ -168,7 +169,7 @@
           "Event Production"
         ]
       }
-    ]
+    }
   },
   "blog": {
     "loading": "Fetching the latest blogs, just for you...",

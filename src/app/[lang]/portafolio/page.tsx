@@ -69,6 +69,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
 
     const content = [
         <article key={0} className={"absolute top-0 left-0 w-full h-full"}>
+            <a href="#">Ver</a>
             <Image src={"/images/projects/panamericanos/fore.jpg"} alt={""} width={504} height={672} quality={100}
                    className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
         </article>,
@@ -92,8 +93,8 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
         <article key={6} className={"absolute top-0 left-0 w-full h-full"}>
 
         </article>,
-        <article key={7} className={"absolute top-0 left-0 w-full h-full"}>
-
+        <article key={7} className={"absolute top-0 left-0 w-full h-full flex"}>
+            <a href="/portafolio/cannabinoides" className="hidden lg:flex items-center gap-2 bg-off-white/10 border-none backdrop-blur-xl rounded-lg p-2 m-auto text-3xl">Ver más</a>
         </article>,
         <article key={8} className={"absolute top-0 left-0 w-full h-full"}>
 
@@ -144,7 +145,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
                     top: -6350,
                     bottom: 120
                 }}
-                className={"box-border w-screen lg:w-fit cursor-grab lg:min-h-screen relative flex flex-col lg:flex-row items-center justify-start py-16 lg:p-16 gap-6 [perspective:10000px] active:cursor-grabbing"}
+                className={"box-border w-screen lg:w-fit cursor-grab lg:min-h-screen relative flex flex-col lg:flex-row items-center justify-start py-16 lg:p-16 gap-6 [perspective:10000px] active:cursor-grabbing mt-24"}
                 onMouseMove={handleVisorOver}
                 onMouseEnter={e => {
                     boundingRef.current = e.currentTarget.getBoundingClientRect();
@@ -206,7 +207,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
                 </button>
             </section>
             <section
-                className={"absolute top-28 lg:top-12 -translate-x-1/2 left-1/2 lg:translate-x-0 lg:left-28 flex items-center justify-center gap-2 font-light tracking-wide text-off-white text-lg"}>
+                className={"absolute top-28 lg:top-32 -translate-x-1/2 left-1/2 lg:translate-x-0 lg:left-28 flex items-center justify-center gap-2 font-light tracking-wide text-off-white text-lg"}>
                 <Link
                     className={"w-44 text-center box-border lg:box-content lg:w-auto bg-off-white/10 border-none backdrop-blur-2xl rounded-lg w- py-2 px-8 lg:text-start text-lg"}
                     href={"https://www.behance.net/MarabuntaAgencia"} target={"_blank"}>Behance</Link>
