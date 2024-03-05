@@ -28,14 +28,14 @@ export default async function Cannabinoides({params : {lang}} : {params : {lang 
       <section className={"w-full overflow-x-clip relative text-white"}>
         <span className="absolute top-36 left-[40%] text-3xl leading-7 mt-2" dangerouslySetInnerHTML={{__html: title ?? ''}} />
         <Image src={"/images/projects/clinicannabis/banner.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-none md:object-cover md:w-full h-max w-auto pointer-events-none select-none"}/>
           <span className="absolute bottom-36 left-[40%] text-5xl mb-2">{subtitle}</span>
           <span className="absolute bottom-36 left-[40%] text-5xl border-2 border-solid w-[440px]"></span>
       </section>
-      <section className={"text-start leading-[1.8] w-full overflow-x-clip px-48 py-36 bg-projects-clinicannabis-bgOrange"}>
-        <h5 className="text-2xl font-bold"><strong>{about?.title}</strong></h5>
+      <section className={"text-start leading-[1.8] w-full overflow-x-clip px-6 md:px-48 py-14 md:py-36 bg-projects-clinicannabis-bgOrange"}>
+        <h5 className="text-xl md:text-2xl font-bold text-center md:text-left"><strong>{about?.title}</strong></h5>
         {
-          about?.articles.map(item => <p className="pt-6" key={item} dangerouslySetInnerHTML={{__html: item}}/>)
+          about?.articles.map(item => <p className="pt-2 leading-6 md:leading-8 md:pt-6" key={item} dangerouslySetInnerHTML={{__html: item}}/>)
         }
       </section>
       <Image src={"/images/projects/clinicannabis/img-1.jpg"} alt={""} width={1920} height={594} quality={100}
