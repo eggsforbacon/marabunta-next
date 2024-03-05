@@ -5,13 +5,13 @@ import Navbar from "@/components/ui/Navbar";
 import {Locale} from "@/i18n.config";
 import Image from "next/image";
 import { getDictionary } from "@/lib/dictionary";
-import { AboutClinicannabis } from "@/types/work";
+import { ProjectAbout } from "@/types/work";
 
 export default async function Cannabinoides({params : {lang}} : {params : {lang : Locale}}) {
   const [nav, setNav] = useState<{ [key: string]: any }>([]);
   const [title, setTitle] = useState<string>()
   const [subtitle, setSubtitle] = useState<string>()
-  const [about, setAbout] = useState<AboutClinicannabis>();
+  const [about, setAbout] = useState<ProjectAbout>();
 
   useEffect(() => {
     getDictionary(lang).then((item) => {
