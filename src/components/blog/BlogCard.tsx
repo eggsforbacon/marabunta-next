@@ -3,7 +3,7 @@
 import {ReactNode} from "react";
 import useScreenSize from "@/hooks/useScreenSize";
 import Link from "next/link";
-import {Blog} from "@/interfaces/blog";
+import {Blog} from "@/types/blog";
 
 type BlogCardWeight = 1 | 2 | 3;
 
@@ -31,7 +31,7 @@ export default function BlogCard(
         author,
         children,
         s
-    }: {s : {[key : string] : any}} & _BlogCardComponents) {
+    }: {s : {[_ : string] : any}} & _BlogCardComponents) {
 
     const {width} = useScreenSize();
 
