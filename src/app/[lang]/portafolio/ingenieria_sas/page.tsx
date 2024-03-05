@@ -32,7 +32,7 @@ export default async function IngenieriaSass({params : {lang}} : {params : {lang
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
         <span className="absolute bottom-[-30px] md:bottom-[100px] left-[50%] w-[90%] md:w-[800px] text-center translate-x-[-50%] text-xl md:text-2xl mb-2" dangerouslySetInnerHTML={{__html: subtitle ?? ""}}/>
       </section>
-      <section className={"text-xl md:text-2xl text-start md:leading-[1.8] w-full overflow-x-clip px-6 md:px-48 py-14 md:py-36 bg-projects-ingenieria_sas-blue text-white"}>
+      <section className={"text-xl md:text-2xl text-start md:leading-[1.8] w-full overflow-x-clip px-6 md:px-72 py-14 md:py-36 bg-projects-ingenieria_sas-blue text-white"}>
         <h5 className="font-bold"><strong>{about?.title}</strong></h5>
         {
           about?.articles.map(item => <p className="pt-6" key={item} dangerouslySetInnerHTML={{__html: item}}/>)
