@@ -30,10 +30,10 @@ export default async function IngenieriaSass({params : {lang}} : {params : {lang
       <section className={"w-full overflow-x-clip relative text-white"}>
         <Image src={"/images/projects/ingenieria-sas/banner.jpg"} alt={""} width={1920} height={594} quality={100}
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
-        <span className="absolute bottom-[-30px] md:bottom-[100px] left-[50%] w-[90%] md:w-[500px] text-center translate-x-[-50%] text-xs md:text-xl mb-2" dangerouslySetInnerHTML={{__html: subtitle ?? ""}}/>
+        <span className="absolute bottom-[-30px] md:bottom-[100px] left-[50%] w-[90%] md:w-[800px] text-center translate-x-[-50%] text-xl md:text-2xl mb-2" dangerouslySetInnerHTML={{__html: subtitle ?? ""}}/>
       </section>
-      <section className={"text-start md:leading-[1.8] w-full overflow-x-clip px-6 md:px-48 py-14 md:py-36 bg-projects-ingenieria_sas-blue text-white"}>
-        <h5 className="text-xl md:text-2xl font-bold"><strong>{about?.title}</strong></h5>
+      <section className={"text-xl md:text-2xl text-start md:leading-[1.8] w-full overflow-x-clip px-6 md:px-48 py-14 md:py-36 bg-projects-ingenieria_sas-blue text-white"}>
+        <h5 className="font-bold"><strong>{about?.title}</strong></h5>
         {
           about?.articles.map(item => <p className="pt-6" key={item} dangerouslySetInnerHTML={{__html: item}}/>)
         }
