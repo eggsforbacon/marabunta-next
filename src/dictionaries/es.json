@@ -87,7 +87,7 @@
     "heading": "Comunicamos Ideas",
     "copy": "Estos son algunos de los proyectos que hemos ayudado a construir.",
     "projects": {
-      "cali":{
+      "cali": {
         "title": "Cali, Volvamos a Sonreír",
         "categories": [
           "Marketing Social",
@@ -108,7 +108,8 @@
         ]
       },
       "clinicannabis": {
-        "title": "Clinicannabis",
+        "title": "Seminario <br />Iberoamericano",
+        "subtitle": "en la práctica clínica",
         "categories": [
           "Marketing Digital",
           "Producción de Eventos",
