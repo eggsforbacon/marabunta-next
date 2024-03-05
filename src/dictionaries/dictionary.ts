@@ -1,4 +1,4 @@
-import {ServiceNames, AboutClinicannabis } from "@/types/work";
+import {ServiceNames, ProjectAbout } from "@/types/work";
 
 type StrategyCard = {
     "title" : string,
@@ -39,7 +39,7 @@ export type Dictionary = {
     "work": {
         "heading": string,
         "copy": string,
-        "projects": {[key : string] : { "title": string, "subtitle"?: string, "categories": ServiceNames[], "about": AboutClinicannabis }}
+        "projects": {[key : string] : { "title": string, "subtitle"?: string, "categories": ServiceNames[], "about": ProjectAbout }}
     },
     "contact": {
         "actions": {
