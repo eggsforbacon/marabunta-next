@@ -59,6 +59,7 @@ module.exports = {
             fontFamily: {
                 'montserrat': ['Montserrat', 'sans-serif'],
                 'solomon': ['Solomon', 'sans-serif'],
+                'galano': ['Galano grotesque', 'sans-serif'],
             },
             colors: {
                 'off': {
@@ -93,6 +94,9 @@ module.exports = {
                         'midnight-green': "#005361",
                         'rich-black': "#0C3A41",
                         'bgOrange': '#FCF4CB'
+                    },
+                    'ingenieria_sas': {
+                        'blue': '#0F265C'
                     },
                     'panamericanos-21': {
                         'yellow': '#fcdc00',
