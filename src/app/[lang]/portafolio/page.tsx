@@ -37,13 +37,17 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
     };
 
     const covers = [
-        <Image key={0} src={"/images/projects/panamericanos/cover.jpg"} alt={""} width={504} height={672} quality={100}
+        <Image key={0} src={"/images/projects/promotores-ambientales/cover.jpg"} alt={""} width={504} height={672} quality={100}
                className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
         <Image key={1} src={"/images/projects/fiesta-23/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={2} src={"/images/projects/patrimonio-vital/cover.jpg"} alt={""} width={504} height={672} quality={100}
                className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
         <Image key={2} src={"/images/projects/indervalle/cover.jpg"} alt={""} width={504} height={672} quality={100}
                className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
         <Image key={4} src={"/images/projects/humedal/cover.jpg"} alt={""} width={504} height={672} quality={100}
+               className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
+        <Image key={5} src={"/images/projects/ingenieria-sas/cover.jpg"} alt={""} width={504} height={672} quality={100}
                className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
         <Image key={5} src={"/images/projects/rap-valle/cover.jpg"} alt={""} width={504} height={672} quality={100}
                className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
@@ -64,14 +68,22 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
     ];
 
     const content = [
-        <article key={0} className={"absolute top-0 left-0 w-full h-full"}>
-            <a href="#">Ver</a>
-            <Image src={"/images/projects/panamericanos/fore.jpg"} alt={""} width={504} height={672} quality={100}
-                   className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
+        <article key={0} className={"absolute top-0 left-0 w-full h-full flex"}>
+            <a href="/portafolio/promotores-ambientales" className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-black/30 w-[100px] z-10">
+                <Image src={"/images/png/Arrow.png"} width={100} height={100} alt={""} quality={100}/>
+            </a>
         </article>,
-        <article key={1} className={"absolute top-0 left-0 w-full h-full"}>
+        <article key={1} className={"absolute top-0 left-0 w-full h-full  flex"}>
+            <a href="/portafolio/fiesta-de-mi-pueblo-2023" className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-black/30 w-[100px] z-10">
+                <Image src={"/images/png/Arrow.png"} width={100} height={100} alt={""} quality={100}/>
+            </a>
             <Image src={"/images/projects/fiesta-23/fore.png"} alt={""} width={504} height={672}
                    className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none"}/>
+        </article>,
+        <article key={2} className={"absolute top-0 left-0 w-full h-full flex"}>
+            <a href="/portafolio/patrimonio-vital" className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-black/30 w-[100px] z-10">
+                <Image src={"/images/png/Arrow.png"} width={100} height={100} alt={""} quality={100}/>
+            </a>
         </article>,
         <article key={2} className={"absolute top-0 left-0 w-full h-full"}>
             <Image src={"/images/projects/indervalle/fore.jpg"} alt={""} width={504} height={672} quality={100}
@@ -82,7 +94,12 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
                 <Image src={"/images/png/Arrow.png"} width={100} height={100} alt={""} quality={100}/>
             </a>
         </article>,
-        <article key={5} className={"absolute top-0 left-0 w-full h-full"}>
+        <article key={5} className={"absolute top-0 left-0 w-full h-full flex"}>
+            <a href="/portafolio/ingenieria_sas" className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-black/30 w-[100px] z-10">
+                <Image src={"/images/png/Arrow.png"} width={100} height={100} alt={""} quality={100}/>
+            </a>
+        </article>,
+        <article key={6} className={"absolute top-0 left-0 w-full h-full"}>
 
         </article>,
         <article key={7} className={"absolute top-0 left-0 w-full h-full flex"}>

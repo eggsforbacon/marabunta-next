@@ -122,6 +122,7 @@ module.exports = {
                     'ambientales': {
                         'green': '#016c38',
                         'blue': '#0f1e49',
+                        'ocean-blue': '#026789',
                     },
                     'bio-expo': {
                         'lime': '#8fb51d',

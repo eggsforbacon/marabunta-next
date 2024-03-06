@@ -45,7 +45,7 @@ const Navbar = ({current, s, lang}: _PProps) => {
             <span onClick={() => setOpen(false)}
                   className={`fixed top-0 left-0 w-screen h-screen bg-off-black/50 z-[60] transition duration-300 ease-in-out ${open ? "opacity-100 pointer-events-auto" : "opacity-0 select-none pointer-events-none"}`}/>
             <nav
-                className={`transition-all z-[60] duration-300 ease-in-out fixed top-2 lg:top-6 left-1/2 -translate-x-1/2 ${open ? "h-[50vh] w-screen -translate-y-5 rounded-none py-10" : "h-20 w-96 md:w-4/5 translate-y-0 rounded-xl py-4"} lg:translate-y-0 lg:h-auto z-20 lg:w-224 xl:w-288 2xl:w-320 bg-neutral-500/40 shadow-sm backdrop-blur-3xl lg:rounded-3xl text-sm text-white uppercase flex flex-col-reverse lg:flex-row-reverse items-center justify-end gap-8 lg:gap-0 lg:justify-between px-6 lg:py-4`}>
+                className={`transition-all z-[60] duration-300 ease-in-out fixed top-2 lg:top-6 left-1/2 -translate-x-1/2 ${open ? "h-[50vh] w-screen -translate-y-5 rounded-none py-10" : "h-20 w-96 md:w-4/5 translate-y-0 rounded-xl py-4"} lg:translate-y-0 lg:h-auto z-20 lg:w-224 xl:w-288 2xl:w-320 md:bg-neutral-500/40 shadow-sm md:backdrop-blur-3xl lg:rounded-3xl text-sm text-white uppercase flex flex-col-reverse lg:flex-row-reverse items-center justify-end gap-8 lg:gap-0 lg:justify-between px-6 lg:py-4`}>
                 <button
                     className={"lg:hidden absolute right-5 z-10 top-5 rounded-[3rem] flex items-center justify-center"}>
                     <List onClick={openSesame}
