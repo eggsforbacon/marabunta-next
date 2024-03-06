@@ -29,10 +29,6 @@ export default async function SoyHumedal({params: {lang}}: { params: { lang: Loc
                         <source src={"/videos/projects/soy-humedal/intro.webm"} type={"video/webm"}/>
                         Your browser does not support the video tag
                     </video>
-                    <video autoPlay playsInline loop muted controls={false} width={1920} height={1080}>
-                        <source src={"/videos/projects/soy-humedal/mundo.webm"} type={"video/webm"}/>
-                        Your browser does not support the video tag
-                    </video>
                     <section
                         className={"flex flex-col items-center justify-center gap-4 lg:gap-8 py-16 lg:py-32 px-2 lg:px-32"}>
                         <h2 className={"text-xl lg:text-4xl font-bold"}>Capítulo 5 - Residuos Sólidos</h2>
