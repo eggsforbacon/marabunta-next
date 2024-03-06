@@ -32,8 +32,10 @@ export default async function PatrimonioVital({params : {lang}} : {params : {lan
           about?.articles.map(item => <p className="pt-2 leading-6 md:leading-8 md:pt-6" key={item} dangerouslySetInnerHTML={{__html: item}}/>)
         }
       </section>
-      <Image src={"/images/projects/patrimonio-vital/img-1.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+      <video key={0} playsInline loop muted controls={false} autoPlay
+          width={1920} height={1080}>
+        <source src={"/images/projects/patrimonio-vital/gif.webm"} type={"video/webm"}/>
+      </video>
       <Image src={"/images/projects/patrimonio-vital/img-2.jpg"} alt={""} width={1920} height={594} quality={100}
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
       <Image src={"/images/projects/patrimonio-vital/img-3.jpg"} alt={""} width={1920} height={594} quality={100}
