@@ -38,8 +38,10 @@ export default async function IngenieriaSass({params : {lang}} : {params : {lang
           about?.articles.map(item => <p className="pt-6" key={item} dangerouslySetInnerHTML={{__html: item}}/>)
         }
       </section>
-      <Image src={"/images/projects/ingenieria-sas/img-1.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+      <video key={0} playsInline loop muted controls={false} autoPlay
+          width={1920} height={1080}>
+        <source src={"/images/projects/ingenieria-sas/gif.webm"} type={"video/webm"}/>
+      </video>
       <Image src={"/images/projects/ingenieria-sas/img-2.jpg"} alt={""} width={1920} height={594} quality={100}
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
       <Image src={"/images/projects/ingenieria-sas/img-3.jpg"} alt={""} width={1920} height={594} quality={100}

@@ -9,14 +9,15 @@
     border: solid 1px magenta;
   }
 
-  *::-webkit-scrollbar {
-    display: none;
+  body::-webkit-scrollbar-thumb {
+    background-color: #52c0e1;
+    border-radius: 14px;
+    border: 8px solid #6adfff;
   }
 
-  /* Hide scrollbar for IE, Edge and Firefox */
-  * {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  body::-webkit-scrollbar {
+    width: 8px;
+    background-color: #030303;
   }
 
   html {
