@@ -26,7 +26,7 @@ export default async function PatrimonioVital({params : {lang}} : {params : {lan
   return (
     <main className="flex flex-col">
       <Navbar current={"/portafolio"} withBorder s={nav} lang={lang}/>
-      <section className={"w-full overflow-x-clip relative text-white px-6 md:px-72 py-14 md:py-48 bg-projects-patrimonio-vital-green"}>
+      <section className={"w-full overflow-x-clip relative text-white px-6 md:px-72 py-14 md:py-48 bg-projects-patrimonio-vital-green text-md md:text-2xl"}>
         <h3><strong>{title}</strong></h3>
         {
           about?.articles.map(item => <p className="pt-2 leading-6 md:leading-8 md:pt-6" key={item} dangerouslySetInnerHTML={{__html: item}}/>)
