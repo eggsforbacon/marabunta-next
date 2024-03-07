@@ -43,7 +43,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
                className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
         <Image key={2} src={"/images/projects/patrimonio-vital/cover.jpg"} alt={""} width={504} height={672} quality={100}
                className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
-        <Image key={2} src={"/images/projects/indervalle/cover.jpg"} alt={""} width={504} height={672} quality={100}
+        <Image key={3} src={"/images/projects/fondo-mixto/cover.jpg"} alt={""} width={504} height={672} quality={100}
                className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
         <Image key={4} src={"/images/projects/humedal/cover.jpg"} alt={""} width={504} height={672} quality={100}
                className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
@@ -85,9 +85,10 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
                 <Image src={"/images/png/Arrow.png"} width={100} height={100} alt={""} quality={100}/>
             </a>
         </article>,
-        <article key={2} className={"absolute top-0 left-0 w-full h-full"}>
-            <Image src={"/images/projects/indervalle/fore.jpg"} alt={""} width={504} height={672} quality={100}
-                   className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
+        <article key={3} className={"absolute top-0 left-0 w-full h-full flex"}>
+            <a href="/portafolio/fondo-mixto" className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-black/30 w-[100px]">
+                <Image src={"/images/png/Arrow.png"} width={100} height={100} alt={""} quality={100}/>
+            </a>
         </article>,
         <article key={4} className={"absolute top-0 left-0 w-full h-full flex"}>
             <a href="/portafolio/soy-humedal" className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-black/30 w-[100px]">

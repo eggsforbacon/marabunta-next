@@ -110,6 +110,7 @@ module.exports = {
                     'fondo-mixto': {
                         'red': '#f22536',
                         'blue': '#1a47bc',
+                        'blue-light': '#2D6BC1',
                         'gray': '#55565b',
                     },
                     'pueblo-21': {
