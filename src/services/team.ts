@@ -5,7 +5,7 @@ import {Strapi} from "@/types/strapi";
 import {Team} from "@/types/team";
 
 export async function getTeam(lang?: Locale, filter? : Team.Area | "") {
-    const url = `${process.env.NEXT_PUBLIC_STRAPI_URL}/ants?locale=${normalizeLocale(lang ?? "es")}&${filter !== "" && filter !== undefined && `filters[area][$eq]=${filter}&`}sort=nombre&populate=*`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/ants?locale=${normalizeLocale(lang ?? "es")}&${filter !== "" && filter !== undefined ? `filters[area][$eq]=${filter}&` : ""}pagination[limit]=${process.env.NEXT_PUBLIC_STRAPI_LIMIT}&sort[0]=nombre&sort[1]=index&populate=*`;
     const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
     const ants : Team.Attributes[] = []
     if (data !== null) {
@@ -18,14 +18,10 @@ export async function getTeam(lang?: Locale, filter? : Team.Area | "") {
     return {ants};
 }
 
-export async function filterByArea(area : Team.Area, lang? : Locale) {
-
-}
-
 function mapStrapiToAnt(attributes : {[key : string] : any}) : Team.Attributes {
     return {
         name: attributes.nombre,
-        lastName: attributes.lastName,
+        lastName: attributes.apellido,
         position: attributes.cargo,
         area: attributes.area,
         index: attributes.index,
@@ -35,6 +31,5 @@ function mapStrapiToAnt(attributes : {[key : string] : any}) : Team.Attributes {
         locale: attributes.locale,
         memoji: attributes.memoji,
         localizations: attributes.localizations,
-
     }
 }

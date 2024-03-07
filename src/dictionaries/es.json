@@ -81,7 +81,21 @@
         "subtitle": "Llevamos tus ideas a la realidad",
         "description": "Somos expertos en la producción logística y el montaje de grandes eventos que dejan huella a nivel local, nacional e internacional. Nuestro objetivo es generar experiencias que transformen vidas."
       }
-    ]
+    ],
+    "team": {
+      "copy": "Esta gran colonia siempre está en movimiento, todos somos ",
+      "categories": [
+        "todas",
+        "dirección",
+        "administrativa",
+        "comunicaciones",
+        "digital",
+        "diseño",
+        "financiera",
+        "producción",
+        "técnica"
+      ]
+    }
   },
   "work": {
     "heading": "Comunicamos Ideas",

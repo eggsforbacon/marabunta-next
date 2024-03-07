@@ -6,7 +6,7 @@ import React, {useState} from "react";
 import {Headset, LightBulb, Magic, Megaphone, Reels, Rocket, StageLight} from "@/components/ui/svg/services";
 import LocaleLink from "@/components/ui/LocaleLink";
 
-export default function Services({s, lang}: { s: { [key: string]: any }, lang: Locale }) {
+export default function Services({s, lang}: { s: { [_: string]: any }, lang: Locale }) {
 
     const [selected, setSelected] = useState(0);
 
@@ -101,10 +101,10 @@ export default function Services({s, lang}: { s: { [key: string]: any }, lang: L
                     </section>
                 </div>
             </div>
-            <div className={"w-full flex flex-col gap-12 items-center lg:px-32"}>
+            <div className={"w-full flex flex-col gap-12 items-center lg:px-32 no-scrollbar"}>
                 <h2 className={"px-12 lg:px-0 text-4xl text-center lg:text-6xl font-normal text-off-white tracking-wide"}><span className={"font-semibold lg:font-normal"}>Nuestros</span> aliados</h2>
                 <span className={"w-[75%] h-0.5 lg:h-1 rounded-full bg-off-white/50"}/>
-                <div className={"px-6 lg:px-0 w-full flex lg:flex-wrap items-center lg:justify-center gap-x-20 overflow-x-scroll"}>
+                <div className={"px-6 lg:px-0 w-full flex lg:flex-wrap items-center lg:justify-center gap-x-20 overflow-x-scroll no-scrollbar"}>
                     <Image
                         className={"flex-1 brightness-50 w-[5.5rem] max-w-[5.5rem] transition-all duration-300 ease-in-out hover:brightness-100"}
                         src={"/images/home/svg/brands/0.svg"} alt={""} width={128} height={128}/>

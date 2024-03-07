@@ -6,15 +6,17 @@ export namespace Team {
         "comunicaciones" |
         "digital" |
         "producción" |
-        "ejecutivos" |
+        "técnica" |
         "administrativa" |
         "financiera" |
         "management" |
+        "dirección" |
+        "administrative" |
         "design" |
         "communications" |
         "production" |
-        "sales" |
-        "finance";
+        "technical" |
+        "finances";
 
     export type Attributes = {
         name: string,

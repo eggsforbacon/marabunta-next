@@ -12,7 +12,7 @@ export default async function FiestaDeMiPueblo23({params: {lang}}: { params: { l
             <article
                 className={"flex flex-col items-center justify-start w-screen bg-projects-pueblo-22-fuchsia text-fuchsia-50"}>
                 <header className={"flex flex-col items-stretch justify-start overflow-x-clip w-full"}>
-                    <Image src={"/images/projects/fiesta-23/header.webp"} alt={""} width={1920} height={727}
+                    <Image src={"/images/projects/fiesta-23/header.webp"} alt={""} width={1920*5} height={727}
                            quality={100}/>
                 </header>
                 <section className={"flex flex-col items-start justify-start gap-8 text-sm px-6 py-16 lg:px-72 lg:py-32 lg:text-xl"}>
