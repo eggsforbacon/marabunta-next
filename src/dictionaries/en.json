@@ -81,7 +81,21 @@
         "subtitle": "We take your ideas to life",
         "description": "We are experts in the logistical production and staging of large events that leave their mark locally, nationally and internationally. We are committed to generating experiences that transform lives."
       }
-    ]
+    ],
+    "team": {
+      "copy": "This great colony is always moving, we all are ",
+      "categories": [
+        "all",
+        "management",
+        "administrative",
+        "communications",
+        "digital",
+        "design",
+        "finances",
+        "production",
+        "technical"
+      ]
+    }
   },
   "work": {
     "heading": "We Communicate Ideas",
@@ -223,7 +237,7 @@
       "nextBlog": "An idea for the blog (Optional)",
       "subscribe": "Subscribe"
     },
-    "entry" : {
+    "entry": {
       "publishedOn": "Published"
     }
   },

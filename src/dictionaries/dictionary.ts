@@ -1,4 +1,5 @@
 import {ServiceNames, ProjectAbout } from "@/types/work";
+import {Team} from "@/types/team";
 
 type StrategyCard = {
     "title" : string,
@@ -34,7 +35,11 @@ export type Dictionary = {
             "cta": string,
             "brands" : string,
         },
-        "strategy" : StrategyCard[]
+        "strategy" : StrategyCard[],
+        "team": {
+            "copy": string,
+            "categories": (Team.Area | "all" | "todas")[],
+        }
     },
     "work": {
         "heading": string,
