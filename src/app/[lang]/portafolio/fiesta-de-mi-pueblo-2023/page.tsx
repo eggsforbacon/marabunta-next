@@ -7,8 +7,31 @@ export default async function FiestaDeMiPueblo23({params: {lang}}: { params: { l
     const {nav} = await getDictionary(lang);
 
     return (
-        <main>
+        <main className="flex flex-col">
             <Navbar s={nav} lang={lang}/>
+            <section className="w-full h-[300px] bg-black flex justify-center items-center">
+                     <a href="/portafolio/fiesta-de-mi-pueblo-2021" className="relative">
+                            <Image className="h-auto" src={"/images/point-line-time.png"} alt={""} width={40} height={40}
+                            quality={100}/>
+                            <span className="text-white absolute ml-1">2021</span>
+                     </a>
+                     <Image src={"/images/time-line.png"} alt={""} width={320} height={40}
+                           quality={100}/>
+                     <a className="relative">
+                            <Image src={"/images/point-line-time.png"} alt={""} width={40} height={40}
+                                   quality={100}/>
+                            <span className="text-white absolute ml-1">2022</span>
+                     </a>
+                     <Image src={"/images/time-line.png"} alt={""} width={320} height={40}
+                           quality={100}/>
+                     <a className="relative">
+                            <Image src={"/images/point-line-time-dark.png"} alt={""} width={40} height={40}
+                            quality={100}/>
+                           <span className="text-white absolute text-projects-pueblo-yelow text-2xl font-black">2023</span>
+                     </a>
+                     
+            </section>
+            <section className="w-full py-4 text-white bg-projects-pueblo-yelow flex text-2xl font-black"><span className="m-auto text-4xl font-organik">2023</span></section>
             <article
                 className={"flex flex-col items-center justify-start w-screen bg-projects-pueblo-22-fuchsia text-fuchsia-50"}>
                 <header className={"flex flex-col items-stretch justify-start overflow-x-clip w-full"}>
