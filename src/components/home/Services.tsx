@@ -37,9 +37,9 @@ export default function Services({s, lang}: { s: { [_: string]: any }, lang: Loc
     <LightBulb size={48} className={"h-full aspect-square"} key={0}/>,
     <Megaphone size={48} className={"h-full aspect-square"} key={1}/>,
     <Magic size={48} className={"h-full aspect-square"} key={2}/>,
-    <Headset size={48} className={"h-full aspect-square"} key={5}/>,
-    <Reels size={48} className={"h-full aspect-square"} key={3}/>,
-    <Rocket size={48} className={"h-full aspect-square"} key={4}/>,
+    <Headset size={48} className={"h-full aspect-square"} key={3}/>,
+    <Reels size={48} className={"h-full aspect-square"} key={4}/>,
+    <Rocket size={48} className={"h-full aspect-square"} key={5}/>,
     <StageLight size={48} className={"h-full aspect-square"} key={6}/>,
   ];
 

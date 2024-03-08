@@ -44,7 +44,7 @@ export default function Team({s, lang}: { s: { [_: string]: any }, lang: Locale 
             {
               categories.slice(2).sort().map((cat, i) => {
                 return (
-                    <li className={`${linkStyle} ${selectedIs(cat) && "font-bold text-off-white"}`} key={i}>
+                    <li className={`${linkStyle} ${selectedIs(cat) && "font-bold text-off-white"}`} key={i + 2}>
                       <button onClick={() => setSelected(cat)}>
                         {cat.charAt(0).toUpperCase() + cat.slice(1)}
                       </button>
@@ -59,7 +59,6 @@ export default function Team({s, lang}: { s: { [_: string]: any }, lang: Locale 
           {
             categories.slice(1).map((cat, i) => {
               const people = ants.filter((person) => person.area === cat);
-              console.log(i !== categories.slice(1).length - 1)
               if (selectedIs("todas") || selectedIs("all") || selectedIs(cat)) return (
                   <>
                     <Department key={i} area={cat as Team.Area} people={people}/>
