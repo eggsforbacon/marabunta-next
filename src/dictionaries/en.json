@@ -204,6 +204,16 @@
           "POP Material"
         ]
       },
+      "rap_valle": {
+        "title": "Rap del valle",
+        "about": {
+          "title": "Rap del valle",
+          "articles": [
+            "The departmental Secretariat of Culture of Valle del Cauca, Colombia, created the Network of Cultural Monitors, to promote cultural heritage in children and young people. From this effort comes \"Rap del Valle Nueva Generación\", a music video that highlights the natural, traditional and historical treasures of the region.",
+            "The Infinite Evolution Crew, made up of 9 urban artists between 8 and 16 years old, explored 10 municipalities, connecting with iconic places in the Valley. This production was not only an opportunity to create art, but also to discover and connect with the tourist and cultural wealth of the department."
+          ]
+        }
+      },
       "bioExpo": {
         "title": "BIO Expo 2019",
         "categories": [
