@@ -6,7 +6,7 @@ import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/lib/dictionary";
 import ProjectCard from "@/components/work/ProjectCard";
 import Image from "next/image";
-import {motion} from "framer-motion";
+import {motion, MotionValue, useMotionValue} from "framer-motion";
 import Link from "next/link";
 import useScreenSize from "@/hooks/useScreenSize";
 import {useProjectsStore} from "@/store/projects";
@@ -30,6 +30,9 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
   } = useProjectsStore();
 
   const boundingRef = useRef<DOMRect | null>(null);
+
+  const x = useMotionValue(550);
+  const y = useMotionValue(120);
 
   const {width} = useScreenSize();
 
@@ -64,18 +67,6 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
     <Image key={5} src={"/images/projects/rap-valle/cover.jpg"} alt={""} width={504} height={672} quality={100}
            className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
     <Image key={7} src={"/images/projects/clinicannabis/cover.jpg"} alt={""} width={504} height={672} quality={100}
-           className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
-    <Image key={8} src={"/images/projects/ecopanitas/cover.jpg"} alt={""} width={504} height={672} quality={100}
-           className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
-    <Image key={9} src={"/images/projects/humedales/cover.jpg"} alt={""} width={504} height={672} quality={100}
-           className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
-    <Image key={10} src={"/images/projects/buenaventura/cover.jpg"} alt={""} width={504} height={672} quality={100}
-           className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
-    <Image key={11} src={"/images/projects/turismo-38/cover.jpg"} alt={""} width={504} height={672} quality={100}
-           className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
-    <Image key={12} src={"/images/projects/telepacifico/cover.jpg"} alt={""} width={504} height={672} quality={100}
-           className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
-    <Image key={13} src={"/images/projects/carrozas-fiesta/cover.jpg"} alt={""} width={504} height={672} quality={100}
            className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>,
   ];
 
@@ -122,27 +113,9 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
 
     </article>,
     <article key={7} className={"absolute top-0 left-0 w-full h-full flex"}>
-      <a href="/portafolio/cannabinoides" className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-black/30">
+      <Link href={"/portafolio/cannabinoides"} className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-black/30">
         <Image src={"/images/png/Arrow.png"} width={100} height={100} alt={""} quality={100}/>
-      </a>
-    </article>,
-    <article key={8} className={"absolute top-0 left-0 w-full h-full"}>
-
-    </article>,
-    <article key={9} className={"absolute top-0 left-0 w-full h-full"}>
-
-    </article>,
-    <article key={10} className={"absolute top-0 left-0 w-full h-full"}>
-
-    </article>,
-    <article key={11} className={"absolute top-0 left-0 w-full h-full"}>
-
-    </article>,
-    <article key={12} className={"absolute top-0 left-0 w-full h-full"}>
-
-    </article>,
-    <article key={13} className={"absolute top-0 left-0 w-full h-full"}>
-
+      </Link>
     </article>,
   ];
 
@@ -155,10 +128,10 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
     "Hacemos Ingeniería",
     "Rap del Valle",
     "Clinivital: Seminario Iberoaméricano",
-    "Fiesta de mi Pueblo 2021",
-    "Juegos Panamericanos Junior 2021",
-    "Bio Expo",
-    "ARA",
+    // "Fiesta de mi Pueblo 2021",
+    // "Juegos Panamericanos Junior 2021",
+    // "Bio Expo",
+    // "ARA",
   ]
 
   return (
@@ -175,6 +148,10 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
               top: -6350,
               bottom: 120
             }}
+            onDrag={() => {
+              console.log(x.get(), y.get());
+            }}
+            style={width > 768 ? {x} : {y}}
             className={"box-border w-screen lg:w-fit cursor-grab lg:min-h-screen relative flex flex-col lg:flex-row items-center justify-start py-16 lg:p-16 gap-6 [perspective:10000px] active:cursor-grabbing"}
             onMouseMove={handleVisorOver}
             onMouseEnter={e => {
@@ -204,13 +181,15 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
           {/*</button>*/}
           <div className={"w-[90vw] lg:w-128"}>
             <DropdownMenu defaultOption={projectList[0]} options={projectList} open={projectDropdownState}
-                          setOpen={toggleProjectDropdown} collateral={(i) => {
+                          setOpen={(open) => {toggleProjectDropdown(open); toggleCategoryDropdown(false);}} collateral={(i) => {
+              const sign = selectedProject - i;
               setSelectedProject(i);
+              width > 768 ? x.set(x.get() + (sign * 512)) : y.set(y.get() + (sign * 500));
             }} defaultCondition={selectedProject === 0} direction={"up"}/>
           </div>
           <div className={"w-[90vw] lg:w-96"}>
             <DropdownMenu defaultOption={(work.categories ?? ["-"])[0]} options={(work.categories ?? ["-"])} open={categoryDropdownState}
-                          setOpen={toggleCategoryDropdown} collateral={(i) => {
+                          setOpen={(open) => {toggleCategoryDropdown(open); toggleProjectDropdown(false);}} collateral={(i) => {
               setSelectedCategory(i);
             }} defaultCondition={selectedCategory === 0} direction={"up"}/>
           </div>
