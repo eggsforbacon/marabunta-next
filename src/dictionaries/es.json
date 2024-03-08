@@ -100,6 +100,17 @@
   "work": {
     "heading": "Comunicamos Ideas",
     "copy": "Estos son algunos de los proyectos que hemos ayudado a construir.",
+    "categories": [
+      "Selecciona una categoría",
+      "Salud",
+      "Deporte",
+      "Medio Ambiente",
+      "Cultura",
+      "Turismo",
+      "Social",
+      "Gobierno",
+      "Corporativo"
+    ],
     "projects": {
       "cali": {
         "title": "Cali, Volvamos a Sonreír",

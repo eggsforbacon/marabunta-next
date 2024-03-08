@@ -100,6 +100,17 @@
   "work": {
     "heading": "We Communicate Ideas",
     "copy": "These are some of the projects we have helped bring to life.",
+    "categories": [
+      "Pick a category",
+      "Health",
+      "Sports",
+      "Environmental",
+      "Culture",
+      "Tourism",
+      "Social",
+      "Government",
+      "Corporation"
+    ],
     "projects": {
       "cali": {
         "title": "Cali, let's Smile Again (Cali, Volvamos a Sonreír)",

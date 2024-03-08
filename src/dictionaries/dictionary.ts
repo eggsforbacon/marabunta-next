@@ -44,6 +44,7 @@ export type Dictionary = {
     "work": {
         "heading": string,
         "copy": string,
+        "categories": string[],
         "projects": {[key : string] : { "title": string, "subtitle"?: string, "categories": ServiceNames[], "about": ProjectAbout }}
     },
     "contact": {
