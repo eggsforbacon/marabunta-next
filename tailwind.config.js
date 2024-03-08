@@ -58,6 +58,7 @@ module.exports = {
             },
             fontFamily: {
                 'montserrat': ['Montserrat', 'sans-serif'],
+                'organik': ['Organik', 'sans-serif'],
                 'solomon': ['Solomon', 'sans-serif'],
                 'galano': ['Galano grotesque', 'sans-serif'],
             },
@@ -110,7 +111,11 @@ module.exports = {
                     'fondo-mixto': {
                         'red': '#f22536',
                         'blue': '#1a47bc',
+                        'blue-light': '#2D6BC1',
                         'gray': '#55565b',
+                    },
+                    'pueblo': {
+                        'yelow': '#f5cc24'
                     },
                     'pueblo-21': {
                         'purple': '#3a3173',
