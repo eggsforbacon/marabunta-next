@@ -6,6 +6,7 @@ import {Locale} from "@/i18n.config";
 import Image from "next/image";
 import { getDictionary } from "@/lib/dictionary";
 import { ProjectAbout } from "@/types/work";
+import TimeLine from "@/components/time-line";
 
 export default async function FiestaDeMiPueblo21({params : {lang}} : {params : {lang : Locale}}) {
   const [nav, setNav] = useState<{ [key: string]: any }>([]);
@@ -21,34 +22,19 @@ export default async function FiestaDeMiPueblo21({params : {lang}} : {params : {
   return (
     <main className="flex flex-col">
       <Navbar current={"/portafolio"} withBorder s={nav} lang={lang}/>
-      <section className="w-full h-[300px] bg-black flex justify-center items-center">
-        <a className="relative">
-          <Image className="h-auto" src={"/images/point-line-time-dark.png"} alt={""} width={40} height={40}
-          quality={100}/>
-          <span className="absolute text-projects-pueblo-yelow text-3xl font-black font-organik text-projects-pueblo-yelow">2021</span>
-        </a>
-        <Image src={"/images/time-line.png"} alt={""} width={320} height={40}
-          quality={100}/>
-        <a className="relative">
-          <Image src={"/images/point-line-time.png"} alt={""} width={40} height={40}
-              quality={100}/>
-          <span className="text-white absolute ml-1 text-xl">2022</span>
-        </a>
-        <Image src={"/images/time-line.png"} alt={""} width={320} height={40}
-            quality={100}/>
-        <a href="/portafolio/fiesta-de-mi-pueblo-2023" className="relative">
-          <Image src={"/images/point-line-time.png"} alt={""} width={40} height={40}
-            quality={100}/>
-            <span className="text-white absolute text-xl">2023</span>
-        </a>
+      <section className="text-white text-center pt-28 pb-6 bg-black">
+        <span>Elije la versión</span>
       </section>
-      <section className="w-full py-4 text-white bg-projects-pueblo-yelow flex text-2xl font-black"><span className="m-auto text-4xl font-organik">2021</span></section>
+      {
+        <TimeLine yearCurrent={2021}/>
+      }
+      <section className="w-full py-4 text-white bg-projects-pueblo-yelow flex text-2xl font-black"><span className="m-auto text-2xl md:text-4xl font-organik">2021</span></section>
       <Image src={"/images/projects/fiesta-de-mi-pueblo-21/logo.gif"} alt={""} width={1920} height={594} quality={100}
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
       <Image src={"/images/projects/fiesta-de-mi-pueblo-21/banner.jpg"} alt={""} width={1920} height={594} quality={100}
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
       <section className="relative">
-        <p className="absolute text-center m-auto text-xl md:text-2xl py-36 max-w-[960px] text-white left-[50%] top-[10%] translate-x-[-50%]">
+        <p className="absolute text-center m-auto text-xs md:text-2xl py:28 md:py-36 max-w-[960px] text-white left-[50%] top-[10%] translate-x-[-50%]">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo modi aperiam deleniti deserunt pariatur dolorem reprehenderit, culpa fugiat esse rem autem amet dolorum, vel eos ad quibusdam soluta, eum natus?
         </p>
         <Image src={"/images/projects/fiesta-de-mi-pueblo-21/img-1.jpg"} alt={""} width={1920} height={594} quality={100}
@@ -67,7 +53,7 @@ export default async function FiestaDeMiPueblo21({params : {lang}} : {params : {
       <Image src={"/images/projects/fiesta-de-mi-pueblo-21/img-7.jpg"} alt={""} width={1920} height={594} quality={100}
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
       <span className="relative">
-        <p className="absolute text-center m-auto text-xl md:text-2xl py-36 max-w-[960px] text-white left-[50%] top-[10%] translate-x-[-50%]">
+        <p className="absolute text-center m-auto text-xs md:text-2xl md:py-36 max-w-[960px] text-white left-[50%] top-[10%] translate-x-[-50%]">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo modi aperiam deleniti deserunt pariatur dolorem reprehenderit, culpa fugiat esse rem autem amet dolorum, vel eos ad quibusdam soluta, eum natus?
         </p>
         <Image src={"/images/projects/fiesta-de-mi-pueblo-21/img-8.jpg"} alt={""} width={1920} height={594} quality={100}
@@ -80,7 +66,7 @@ export default async function FiestaDeMiPueblo21({params : {lang}} : {params : {
       <Image src={"/images/projects/fiesta-de-mi-pueblo-21/img-11.jpg"} alt={""} width={1920} height={594} quality={100}
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
       <span className="relative">
-      <iframe className="absolute w-full p-16" src="https://www.youtube.com/embed/9TZuaKpAJwU?si=iDp-uPrnSk04cUAI&amp;controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+      <iframe className="absolute w-full h-full md:p-16" src="https://www.youtube.com/embed/9TZuaKpAJwU?si=iDp-uPrnSk04cUAI&amp;controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
         <Image src={"/images/projects/fiesta-de-mi-pueblo-21/img-12.jpg"} alt={""} width={1920} height={594} quality={100}
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
       </span>

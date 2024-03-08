@@ -204,6 +204,16 @@
           "Material POP"
         ]
       },
+      "rap_valle": {
+        "title": "Rap del valle",
+        "about": {
+          "title": "Rap del valle",
+          "articles": [
+            "La Secretaría de Cultura departamental del Valle del Cauca, Colombia, creó la Red de Monitores Culturales, para fomentar la herencia cultural en niños y jóvenes. De este esfuerzo surge \"Rap del Valle Nueva Generación\", un video musical que resalta los tesoros naturales, tradicionales e históricos de la región.",
+            "El Crew Evolución Infinita, compuesto por 9 artistas urbanos de entre 8 y 16 años, exploró 10 municipios, conectando con lugares icónicos del Valle. Esta producción no solo fue una oportunidad para crear arte, sino también para descubrir y conectar con la riqueza turística y cultural del departamento."
+          ]
+        }
+      },
       "bioExpo": {
         "title": "BIO Expo 2019",
         "categories": [
