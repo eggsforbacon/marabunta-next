@@ -1,7 +1,7 @@
 import StrategyCard from "@/components/home/StrategyCard";
 import Image from "next/image";
 
-export default function Strategy({s}: { s: { [key: string]: any } }) {
+export default function Strategy({s}: { s: { [_: string]: any } }) {
 
     const cards = s as {
         "title": string,
@@ -46,18 +46,27 @@ export default function Strategy({s}: { s: { [key: string]: any } }) {
 
     const images = [
         <video key={0} playsInline loop muted controls={false} autoPlay
-               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 left-0 h-full max-w-none object-cover"}
+               className={"absolute md:scale-[1.2] lg:scale-100 opacity-100 saturate-0 brightness-50 top-0 md:top-12 lg:top-0 -left-144 md:-left-96 lg:left-0 h-full max-w-none object-cover"}
                width={1920} height={1080}>
             <source src={"/videos/webm/360/1.webm"} type={"video/webm"}/>
         </video>,
-        <Image key={1} src={"/images/home/webp/360/2.webp"} alt={""} width={1920} height={1080}
-               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 -left-2 h-full max-w-none object-cover"}/>,
+        <video key={1} playsInline loop muted controls={false} autoPlay
+               className={"absolute md:scale-[1.2] lg:scale-100 opacity-100 saturate-0 brightness-50 top-0 md:-top-4 lg:top-0 -left-168 md:-left-96 lg:left-0 h-full max-w-none object-cover"}
+               width={1920} height={1080}>
+            <source src={"/videos/webm/360/2.webm"} type={"video/webm"}/>
+        </video>,
         <Image key={2} src={"/images/home/webp/360/3.webp"} alt={""} width={1920} height={1080}
                className={"absolute scale-125 lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 -left-6 -top-20 lg:top-0 h-full max-w-none object-cover"}/>,
-        <Image key={3} src={"/images/home/webp/360/4.webp"} alt={""} width={1920} height={1080}
-               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-125 -left-2 top-0 lg:top-14 h-full max-w-none object-cover"}/>,
-        <Image key={4} src={"/images/home/webp/360/5.webp"} alt={""} width={1920} height={1080}
-               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-75 -left-2 top-0 h-full max-w-none object-cover"}/>
+        <video key={3} playsInline loop muted controls={false} autoPlay
+               className={"absolute md:scale-[1.2] lg:scale-100 opacity-100 saturate-0 brightness-50 top-0 md:-top-4 lg:top-0 -left-168 md:-left-80 lg:left-0 h-full max-w-none object-cover"}
+               width={1920} height={1080}>
+            <source src={"/videos/webm/360/4.webm"} type={"video/webm"}/>
+        </video>,
+        <video key={4} playsInline loop muted controls={false} autoPlay
+               className={"absolute md:scale-[1.2] lg:scale-100 opacity-100 saturate-0 brightness-50 top-0 md:-top-10 lg:top-0 -left-136 md:-left-80 lg:left-0 h-full max-w-none object-cover"}
+               width={1920} height={1080}>
+            <source src={"/videos/webm/360/5.webm"} type={"video/webm"}/>
+        </video>,
     ];
 
     return (
@@ -68,8 +77,7 @@ export default function Strategy({s}: { s: { [key: string]: any } }) {
                     return (
                         <StrategyCard title={c.title} subtitle={c.subtitle} description={c.description} angle={i * 90}
                                       background={backgrounds[i]} color={colors[i]} borderRColor={borderColors[i]}
-                                      z={z[i]} image={images[i]} key={i}
-                                      angleColor={backgrounds[i] === "bg-marabunta-cyan" ? "text-off-white" : i === 3 ? "text-off-white lg:text-off-black" : undefined}/>
+                                      z={z[i]} image={images[i]} key={i}/>
                     );
                 })
             }
