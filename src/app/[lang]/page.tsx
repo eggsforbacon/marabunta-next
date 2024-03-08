@@ -10,21 +10,21 @@ import Strategy from "@/components/home/Strategy";
 import CallToAction from "@/components/home/CallToAction";
 import Team from "@/components/home/Team";
 
-export default async function Home({params : {lang}} : {params : {lang : Locale}}) {
-    const { nav, home} = await getDictionary(lang);
+export default async function Home({params: {lang}}: { params: { lang: Locale } }) {
+  const {nav, home} = await getDictionary(lang);
 
-    return (
-        <main>
-            <Navbar lang={lang} s={nav} current={"/"}/>
-            <section className={"flex flex-col bg-black w-full"}>
-                <Hero />
-                <Intro s={home.intro} />
-                <Services s={home.services} lang={lang}/>
-                <Reel />
-                <Strategy s={home.strategy}/>
-                <Team s={{team: home.team}} lang={lang} />
-                <CallToAction />
-            </section>
-        </main>
-    )
+  return (
+      <main>
+        <Navbar lang={lang} s={nav} current={"/"}/>
+        <section className={"flex flex-col bg-black w-full"}>
+          <Hero/>
+          <Intro s={home.intro}/>
+          <Services s={home.services} lang={lang}/>
+          <Reel/>
+          <Strategy s={home.strategy}/>
+          <Team s={{team: home.team}} lang={lang}/>
+          <CallToAction/>
+        </section>
+      </main>
+  )
 }

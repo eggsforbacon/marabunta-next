@@ -73,10 +73,10 @@ export const BlobPlayground = () => {
                 <div className={"absolute bottom-0 right-0 h-full w-full object-cover lg:block hidden"}>
                     {Liquid}
                 </div>
-                <div className={"absolute top-28 lg:hidden right-44 w-full object-cover scale-[2.1]"}>
+                <div className={"absolute top-28 md:top-40 lg:hidden right-44 md:right-96 w-full object-cover scale-[2.1]"}>
                     {Blue}
                 </div>
-                <div className={"absolute bottom-20 lg:hidden right-48 w-full object-cover scale-[2]"}>
+                <div className={"absolute bottom-20 md:bottom-52 lg:hidden right-48 md:right-80 w-full object-cover scale-[2]"}>
                     {Red}
                 </div>
             </div>
