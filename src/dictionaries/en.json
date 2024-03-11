@@ -202,7 +202,13 @@
           "Communication Strategies",
           "Media Production",
           "POP Material"
-        ]
+        ],
+        "about": {
+          "articles": [
+            "In Valle del Cauca we enjoy a unique diversity in flora and fauna, which adorn our landscapes.",
+            "Development of a graphic brand proposal for the CVC environmental promoters project."
+          ]
+        }
       },
       "rap_valle": {
         "title": "Rap del valle",
