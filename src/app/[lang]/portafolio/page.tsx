@@ -71,7 +71,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
         drag={width > 768 ? 'x' : 'y'}
         dragConstraints={width > 768 ? {
           right: 550,
-          left: -6350,
+          left: -(covers.length*440),
         } : {
           top: -6350,
           bottom: 120
