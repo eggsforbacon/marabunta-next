@@ -202,7 +202,13 @@
           "Communication Strategies",
           "Media Production",
           "POP Material"
-        ]
+        ],
+        "about": {
+          "articles": [
+            "In Valle del Cauca we enjoy a unique diversity in flora and fauna, which adorn our landscapes.",
+            "Development of a graphic brand proposal for the CVC environmental promoters project."
+          ]
+        }
       },
       "rap_valle": {
         "title": "Rap del valle",
@@ -221,6 +227,15 @@
           "POP Material",
           "Event Production"
         ]
+      },
+      "juegos_nacionales": {
+        "about": {
+          "title": "Juegos nacionales 2023",
+          "articles": [
+            "Valle del Cauca has been recognized for its outstanding career and leadership in the sports field. This is why, for the 2023 National Games, we intended to develop uniforms that would not only identify our athletes, but also represent what is relevant to our region on a national level, including our artists.",
+            "For this reason, we were inspired by the characteristic lines and shapes of Omar Rayo, a Valle del Cauca painter renowned both nationally and internationally. We incorporate this identity in the design of the uniforms and in the associated graphic pieces."
+          ]
+        }
       }
     }
   },

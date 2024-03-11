@@ -16,7 +16,7 @@ export default async function Cannabinoides({params : {lang}} : {params : {lang 
         setNav(item.nav);
         setAbout(item.work.projects.clinicannabis.about);
     });
-}, [lang]);
+  }, [lang]);
 
   return (
     <main className="flex flex-col font-solomon">

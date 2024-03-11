@@ -202,7 +202,13 @@
           "Estrategia Comunicativa",
           "Producción de Medios",
           "Material POP"
-        ]
+        ],
+        "about": {
+          "articles": [
+            "En el Valle del Cauca gozamos de una diversidad única en la flora y la fauna, que adornan nuestros paisajes.",
+            "Desarrollo de una propuesta de marca gráfica para el proyecto de promotores ambientales de la CVC."
+          ]
+        }
       },
       "rap_valle": {
         "title": "Rap del valle",
@@ -229,6 +235,15 @@
         ],
         "about": {
 
+        }
+      },
+      "juegos_nacionales": {
+        "about": {
+          "title": "Juegos nacionales 2023",
+          "articles": [
+            "El Valle del Cauca ha sido reconocido por su destacada trayectoria y liderazgo en el ámbito deportivo. Es por esto que, para los Juegos Nacionales del 2023, teníamos la intención de desarrollar uniformes que no solo sirvieran para identificar a nuestros atletas, sino también para representar lo que es relevante para nuestra región a nivel nacional, incluyendo a nuestros artistas.",
+            "Por esta razón, nos inspiramos en las líneas y formas característicos de Omar Rayo, un pintor vallecaucano de renombre tanto a nivel nacional como internacional. Incorporamos esta identidad en el diseño de los uniformes y en las piezas gráficas asociadas."
+          ]
         }
       }
     }

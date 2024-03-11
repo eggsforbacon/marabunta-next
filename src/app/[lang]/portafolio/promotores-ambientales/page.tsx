@@ -17,9 +17,9 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
   useEffect(() => {
     getDictionary(lang).then((item) => {
         setNav(item.nav);
-        setAbout(item.work.projects.clinicannabis.about);
+        setAbout(item.work.projects.promotores.about);
     });
-}, [lang]);
+  }, [lang]);
 
   return (
     <main className="flex flex-col">
@@ -28,10 +28,10 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
           className={"md:object-cover w-full h-max pointer-events-none select-none"}/>
       <section className="bg-white text-center text-md md:text-2xl text-projects-ambientales-ocean-blue px-6 md:px-72">
         <p className="m-auto pt-16 md:pt-24 pb-8 px-2 md:px-14 max-w-[930px]">
-          En el Valle del Cauca gozamos de una diversidad única en la flora y la fauna, que adornan nuestros paisajes.
+          {about?.articles[0]}
         </p>
         <p className="m-auto pb-24 max-w-[960px]">
-          Desarrollo de una propuesta de marca gráfica para el proyecto de promotores ambientales de la CVC.
+        {about?.articles[1]}
         </p>
       </section>
       <Image src={"/images/projects/promotores-ambientales/img-1.jpg"} alt={""} width={1920} height={594} quality={100}

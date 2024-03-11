@@ -102,6 +102,9 @@ module.exports = {
                     'patrimonio-vital': {
                         'green': "#2a490c"
                     },
+                    'juegos-nacionales': {
+                        'red': '#981e15'
+                    },
                     'panamericanos-21': {
                         'yellow': '#fcdc00',
                         'pink': '#e5077e',
