@@ -202,7 +202,13 @@
           "Estrategia Comunicativa",
           "Producción de Medios",
           "Material POP"
-        ]
+        ],
+        "about": {
+          "articles": [
+            "En el Valle del Cauca gozamos de una diversidad única en la flora y la fauna, que adornan nuestros paisajes.",
+            "Desarrollo de una propuesta de marca gráfica para el proyecto de promotores ambientales de la CVC."
+          ]
+        }
       },
       "rap_valle": {
         "title": "Rap del valle",
