@@ -131,10 +131,10 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
     "Hacemos Ingeniería",
     "Rap del Valle",
     "Clinivital: Seminario Iberoaméricano",
-    // "Fiesta de mi Pueblo 2021",
-    // "Juegos Panamericanos Junior 2021",
-    // "Bio Expo",
-    // "ARA",
+    "Fiesta de mi Pueblo 2021",
+    "Juegos Panamericanos Junior 2021",
+    "Bio Expo",
+    "ARA",
   ]
 
   return (
@@ -151,10 +151,6 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
               top: -6350,
               bottom: 120
             }}
-            onDrag={() => {
-              console.log(x.get(), y.get());
-            }}
-            style={width > 768 ? {x} : {y}}
             className={"box-border w-screen lg:w-fit cursor-grab lg:min-h-screen relative flex flex-col lg:flex-row items-center justify-start py-16 lg:p-16 gap-6 [perspective:10000px] active:cursor-grabbing"}
             onMouseMove={handleVisorOver}
             onMouseEnter={e => {
@@ -184,15 +180,13 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
           {/*</button>*/}
           <div className={"w-[90vw] lg:w-128"}>
             <DropdownMenu defaultOption={projectList[0]} options={projectList} open={projectDropdownState}
-                          setOpen={(open) => {toggleProjectDropdown(open); toggleCategoryDropdown(false);}} collateral={(i) => {
-              const sign = selectedProject - i;
+                          setOpen={toggleProjectDropdown} collateral={(i) => {
               setSelectedProject(i);
-              width > 768 ? x.set(x.get() + (sign * 512)) : y.set(y.get() + (sign * 500));
             }} defaultCondition={selectedProject === 0} direction={"up"}/>
           </div>
           <div className={"w-[90vw] lg:w-96"}>
             <DropdownMenu defaultOption={(work.categories ?? ["-"])[0]} options={(work.categories ?? ["-"])} open={categoryDropdownState}
-                          setOpen={(open) => {toggleCategoryDropdown(open); toggleProjectDropdown(false);}} collateral={(i) => {
+                          setOpen={toggleCategoryDropdown} collateral={(i) => {
               setSelectedCategory(i);
             }} defaultCondition={selectedCategory === 0} direction={"up"}/>
           </div>
