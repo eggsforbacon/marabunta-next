@@ -122,15 +122,26 @@
           "Media Production"
         ]
       },
-      "fiestaMiPrueblo2022": {
+      "fiestaMiPueblo2022": {
         "title": "The Fiesta of my People, who we are (La Fiesta de mi Pueblo, lo que Somos)",
+        "subtitle": "<span class='font-bold'>‘La Fiesta de mi Pueblo’ 2022,</span> scene of customs, traditions, arts and gastronomy that build atmospheres and allegorical sensations of the essence that represent us as Valle del Cauca.",
         "categories": [
           "Social Marketing",
           "Event Production",
           "Media Campaign",
           "POP Material",
           "Media Production"
-        ]
+        ],
+        "about": {
+          "title": "WHAT WE ARE",
+          "articles": [
+            "For the second consecutive year, the 'Cali Fair' once again vibrated with 'La Fiesta de mi Pueblo', the parade with which the people of Valle del Cauca evoked pride in the department and with which, since its creation, they identified so much themselves as tourists in the traditional 'Calle de la Feria'.",
+            "In the second edition of this event, the Government of Valle del Cauca and the Departmental Culture Secretariat, through the mayors and culture secretariats of the 42 municipalities of the department, made an open call for artists and cultural managers to integrate the theoretical-practical workshops on modeling and creative development of the floats that paraded on December 26, 2022 at the Cali Fair.",
+            "The call was a success, a total of 200 participants from all the municipalities of Valle del Cauca, including plastic artists, cultural managers, designers, artisans, choreographers, musicians, dancers and the like, accepted the call and were in charge of designing the graphic proposals and artistic performances of the floats and troupes that represented their culture and traditions.",
+            "In these workshops, the designs were consolidated and took shape and space in models that finally became the floats that adorned the parade of 'La Fiesta de mi Pueblo, lo que nos' within the framework of the Cali Fair in its 65th version.",
+            "In addition to the comparsas and floats of the municipalities, this version of 'La Fiesta de mi Pueblo, lo que Somos' had the presence of national and international artists such as Papo Sánchez, Conjunto Caney, Willy García, Enkanto Orquesta, Anddy Caicedo and the CVC orchestra who paraded along the Calle de la Feria and made the attendees vibrate with their music."
+          ]
+        }
       },
       "clinicannabis": {
         "title": "Seminar <br />Ibero-american",

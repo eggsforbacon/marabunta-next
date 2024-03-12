@@ -64,7 +64,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
   ]
 
   return (
-    <main className={"h-screen lg:h-full bg-off-black overflow-clip"}>
+    <main className={"h-screen lg:h-full bg-off-black overflow-clip pt-24"}>
       <Navbar current={"/portafolio"} withBorder s={nav} lang={lang}/>
       <span className={"absolute top-0 w-full left-0 h-full pointer-events-none packed-dotted-background opacity-30 overflow-hidden"}/>
       <motion.div
@@ -127,7 +127,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
         </div>
       </section>
       <section
-          className={"absolute w-full top-28 lg:top-9 -translate-x-1/2 left-1/2 lg:translate-x-0 lg:left-0 flex items-center justify-center lg:justify-between px-0 lg:px-16 gap-2 font-light tracking-wide text-off-white text-lg"}>
+          className={"mt-24 absolute w-full top-28 lg:top-9 -translate-x-1/2 left-1/2 lg:translate-x-0 lg:left-0 flex items-center justify-center lg:justify-between px-0 lg:px-16 gap-2 font-light tracking-wide text-off-white text-lg"}>
         <Link
           className={"w-44 text-center box-border lg:box-content lg:w-auto bg-off-white/10 border-none backdrop-blur-2xl rounded-lg w- py-2 px-8 lg:text-start text-lg"}
           href={"https://www.behance.net/MarabuntaAgencia"} target={"_blank"}>Behance</Link>
