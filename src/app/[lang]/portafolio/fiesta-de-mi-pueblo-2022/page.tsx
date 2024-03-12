@@ -8,7 +8,7 @@ import { getDictionary } from "@/lib/dictionary";
 import { ProjectAbout } from "@/types/work";
 import TimeLine from "@/components/time-line";
 
-export default async function FiestaDeMiPueblo21({params : {lang}} : {params : {lang : Locale}}) {
+export default async function FiestaDeMiPueblo22({params : {lang}} : {params : {lang : Locale}}) {
   const [nav, setNav] = useState<{ [key: string]: any }>([]);
   const [about, setAbout] = useState<ProjectAbout>();
   const [subTitle, setSubTitle] = useState<string>();
