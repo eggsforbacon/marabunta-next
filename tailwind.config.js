@@ -61,6 +61,8 @@ module.exports = {
                 'organik': ['Organik', 'sans-serif'],
                 'solomon': ['Solomon', 'sans-serif'],
                 'galano': ['Galano grotesque', 'sans-serif'],
+                'myriad': ['Myriad pro', 'sans-serif'],
+                'typoRound': ['Typo Round', 'sans-serif']
             },
             colors: {
                 'off': {
@@ -106,6 +108,9 @@ module.exports = {
                         'red': '#981e15'
                     },
                     'panamericanos-21': {
+                        'purple': '#000c7c',
+                        'blue': '#1B9CD9',
+                        'gray': '#9C9B9B',
                         'yellow': '#fcdc00',
                         'pink': '#e5077e',
                         'ocean-blue': '#160b8b',

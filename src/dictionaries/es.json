@@ -181,12 +181,19 @@
       },
       "panamericanos": {
         "title": "Juegos Panamericanos Junior 2021",
+        "subtitle": "ver más",
         "categories": [
           "Producción de Medios",
           "Producción de Eventos",
           "Campaña de Medios",
           "Material POP"
-        ]
+        ],
+        "about": {
+          "title": "Mascota",
+          "articles": [
+            "El desarrollo de la marca cumple con los elementos identitarios y de expresión cotidiana de la generación que hará parte de los i juegos panamericanos junior cali-valle 2021. representa los colores, la línea comunicacional, los símbolos y gráficas que hacen parte del entorno de convivencia y socialización de la marca."
+          ]
+        }
       },
       "fondoMixto": {
         "title": "Rebranding Fondo Mixto",
