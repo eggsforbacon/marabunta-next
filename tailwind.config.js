@@ -118,7 +118,8 @@ module.exports = {
                         'gray': '#55565b',
                     },
                     'pueblo': {
-                        'yelow': '#f5cc24'
+                        'yelow': '#f5cc24',
+                        'green': '#009296'
                     },
                     'pueblo-21': {
                         'purple': '#3a3173',

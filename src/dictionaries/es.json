@@ -122,15 +122,26 @@
           "Producción de Medios"
         ]
       },
-      "fiestaMiPrueblo2022": {
+      "fiestaMiPueblo2022": {
         "title": "La Fiesta de mi Pueblo, lo que Somos",
+        "subtitle": "<span class='font-bold'>‘La Fiesta de mi Pueblo’ 2022,</span> escenario de costumbres, tradiciones, artes y gastronomía que construyen atmósferas y sensaciones alegóricas de la esencia que nos representa como vallecaucanos.",
         "categories": [
           "Marketing Social",
           "Producción de Eventos",
           "Campaña de Medios",
           "Material POP",
           "Producción de Medios"
-        ]
+        ],
+        "about": {
+          "title": "LO QUE SOMOS",
+          "articles": [
+            "Por segundo año consecutivo, la ‘Feria de Cali’ volvió a vibrar con ‘La Fiesta de mi Pueblo’, el desfile con el que los vallecaucanos evocaron el orgullo por el departamento y con el cual, desde su momento de creación, se identificaron tanto propios como turistas en la tradicional ‘Calle de la Feria’.",
+            "En la segunda edición de este evento, la Gobernación del Valle del Cauca y la Secretaría de Cultura Departamental, a través de las alcaldías y secretarías de cultura de los 42 municipios del departamento, realizaron la convocatoria abierta para que los artistas y gestores culturales integraran los talleres teórico-prácticos de modelación y desarrollo creativo de las carrozas que desfilaron el 26 de diciembre de 2022 en la Feria de Cali.",
+            "La convocatoria fue un éxito, un total de 200 participantes de todos los municipios del Valle del Cauca, entre artistas plásticos, gestores culturales, diseñadores, artesanos, coreógrafos, músicos, bailarines y afines, aceptaron el llamado y se encargaron de diseñar las propuestas gráficas y artísticas de las carrozas y las comparsas que representaron su cultura y sus tradiciones.",
+            "En estos talleres se consolidaron los diseños que tomaron forma y espacio en maquetas que finalmente se convirtieron en las carrozas que engalanaron el desfile de ‘La Fiesta de mi Pueblo, lo que somos’ dentro del marco de la Feria de Cali en su versión número 65.",
+            "Además de las comparsas y carrozas de los municipios, esta versión de ‘La Fiesta de mi Pueblo, lo que Somos’ contó con la presencia de artistas nacionales e internacionales como Papo Sánchez, Conjunto Caney, Willy García, Enkanto Orquesta, Anddy Caicedo y la orquesta CVC quienes desfilaron a lo largo de la Calle de la Feria y pusieron a vibrar con su música a los asistentes."
+          ]
+        }
       },
       "clinicannabis": {
         "title": "Seminario <br />Iberoamericano",
