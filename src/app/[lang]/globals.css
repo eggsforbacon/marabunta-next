@@ -9,6 +9,10 @@
     border: solid 1px magenta;
   }
 
+  .btn-show-more {
+    clip-path: polygon(0 0, 100% 11%, 97% 100%, 7% 100%);
+  }
+
   body::-webkit-scrollbar-thumb {
     background-color: #52c0e1;
     border-radius: 14px;

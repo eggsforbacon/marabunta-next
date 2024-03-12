@@ -37,5 +37,9 @@ export const covers: coverType[] = [
   {
     cover: "/images/projects/juegos-nacionales/cover.jpg",
     link: "/portafolio/juegos-nacionales"
+  },
+  {
+    cover: "/images/projects/panamericanos/cover.png",
+    link: "/portafolio/juegos-panamericanos"
   }
 ]
