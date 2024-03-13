@@ -4,11 +4,9 @@ import {Hero} from "@/components/home/Hero";
 import {Intro} from "@/components/home/Intro";
 import {getDictionary} from "@/lib/dictionary";
 import {Locale} from "@/i18n.config";
-import Services from "@/components/home/Services";
 import Reel from "@/components/home/Reel";
 import Strategy from "@/components/home/Strategy";
 import CallToAction from "@/components/home/CallToAction";
-import Team from "@/components/home/Team";
 import Image from "next/image";
 import {WhatsappButton} from "@/components/ui/WhatsAppButton";
 
