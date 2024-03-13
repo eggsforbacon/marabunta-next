@@ -8,13 +8,19 @@ import {Locale} from "@/i18n.config";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 type _PProps = {
-  current?: "/" | "/servicios" | "/portafolio" | "/contacto" | "/blog",
+  current?: "/" | "/servicios" | "/portafolio" | "/equipo" | "/blog",
   withBorder?: boolean,
   s: { [key: string]: any },
-  lang: Locale
+  lang: Locale,
+  blogData? : {
+    slugs : {
+      en : string,
+      es : string,
+    }
+  }
 }
 
-const Navbar = ({current, s, lang}: _PProps) => {
+const Navbar = ({current, s, lang, blogData}: _PProps) => {
 
   const [open, setOpen] = useState(false);
   const [openLang, setOpenLang] = useState(false);
@@ -41,6 +47,10 @@ const Navbar = ({current, s, lang}: _PProps) => {
     }
   });
 
+  const pickSlug = () : string | undefined => {
+    return blogData ? blogData.slugs[lang] : undefined;
+  }
+
   return (
       <>
             <span onClick={() => setOpen(false)}
@@ -57,21 +67,21 @@ const Navbar = ({current, s, lang}: _PProps) => {
             <li className={`${linkHoverStyle} ${current === "/" ? "text-marabunta-cyan" : ""}`}>
               <LocaleLink lang={lang} href={"/"}>{s.home}</LocaleLink>
             </li>
+            <li className={`${linkHoverStyle} ${current === "/equipo" ? "text-marabunta-cyan" : ""}`}>
+              <LocaleLink lang={lang} href={"/equipo"}>{s.contact}</LocaleLink>
+            </li>
             <li className={`${linkHoverStyle} ${current === "/portafolio" ? "text-marabunta-cyan" : ""}`}>
               <LocaleLink lang={lang} href={"/portafolio"}>{s.work}</LocaleLink>
             </li>
             <li className={`${linkHoverStyle} ${current === "/blog" ? "text-marabunta-cyan" : ""}`}>
               <LocaleLink lang={lang} href={"/blog"}>{s.blog}</LocaleLink>
             </li>
-            <li className={`${linkHoverStyle} ${current === "/contacto" ? "text-marabunta-cyan" : ""}`}>
-              <LocaleLink lang={lang} href={"/contacto"}>{s.contact}</LocaleLink>
-            </li>
             <div className={"hidden lg:flex"}>
               <LanguageSwitcher lang={lang} state={[openLang, setOpenLang]}/>
             </div>
           </ul>
           <div className={"lg:hidden"}>
-            <LanguageSwitcher lang={lang} state={[openLang, setOpenLang]}/>
+            <LanguageSwitcher lang={lang} state={[openLang, setOpenLang]} slug={pickSlug()}/>
           </div>
           <LocaleLink lang={lang} href={"/"} className={"relative z-20"} passHref>
             <MarabuntaHor

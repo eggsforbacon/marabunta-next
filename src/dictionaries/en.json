@@ -20,7 +20,7 @@
     "services": "Services",
     "work": "Works",
     "blog": "Blog",
-    "contact": "Contact"
+    "contact": "Team"
   },
   "home": {
     "intro": {
@@ -37,7 +37,7 @@
           "Strategy",
           "Marketing",
           "Branding",
-          "Interactive Media",
+          "Development",
           "Audiovisual",
           "Animation",
           "Events"

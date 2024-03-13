@@ -12,6 +12,7 @@ import useScreenSize from "@/hooks/useScreenSize";
 import {useProjectsStore} from "@/store/projects";
 import DropdownMenu from "@/components/ui/DropdownMenu";
 import { covers } from "../../../../constans/covers";
+import {WhatsappButton} from "@/components/ui/WhatsAppButton";
 
 export default function Work({params: {lang}}: { params: { lang: Locale } }) {
 
@@ -135,6 +136,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
           className={"w-44 text-center box-border lg:box-content lg:w-auto bg-off-white/10 border-none backdrop-blur-2xl rounded-lg w- py-2 px-8 lg:text-start text-lg"}
           href={"https://www.instagram.com/marabuntaagenciacreativa/"} target={"_blank"}>Instagram</Link>
       </section>
+      <WhatsappButton />
     </main>
   );
 }

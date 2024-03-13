@@ -27,7 +27,7 @@ export function middleware(request: NextRequest) {
     const headersWithLocale = new Headers(request.headers);
 
     if (pathnameIsMissingLocale) {
-
+        const segments = pathname.split('/');
         return NextResponse.rewrite(
             new URL(
                 `/${i18n.defaultLocale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
