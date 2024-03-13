@@ -5,28 +5,33 @@ import {Dispatch, SetStateAction} from "react";
 import {i18n, Locale} from "@/i18n.config";
 import Link from "next/link";
 
-const LanguageSwitcher = ({state, lang} : {state : [boolean, Dispatch<SetStateAction<boolean>>], lang : Locale}) => {
+const LanguageSwitcher = ({state, lang, slug} : {state : [boolean, Dispatch<SetStateAction<boolean>>], lang : Locale, slug? : string}) => {
     const pathname = usePathname();
     const [open, setOpen] = state;
 
-    const redirectedPathname = (locale: string) => {
+    const redirectedPathname = (locale: string, slug?: string) => {
         if (!pathname) return '/';
 
         const pathnameIsMissingLocale = i18n.locales.every(
-            locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+            loc => !pathname.startsWith(`/${loc}/`) && pathname !== `/${loc}`
         );
+
         if (pathnameIsMissingLocale) {
-            if (locale === i18n.defaultLocale) return pathname;
-            return `/${locale}${pathname}`;
+            if (locale === i18n.defaultLocale) return slug ? `/${slug}` : pathname;
+            return `/${locale}${slug ? `/${slug}` : pathname}`;
         } else {
             const segments = pathname.split('/');
             const isHome = segments.length === 2;
             if (isHome) return `/${locale === i18n.defaultLocale ? '' : locale}`;
 
-            segments.splice(1,1);
-            return segments.join('/');
+            if (segments[1] === 'blog' && slug) {
+                segments.splice(2, 1, slug);
+            } else {
+                segments.splice(1, 1);
+            }
+            return `/${locale}${segments.join('/')}`;
         }
-    }
+    };
 
     return (
         <>

@@ -5,6 +5,7 @@ import Blogs from "@/components/blog/Blogs";
 import React from "react";
 import NewsletterForm from "@/components/blog/NewsletterForm";
 import BlogFilters from "@/components/blog/BlogFilters";
+import {WhatsappButton} from "@/components/ui/WhatsAppButton";
 
 export default async function BlogPage({params: {lang}}: { params: { lang: Locale } }) {
 
@@ -36,6 +37,7 @@ export default async function BlogPage({params: {lang}}: { params: { lang: Local
             </section>
           </section>
         </section>
+        <WhatsappButton />
       </main>
   );
 }

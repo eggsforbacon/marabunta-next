@@ -34,14 +34,15 @@ export async function getMonthlyFeatured(month: Month, locale?: Locale): Promise
   return {featuredArray}
 }
 
-export async function getSingleBlog(slug: string): Promise<{ post: Blog.Attributes }> {
-  const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?populate=*`;
+export async function getSingleBlog(slug: string, lang : Locale): Promise<{ post: Blog.Attributes }> {
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?${lang === "es" ? "locale=es-CO&" : `locale=${lang}&`}populate=*`;
   const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
 
   let singlePost;
   if (data !== null) {
     for (const feat of data) {
       const attributes: { [key: string]: any } = feat.attributes;
+      console.log(attributes.slug);
       if (attributes.slug === slug) {
         singlePost = attributes;
         break;
