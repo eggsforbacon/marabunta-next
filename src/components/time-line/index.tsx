@@ -15,7 +15,7 @@ const years:yearsTipe[] = [{
   link: '/portafolio/fiesta-de-mi-pueblo-2021'
 }, {
   year: 2022,
-  link: ''
+  link: '/portafolio/fiesta-de-mi-pueblo-2022'
 }, {
   year: 2023,
   link: '/portafolio/fiesta-de-mi-pueblo-2023'
