@@ -4,11 +4,10 @@ import {Hero} from "@/components/home/Hero";
 import {Intro} from "@/components/home/Intro";
 import {getDictionary} from "@/lib/dictionary";
 import {Locale} from "@/i18n.config";
-import Services from "@/components/home/Services";
 import Reel from "@/components/home/Reel";
 import Strategy from "@/components/home/Strategy";
 import CallToAction from "@/components/home/CallToAction";
-import Team from "@/components/home/Team";
+import Image from "next/image";
 import {WhatsappButton} from "@/components/ui/WhatsAppButton";
 
 export default async function Home({params: {lang}}: { params: { lang: Locale } }) {
@@ -20,10 +19,14 @@ export default async function Home({params: {lang}}: { params: { lang: Locale } 
         <section className={"flex flex-col bg-black w-full"}>
           <Hero/>
           <Intro s={home.intro}/>
-          <Services s={home.services} lang={lang}/>
-          <Reel/>
+          <section
+          className={"relative z-20 flex flex-col items-stretch justify-start text-off-white overflow-x-clip"}>
+            <Image src={"/images/home/svg/black-key-bezel.svg"} alt={"no-alt"} width={1920} height={286}
+               className={"absolute top-72 lg:top-0 select-none scale-[8.2] -left-64 lg:left-auto lg:scale-[1.75] pointer-events-none"}
+               priority quality={100}/>
+              <Reel/>
+          </section>
           <Strategy s={home.strategy}/>
-          <Team s={{team: home.team}} lang={lang}/>
           <CallToAction/>
         </section>
         <WhatsappButton/>

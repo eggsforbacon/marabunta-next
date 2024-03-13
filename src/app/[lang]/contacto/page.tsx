@@ -13,7 +13,7 @@ export default async function Home({params : {lang}} : {params : {lang : Locale}
 
     return (
         <main>
-            <Navbar current={"/contacto"} s={nav} lang={lang}/>
+            <Navbar current={"/"} s={nav} lang={lang}/>
             <span className={"aspect-square z-50 h-16 absolute top-6 right-6"} />
             <section className={"flex relative flex-col bg-off-black items-center justify-start pt-24 2xl:pt-0 w-[96%] px-4 md:px-12 lg:px-24 xl:px-32 overflow-x-clip mt-24"}>
                 <Image src={"/images/contact/footer-bezel.png"} alt={""} width={1920} height={1080} className={"bottom-64 left-44 lg:bottom-0 lg:left-0 absolute lg:scale-100 scale-[3.2]"}/>
