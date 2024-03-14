@@ -35,7 +35,8 @@ export default async function FiestaDeMiPueblo21({params : {lang}} : {params : {
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
       <section className="relative">
         <p className="absolute text-center m-auto text-xs md:text-2xl py:28 md:py-36 max-w-[960px] text-white left-[50%] top-[10%] translate-x-[-50%]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo modi aperiam deleniti deserunt pariatur dolorem reprehenderit, culpa fugiat esse rem autem amet dolorum, vel eos ad quibusdam soluta, eum natus?
+          Se realizó un branding para la primera edición de uno de los eventos más destacados de la Feria de Cali, en Colombia. En este desfile, los artistas recorren la emblemática 'Calle de la Feria', 
+          destacando la rica diversidad cultural y culinaria del Valle del Cauca, así como las vibrantes expresiones artísticas que caracterizan a los nacidos en esta región, los vallecaucanos.
         </p>
         <Image src={"/images/projects/fiesta-de-mi-pueblo-21/img-1.jpg"} alt={""} width={1920} height={594} quality={100}
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
@@ -54,7 +55,8 @@ export default async function FiestaDeMiPueblo21({params : {lang}} : {params : {
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
       <span className="relative">
         <p className="absolute text-center m-auto text-xs md:text-2xl md:py-36 max-w-[960px] text-white left-[50%] top-[10%] translate-x-[-50%]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo modi aperiam deleniti deserunt pariatur dolorem reprehenderit, culpa fugiat esse rem autem amet dolorum, vel eos ad quibusdam soluta, eum natus?
+          La línea gráfica se caracterizó por resaltar elementos culturales de la región, tales como iglesias, monumentos, vegetación, alimentos, animales e instrumentos musicales, todos representados con 
+          colores palpitantes propios de una celebración.
         </p>
         <Image src={"/images/projects/fiesta-de-mi-pueblo-21/img-8.jpg"} alt={""} width={1920} height={594} quality={100}
           className={"object-cover w-full w-auto pointer-events-none select-none"}/>
