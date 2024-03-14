@@ -26,8 +26,8 @@ export default function Team({s, lang}: { s: { [_: string]: any }, lang: Locale 
 
   return (
       <section className={"text-off-white py-32 px-6 md:px-16 overflow-x-clip"}>
-        <div className={"flex flex-col items-center justify-start gap-16 lg:px-48"}>
-          <h2 className={"text-3xl md:text-4xl lg:text-5xl font-normal text-center"}>{team.copy}<strong
+        <div className={"flex flex-col items-center justify-start gap-16 lg:px-32 xl:px-48"}>
+          <h2 className={"text-3xl md:text-4xl xl:text-5xl font-normal text-center"}>{team.copy}<strong
               className={"text-marabunta-red font-black"}>marabunta.</strong></h2>
           <span className={"w-screen h-0.5 bg-off-white/60 rounded-full -mx-6 md:-mx-16 lg:-mx-64"}/>
           <ul className={"flex items-center justify-start gap-6 text-neutral-500 text-center text-base flex-wrap"}>

@@ -81,8 +81,12 @@
         "subtitle": "Llevamos tus ideas a la realidad",
         "description": "Somos expertos en la producción logística y el montaje de grandes eventos que dejan huella a nivel local, nacional e internacional. Nuestro objetivo es generar experiencias que transformen vidas."
       }
-    ],
-    "team": {
+    ]
+  },
+  "team": {
+    "title": "Somos ",
+    "copy": "Desde nuestros inicios en 2011, en la sucursal del cielo, Cali, hemos tejido una historia de creatividad y colaboración. Lo que comenzó como 3 escritorios en una empresa se convirtió en Marabunta, un hogar para mentes creativas y corazones apasionados por construir con y para su departamento y su país. Hoy, después de 13 años de trabajo como equipo, seguimos creciendo y creando juntos, inspirando cada día con nuestro espíritu innovador y nuestra pasión por el arte y la creatividad.",
+    "showcase": {
       "copy": "Esta gran colonia siempre está en movimiento, todos somos ",
       "categories": [
         "todas",

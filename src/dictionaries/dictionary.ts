@@ -36,7 +36,11 @@ export type Dictionary = {
             "brands" : string,
         },
         "strategy" : StrategyCard[],
-        "team": {
+    },
+    "team": {
+        "title": string,
+        "copy": string,
+        "showcase": {
             "copy": string,
             "categories": (Team.Area | "all" | "todas")[],
         }

@@ -81,8 +81,12 @@
         "subtitle": "We take your ideas to life",
         "description": "We are experts in the logistical production and staging of large events that leave their mark locally, nationally and internationally. We are committed to generating experiences that transform lives."
       }
-    ],
-    "team": {
+    ]
+  },
+  "team": {
+    "title": "We are ",
+    "copy": "Since our beginnings in 2011, in the 'Branch of Heaven,' Cali, we've woven a tale of creativity and collaboration. What started as 3 desks in another company grew into Marabunta, a haven for creative minds and passionate hearts dedicated to building with and for our department and our country. Today, after 13 years of teamwork, we continue to grow and create together, inspiring each day with our innovative spirit and our love for art and creativity.",
+    "showcase": {
       "copy": "This great colony is always moving, we all are ",
       "categories": [
         "all",
