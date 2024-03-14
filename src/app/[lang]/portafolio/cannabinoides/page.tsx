@@ -1,6 +1,4 @@
-"use client";
-
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Navbar from "@/components/ui/Navbar";
 import {Locale} from "@/i18n.config";
 import Image from "next/image";
@@ -8,15 +6,8 @@ import { getDictionary } from "@/lib/dictionary";
 import { ProjectAbout } from "@/types/work";
 
 export default async function Cannabinoides({params : {lang}} : {params : {lang : Locale}}) {
-  const [nav, setNav] = useState<{ [key: string]: any }>([]);
-  const [about, setAbout] = useState<ProjectAbout>();
-
-  useEffect(() => {
-    getDictionary(lang).then((item) => {
-        setNav(item.nav);
-        setAbout(item.work.projects.clinicannabis.about);
-    });
-  }, [lang]);
+  const {nav, work} = await getDictionary(lang);
+  const about : ProjectAbout = work.projects.clinicannabis.about;
 
   return (
     <main className="flex flex-col font-solomon">
@@ -32,25 +23,25 @@ export default async function Cannabinoides({params : {lang}} : {params : {lang 
         }
       </section>
       <Image src={"/images/projects/clinicannabis/img-1.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/clinicannabis/img-2.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/clinicannabis/img-3.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/clinicannabis/img-4.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/clinicannabis/img-5.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/clinicannabis/img-6.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/clinicannabis/img-7.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/clinicannabis/img-8.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/clinicannabis/img-9.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/clinicannabis/img-10.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
     </main>
   );
 }

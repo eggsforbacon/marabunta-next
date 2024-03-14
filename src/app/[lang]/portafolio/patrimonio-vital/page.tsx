@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "@/components/ui/Navbar";
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/lib/dictionary";
@@ -9,19 +7,9 @@ import Image from "next/image";
 
 
 export default async function PatrimonioVital({params : {lang}} : {params : {lang : Locale}}) {
-  const [nav, setNav] = useState<{ [key: string]: any }>([]);
-  const [title, setTitle] = useState<string>()
-  const [subtitle, setSubtitle] = useState<string>()
-  const [about, setAbout] = useState<ProjectAbout>();
-
-  useEffect(() => {
-    getDictionary(lang).then((item) => {
-      setNav(item.nav);
-      setAbout(item.work.projects.patrimonio_vital.about);
-      setTitle(item.work.projects.patrimonio_vital.title);
-      setSubtitle(item.work.projects.ingenieria_sas.subtitle);
-    });
-  }, [lang]);
+  const {nav, work} = await getDictionary(lang);
+  const about : ProjectAbout = work.projects.patrimonio_vital.about;
+  const title : string | undefined = work.projects.patrimonio_vital.subtitle;
 
   return (
     <main className="flex flex-col">
@@ -37,25 +25,25 @@ export default async function PatrimonioVital({params : {lang}} : {params : {lan
         <source src={"/images/projects/patrimonio-vital/gif.webm"} type={"video/webm"}/>
       </video>
       <Image src={"/images/projects/patrimonio-vital/img-2.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/patrimonio-vital/img-3.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/patrimonio-vital/img-4.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/patrimonio-vital/img-5.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/patrimonio-vital/img-6.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/patrimonio-vital/img-7.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/patrimonio-vital/img-8.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/patrimonio-vital/img-9.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/patrimonio-vital/img-10.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/patrimonio-vital/img-11.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
     </main>
   )
 }

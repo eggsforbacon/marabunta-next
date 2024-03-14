@@ -1,6 +1,4 @@
-"use client";
-
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Navbar from "@/components/ui/Navbar";
 import {Locale} from "@/i18n.config";
 import Image from "next/image";
@@ -8,38 +6,30 @@ import { getDictionary } from "@/lib/dictionary";
 import { ProjectAbout } from "@/types/work";
 
 export default async function JuegosPanamericanos({params : {lang}} : {params : {lang : Locale}}) {
-  const [nav, setNav] = useState<{ [key: string]: any }>([]);
-  const [subtitle, setSubtitle] = useState<string>()
-  const [about, setAbout] = useState<ProjectAbout>();
-
-  useEffect(() => {
-    getDictionary(lang).then((item) => {
-        setNav(item.nav);
-        setSubtitle(item.work.projects.panamericanos.subtitle)
-        setAbout(item.work.projects.panamericanos.about);
-    });
-  }, [lang]);
+  const {nav, work} = await getDictionary(lang);
+  const about : ProjectAbout = work.projects.panamericanos.about;
+  const subtitle : string | undefined = work.projects.panamericanos.subtitle;
 
   return (
     <main className="flex flex-col font-typoRound">
       <Navbar current={"/portafolio"} withBorder s={nav} lang={lang}/>
       <Image src={"/images/projects/panamericanos/banner.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/panamericanos/img-1.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/panamericanos/img-2.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/panamericanos/img-3.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/panamericanos/img-4.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/panamericanos/img-5.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/panamericanos/img-6.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <span className="relative">
        <Image src={"/images/projects/panamericanos/img-7.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
           <a href="https://www.behance.net/gallery/155552569/Juegos-Panamericanos-2021" target="_blank" className={"absolute top-2 md:top-48 right-2 md:right-36 text-white"}>
             <span className="text-projects-panamericanos-21-purple md:text-7xl font-bold">{about?.title}</span>
             {
@@ -50,7 +40,7 @@ export default async function JuegosPanamericanos({params : {lang}} : {params : 
       </span>
       <span className="relative text-white">
        <Image src={"/images/projects/panamericanos/img-8.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
           <a href="https://www.behance.net/gallery/155552569/Juegos-Panamericanos-2021" target="_blank" className={"absolute top-2 md:top-54 left-2 md:left-36"}>
             <span className="md:text-7xl font-bold">Medalla</span>
             {
@@ -60,13 +50,13 @@ export default async function JuegosPanamericanos({params : {lang}} : {params : 
           </a>
       </span>
       <Image src={"/images/projects/panamericanos/img-9.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/panamericanos/img-10.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/panamericanos/img-11.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
       <Image src={"/images/projects/panamericanos/img-12.jpg"} alt={""} width={1920} height={594} quality={100}
-          className={"object-cover w-full w-auto pointer-events-none select-none"}/>
+          className={"object-cover w-full pointer-events-none select-none"}/>
     </main>
   )
 }

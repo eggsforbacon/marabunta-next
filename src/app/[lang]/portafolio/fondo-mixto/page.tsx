@@ -1,22 +1,12 @@
-"use client";
-
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Navbar from "@/components/ui/Navbar";
 import {Locale} from "@/i18n.config";
 import Image from "next/image";
 import { getDictionary } from "@/lib/dictionary";
-import { ProjectAbout } from "@/types/work";
 
 export default async function FondoMixto({params : {lang}} : {params : {lang : Locale}}) {
-  const [nav, setNav] = useState<{ [key: string]: any }>([]);
-  const [about, setAbout] = useState<ProjectAbout>();
 
-  useEffect(() => {
-    getDictionary(lang).then((item) => {
-      setNav(item.nav);
-      setAbout(item.work.projects.clinicannabis.about);
-    });
-  }, [lang]);
+  const {nav} = await getDictionary(lang);
 
   return (
     <main className="flex flex-col">
@@ -25,7 +15,7 @@ export default async function FondoMixto({params : {lang}} : {params : {lang : L
           className={"md:object-cover w-full h-max pointer-events-none select-none"}/>
       <section className="bg-white text-center text-projects-fondo-mixto-blue-light">
         <p className="text-xl md:text-2xl py-36 max-w-[960px] m-auto">
-          Se reconstruyó el símbolo mejorando las formas y la disposición de los elementos que lo componen. En la gama crómatica se suprimió el color amarillo para dar armonía.
+          Se reconstruyó el símbolo mejorando las formas y la disposición de los elementos que lo componen. En la gama cromática se suprimió el color amarillo para dar armonía.
         </p>
         <div className="flex justify-center items-center pb-24">
           <span>
