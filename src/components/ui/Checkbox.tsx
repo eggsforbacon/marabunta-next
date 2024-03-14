@@ -1,15 +1,20 @@
+"use client";
+
+import {ChangeEventHandler} from "react";
+
 type _CProps = {
     className?: string,
     overrideBackgroundAndBorder?: string,
     overrideRing?: string,
     overrideText?: string,
     withShadow?: {
-        overdrop : string,
-        backdrop : string,
+        overdrop: string,
+        backdrop: string,
     },
 
     name?: string,
     required?: boolean,
+    onChange?: ChangeEventHandler<HTMLInputElement>,
 }
 
 const _defaults: { [key: string]: string } = {
@@ -24,12 +29,14 @@ export const Checkbox = (props: _CProps) => {
     const finalClassName: string = `relative z-10 ${baseClassName} ${props.className}`;
 
     if (!props.withShadow) return (
-        <input type={"checkbox"} className={finalClassName} name={props.name} required={props.required}/>
+        <input onChange={props.onChange} type={"checkbox"} className={finalClassName} name={props.name}
+               required={props.required}/>
     ); else return (
         <div className={"relative h-4 aspect-square flex items-start justify-start"}>
-            <span className={`absolute z-0 top-0.5 left-0.5 aspect-square h-4 ${props.withShadow.backdrop} rounded-sm shadow-lg`}/>
+            <span
+                className={`absolute z-0 top-0.5 left-0.5 aspect-square h-4 ${props.withShadow.backdrop} rounded-sm shadow-lg`}/>
             <span className={`absolute z-0 top-0 left-0 aspect-square h-full ${props.withShadow.overdrop} rounded-sm`}/>
-            <input type={"checkbox"} className={finalClassName} name={props.name} required={props.required}/>
+            <input onChange={props.onChange} type={"checkbox"} className={finalClassName} name={props.name} required={props.required}/>
         </div>
     );
 

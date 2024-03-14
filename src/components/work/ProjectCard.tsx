@@ -1,68 +1,55 @@
 "use client";
 
-import {ProjectCardDirection, ProjectCardMetadata} from "@/types/work";
-import {ServiceChip} from "@/components/work/ServiceChip";
-import React, {ReactNode, useState} from "react";
+import React, {ReactNode, useEffect, useRef} from "react";
 
-type _CProps = {
-    index: number,
-    direction?: ProjectCardDirection,
-    cardWidth?: string,
-    cardHeight?: string,
-    metadata: ProjectCardMetadata
-    cover: ReactNode
-    highlightColor? : string
-}
+export default function ProjectCard({children, mouse}: {
+  children: ReactNode[],
+  mouse: { x: number, y: number },
+}) {
 
-export const ProjectCard = (props: _CProps) => {
+  const boundingRef = useRef<HTMLDivElement>(null);
 
-    const [projectIsHovered, setProjectIsHovered] = useState(false);
+  useEffect(() => {
+    if (boundingRef.current) {
+      const navWidth = 80;
+      const cardBoundingRect = boundingRef.current.getBoundingClientRect();
+      const cardCenter = {
+        x: Math.ceil(cardBoundingRect.x - navWidth + (cardBoundingRect.width / 2)),
+        y: Math.ceil(cardBoundingRect.y + (cardBoundingRect.height / 2))
+      };
 
-    const directionClassMap: { [key in ProjectCardDirection]: string } = {
-        "none": "",
-        "right to left": "flex-row-reverse",
-        "left to right": "flex-row",
-        "downwards": "flex-col",
-        "upwards": "flex-col-reverse",
-    };
+      const distance = {
+        x: mouse.x - cardCenter.x,
+        y: mouse.y - cardCenter.y
+      };
+      const xPercentage = distance.x / cardBoundingRect.width;
+      const yPercentage = distance.y / cardBoundingRect.height;
+      const xRotation = (xPercentage * 0.6 - 0.1) * 40;
+      const yRotation = (0.1 - yPercentage * 0.6) * 40;
 
-    const hoverAnimationClassMap: { [key in ProjectCardDirection]: string } = {
-        "none": "-translate-x-2",
-        "right to left": "translate-x-2",
-        "left to right": "-translate-x-2",
-        "downwards": "-translate-y-2",
-        "upwards": "translate-y-2",
-    };
+      const maxX = 15;
+      const maxY = 18;
 
-    const handleMouseEnter = () => {
-        setProjectIsHovered(true);
-    };
+      const clampedXRotation = Math.abs(xRotation) < maxX ? xRotation : (Math.abs(xRotation) / xRotation) * maxX;
+      const clampedYRotation = Math.abs(yRotation) < maxY ? yRotation : (Math.abs(yRotation) / yRotation) * maxY;
 
-    const handleMouseLeave = () => {
-        setProjectIsHovered(false);
-    };
+      // boundingRef.current.style.setProperty("--x-rotation", `${clampedYRotation}deg`);
+      // boundingRef.current.style.setProperty("--y-rotation", `${clampedXRotation}deg`);
+    }
+  }, [mouse]);
 
-    return (
-        <li>
-            <article onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
-                     className={`flex items-stretch justify-start ${directionClassMap[props.direction ?? "none"]} w-full gap-8`}>
-                <div
-                    className={`${props.cardWidth ?? "w-full"} ${props.cardHeight ?? "h-144"} relative overflow-clip rounded-2xl border-4 border-solid transition-all duration-500 delay-75 ease-circular-in-out ${projectIsHovered ? `brightness-100 ${hoverAnimationClassMap[(props.direction ?? "none")]} ${props.highlightColor ?? ""}` : "border-off-white/10 brightness-50"}`}>
-                    {props.cover}
-                </div>
-                <section className={"text-off-white min-w-[42rem] flex flex-col items-center justify-center gap-6"}>
-                    <h2 className={`text-center text-6xl cursor-default transition-all duration-300 ease-circular-in-out ${projectIsHovered ? "font-semibold" : "font-light"}`}>{props.metadata.title}</h2>
-                    <ul className={"flex-wrap flex items-center justify-center gap-4 w-4/5"}>
-                        {props.metadata.chips.map((d, i) => {
-                            return (
-                                <li key={`project${props.index}Chip${i}`}>
-                                    <ServiceChip href={d.href} name={d.name} category={d.category}/>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </section>
-            </article>
-        </li>
-    );
+
+  return (
+      <div ref={boundingRef} draggable={false}
+           className={"group/card shrink-0 cursor-grab rounded-lg flex flex-col items-center justify-center text-8xl text-off-white font-bold h-128 lg:h-168 aspect-[3/4] transition-transform duration-1000 ease-1-out [transform:translateX(var(--tw-translate-x))_translateY(var(--tw-translate-y))_rotateX(var(--x-rotation))_rotateY(var(--y-rotation))]"}>
+        <div
+            className={"brightness-75 relative h-full w-full transition-all duration-200 ease-in-out group-hover/card:brightness-100"}>
+          {children[0]}
+          <div className={"opacity-0 group-hover/card:opacity-100 relative h-full w-full translate-z-24"}
+               draggable={false}>
+            {children[1]}
+          </div>
+        </div>
+      </div>
+  );
 }

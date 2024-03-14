@@ -5,7 +5,7 @@ import {Checkbox} from "@/components/ui/Checkbox";
 import React from "react";
 import {Button} from "@/components/ui/Button";
 
-export const ContactForm = () => {
+export const ContactForm = ({s} : {s : {[key : string] : any}}) => {
 
     const textFieldBorderStyle: string = "border-2 border-neutral-400";
     const textFieldBgStyle: string = "bg-off-white";
@@ -22,47 +22,32 @@ export const ContactForm = () => {
     const checkboxRing: string = "focus:ring-offset-0 focus:ring-marabunta-red focus:border-0";
     const checkboxShadow = {overdrop: "bg-off-white", backdrop: "bg-red-700"};
 
-    const services = [
-        {
-            title: "Comunicación",
-            categories: ["Mercadeo social", "Estrategia de comunicación"]
-        },
-        {
-            title: "Eventos y Promoción",
-            categories: ["Alquiler de elementos", "Producción de eventos", "Producción de material POP", "Producción audiovisual"]
-        },
-        {
-            title: "Medios Digitales",
-            categories: ["Marketing digital", "Activación de marca", "Plan de medios", "Diseño y desarrollo web"]
-        },
-    ];
-
     return (
         <form className={"flex flex-col items-stretch justify-start py-8 gap-4 text-neutral-700"}>
             <TextField type={"text"} overrideBackground={textFieldBgStyle} overrideLabel={textFieldLabelStyle}
                        overrideBorder={textFieldBorderStyle} overrideText={textFieldTextStyle}
                        overrideSize={"h-14 w-full"}
-                       label={"Tu nombre"} focusedLabel={textFieldFocusLabelStyle}
+                       label={s.form.name} focusedLabel={textFieldFocusLabelStyle}
                        className={textFieldStyle}/>
             <TextField type={"email"} overrideBackground={textFieldBgStyle} overrideLabel={textFieldLabelStyle}
                        overrideBorder={textFieldBorderStyle} overrideText={textFieldTextStyle}
                        overrideSize={"h-14 w-full"}
-                       label={"Tu correo"} focusedLabel={textFieldFocusLabelStyle}
+                       label={s.form.mail} focusedLabel={textFieldFocusLabelStyle}
                        className={textFieldStyle}/>
             <TextField type={"area"} overrideBackground={textFieldBgStyle} overrideLabel={textFieldLabelStyle}
                        overrideBorder={textFieldBorderStyle} overrideText={textFieldTextStyle}
                        overrideSize={"h-32 w-full"}
-                       label={"Cuéntanos más acerca de tu idea"} focusedLabel={textFieldFocusLabelStyle}
+                       label={s.form.comment} focusedLabel={textFieldFocusLabelStyle}
                        className={textFieldStyle}/>
-            <label className={"text-lg font-semibold"}>¿Qué podemos hacer por ti?</label>
+            <label className={"text-lg font-semibold"}>{s.whatCanWeDo}</label>
             <section className={"flex flex-wrap flex-row items-start justify-between gap-4"}>
                 {
-                    services.map((col, i) => {
+                    (s.headings as string[]).map((heading , i) => {
                         return (
                             <ul key={`col${i}`} className={servicesUl}>
-                                <h3 className={servicesH3}>{col.title}</h3>
+                                <h3 className={servicesH3}>{heading}</h3>
                                 {
-                                    col.categories.map((cat, j) => {
+                                    (s.categories[i] as string[]).map((cat, j) => {
                                         return (
                                             <li key={`cat${j}Col${i}`} className={servicesLi}>
                                                 <Checkbox withShadow={checkboxShadow}
@@ -80,7 +65,7 @@ export const ContactForm = () => {
             </section>
             <Button isSubmit
                     className={"w-full mt-4 cursor-pointer transition duration-300 ease-exponential hover:shadow-xl hover:-translate-y-2 hover:border-marabunta-red hover:bg-off-white hover:text-marabunta-red"}
-                    value={"¡Comencemos!"}
+                    value={s.send}
                     overrideBackgroundAndBorder={"bg-off-black border-solid border-2 border-off-black"}
                     overrideText={"text-off-white font-semibold"}/>
         </form>

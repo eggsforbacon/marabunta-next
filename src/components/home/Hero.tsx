@@ -1,23 +1,20 @@
 import React from "react";
+import {BlobPlayground} from "@/components/home/BlobPlayground";
 
 export const Hero = () => {
 
-
     return (
         <header
-            className={"bg-marabunta-cyan w-full py-32 md:pr-64 md:pl-[21rem] flex items-center justify-center max-h-[68rem] h-[105vh] relative"}
+            className={"bg-off-black w-full py-32 flex items-center justify-center xl:max-h-[64rem] h-[75vh] lg:h-[105vh] relative overflow-clip"}
         >
+            <BlobPlayground/>
             <video autoPlay muted controls={false} playsInline height={1920}
-                   width={1920 * .6} className={"absolute -top-9 -left-[14rem]"}>
-                {/*<source*/}
-                {/*    src="/videos/mov/logo-mov.mov"*/}
-                {/*    type='video/mp4; codecs="hvc1"'/>*/}
+                   width={1920 * .8}
+                   className={"pointer-events-none absolute top-1/3 -translate-y-1/3 lg:translate-y-0 right-72 md:right-64 lg:top-20 lg:right-0 scale-[2.5] md:scale-[1.8] lg:scale-100"}> {/* bottom-44 md:bottom-24 lg:-bottom-9 xl:-bottom-24 2xl:-bottom-9 -translate-x-1/2 md:translate-x-0 left-[55%] md:-right-44 lg:-right-[14rem] xl:-right-72 2xl:-right-[14rem] scale-[2] md:scale-125 lg:scale-100 xl:scale-75 2xl:scale-100 */}
                 <source
                     src="/videos/webm/logo-webm.webm"
                     type="video/webm"/>
             </video>
-
-
         </header>
     );
 }
