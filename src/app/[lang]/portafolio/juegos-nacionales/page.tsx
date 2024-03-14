@@ -7,7 +7,7 @@ import { ProjectAbout } from "@/types/work";
 
 export default async function Panamericanos({params : {lang}} : {params : {lang : Locale}}) {
   const {nav, work} = await getDictionary(lang);
-  const about : ProjectAbout = work.projects.juegos_nacioanles.about;
+  const about : ProjectAbout = work.projects.juegos_nacionales.about;
 
   return (
     <main className="flex flex-col">
