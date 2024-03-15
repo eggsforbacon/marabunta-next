@@ -8,7 +8,6 @@ import Reel from "@/components/home/Reel";
 import Strategy from "@/components/home/Strategy";
 import CallToAction from "@/components/home/CallToAction";
 import Image from "next/image";
-import {WhatsappButton} from "@/components/ui/WhatsAppButton";
 
 export default async function Home({params: {lang}}: { params: { lang: Locale } }) {
   const {nav, home} = await getDictionary(lang);
@@ -29,7 +28,6 @@ export default async function Home({params: {lang}}: { params: { lang: Locale } 
           <Strategy s={home.strategy}/>
           <CallToAction/>
         </section>
-        <WhatsappButton/>
       </main>
   )
 }

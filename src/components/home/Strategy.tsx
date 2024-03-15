@@ -56,7 +56,7 @@ export default function Strategy({s}: { s: { [_: string]: any } }) {
             <source src={"/videos/webm/360/2.webm"} type={"video/webm"}/>
         </video>,
         <video key={2} playsInline loop muted controls={false} autoPlay
-               className={"absolute md:scale-[1.2] lg:scale-100 opacity-100 saturate-0 brightness-50 top-0 md:-top-4 lg:top-0 -left-96 md:-left-80 lg:left-0 h-full max-w-none object-cover"}
+               className={"absolute md:scale-[1.2] lg:scale-[1.8] opacity-100 saturate-0 brightness-50 top-0 md:-top-4 lg:-top-60 -left-96 md:-left-80 lg:left-0 h-full max-w-none object-cover"}
                width={1920} height={1080}>
             <source src={"/videos/webm/360/3_1.webm"} type={"video/webm"}/>
         </video>,

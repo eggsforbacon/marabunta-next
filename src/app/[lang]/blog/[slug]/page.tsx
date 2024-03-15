@@ -1,7 +1,6 @@
 import {Locale} from "@/i18n.config";
 import {getDictionary} from "@/lib/dictionary";
 import SlugContent from "@/components/blog/SlugContent";
-import {WhatsappButton} from "@/components/ui/WhatsAppButton";
 
 export default async function BlogPost({params: {lang, slug}}: { params: { lang: Locale, slug: string } }) {
 
@@ -10,7 +9,6 @@ export default async function BlogPost({params: {lang, slug}}: { params: { lang:
   return (
       <main>
         <SlugContent lang={lang} slug={slug} s={{nav, months, blog, terms}}/>
-        <WhatsappButton/>
       </main>
   );
 }
