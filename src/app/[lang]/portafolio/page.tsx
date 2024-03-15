@@ -94,7 +94,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
                 className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
               <article key={i} className={"absolute top-0 left-0 w-full h-full flex"}>
                 <a href={s.link}
-                  className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-white/80 w-[100px]">
+                  className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-white/80 w-[100px] z-30">
                   <Image src={"/images/png/Arrow.png"} width={100} height={100} alt={""} quality={100}/>
                 </a>
                 {
