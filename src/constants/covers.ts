@@ -1,4 +1,4 @@
-import { coverType } from "../types/conver";
+import { coverType } from "../../types/conver";
 
 export const covers: coverType[] = [
   {

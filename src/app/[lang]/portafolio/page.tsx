@@ -11,7 +11,7 @@ import Link from "next/link";
 import useScreenSize from "@/hooks/useScreenSize";
 import {useProjectsStore} from "@/store/projects";
 import DropdownMenu from "@/components/ui/DropdownMenu";
-import { covers } from "../../../../constans/covers";
+import { covers } from "@/constants/covers";
 
 export default function Work({params: {lang}}: { params: { lang: Locale } }) {
 
