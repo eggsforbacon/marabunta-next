@@ -4,6 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes reel {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  45% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.reel {
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+
+  animation-range-start: entry;
+  animation-fill-mode: both;
+  animation-duration: .1ms; 
+  animation-name: reel;
+}
+
 @layer base {
   .debug {
     border: solid 1px magenta;
