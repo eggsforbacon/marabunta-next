@@ -11,8 +11,7 @@ import Link from "next/link";
 import useScreenSize from "@/hooks/useScreenSize";
 import {useProjectsStore} from "@/store/projects";
 import DropdownMenu from "@/components/ui/DropdownMenu";
-import { covers } from "../../../../constans/covers";
-import {WhatsappButton} from "@/components/ui/WhatsAppButton";
+import { covers } from "@/constants/covers";
 
 export default function Work({params: {lang}}: { params: { lang: Locale } }) {
 
@@ -94,13 +93,13 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
                 className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
               <article key={i} className={"absolute top-0 left-0 w-full h-full flex"}>
                 <a href={s.link}
-                  className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-white/80 w-[100px]">
+                  className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-white/80 w-[100px] z-30">
                   <Image src={"/images/png/Arrow.png"} width={100} height={100} alt={""} quality={100}/>
                 </a>
                 {
                   s.fore && 
                   <Image src={s.fore} alt={""} width={504} height={672}
-                    className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none"}/>
+                    className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
                 }
               </article>
             </ProjectCard>
@@ -136,7 +135,6 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
           className={"w-44 text-center box-border lg:box-content lg:w-auto bg-off-white/10 border-none backdrop-blur-2xl rounded-lg w- py-2 px-8 lg:text-start text-lg"}
           href={"https://www.instagram.com/marabuntaagenciacreativa/"} target={"_blank"}>Instagram</Link>
       </section>
-      <WhatsappButton />
     </main>
   );
 }

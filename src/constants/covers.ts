@@ -1,8 +1,9 @@
-import { coverType } from "../types/conver";
+import { coverType } from "../../types/conver";
 
 export const covers: coverType[] = [
   {
     cover: "/images/projects/panamericanos/cover.png",
+    fore: "/images/projects/panamericanos/fore.png",
     link: "/portafolio/juegos-panamericanos"
   },
   {
@@ -12,6 +13,7 @@ export const covers: coverType[] = [
   },
   {
     cover: "/images/projects/humedal/cover.jpg",
+    fore: "/images/projects/humedal/fore.jpg",
     link: "/portafolio/soy-humedal"
   },
   {

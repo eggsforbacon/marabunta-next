@@ -4,7 +4,6 @@ import {Locale} from "@/i18n.config";
 import Image from "next/image";
 import React from "react";
 import Team from "@/components/home/Team";
-import {WhatsappButton} from "@/components/ui/WhatsAppButton";
 
 export default async function TeamPage({params: {lang}}: { params: { lang: Locale } }) {
 
@@ -29,7 +28,6 @@ export default async function TeamPage({params: {lang}}: { params: { lang: Local
           </div>
           <Team s={{team: team.showcase}} lang={lang}/>
         </section>
-        <WhatsappButton/>
       </main>
   );
 }

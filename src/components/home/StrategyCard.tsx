@@ -38,7 +38,7 @@ export default function StrategyCard(
                     className={`${background} mix-blend-overlay pointer-events-none absolute top-0 left-0 w-full h-full`}/>
             </div>
             <div className={"w-full px-6 lg:px-0 2xl:w-auto flex flex-col lg:flex-row items-center lg:items-stretch justify-start gap-8 absolute top-12 left-1/2 lg:left-60 xl:left-52 -translate-x-1/2 lg:translate-x-0 lg:top-52 xl:top-44 lg:right-168"}>
-                <div className={`w-full flex flex-col items-end justify-start text-center lg:text-end lg:w-96 xl:w-136 lg:border-r-4 ${borderRColor} px-16 lg:pl-0 lg:pr-8`}>
+                <div className={`w-full flex flex-col items-end justify-start text-center lg:text-end lg:w-96 xl:w-136 lg:border-r-4 ${borderRColor} md:px-16 lg:pl-0 lg:pr-8`}>
                     <h1 className={"text-4xl text-center w-full lg:w-auto lg:text-end lg:text-6xl xl:text-7xl font-black uppercase tracking-wide hyphens-manual"}>{titleSplit.map((s, i) => <><span key={i}>{s}</span>{titleSplit.length - 1 !== i && <br/>}</>)}</h1>
                     <p className={"text-lg lg:text-xl xl:text-2xl font-medium w-full"}>{subtitle}</p>
                 </div>
