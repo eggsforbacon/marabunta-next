@@ -100,7 +100,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
                 {
                   s.fore && 
                   <Image src={s.fore} alt={""} width={504} height={672}
-                    className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none"}/>
+                    className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
                 }
               </article>
             </ProjectCard>
