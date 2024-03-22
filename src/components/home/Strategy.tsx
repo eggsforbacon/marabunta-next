@@ -45,35 +45,26 @@ export default function Strategy({s}: { s: { [_: string]: any } }) {
                className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 left-0 h-full max-w-none object-cover"}/>  */
 
     const images = [
-        <video key={0} playsInline loop muted controls={false} autoPlay
-               className={"absolute md:scale-[1.2] lg:scale-100 opacity-100 saturate-0 brightness-50 top-0 md:top-12 lg:top-0 -left-144 md:-left-96 lg:left-0 h-full max-w-none object-cover"}
-               width={1920} height={1080}>
-            <source src={"/videos/webm/360/1.webm"} type={"video/webm"}/>
-        </video>,
+        <Image key={0} src={"/videos/webm/360/1.png"} alt={""} width={1920} height={1080}
+               className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 left-0 h-full max-w-none object-cover"}/>,
         <video key={1} playsInline loop muted controls={false} autoPlay
                className={"absolute md:scale-[1.2] lg:scale-100 opacity-100 saturate-0 brightness-50 top-0 md:-top-4 lg:top-0 -left-168 md:-left-96 lg:left-0 h-full max-w-none object-cover"}
                width={1920} height={1080}>
             <source src={"/videos/webm/360/2.webm"} type={"video/webm"}/>
         </video>,
-        <video key={2} playsInline loop muted controls={false} autoPlay
-               className={"absolute md:scale-[1.2] lg:scale-[1.8] opacity-100 saturate-0 brightness-50 top-0 md:-top-4 lg:-top-60 -left-96 md:-left-80 lg:left-0 h-full max-w-none object-cover"}
-               width={1920} height={1080}>
-            <source src={"/videos/webm/360/3_1.webm"} type={"video/webm"}/>
-        </video>,
+        <Image key={0} src={"/videos/webm/360/3.png"} alt={""} width={1920} height={1080}
+        className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 left-0 h-full max-w-none object-cover"}/>,
         <video key={3} playsInline loop muted controls={false} autoPlay
                className={"absolute md:scale-[1.2] lg:scale-100 opacity-100 saturate-0 brightness-50 top-0 md:-top-4 lg:top-0 -left-168 md:-left-80 lg:left-0 h-full max-w-none object-cover"}
                width={1920} height={1080}>
             <source src={"/videos/webm/360/4.webm"} type={"video/webm"}/>
         </video>,
-        <video key={4} playsInline loop muted controls={false} autoPlay
-               className={"absolute md:scale-[1.2] lg:scale-100 opacity-100 saturate-0 brightness-50 top-0 md:-top-10 lg:top-0 -left-136 md:-left-80 lg:left-0 h-full max-w-none object-cover"}
-               width={1920} height={1080}>
-            <source src={"/videos/webm/360/5.webm"} type={"video/webm"}/>
-        </video>,
+        <Image key={0} src={"/videos/webm/360/5.png"} alt={""} width={1920} height={1080}
+        className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 left-0 h-full max-w-none object-cover"}/>,
     ];
 
     return (
-        <section className={"text-off-white  bg-black relative h-[175rem] lg:h-[302.5rem]"}>
+        <section className={"text-off-white  bg-black relative"}>
 
             {
                 cards.map((c, i) => {

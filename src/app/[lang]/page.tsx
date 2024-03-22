@@ -6,6 +6,7 @@ import {getDictionary} from "@/lib/dictionary";
 import {Locale} from "@/i18n.config";
 import Reel from "@/components/home/Reel";
 import Strategy from "@/components/home/Strategy";
+
 import CallToAction from "@/components/home/CallToAction";
 import Image from "next/image";
 

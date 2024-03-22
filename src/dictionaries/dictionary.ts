@@ -7,6 +7,26 @@ type StrategyCard = {
     "description" : string,
 }
 
+export type homeType = {
+    "intro": {
+        "sr": string,
+        "title": string,
+        "copy": string,
+        "body": string,
+    },
+    "services": {
+        "title": string,
+        "remark": string,
+        "categories": {
+            "titles": string[],
+            "descriptions": string[],
+        },
+        "cta": string,
+        "brands" : string,
+    },
+    "strategy" : StrategyCard[],
+}
+
 export type Dictionary = {
     "common": {
         "months": string[];
@@ -18,25 +38,7 @@ export type Dictionary = {
         "blog": string,
         "contact": string
     },
-    "home": {
-        "intro": {
-            "sr": string,
-            "title": string,
-            "copy": string,
-            "body": string,
-        },
-        "services": {
-            "title": string,
-            "remark": string,
-            "categories": {
-                "titles": string[],
-                "descriptions": string[],
-            },
-            "cta": string,
-            "brands" : string,
-        },
-        "strategy" : StrategyCard[],
-    },
+    "home": homeType,
     "team": {
         "title": string,
         "copy": string,

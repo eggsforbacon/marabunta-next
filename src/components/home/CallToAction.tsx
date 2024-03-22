@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CallToAction() {
     return (
-        <section className={"h-64 lg:h-208 w-full bg-marabunta-red flex flex-col justify-end items-center relative"}>
+        <section className={"py-8 w-full bg-marabunta-red flex flex-col justify-end items-center relative"}>
             <h2 className={"text-off-white text-4xl text-center lg:text-start lg:text-7xl font-semibold"}>¿Tienes una idea</h2>
             <video autoPlay muted controls={false} playsInline height={1920}
                    width={1920}
