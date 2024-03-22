@@ -9,8 +9,7 @@ import Image from "next/image";
 import {motion} from "framer-motion";
 import Link from "next/link";
 import useScreenSize from "@/hooks/useScreenSize";
-import { covers } from "../../../../constans/covers";
-import Services from "@/components/home/Services";
+import { covers } from "@/constants/covers";
 import { homeType } from "@/dictionaries/dictionary";
 
 export default function Work({params: {lang}}: { params: { lang: Locale } }) {
