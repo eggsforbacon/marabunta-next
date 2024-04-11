@@ -26,11 +26,11 @@ const nextConfig = {
                 port: '1337',
                 pathname: "/uploads/**/**"
             },
-            // {
-            //     protocol: 'https',
-            //     hostname: 'strapi.marabunta.co',
-            //     pathname: "/uploads/**"
-            // },
+            {
+                protocol: 'https',
+                hostname: 'strapi.marabunta.co',
+                pathname: "/uploads/**"
+            },
         ],
     },
 }
