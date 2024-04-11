@@ -6,7 +6,7 @@ export const FooterLogo = ({lang} : {lang : Locale}) => {
 
     return (
         <LocaleLink lang={lang} href={"/"} passHref
-              className={"relative focus:outline-none focus:cursor-pointer hover:[&>*>path]:fill-marabunta-cyan"}
+              className={"relative focus:outline-none focus:cursor-pointer hover:[&>*>path]:fill-marabunta-cyan md:w-52 md:mb-8 flex justify-end"}
         >
             <MarabuntaVer className={"h-24 md:h-32 fill-off-white transition duration-200 ease-in-out hover:fill-marabunta-cyan"} />
         </LocaleLink>
