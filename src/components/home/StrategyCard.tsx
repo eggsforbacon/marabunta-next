@@ -44,7 +44,7 @@ export default function StrategyCard(
                 </div>
                 <p className={`h-full font-normal text-base lg:text-lg xl:text-xl text-center lg:text-start md:max-w-[36%]`}>{description}</p>
             </div>
-            <h2 className={`${angleColor ?? ""} absolute leading-none left-8 md:left-14 bottom-12 md:-bottom-12 text-[10rem] lg:text-[26rem] xl:text-[28rem] font-bold`}>{angle}°</h2>
+            <h2 className={`${angleColor ?? ""} absolute leading-none left-8 md:left-14 bottom-12 md:-bottom-12 text-[10rem] lg:text-[26rem] xl:text-[28rem] font-bold description`}>{angle}°</h2>
         </div>
     );
 }
