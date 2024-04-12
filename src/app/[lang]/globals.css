@@ -51,6 +51,9 @@
     width: 8px;
     background-color: #030303;
   }
+  .blog  a {
+    color: #52c0e1 !important;
+  }
 
   html {
     @apply relative flex flex-col items-center justify-start dark:bg-neutral-900 bg-marabunta-yellow/10;

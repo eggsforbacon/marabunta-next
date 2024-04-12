@@ -103,7 +103,7 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
                 />
               </div>
               <div
-                  className={"relative flex flex-col lg:flex-row items-start justify-start lg:justify-center px-6 lg:px-0 gap-16 lg:gap-32"}>
+                  className={"blog relative flex flex-col lg:flex-row items-start justify-start lg:justify-center px-6 lg:px-0 gap-16 lg:gap-32"}>
                 <div
                     className={"relative lg:sticky lg:top-32 flex flex-col items-start justify-start gap-4 lg:w-112 lg:px-16 lg:py-8"}>
                   <label className={"font-light text-sm"}>{blog.entry.publishedOn}</label>
@@ -153,7 +153,7 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
             <section
                 className={"relative bg-black rounded-3xl text-off-white w-full flex flex-col items-center justify-start gap-8"}>
               <section
-                  className={"w-full px-6 lg:px-16 2xl:px-64 pt-32 flex flex-col items-center lg:items-stretch justify-start gap-16"}>
+                  className={" hidden w-full px-6 lg:px-16 2xl:px-64 pt-32 flex flex-col items-center lg:items-stretch justify-start gap-16"}>
                 <h3 className={"text-center lg:text-start text-xl md:text-2xl xl:text-3xl font-semibold tracking-widest"}>{blog.endRemark}</h3>
                 <NewsletterForm lang={lang ?? "es"} s={{blog, terms}}
                                 customColors={{text: titleColor[category], bg: outerColor[category]}}/>
