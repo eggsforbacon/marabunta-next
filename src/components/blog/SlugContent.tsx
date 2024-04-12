@@ -121,6 +121,8 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
                                                  quality={100}/>
                                       );
                                     },
+                                    list:({children}) => {return <ul className="text-xl leading-[1.5] list-disc">{children}</ul>},
+                                    link: ({children, url}) => {return <a href={url} target="_blank">{children}</a>},
                                     paragraph: ({children}) => <p
                                         className={"text-xl leading-[1.5]"}>{children}</p>,
                                     heading: ({children, level}) => {

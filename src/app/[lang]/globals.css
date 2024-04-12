@@ -51,8 +51,14 @@
     width: 8px;
     background-color: #030303;
   }
-  .blog  a {
+
+  .blog a {
     color: #52c0e1 !important;
+  }
+
+  .blog ul {
+    list-style: disc;
+    margin-left: 40px;
   }
 
   html {
