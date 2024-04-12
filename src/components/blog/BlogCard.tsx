@@ -35,7 +35,7 @@ export default function BlogCard(
 
     const {width} = useScreenSize();
 
-    const finalWeight = width < 768 ? "col-span-1" : weight === undefined ? "col-span-3" : weight === 1 ? "col-span-1" : weight === 2 ? "col-span-2" : "col-span-3";
+    const finalWeight = width < 768 ? "col-span-1" : "col-span-3";
 
     return (
         <Link href={`/blog/${slug}`}

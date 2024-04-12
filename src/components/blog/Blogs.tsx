@@ -8,7 +8,7 @@ import {getCurrentMonth} from "@/services/common";
 import useSWR from 'swr';
 import {Blog} from "@/types/blog";
 import {ScrollToNewsLetter} from "@/components/blog/ScrollToNewsletter";
-import React from "react";
+import React, { useEffect } from "react";
 import {useBlogStore} from "@/store/blogs";
 import Link from "next/link";
 
