@@ -42,7 +42,6 @@ export async function getSingleBlog(slug: string, lang : Locale): Promise<{ post
   if (data !== null) {
     for (const feat of data) {
       const attributes: { [key: string]: any } = feat.attributes;
-      console.log(attributes.slug);
       if (attributes.slug === slug) {
         singlePost = attributes;
         break;
