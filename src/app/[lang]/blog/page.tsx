@@ -28,7 +28,7 @@ export default async function BlogPage({params: {lang}}: { params: { lang: Local
             <Blogs lang={lang} s={{blog, months}}/>
           </>
           <section
-              className={"relative text-off-white w-full flex flex-col items-center justify-start gap-8"}>
+              className={"relative bg-black rounded text-off-white w-full flex flex-col items-center justify-start gap-8"}>
             <section
                 className={"w-full bg-black px-6 lg:px-16 2xl:px-64 py-32 flex flex-col items-center lg:items-stretch justify-start gap-16"}>
               <h3 className={"text-center lg:text-start text-xl md:text-2xl xl:text-3xl font-semibold tracking-widest"}>{blog.endRemark}</h3>

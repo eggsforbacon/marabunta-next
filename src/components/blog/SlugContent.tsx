@@ -93,7 +93,7 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
               <span className={`block lg:hidden w-ful h-96 ${outerColor[category]}`}/>
             </div>
             <section
-                className={`lg:mt-0 -mt-96 relative flex flex-col items-stretch justify-start gap-16 lg:gap-32 overflow-clip rounded-2xl bg-off-white pb-32`}>
+                className={`lg:mt-0 -mt-96 relative flex flex-col items-stretch justify-start gap-16 lg:gap-32 overflow-clip rounded-2xl bg-black text-white pb-32`}>
               <div className={"overflow-clip w-full aspect-video relative"}>
                 <Image src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${cover.data.attributes.url}`}
                        alt={cover.data.attributes.alternativeText ?? "No alt"}
@@ -151,7 +151,7 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
               <RecommendedSwiper lang={lang} blogs={recommendedBlogs}/>
             </section>
             <section
-                className={"relative text-off-white w-full flex flex-col items-center justify-start gap-8"}>
+                className={"relative bg-black rounded-3xl text-off-white w-full flex flex-col items-center justify-start gap-8"}>
               <section
                   className={"w-full px-6 lg:px-16 2xl:px-64 pt-32 flex flex-col items-center lg:items-stretch justify-start gap-16"}>
                 <h3 className={"text-center lg:text-start text-xl md:text-2xl xl:text-3xl font-semibold tracking-widest"}>{blog.endRemark}</h3>

@@ -50,7 +50,7 @@ export const TextField = (props: _CProps) => {
 
     const baseOuter: string = `relative ${props.overrideSize || _defaults["size"]} `;
     const baseLabel: string = `absolute z-10 pointer-events-none transition-all duration-300 ease-quintic ${focused ? labelPosition.active : props.type === "area" ? labelPosition["default-area"] : labelPosition.default} ${props.overrideBackground || _defaults["background"]} ${focused ? props.focusedLabel || `text-sm px-4 ${props.overrideText || _defaults["text"]}` : props.overrideLabel || _defaults["label"]} ${hasText && !focused ? "opacity-0 select-none" : ""}`;
-    const baseClassName: string = `resize-none focus:ring-0 h-full w-full relative ${props.overrideBorderRadius || _defaults["borderRadius"]} ${props.overrideBackground || _defaults["background"]} ${props.overrideBorder || _defaults["border"]} ${props.overrideText || _defaults["text"]}`;
+    const baseClassName: string = `resize-none focus:ring-0 h-full w-full relative text-black ${props.overrideBorderRadius || _defaults["borderRadius"]} ${props.overrideBackground || _defaults["background"]} ${props.overrideBorder || _defaults["border"]} ${props.overrideText || _defaults["text"]}`;
     const finalClassName: string = `${baseClassName} ${props.className}`;
 
     return (
