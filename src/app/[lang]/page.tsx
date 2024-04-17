@@ -13,6 +13,38 @@ import Image from "next/image";
 export default async function Home({params: {lang}}: { params: { lang: Locale } }) {
   const {nav, home} = await getDictionary(lang);
 
+  const organizationData = {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Marabunta",
+    "url": "https://marabunta.co",
+    "sameAs": [
+      "https://www.facebook.com/marabuntaagencia",
+      "https://www.linkedin.com/company/marabunta",
+      "https://www.instagram.com/marabuntaagenciacreativa/",
+      "https://www.behance.net/MarabuntaAgencia"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle 8 oeste #28-45",
+      "addressLocality": "Cali",
+      "addressRegion": "Valle del cauca",
+      "addressCountry": "Colombia"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+57 (602) 407 2035",
+        "contactType": "Servicio al cliente"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "info@marabunta.co",
+        "contactType": "Correo electrónico"
+      }
+    ]
+  };
+
   return (
       <main>
         <Navbar lang={lang} s={nav} current={"/"}/>
@@ -29,6 +61,10 @@ export default async function Home({params: {lang}}: { params: { lang: Locale } 
           <Strategy s={home.strategy}/>
           <CallToAction/>
         </section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
+        />
       </main>
   )
 }
