@@ -10,7 +10,7 @@ const montserrat = Montserrat({subsets: ['latin', 'latin-ext']});
 
 export const metadata = {
     title: 'Marabunta Agencia Creativa',
-    description: 'Comunicamos Ideas',
+    description: 'Marabunta Agencia Creativa Comunicamos Ideas, creamos soluciones creativas de diseño, comunicación, producción, estrategia y desarrollo a la medida',
     icons: [
         {
             rel: 'icon',
