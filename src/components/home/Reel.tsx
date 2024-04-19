@@ -53,9 +53,9 @@ export default function Reel() {
             <div className={"relative group reel w-full"}>
                 <video autoPlay muted={muted} loop playsInline height={1920*.85} onContextMenu={toggleMute} onClick={togglePlay}
                        width={1920*.85}
-                       className={"top-0 left-0 rounded-xl w-full aspect-[9/16] lg:aspect-auto object-cover lg:h-full cursor-none"}> {/* bottom-44 md:bottom-24 lg:-bottom-9 xl:-bottom-24 2xl:-bottom-9 -translate-x-1/2 md:translate-x-0 left-[55%] md:-right-44 lg:-right-[14rem] xl:-right-72 2xl:-right-[14rem] scale-[2] md:scale-125 lg:scale-100 xl:scale-75 2xl:scale-100 */}
+                       className={"top-0 left-0 rounded-xl w-full aspect-[9/16] lg:aspect-auto md:object-cover lg:h-full cursor-none"}> {/* bottom-44 md:bottom-24 lg:-bottom-9 xl:-bottom-24 2xl:-bottom-9 -translate-x-1/2 md:translate-x-0 left-[55%] md:-right-44 lg:-right-[14rem] xl:-right-72 2xl:-right-[14rem] scale-[2] md:scale-125 lg:scale-100 xl:scale-75 2xl:scale-100 */}
                     <source
-                        src="/videos/webm/reel2022.webm"
+                        src="/videos/webm/reel2022_2.webm"
                         type="video/webm"/>
                 </video>
                 <div ref={cursorRef} className={"border-4 border-off-black opacity-0 h-2 aspect-square rounded-full z-[1000] pointer-events-none absolute -top-16 -left-52 bg-off-white transition-all duration-200 ease-in-out group-hover:opacity-100 group-hover:h-32 text-2xl font-bold inline-flex items-center justify-center gap-2 pl-2"}>
