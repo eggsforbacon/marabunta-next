@@ -24,6 +24,13 @@ export type homeType = {
         "cta": string,
         "brands" : string,
     },
+    "reel": {
+        "pause": string,
+        "play": string,
+        "sound": string,
+        "on": string,
+        "off": string
+    },
     "strategy" : StrategyCard[],
 }
 

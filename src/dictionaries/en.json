@@ -55,6 +55,13 @@
       "cta": "Take a look at our work",
       "brands": "Our Allies"
     },
+    "reel": {
+      "pause": "Pause",
+      "play": "Play",
+      "sound": "Sound",
+      "on": "On",
+      "off": "Off"
+    },
     "strategy": [
       {
         "title": "Client",
