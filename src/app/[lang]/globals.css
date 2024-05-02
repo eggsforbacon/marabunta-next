@@ -76,6 +76,15 @@
   .select option {
     @apply bg-white/40 backdrop-blur-lg !text-red-500;
   }
+
+  input[type=range]::-webkit-slider-thumb {
+    @apply h-4 xl:h-6;
+    -webkit-appearance: none;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid #fafafa6f;
+    background: #0e0e0e;
+  }
 }
 
 @layer components {

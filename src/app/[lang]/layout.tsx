@@ -9,79 +9,79 @@ import {WhatsappButton} from "@/components/ui/WhatsAppButton";
 const montserrat = Montserrat({subsets: ['latin', 'latin-ext']});
 
 export const metadata = {
-    title: 'Marabunta Agencia Creativa',
-    description: 'Marabunta Agencia Creativa Comunicamos Ideas, creamos soluciones creativas de diseño, comunicación, producción, estrategia y desarrollo a la medida',
-    icons: [
-        {
-            rel: 'icon',
-            url: '/favicon-dark.ico',
-            media: '(prefers-color-scheme: dark)'
-        },
-        {
-            rel: 'icon',
-            url: '/favicon-light.ico',
-            media: '(prefers-color-scheme: light)'
-        },
-    ]
+  title: 'Marabunta Agencia Creativa',
+  description: 'Marabunta Agencia Creativa Comunicamos Ideas, creamos soluciones creativas de diseño, comunicación, producción, estrategia y desarrollo a la medida',
+  icons: [
+    {
+      rel: 'icon',
+      url: '/favicon-dark.ico',
+      media: '(prefers-color-scheme: dark)'
+    },
+    {
+      rel: 'icon',
+      url: '/favicon-light.ico',
+      media: '(prefers-color-scheme: light)'
+    },
+  ]
 }
 
 const organizationData = {
-    "@context": "http://schema.org",
-    "@type": "Organization",
-    "name": "Marabunta",
-    "url": "https://marabunta.co",
-    "sameAs": [
-      "https://www.facebook.com/marabuntaagencia",
-      "https://www.linkedin.com/company/marabunta",
-      "https://www.instagram.com/marabuntaagenciacreativa/",
-      "https://www.behance.net/MarabuntaAgencia"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Calle 8 oeste #28-45",
-      "addressLocality": "Cali",
-      "addressRegion": "Valle del cauca",
-      "addressCountry": "Colombia"
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "Marabunta",
+  "url": "https://marabunta.co",
+  "sameAs": [
+    "https://www.facebook.com/marabuntaagencia",
+    "https://www.linkedin.com/company/marabunta",
+    "https://www.instagram.com/marabuntaagenciacreativa/",
+    "https://www.behance.net/MarabuntaAgencia"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle 8 oeste #28-45",
+    "addressLocality": "Cali",
+    "addressRegion": "Valle del cauca",
+    "addressCountry": "Colombia"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+57 (602) 407 2035",
+      "contactType": "Servicio al cliente"
     },
-    "contactPoint": [
-      {
-        "@type": "ContactPoint",
-        "telephone": "+57 (602) 407 2035",
-        "contactType": "Servicio al cliente"
-      },
-      {
-        "@type": "ContactPoint",
-        "email": "info@marabunta.co",
-        "contactType": "Correo electrónico"
-      }
-    ]
-  };
+    {
+      "@type": "ContactPoint",
+      "email": "info@marabunta.co",
+      "contactType": "Correo electrónico"
+    }
+  ]
+};
 
 export async function generateStaticParams() {
-    return i18n.locales.map(locale => ({lang: locale}));
+  return i18n.locales.map(locale => ({lang: locale}));
 }
 
 export default function RootLayout(
     {
-        children,
-        params,
+      children,
+      params,
     }: {
-        children: React.ReactNode,
-        params: {lang : Locale},
+      children: React.ReactNode,
+      params: { lang: Locale },
     }) {
-    return (
-        <html lang={params.lang}>
-        <body className={montserrat.className}>
-        <LocaleLoader locale={params.lang} />
-        {children}
-        <div className={"h-[100vh] max-h-[1089px] max-w-[1920px] w-full"}/>
-        <Footer lang={params.lang}/>
-        </body>
-        <WhatsappButton/>
-        <script
+  return (
+      <html lang={params.lang}>
+      <body className={montserrat.className}>
+      <LocaleLoader locale={params.lang}/>
+      {children}
+      <div className={"h-[100vh] max-h-[1089px] max-w-[1920px] w-full"}/>
+      <Footer lang={params.lang}/>
+      <WhatsappButton/>
+      <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationData) }}
-        />
-        </html>
-    )
+          dangerouslySetInnerHTML={{__html: JSON.stringify(organizationData)}}
+      />
+      </body>
+      </html>
+  )
 }

@@ -55,6 +55,13 @@
       "cta": "Mira nuestro trabajo",
       "brands": "Nuestros Aliados"
     },
+    "reel": {
+      "pause": "Pausar",
+      "play": "Reproducir",
+      "sound": "Sonido",
+      "on": "Encendido",
+      "off": "Apagado"
+    },
     "strategy": [
       {
         "title": "Cliente",
@@ -85,7 +92,7 @@
   },
   "team": {
     "title": "Somos ",
-    "copy": "Desde nuestros inicios en 2011, en la sucursal del cielo, Cali, hemos tejido una historia de creatividad y colaboración. Lo que comenzó como 3 escritorios en una empresa se convirtió en Marabunta, un hogar para mentes creativas y corazones apasionados por construir con y para su departamento y su país. Hoy, después de 13 años de trabajo como equipo, seguimos creciendo y creando juntos, inspirando cada día con nuestro espíritu innovador y nuestra pasión por el arte y la creatividad.",
+    "copy": "Desde nuestros inicios en 2011, en la Sucursal del cielo, Cali, hemos tejido una historia de creatividad y colaboración. Lo que comenzó como 3 escritorios en una empresa se convirtió en Marabunta, un hogar para mentes creativas y corazones apasionados por construir con y para su departamento y su país. Hoy, después de 13 años de trabajo como equipo, seguimos creciendo y creando juntos, inspirando cada día con nuestro espíritu innovador y nuestra pasión por el arte y la creatividad.",
     "showcase": {
       "copy": "Esta gran colonia siempre está en movimiento, todos somos ",
       "categories": [
