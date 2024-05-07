@@ -77,7 +77,7 @@ export default function Reel({t}: { t: { [_: string]: any } }) {
                  width={1920 * .85} onProgress={handleProgress} ref={videoRef}
                  className={"top-0 left-0 rounded-xl w-full aspect-[9/16] lg:aspect-auto object-cover lg:h-full cursor-none"}> {/* bottom-44 md:bottom-24 lg:-bottom-9 xl:-bottom-24 2xl:-bottom-9 -translate-x-1/2 md:translate-x-0 left-[55%] md:-right-44 lg:-right-[14rem] xl:-right-72 2xl:-right-[14rem] scale-[2] md:scale-125 lg:scale-100 xl:scale-75 2xl:scale-100 */}
             <source
-                src="/videos/webm/reel2022_2.webm"
+                src="/videos/webm/reel2023.mp4"
                 type="video/webm"/>
           </video>
           <div ref={cursorRef}
