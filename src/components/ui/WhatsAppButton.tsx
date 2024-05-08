@@ -20,7 +20,7 @@ export const WhatsappButton = () => {
 
     <Link href={"https://wa.me/+573154767953"} target={"_blank"} rel={"noreferrer"} passHref
           style={{float: 'inline-end'}}
-          className={`float-end text-white !z-[60] py-4 rounded-full px-4 lg:px-10 w-16 md:w-56 font-semibold flex items-center justify-center gap-4 backdrop-blur-lg bg-slate-700/50 fill-white shadow-md transition duration-300 quintic-out hover:cursor-pointer hover:scale-110 hover:border-white focus:border-marabunta-yellow`}
+          className={`float-end text-white !z-[60] py-4 rounded-full px-4 lg:px-10 w-16 md:w-60 font-semibold flex items-center justify-center gap-4 backdrop-blur-lg bg-slate-700/50 fill-white shadow-md transition duration-300 quintic-out hover:cursor-pointer hover:scale-110 hover:border-white focus:border-marabunta-yellow`}
     >
       <Whatsapp size={32}/>
       <p className={"max-md:hidden"}>¡Contáctanos!</p>
