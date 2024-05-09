@@ -16,6 +16,7 @@ export default async function Footer ({lang} : {lang : Locale}) {
             <footer
                 className={"fixed bottom-0 z-[1] h-screen max-h-[1089px] flex flex-col overflow-x-clip w-full max-w-[1920px]"}>
                     <ScrollToTop className={"animate-float-up-sm border-2 p-6 rounded-full border-transparent transition duration-300 ease-back hover:border-marabunta-yellow flex w-min mx-auto mt-32"} />
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.635183059755!2d-76.55008722418688!3d3.4386132513033365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a681f2d96d95%3A0x8bb15a936fe040ca!2sMarabunta%20Agencia%20Creativa!5e0!3m2!1ses-419!2sco!4v1715198873179!5m2!1ses-419!2sco" width="600" height="450" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                 <section
                     className={"flex flex-col bg-off-black z-0 h-full w-full justify-end mb-4 md:mb-0"}>
                     <section className={"w-full flex flex-col items-center justify-center h-full md:h-auto leading-[4rem] -pt-16 md:pt-16"}>
