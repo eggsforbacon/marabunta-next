@@ -64,7 +64,7 @@ const Navbar = ({current, s, lang, blogData}: _PProps) => {
                   size={32}/>
           </button>
           <ul className={`transition duration-300 ease-in-out ${open ? "opacity-100" : "opacity-0 lg:opacity-100 select-none lg:select-auto pointer-events-none lg:pointer-events-auto"} flex flex-col items-center lg:flex-row justify-start gap-7 px-8`}>
-            <li className={`${linkHoverStyle} ${current === "/" ? "text-black" : ""}`}>
+            <li className={`${linkHoverStyle} ${current === "/" ? "text-black font-medium" : ""}`}>
               <LocaleLink lang={lang} href={"/"}>{s.home}</LocaleLink>
             </li>
             <li className={`${linkHoverStyle} ${current === "/equipo" ? "text-marabunta-cyan" : ""}`}>

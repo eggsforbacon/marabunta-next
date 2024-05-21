@@ -20,7 +20,7 @@ export default async function Footer ({lang} : {lang : Locale}) {
                 <section
                     className={"flex flex-col bg-off-black z-0 h-full w-full justify-end mb-4 md:mb-0"}>
                     <section className={"w-full flex flex-col items-center justify-center h-full md:h-auto leading-[4rem] -pt-16 md:pt-16"}>
-                        <ul className={"w-full flex items-center justify-center gap-4 -mt-24 md: mt-0 px-6 lg:px-32 flex-wrap md:gap-8 lg:gap-10 xl:gap-14 2xl:gap-16 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl !tracking-[-0.05em] font-light text-off-white"}>
+                        <ul className={"w-full flex items-center justify-center gap-4 -mt-24 md:mt-0 px-6 lg:px-32 flex-wrap md:gap-8 lg:gap-10 xl:gap-14 2xl:gap-16 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl !tracking-[-0.05em] font-light text-off-white"}>
                             <li className={"text-center w-24 grow"}><Link passHref
                                       className={socials}
                                       href={"https://www.facebook.com/marabuntaagencia"} target={"_blank"}
