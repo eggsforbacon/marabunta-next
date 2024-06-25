@@ -4,12 +4,13 @@ import {ContactForm} from "@/components/contact/ContactForm";
 import {ActionCard} from "@/components/contact/ActionCard";
 import {Behance, Chat, Facebook, Geo, Instagram, Linkedin, Telephone} from "react-bootstrap-icons";
 import Link from "next/link";
-import {getDictionary} from "@/lib/dictionary";
+//import {getDictionary} from "@/lib/dictionary";
 import {Locale} from "@/_i18n.config";
 import Image from "next/image";
+import { getLenguage } from "@/dictionaries";
 
 export default async function Home({params : {lang}} : {params : {lang : Locale}}) {
-    const { nav, contact } = await getDictionary(lang);
+    const {nav, contact} = getLenguage(lang);
 
     return (
         <main>
