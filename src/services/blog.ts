@@ -35,7 +35,7 @@ export async function getMonthlyFeatured(month: Month, locale?: Locale): Promise
 }
 
 export async function getSingleBlog(slug: string, lang : Locale): Promise<{ post: Blog.Attributes }> {
-  const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?${lang === "es" ? "locale=es-CO&" : `locale=${lang}&`}populate=*`;
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?${lang.includes("es") ? "locale=es-CO&" : `locale=${lang}&`}populate=*`;
   const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
 
   let singlePost;

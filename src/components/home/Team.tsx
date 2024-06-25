@@ -12,6 +12,8 @@ export default function Team({s, lang}: { s: { [_: string]: any }, lang: Locale 
 
   const {team} = s;
   const {categories}: { categories: (Team.Area | "todas" | "all")[] } = team;
+  
+  
   const [selected, setSelected] = useState(categories[0]);
 
   const linkStyle = "transition-all duration-300 ease-in-out hover:text-off-white hover:font-black";
@@ -19,6 +21,8 @@ export default function Team({s, lang}: { s: { [_: string]: any }, lang: Locale 
   const {
     data: {ants},
   } = useSWR(['getTeam', lang], () => getTeam(lang), {fallbackData: {ants: []}});
+
+  console.log("ants", ants);
 
   const selectedIs = (compare: Team.Area | "todas" | "all") => {
     return compare.toLowerCase() === selected.toLowerCase();
