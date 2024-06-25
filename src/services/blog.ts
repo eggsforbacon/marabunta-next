@@ -6,7 +6,7 @@ import {Blog} from "@/types/blog";
 import {normalizeLocale, options} from "@/services/common";
 
 export async function getBlogs(locale?: Locale, filter?: Blog.Category | ""): Promise<{ blogs: Blog.Attributes[] }> {
-  const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es-CO")}&${filter !== "" && filter !== undefined && `filters[categoria][$eq]=${filter}&`}sort=fecha%3Adesc&populate=*`;
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&${filter !== "" && filter !== undefined && `filters[categoria][$eq]=${filter}&`}sort=fecha%3Adesc&populate=*`;
   const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
 
   const blogs: Blog.Attributes [] = [];
@@ -21,7 +21,7 @@ export async function getBlogs(locale?: Locale, filter?: Blog.Category | ""): Pr
 
 export async function getMonthlyFeatured(month: Month, locale?: Locale): Promise<{ featuredArray: Blog.Attributes[] }> {
   const normalizedMonth = `${month}`.padStart(2, '0');
-  const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es-CO")}&filters[featured][$eq]=true&filters[fecha][$contains]=-${normalizedMonth}-&sort=fecha%3Adesc&populate=*`;
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[featured][$eq]=true&filters[fecha][$contains]=-${normalizedMonth}-&sort=fecha%3Adesc&populate=*`;
   const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
   const featuredArray: Blog.Attributes[] = [];
 
@@ -35,7 +35,7 @@ export async function getMonthlyFeatured(month: Month, locale?: Locale): Promise
 }
 
 export async function getSingleBlog(slug: string, lang : Locale): Promise<{ post: Blog.Attributes }> {
-  const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?locale=es-CO&populate=*`;
+  const url = `${process.env.NEXT_PUBLIC_API_URL}/notas?${lang === "es" ? "locale=es-CO&" : `locale=${lang}&`}populate=*`;
   const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
 
   let singlePost;
@@ -79,7 +79,7 @@ export async function getRecommendedBlogs(slug: string): Promise<{ recommendedBl
 }
 
 export async function searchByTitle(query: string, locale?: Locale) {
-  const {data: result} = await fetchURI<Strapi.MultipleResponse>(`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=es-CO&filters[titulo][$contains]=${query}&sort=fecha%3Adesc&populate=*`, options);
+  const {data: result} = await fetchURI<Strapi.MultipleResponse>(`${process.env.NEXT_PUBLIC_API_URL}/notas?locale=${normalizeLocale(locale ?? "es")}&filters[titulo][$contains]=${query}&sort=fecha%3Adesc&populate=*`, options);
   return {result}
 }
 
