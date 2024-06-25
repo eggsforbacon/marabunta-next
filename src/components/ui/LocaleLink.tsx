@@ -1,6 +1,6 @@
 import Link, {LinkProps} from "next/link";
 import {HTMLProps} from "react";
-import {i18n, Locale} from "@/i18n.config";
+import {i18n, Locale} from "@/_i18n.config";
 
 type _CProps = {
     lang: Locale;
@@ -22,11 +22,11 @@ const LocaleLink = (
     } : _CProps) => {
 
     const isDefaultLang = lang === i18n.defaultLocale;
-    const path = isDefaultLang ? href : `/${lang}${href}`;
+    //const path = isDefaultLang ? href : `/${lang}${href}`;
 
     return (
         <Link as={as}
-              href={path}
+              href={href}
               passHref={passHref}
               replace={replace}
               scroll={scroll}

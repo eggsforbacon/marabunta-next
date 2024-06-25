@@ -1,4 +1,4 @@
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import {Month} from "@/types/common";
 
 export const options = {

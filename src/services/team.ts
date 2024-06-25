@@ -1,5 +1,5 @@
 import {normalizeLocale, options} from "@/services/common";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import {fetchURI} from "@/lib/api";
 import {Strapi} from "@/types/strapi";
 import {Team} from "@/types/team";

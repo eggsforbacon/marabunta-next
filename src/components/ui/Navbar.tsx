@@ -4,7 +4,7 @@ import LocaleLink from "@/components/ui/LocaleLink";
 import {MarabuntaHor} from "@/components/ui/svg/MarabuntaHor";
 import {useEffect, useState} from "react";
 import {List} from "react-bootstrap-icons";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 type _PProps = {

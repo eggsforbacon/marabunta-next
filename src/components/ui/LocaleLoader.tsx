@@ -1,7 +1,7 @@
 "use client";
 
 import {useEffect} from "react";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 
 export default function LocaleLoader({locale} : {locale : Locale}) {
 

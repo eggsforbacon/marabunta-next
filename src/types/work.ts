@@ -17,7 +17,7 @@ export type ProjectCardMetadata = {
 }
 
 export type ProjectAbout = {
-    title : string,
+    title ?: string,
     articles : string[]
 }
 

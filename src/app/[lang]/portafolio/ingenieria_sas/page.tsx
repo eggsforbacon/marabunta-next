@@ -1,5 +1,5 @@
 import React from "react";
-import { Locale } from "@/i18n.config";
+import { Locale } from "@/_i18n.config";
 import { getDictionary } from "@/lib/dictionary";
 import Navbar from "@/components/ui/Navbar";
 import Image from "next/image";

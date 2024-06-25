@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "@/components/ui/Navbar";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import Image from "next/image";
 import { getDictionary } from "@/lib/dictionary";
 import { ProjectAbout } from "@/types/work";

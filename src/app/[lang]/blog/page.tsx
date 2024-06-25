@@ -1,5 +1,5 @@
 import Navbar from "@/components/ui/Navbar";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import {getDictionary} from "@/lib/dictionary";
 import Blogs from "@/components/blog/Blogs";
 import React from "react";

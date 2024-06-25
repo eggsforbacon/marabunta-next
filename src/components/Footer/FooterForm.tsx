@@ -2,7 +2,7 @@ import {Checkbox} from "@/components/ui/Checkbox";
 import {Button} from "@/components/ui/Button";
 import {TextField} from "@/components/ui/TextField";
 import LocaleLink from "@/components/ui/LocaleLink";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 
 export const FooterForm = ({s, lang} : {s : {[key : string] : any}, lang : Locale}) => {
 

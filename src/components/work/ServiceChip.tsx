@@ -1,6 +1,6 @@
 import {ServiceCategories, ServiceChip as _ChipType} from "@/types/work";
 import LocaleLink from "@/components/ui/LocaleLink";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 
 type _CProps = {
     href: string,
