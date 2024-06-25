@@ -2,6 +2,7 @@ export type FetchOptions = Omit<RequestInit, 'body'> & {
     body?: BodyInit | null | Record<string, unknown>;
 };
 
+
 export const fetchURI = async <T>(
     uri: string,
     options?: FetchOptions
