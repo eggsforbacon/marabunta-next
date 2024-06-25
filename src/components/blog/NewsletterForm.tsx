@@ -5,7 +5,7 @@ import {Button} from "@/components/ui/Button";
 import {Checkbox} from "@/components/ui/Checkbox";
 import LocaleLink from "@/components/ui/LocaleLink";
 import React from "react";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 
 export default function NewsletterForm({lang, s, customColors}: {
   lang: Locale,

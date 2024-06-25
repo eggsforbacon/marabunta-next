@@ -1,7 +1,7 @@
 "use client";
 
 import LocaleLink from "@/components/ui/LocaleLink";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import MarabuntaVer from "@/components/ui/svg/MarabuntaVer";
 import Link from "next/link";
 import {Behance, Facebook, Instagram, Linkedin} from "react-bootstrap-icons";

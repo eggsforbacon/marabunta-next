@@ -4,7 +4,7 @@ import {Team} from "@/types/team";
 import {useState} from "react";
 import useSWR from "swr";
 import {getTeam} from "@/services/team";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import Department from "@/components/home/Department";
 
 export default function Team({s, lang}: { s: { [_: string]: any }, lang: Locale }) {

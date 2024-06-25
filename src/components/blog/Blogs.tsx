@@ -1,7 +1,7 @@
 "use client";
 
 import BlogCard from "@/components/blog/BlogCard";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import Image from "next/image";
 import {getBlogs, getMonthlyFeatured} from "@/services/blog";
 import {getCurrentMonth} from "@/services/common";

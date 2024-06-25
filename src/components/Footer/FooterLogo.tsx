@@ -1,6 +1,6 @@
 import MarabuntaVer from "@/components/ui/svg/MarabuntaVer";
 import LocaleLink from "@/components/ui/LocaleLink";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 
 export const FooterLogo = ({lang} : {lang : Locale}) => {
 

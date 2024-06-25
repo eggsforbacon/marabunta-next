@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import {Blog} from "@/types/blog";
 import RecommendedSlide from "@/components/blog/RecommendedSlide";
 import Image from "next/image";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 
 export default function RecommendedSwiper({blogs, lang}: { blogs: Blog.Attributes[], lang?: Locale }) {
 

@@ -1,7 +1,7 @@
 import {Strapi} from "@/types/strapi";
 import {fetchURI} from "@/lib/api";
 import {Month} from "@/types/common";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import {Blog} from "@/types/blog";
 import {normalizeLocale, options} from "@/services/common";
 

@@ -2,11 +2,12 @@ import Link from "next/link";
 import {FooterLogo} from "@/components/Footer/FooterLogo";
 import {FooterForm} from "@/components/Footer/FooterForm";
 import {ScrollToTop} from "@/components/Footer/ScrollToTop";
-import {Locale} from "@/i18n.config";
-import {getDictionary} from "@/lib/dictionary";
+import {Locale} from "@/_i18n.config";
+//import {getDictionary} from "@/lib/dictionary";
+import { getLenguage } from "@/dictionaries";
 
 export default async function Footer ({lang} : {lang : Locale}) {
-    const { footer } = await getDictionary(lang);
+    const { footer } = getLenguage(lang);
 
     const linkHoverStyle: string = "inline-block relative before:content-[''] before:absolute before:-bottom-4 before:left-1/2 before:-translate-x-1/2 before:w-0 before:h-1 before:opacity-0 before:transition-all before:duration-300 before:bg-marabunta-red hover:before:w-full hover:before:opacity-100 transition-all duration-300 hover:scale-105 hover:text-marabunta-red";
     const socials : string = "transition duration-300 ease-in-out hover:cursor-pointer [&>*]:transition [&>*]:duration-300 [&>*]:ease-in-out focus:[&>*]:scale-95 focus:text-marabunta-red";
