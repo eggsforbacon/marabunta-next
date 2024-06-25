@@ -66,16 +66,16 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
       const otherLocaleSlug = ((localizationsData.data[0].attributes as unknown as Blog.Attributes) ?? {slug}).slug;
 
       return {
-        "en-US": otherLocaleSlug,
-        "es-CO": otherLocaleSlug,
+        en: otherLocaleSlug,
+        es: otherLocaleSlug,
         [lang]: slug,
       }
 
     }
 
     return {
-      "en-US": slug,
-      "es-CO": slug,
+      en: slug,
+      es: slug,
     }
   }
 
@@ -157,7 +157,7 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
               <section
                   className={" hidden w-full px-6 lg:px-16 2xl:px-64 pt-32 flex flex-col items-center lg:items-stretch justify-start gap-16"}>
                 <h3 className={"text-center lg:text-start text-xl md:text-2xl xl:text-3xl font-semibold tracking-widest"}>{blog.endRemark}</h3>
-                <NewsletterForm lang={lang ?? "es-CO"} s={{blog, terms}}
+                <NewsletterForm lang={lang ?? "es"} s={{blog, terms}}
                                 customColors={{text: titleColor[category], bg: outerColor[category]}}/>
               </section>
             </section>
