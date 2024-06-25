@@ -14,8 +14,8 @@ type _PProps = {
   lang: Locale,
   blogData? : {
     slugs : {
-      en : string,
-      es : string,
+      'en-US' : string,
+      'es-CO' : string,
     }
   }
 }
