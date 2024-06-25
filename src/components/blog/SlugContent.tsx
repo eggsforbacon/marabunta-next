@@ -157,7 +157,7 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
               <section
                   className={" hidden w-full px-6 lg:px-16 2xl:px-64 pt-32 flex flex-col items-center lg:items-stretch justify-start gap-16"}>
                 <h3 className={"text-center lg:text-start text-xl md:text-2xl xl:text-3xl font-semibold tracking-widest"}>{blog.endRemark}</h3>
-                <NewsletterForm lang={lang ?? "es"} s={{blog, terms}}
+                <NewsletterForm lang={lang ?? "es-CO"} s={{blog, terms}}
                                 customColors={{text: titleColor[category], bg: outerColor[category]}}/>
               </section>
             </section>
