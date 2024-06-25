@@ -9,7 +9,7 @@ export const options = {
 }
 
 export const normalizeLocale = (locale : Locale) => {
-    if (locale === "es") return "es-CO";
+    if (locale.includes("es")) return "es-CO";
     return locale;
 }
 
