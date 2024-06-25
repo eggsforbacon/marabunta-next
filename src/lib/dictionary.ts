@@ -1,4 +1,4 @@
-import type {Locale} from '@/i18n.config';
+import type {Locale} from '@/_i18n.config';
 import {Dictionary} from "@/dictionaries/dictionary";
 
 const dictionaries = {
@@ -6,4 +6,4 @@ const dictionaries = {
     en : () => import('@/dictionaries/en.json').then(module => module.default as unknown as Dictionary),
 }
 
-export const getDictionary = async (locale : Locale) => dictionaries[locale]();
+//export const getDictionary = async (locale : Locale) => dictionaries[locale]();

@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/ui/Navbar";
 import React, {useEffect, useRef, useState} from "react";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import {getDictionary} from "@/lib/dictionary";
 import ProjectCard from "@/components/work/ProjectCard";
 import Image from "next/image";
@@ -10,12 +10,10 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 import useScreenSize from "@/hooks/useScreenSize";
 import { covers } from "@/constants/covers";
-import { homeType } from "@/dictionaries/dictionary";
 
 export default function Work({params: {lang}}: { params: { lang: Locale } }) {
   const [nav, setNav] = useState<{ [key: string]: any }>([]);
   const [sliderMove, setSliderMove] = useState(0);
-  const [home, setHome] = useState<homeType>();
 
 
   const {width} = useScreenSize();
@@ -23,7 +21,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
   useEffect(() => {
     getDictionary(lang).then((d) => {
       setNav(d.nav);
-      setHome(d.home);
+      //setHome(d.home);
     });
   }, [lang]);
   return (

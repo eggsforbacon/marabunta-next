@@ -3,7 +3,7 @@ import Navbar from "@/components/ui/Navbar";
 import {Hero} from "@/components/home/Hero";
 import {Intro} from "@/components/home/Intro";
 import {getDictionary} from "@/lib/dictionary";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import Reel from "@/components/home/Reel";
 import Strategy from "@/components/home/Strategy";
 

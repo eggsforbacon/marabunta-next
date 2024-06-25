@@ -1,0 +1,417 @@
+export const EN = {
+  "common": {
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ]
+  },
+  "nav": {
+    "home": "Identity",
+    "services": "Services",
+    "work": "Works",
+    "blog": "Blog",
+    "contact": "Team"
+  },
+  "home": {
+    "intro": {
+      "sr": "We are Marabunta",
+      "title": "We are marabunta.\nWe work together,",
+      "copy": "putting our souls\ninto everything we do.",
+      "body": "We seek to realize ideas,\nfulfill dreams and bring\nto each project experiences\nfilled with creativity"
+    },
+    "services": {
+      "title": "What we do ",
+      "remark": "for you",
+      "categories": {
+        "titles": [
+          "Strategy",
+          "Marketing",
+          "Branding",
+          "Development",
+          "Audiovisual",
+          "Animation",
+          "Events"
+        ],
+        "descriptions": [
+          "We turn your ideas into concrete plans. With our digital strategies, we design plans that make your brand stand out in the digital world. Our media plans ensure that your message reaches the right audience at the right time, and with brand activation we create unique experiences that drive interaction and remembrance, pushing your brand beyond conventional boundaries.",
+          "We connect your brand with audiences in an innovative way. Through Digital Marketing, we take your presence online, maximizing brand visibility. We also do Social Marketing, building authentic relationships through impactful campaigns that not only talk, but also listen.",
+          "We bring your brand identity to life, with POP production that creates compelling visual elements to strengthen your identity. Looking to reinvent yourself? With our rebranding services, we revitalize your brand, creating a new visual narrative that stands out in an ever-evolving landscape.",
+          "We tear apart barriers between your brand and your audience. From Virtual Reality to Augmented Reality as well as Development, we create interactive experiences that captivate and leave a lifelong experience.",
+          "We capture moments and tell stories. From audiovisual production to social media content, we fuse visual and auditory elements to leave a lasting impression.",
+          "We make your ideas come to life. Be it in 2D or 3D, we create animations full of creativity and style to captivate your audience.",
+          "We make every event unforgettable. From Event Equipment Rentals to Event Production, we take care of every detail to create memorable experiences."
+        ]
+      },
+      "cta": "Take a look at our work",
+      "brands": "Our Allies"
+    },
+    "reel": {
+      "pause": "Pause",
+      "play": "Play",
+      "sound": "Sound",
+      "on": "On",
+      "off": "Off"
+    },
+    "strategy": [
+      {
+        "title": "Client",
+        "subtitle": "Got an idea?",
+        "description": "Leave it to us. Our team of professionals works to make it a reality, leaving a mark on your target audience."
+      },
+      {
+        "title": "Concept",
+        "subtitle": "We listen to your ideas and shape them",
+        "description": "We build solutions focused on their environment and needs. Our approach focuses on customization and efficiency, making sure to offer solutions tailored to your specific challenges, with a creative touch that goes beyond the conventional."
+      },
+      {
+        "title": "Communication",
+        "subtitle": "We set the strategies needed to broadcast and settle your idea",
+        "description": "We create and run media plans for your project to get a top reach. We translate your ideas into images through photography, spots and social media reels; we can also turn them into sound through podcasts, radio capsules or spots."
+      },
+      {
+        "title": "Graphic Design",
+        "subtitle": "We develop visual strategies that evoke emotion",
+        "description": "We meet your communication goals. We conceptualize and develop brand identity and/or branding, digital media works, space ambience and 3D modeling, software development and editorial products."
+      },
+      {
+        "title": "Rigging and Staging",
+        "subtitle": "We take your ideas to life",
+        "description": "We are experts in the logistical production and staging of large events that leave their mark locally, nationally and internationally. We are committed to generating experiences that transform lives."
+      }
+    ]
+  },
+  "team": {
+    "title": "We are ",
+    "copy": "Since our beginnings in 2011, in the 'Branch of Heaven,' Cali, we've woven a tale of creativity and collaboration. What started as 3 desks in another company grew into Marabunta, a haven for creative minds and passionate hearts dedicated to building with and for our department and our country. Today, after 13 years of teamwork, we continue to grow and create together, inspiring each day with our innovative spirit and our love for art and creativity.",
+    "showcase": {
+      "copy": "This great colony is always moving, we all are ",
+      "categories": [
+        "all",
+        "management",
+        "administrative",
+        "communications",
+        "digital",
+        "design",
+        "finances",
+        "production",
+        "technical"
+      ]
+    }
+  },
+  "work": {
+    "heading": "We Communicate Ideas",
+    "copy": "These are some of the projects we have helped bring to life.",
+    "categories": [
+      "Pick a category",
+      "Health",
+      "Sports",
+      "Environmental",
+      "Culture",
+      "Tourism",
+      "Social",
+      "Government",
+      "Corporation"
+    ],
+    "projects": {
+      "cali": {
+        "title": "Cali, let's Smile Again (Cali, Volvamos a Sonreír)",
+        "categories": [
+          "Social Marketing",
+          "Event Production",
+          "Media Campaign",
+          "POP Material",
+          "Media Production"
+        ]
+      },
+      "fiestaMiPueblo2022": {
+        "title": "The Fiesta of my People, who we are (La Fiesta de mi Pueblo, lo que Somos)",
+        "subtitle": "<span class='font-bold'>‘La Fiesta de mi Pueblo’ 2022,</span> scene of customs, traditions, arts and gastronomy that build atmospheres and allegorical sensations of the essence that represent us as Valle del Cauca.",
+        "categories": [
+          "Social Marketing",
+          "Event Production",
+          "Media Campaign",
+          "POP Material",
+          "Media Production"
+        ],
+        "about": {
+          "title": "WHAT WE ARE",
+          "articles": [
+            "For the second consecutive year, the 'Cali Fair' once again vibrated with 'La Fiesta de mi Pueblo', the parade with which the people of Valle del Cauca evoked pride in the department and with which, since its creation, they identified so much themselves as tourists in the traditional 'Calle de la Feria'.",
+            "In the second edition of this event, the Government of Valle del Cauca and the Departmental Culture Secretariat, through the mayors and culture secretariats of the 42 municipalities of the department, made an open call for artists and cultural managers to integrate the theoretical-practical workshops on modeling and creative development of the floats that paraded on December 26, 2022 at the Cali Fair.",
+            "The call was a success, a total of 200 participants from all the municipalities of Valle del Cauca, including plastic artists, cultural managers, designers, artisans, choreographers, musicians, dancers and the like, accepted the call and were in charge of designing the graphic proposals and artistic performances of the floats and troupes that represented their culture and traditions.",
+            "In these workshops, the designs were consolidated and took shape and space in models that finally became the floats that adorned the parade of 'La Fiesta de mi Pueblo, lo que nos' within the framework of the Cali Fair in its 65th version.",
+            "In addition to the comparsas and floats of the municipalities, this version of 'La Fiesta de mi Pueblo, lo que Somos' had the presence of national and international artists such as Papo Sánchez, Conjunto Caney, Willy García, Enkanto Orquesta, Anddy Caicedo and the CVC orchestra who paraded along the Calle de la Feria and made the attendees vibrate with their music."
+          ]
+        }
+      },
+      "clinicannabis": {
+        "title": "Seminar <br />Ibero-american",
+        "subtitle": "in clinical practice",
+        "categories": [
+          "Digital Marketing",
+          "Event Production",
+          "Web",
+          "Media Production",
+          "Media Campaign"
+        ],
+        "about": {
+          "title": "Concept",
+          "articles": [
+            "Clinicannabis is recognized as the only clinic certified in the management of medical cannabis in the southwest of the country. It has different medical care services to improve the quality of life of patients, through tailored alternatives focused on medical cannabis, advanced physiotherapy, serum therapy, functional medicine and alternative medicine, and an Wellness Experience Center for wellness and education on a healthy lifestyle. In addition, it has a medical expert team to provide humanized care and high quality cannabis-based medicines.",
+            "This clinic hosted the Iberoamerican Seminar on Cannabinoids in Clinical Practice in Cali. A great city and academic event that took place on June 16, 2023 in 4 cities total and brought together experts and leaders around medical cannabis in the world; to deliver conceptual and practical tools to health professionals on how to take advantage of the therapeutic effects of this plant."
+          ]
+        }
+      },
+      "ingenieria_sas": {
+        "title": "",
+        "subtitle": "Hacemos Ingeniería considered essential to develop a brand identity which transmitted precisely their activity and high quality level of their projects. This is the resulting branding proposal.",
+        "about": {
+          "title": "Concept",
+          "articles": [
+            "In our search of fostering the brand's recognition, we designed a three-dimensional structure with an embedded H, the company's initial. Not only does this shape visually represent the main activity of the company through infrastructure construction and maintenance, but it also eases direct identification of their labor."
+          ]
+        }
+      },
+      "patrimonio_vital": {
+        "title": "Patrimonio Vital",
+        "subtitle": "",
+        "about": {
+          "articles": [
+            "Through their \"<strong>Gestores Ambientales</strong>\" (Eco-Gestors) program, INCIVA actively fosters the care of Flora and Fauna in the region, Valle del Cauca, Colombia. As part of their pedagogical focus in environmental terms, the campaign \"Patrimonio Vital\" (Vital Patrimony) sprung during 2020, and it was designed to encourage communities and strengthen high natural impact areas in Valle del Cauca. Having the core goal of cementing INCIVA's brand \"Patrimonio Vital\", a graphic style that launched as a refresh of its Look and Feel to simplify production and implementation in different formats - especially point of purchase, was developed. These elements where characterized by being made out of sustainable materials, in line with the campaign's commitment to the environment. This strategy, of great relevancy to the Valle del Cauca and the rest of the country, was able to articulate effectively the core message of the initiative."
+          ]
+        }
+      },
+      "panamericanos": {
+        "title": "Junior Pan-American Games 2021",
+        "subtitle": "show more",
+        "categories": [
+          "Media Production",
+          "Event Production",
+          "Media Campaign",
+          "POP Material"
+        ],
+        "about": {
+          "title": "Per",
+          "articles": [
+            "The development of the brand meets the identity elements and daily expression of the generation that will be part of the 1st Junior Pan American Games Cali-Valle 2021. It represents the colors, the communication line, the symbols and graphics that are part of the coexistence environment and brand socialization."
+          ]
+        }
+      },
+      "fondoMixto": {
+        "title": "Fondo Mixto Rebranding",
+        "categories": [
+          "Communication Strategies",
+          "Media Production",
+          "Media Campaign",
+          "POP Material",
+          "Brand Activation"
+        ]
+      },
+      "fiestaMiPrueblo2023": {
+        "title": "Fiesta of my People (Fiesta de mi Pueblo)",
+        "categories": [
+          "Media Production",
+          "Event Production",
+          "Media Campaign",
+          "POP Material"
+        ]
+      },
+      "promotores": {
+        "title": "Environmental Promoters (Promotores Ambientales)",
+        "categories": [
+          "Communication Strategies",
+          "Media Production",
+          "POP Material"
+        ],
+        "about": {
+          "articles": [
+            "In Valle del Cauca we enjoy a unique diversity in flora and fauna, which adorn our landscapes.",
+            "Development of a graphic brand proposal for the CVC environmental promoters project."
+          ]
+        }
+      },
+      "rap_valle": {
+        "title": "Rap del valle",
+        "about": {
+          "title": "Rap del valle",
+          "articles": [
+            "The departmental Secretariat of Culture of Valle del Cauca, Colombia, created the Network of Cultural Monitors, to promote cultural heritage in children and young people. From this effort comes \"Rap del Valle Nueva Generación\", a music video that highlights the natural, traditional and historical treasures of the region.",
+            "The Infinite Evolution Crew, made up of 9 urban artists between 8 and 16 years old, explored 10 municipalities, connecting with iconic places in the Valley. This production was not only an opportunity to create art, but also to discover and connect with the tourist and cultural wealth of the department."
+          ]
+        }
+      },
+      "bioExpo": {
+        "title": "BIO Expo 2019",
+        "categories": [
+          "Media Production",
+          "POP Material",
+          "Event Production"
+        ]
+      },
+      "juegos_nacionales": {
+        "about": {
+          "title": "Juegos nacionales 2023",
+          "articles": [
+            "Valle del Cauca has been recognized for its outstanding career and leadership in the sports field. This is why, for the 2023 National Games, we intended to develop uniforms that would not only identify our athletes, but also represent what is relevant to our region on a national level, including our artists.",
+            "For this reason, we were inspired by the characteristic lines and shapes of Omar Rayo, a Valle del Cauca painter renowned both nationally and internationally. We incorporate this identity in the design of the uniforms and in the associated graphic pieces."
+          ]
+        }
+      }
+    }
+  },
+  "blog": {
+    "loading": "Fetching the latest blogs, just for you...",
+    "title": "Blog",
+    "copy": "Stories we tell from under the lens of our experience.",
+    "categories": [
+      "Marabunta",
+      "Design",
+      "Strategy",
+      "Production"
+    ],
+    "categoryDescriptions": {
+      "marabunta": "Discover the latest from Marabunta: news, ideas, and updates. Explore our world and find your favorites, from top lists to music albums.",
+      "design": "Immerse yourself in the world of design with trends, tips, and inspiration. Find your creativity and bring it to life with our ideas and resources.",
+      "strategy": "Grow your business with marketing and digital strategies. Find the path to success with our practical guides and advice.",
+      "production": "Organize memorable events and optimize your logistics with our articles on production and events. From planning to execution, we help you shine."
+    },
+    "dropdownDefaultOption": "Pick a topic",
+    "featured": "Featured article ",
+    "latest": "Latest",
+    "featuredRemark": "this ",
+    "by": "by",
+    "notFound": "Woah! It's empty right now",
+    "notFoundCTA": "But stay tuned, we'll have something for you soon",
+    "stayTuned": "Stay tuned for our ",
+    "stayTunedRemark": "featured article this ",
+    "end": "That's it for now",
+    "endRemark": "Don't want to miss a beat?",
+    "newsletter": {
+      "title": "Hit our inbox!",
+      "copy": "Suscribe to our newsletter and never miss a blogpost again",
+      "email": "Where should we email you?",
+      "nextBlog": "An idea for the blog (Optional)",
+      "subscribe": "Subscribe"
+    },
+    "entry": {
+      "publishedOn": "Published"
+    }
+  },
+  "contact": {
+    "actions": {
+      "talk": "Let's have a word",
+      "talkDetail": "Got any doubts? Send us an email.",
+      "visit": "Pay us a visit",
+      "visitDetail": "Come and meet us at our offices",
+      "call": "Give us a call",
+      "callDetail": "Monday to Friday, from 8am to 5pm."
+    },
+    "card": {
+      "title": "Got an idea that's",
+      "remark": "creative?",
+      "prompt": "Tell us more about yourself and let's bring your idea to life together.",
+      "form": {
+        "name": "Your name",
+        "mail": "Your email",
+        "comment": "Tell us more about your idea"
+      },
+      "headings": [
+        "Communication",
+        "Events and Promo",
+        "Digital Media"
+      ],
+      "categories": [
+        [
+          "Social Marketing",
+          "Communication Strategy"
+        ],
+        [
+          "Equipment rental",
+          "Event production",
+          "POP material production",
+          "Audiovisual production"
+        ],
+        [
+          "Digital Marketing",
+          "Brand activation",
+          "Digital media plan",
+          "Web design and development"
+        ]
+      ],
+      "whatCanWeDo": "What can we do for you?",
+      "send": "Let's get started!"
+    }
+  },
+  "legal": {
+    "title": "Personal Data Processing",
+    "update": "Last updated on 18/01/2023",
+    "navigation": {
+      "data": "Information and Protection",
+      "terms": "Privacy and Conditions"
+    },
+    "data": {
+      "title": "Information Security and Personal Data Protection Policy",
+      "paragraph1": [
+        "In accordance with the fundamental principles set forth in Articles 15 and 20 of the Political Constitution and in compliance with the provisions of Decree 1081 of 2015 regarding the filing, protection, and processing of personal data, especially for sensitive data, regulated, among other norms, by Laws 1437 of 2011, 1581 of 2012, and 1712 of 2014, and Decree 1377 of 2013, ",
+        "I authorize ",
+        "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA to process my personal data, derived or on the occasion of the commercial relationship I have, have had, or may have in the future. These will be used for the following purposes:"
+      ],
+      "purposes": [
+        "Collect, store, use, circulate, delete, share, update, and transmit the personal information of clients, suppliers, and employees in the development of MARABUNTA's social purpose and the existing commercial relationship.",
+        "Execute the existing contractual relationship with its clients, suppliers, and employees, including the payment of contractual obligations.",
+        "Inform through the means established by MARABUNTA of any modifications that occur in the development of contractual links with the data subject.",
+        "Provide information about the data subject to the sales force and/or distribution network, telemarketing, market research, and any third party with whom MARABUNTA has a contractual relationship for the development of these types of activities.",
+        "Contact clients, suppliers, and employees through telephone, electronic, and/or physical means to conduct surveys, studies, confirmation of personal data, and send news related to loyalty campaigns, service improvement, or changes in the same.",
+        "Develop the process of selection, evaluation, and hiring of employees.",
+        "Request and receive from public entities and/or private companies the personal academic, work, and social security information stored in their databases.",
+        "Evaluate the quality of the products and/or services provided as the data subject who is a supplier of information.",
+        "Conduct studies within MARABUNTA on the habits or trends of the data subject who is a supplier of information.",
+        "Transmit information and personal data in audit processes and/or to third parties with whom a data processing contract exists and it is necessary to provide them for the fulfillment of the contractual purpose.",
+        "Use images, videos, and/or photographs in which the image of the data subject who is a supplier of information appears. These photographs may be used in any advertising medium that MARABUNTA deems appropriate, as well as be modified as needed.",
+        "Send invitations to events and offer new products and services.",
+        "Record the information of employees (active and inactive) in the databases of MARABUNTA."
+      ],
+      "paragraph2": "The use and handling of them are carried out under strict standards of responsibility, within which is the respect for due process and the protection of information.",
+      "paragraph3": "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA will act as the data controller of your personal data and will use it only for the purposes for which it is authorized, based on the law and current regulations.",
+      "paragraph4": [
+        "I declare freely, expressly, and informed that it has been made clear and understandable to me that I have the right to know, update, and rectify the personal data provided, to request proof of this authorization, to request information about the use that has been given to my personal data, to file complaints with the Superintendence of Industry and Commerce for the misuse of my personal data, to revoke this authorization or request the deletion of the personal data provided, to access them for free, and to refrain from providing information that contains sensitive data. In addition, I have been informed by MARABUNTA that I have at my disposal the following means to address requests, inquiries, complaints, or to exercise the rights of the data subject: email ",
+        "subgerencia@marabunta.co",
+        ", website ",
+        "marabunta.co",
+        "address: Calle 8 oeste No. 28-45, Cali, which corresponds to our offices and/or telephone line (602) 4072035 to be attended during business hours from Monday to Friday from 8:00 a.m. to 12:00 and from 2:00 p.m. to 5:00 p.m."
+      ]
+    },
+    "tos": {
+      "title": "Privacy Policy and Terms of Use",
+      "content": [
+        "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA may block access to the WEBSITE for any use it deems irregular and initiate the necessary investigations in accordance with the corresponding protocols based on Law 1273 of 2009 and file the corresponding legal actions.",
+        "Similarly, the sections, access applications, and electromagnetic emissions from this virtual information system have the necessary security mechanisms to control their access and use. The data subject may update and rectify the information collected, exercising the right of habeas data both in person and in writing as contemplated by Article 15 of the Political Constitution of Colombia.",
+        "The information recorded in this virtual information system corresponds to the data provided by the user under the gravity of the oath and in adherence to the principles of good faith. The user accepts that by failing to comply with the aforementioned principles, they are committing a crime and will have to face the consequences that the Penal Code may entail for it.",
+        "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA is the custodian of the information provided on the Portal; therefore, the inclusion of the user's email and other personal information in the administrative databases of this agency is authorized. Its use and utilization, for the purposes and actions it deems pertinent, are authorized.",
+        "Consequently, PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA is responsible for ensuring the concordance between the data that has been provided and those that it records or discloses, but has no responsibility for the veracity of such data.",
+        "It is understood and accepted that if, for reasons of restructuring, maintenance, failures, or technical errors such as a line drop or congestion in the system, access to the portal cannot be obtained, the right to habeas data is not being restricted.",
+        "There is a full awareness that, at any time and without prior notice, PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA may modify, terminate, or postpone the provision of the offered computer service and its current terms of use if it deems it convenient or necessary.",
+        "All copyright rights to this page, sections, objects, and other screens displayed and their arrangement, as well as the trademarks and logos used, belong to PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA, unless otherwise indicated."
+      ]
+    }
+  },
+  "footer": {
+    "email": "Leave us your email",
+    "talk": "Let's talk!",
+    "terms": {
+      "read": "I've read and accepted the",
+      "link": "terms of data use and conditions"
+    },
+    "footNote": "Marabunta® Creative Agency • We Communicate Ideas © 2023"
+  }
+}

@@ -4,7 +4,7 @@ import {Blog} from "@/types/blog";
 import {ReactNode} from "react";
 import Link from "next/link";
 import LocaleLink from "@/components/ui/LocaleLink";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import {BoxArrowUpRight, Link45deg} from "react-bootstrap-icons";
 
 export default function RecommendedSlide({children, title, excerpt, category, slug, lang}: {

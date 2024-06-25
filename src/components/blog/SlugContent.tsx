@@ -6,7 +6,7 @@ import {Blog} from "@/types/blog";
 import {type BlocksContent, BlocksRenderer} from '@strapi/blocks-react-renderer';
 import Image from "next/image";
 import RecommendedSwiper from "@/components/blog/RecommendedSwiper";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import NewsletterForm from "@/components/blog/NewsletterForm";
 import React from "react";
 import Navbar from "@/components/ui/Navbar";
@@ -112,36 +112,36 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
                 </div>
                 <section className={"flex flex-col items-start justify-start gap-4 lg:w-168"}>
                   <BlocksRenderer content={body as BlocksContent}
-                                  blocks={{
-                                    image: ({image}) => {
-                                      return (
-                                          <Image src={image.url}
-                                                 alt={image.alternativeText ?? "No alt"}
-                                                 width={image.width} height={image.height}
-                                                 quality={100}/>
-                                      );
-                                    },
-                                    list:({children}) => {return <ul className="text-xl leading-[1.5] list-disc">{children}</ul>},
-                                    link: ({children, url}) => {return <a href={url} target="_blank">{children}</a>},
-                                    paragraph: ({children}) => <p
-                                        className={"text-xl leading-[1.5]"}>{children}</p>,
-                                    heading: ({children, level}) => {
-                                      switch (level) {
-                                        case 1:
-                                          return <h1 className={""}>{children}</h1>
-                                        case 2:
-                                          return <h2 className={""}>{children}</h2>
-                                        case 3:
-                                          return <h3 className={""}>{children}</h3>
-                                        case 4:
-                                          return <h4 className={"text-3xl font-bold"}>{children}</h4>
-                                        case 5:
-                                          return <h5 className={""}>{children}</h5>
-                                        case 6:
-                                          return <h6 className={""}>{children}</h6>
-                                      }
-                                    }
-                                  }}/>
+                    blocks={{
+                      image: ({image}) => {
+                        return (
+                            <Image src={image.url}
+                                  alt={image.alternativeText ?? "No alt"}
+                                  width={image.width} height={image.height}
+                                  quality={100}/>
+                        );
+                      },
+                      list:({children}) => {return <ul className="text-xl leading-[1.5] list-disc">{children}</ul>},
+                      link: ({children, url}) => {return <a href={url} target="_blank">{children}</a>},
+                      paragraph: ({children}) => <p
+                          className={"text-xl leading-[1.5]"}>{children}</p>,
+                      heading: ({children, level}) => {
+                        switch (level) {
+                          case 1:
+                            return <h1 className={""}>{children}</h1>
+                          case 2:
+                            return <h2 className={""}>{children}</h2>
+                          case 3:
+                            return <h3 className={""}>{children}</h3>
+                          case 4:
+                            return <h4 className={"text-3xl font-bold"}>{children}</h4>
+                          case 5:
+                            return <h5 className={""}>{children}</h5>
+                          case 6:
+                            return <h6 className={""}>{children}</h6>
+                        }
+                      }
+                    }}/>
                 </section>
               </div>
             </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import React, {useEffect, useState} from "react";
 import {Headset, LightBulb, Magic, Megaphone, Reels, Rocket, StageLight} from "@/components/ui/svg/services";
 import LocaleLink from "@/components/ui/LocaleLink";

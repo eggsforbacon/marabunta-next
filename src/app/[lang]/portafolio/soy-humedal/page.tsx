@@ -1,6 +1,6 @@
 import Navbar from "@/components/ui/Navbar";
 import {getDictionary} from "@/lib/dictionary";
-import {Locale} from "@/i18n.config";
+import {Locale} from "@/_i18n.config";
 import Image from "next/image";
 
 export default async function SoyHumedal({params: {lang}}: { params: { lang: Locale } }) {
