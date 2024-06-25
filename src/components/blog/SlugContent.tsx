@@ -66,16 +66,16 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
       const otherLocaleSlug = ((localizationsData.data[0].attributes as unknown as Blog.Attributes) ?? {slug}).slug;
 
       return {
-        en: otherLocaleSlug,
-        es: otherLocaleSlug,
+        "en-US": otherLocaleSlug,
+        "es-CO": otherLocaleSlug,
         [lang]: slug,
       }
 
     }
 
     return {
-      en: slug,
-      es: slug,
+      "en-US": slug,
+      "es-CO": slug,
     }
   }
 
