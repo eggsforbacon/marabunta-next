@@ -30,6 +30,7 @@ const organizationData = {
   "@type": "Organization",
   "name": "Marabunta",
   "url": "https://marabunta.co",
+  "logo": "https://marabunta.co/favicon-light.ico",
   "sameAs": [
     "https://www.facebook.com/marabuntaagencia",
     "https://www.linkedin.com/company/marabunta",
