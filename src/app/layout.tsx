@@ -5,6 +5,7 @@ import Footer from "@/components/Footer/Footer";
 import {i18n, Locale} from "@/_i18n.config";
 import LocaleLoader from "@/components/ui/LocaleLoader";
 import {WhatsappButton} from "@/components/ui/WhatsAppButton";
+import AnimatedCursor from 'react-animated-cursor';
 
 const montserrat = Montserrat({subsets: ['latin', 'latin-ext']});
 
@@ -76,6 +77,17 @@ export default function RootLayout(
       <html lang={params.lang}>
       <body className={montserrat.className}>
       {/*<LocaleLoader locale={params.lang}/>*/}
+      <AnimatedCursor
+        color="#fff"
+        innerSize={8}
+        outerSize={35}
+        innerScale={1}
+        outerScale={1.7}
+        outerAlpha={0}
+        outerStyle={{
+          backgroundColor: '#fff',
+          mixBlendMode: 'exclusion',
+        }}/>
       {children}
       <div className={"h-[100vh] max-h-[1089px] max-w-[1920px] w-full"}/>
       <Footer lang={lenguage}/>

@@ -10,10 +10,10 @@ export const WhatsappButton = () => {
   return (<div className="fixed right-4 bottom-4 !z-[60] ">
     {
         show && (
-            <span className="w-64 p-4 flex rounded-lg mb-4 backdrop-blur-lg bg-slate-700/50 text-white">
+            <span className="w-64 p-4 flex rounded-lg mb-4 backdrop-blur-lg bg-slate-700/50 text-white px-3 pt-5">
                 <span>Bienvenido/a a Marabunta, ¿Cómo podemos ayudarte?</span>
-                <span className="font-bold cursor-pointer" onClick={() => setShow(false)}><X className="-mr-1 -mt-1"
-                                                                                             size={24}/></span>
+                <button className="font-bold cursor-pointer absolute right-2 top-2" onClick={() => setShow(false)}><X className="-mr-1 -mt-1"
+                                                                                             size={24}/></button>
             </span>
         )
     }
