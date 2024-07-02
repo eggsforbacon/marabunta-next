@@ -79,6 +79,19 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
     }
   }
 
+  function reemplazarCadena(cadena: string) {
+    let contador = 0;
+    const reemplazos = ['‘‘', '’’'];
+    console.log("cadena", cadena);
+    
+  
+    return cadena.replace(/\\"/g, (match) => {
+      const reemplazo = reemplazos[contador % 2];
+      contador++;
+      return reemplazo;
+    });
+  }
+
   return (
       <>
         <Navbar s={nav}
@@ -123,14 +136,23 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
                       },
                       list:({children}) => {return <ul className="text-xl leading-[1.5] list-disc">{children}</ul>},
                       link: ({children, url}) => {return <a href={url} target="_blank">{children}</a>},
-                      paragraph: ({children}) => <p
-                          className={"text-xl leading-[1.5]"}>{children}</p>,
+                      paragraph: ({children}: any) => <>
+                      {
+                        children.length === 1 ? <p
+                        className={"text-xl leading-[1.5]"} dangerouslySetInnerHTML={{__html: reemplazarCadena(JSON.stringify(children[0].props.text ?? {}).slice(1, -1)) ?? ''}}></p>
+                        :
+                        <p
+                          className={"text-xl leading-[1.5]"}>{children}</p>
+
+                      }
+                      
+                      </>,
                       heading: ({children, level}) => {
                         switch (level) {
                           case 1:
                             return <h1 className={""}>{children}</h1>
                           case 2:
-                            return <h2 className={""}>{children}</h2>
+                            return <h2 className={"text-5xl font-bold"}>{children}</h2>
                           case 3:
                             return <h3 className={""}>{children}</h3>
                           case 4:

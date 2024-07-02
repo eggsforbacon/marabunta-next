@@ -1,16 +1,23 @@
 "use client";
 
-import Navbar from "@/components/ui/Navbar";
 import React, {useEffect, useRef, useState} from "react";
-import {Locale} from "@/_i18n.config";
-//import {getDictionary} from "@/lib/dictionary";
-import ProjectCard from "@/components/work/ProjectCard";
+import { Navigation } from 'swiper/modules';
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Link from "next/link";
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+
+import Navbar from "@/components/ui/Navbar";
+import {Locale} from "@/_i18n.config";
+//import {getDictionary} from "@/lib/dictionary";
+import ProjectCard from "@/components/work/ProjectCard";
 import useScreenSize from "@/hooks/useScreenSize";
 import { covers } from "@/constants/covers";
 import { getLenguage } from "@/dictionaries";
+
+import 'swiper/css';
+import './styles.css';
+
 
 export default function Work({params: {lang}}: { params: { lang: Locale } }) {
   const [sliderMove, setSliderMove] = useState(0);
@@ -24,13 +31,52 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
     });
   }, [lang]);*/
   return (
-    <main className={"h-screen lg:h-full bg-off-black overflow-clip"}>
+    <main className={"h-screen relative bg-off-black overflow-clip slider-projects"}>
       <Navbar current={"/portafolio"} withBorder s={nav} lang={lang}/>
       <span className={"absolute top-0 w-full left-0 h-full pointer-events-none packed-dotted-background opacity-30 overflow-hidden"}/>
       {
         //home && home.services && <Services s={home?.services} lang={lang}/>
       }
 
+      <Swiper
+        keyboard
+        modules={[Navigation]}
+        spaceBetween={10}
+        slidesPerView={4.3}
+        scrollbar={{draggable: true}}
+        navigation
+        pagination={{ clickable: true }}
+        mousewheel
+        className={`h-36 md:h-[90vh] !z-[60] rounded-2xl w-full !ml-10 mt-20 absolute -bottom-10 left-4`}
+        >
+           {covers.map((s, i) => {
+          return (
+            <SwiperSlide className="w-[20vw]" key={i}>
+              <ProjectCard key={i} >
+              <Image key={i} src={s.cover} alt={""} width={504} height={672} quality={100}
+                className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
+              <article key={i} className={"card absolute top-0 left-0 w-full h-full flex"}>
+                <a href={s.link}
+                  className="flex rounded-full m-auto text-3xl backdrop-blur-sm bg-white/80 w-[100px] z-30">
+                  <Image src={"/images/png/Arrow.png"} width={100} height={100} alt={""} quality={100}/>
+                </a>
+                <a href={s.link} className="card absolute bottom-0 z-50 rounded-lg  p-4 pt-0 md:py-8  md:p-8 pr-0 text-sm md:text-xl bg-gradient-to-t from-[#000] w-full h-[14%] ">
+                  <h5>{s.name}</h5>
+                  <p className="text-xs underline decoration-1">{s.category}</p>
+                </a>
+                {
+                  s.fore && 
+                  <Image src={s.fore} alt={""} width={504} height={672}
+                    className={"absolute  left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
+                }
+              </article>
+            </ProjectCard>
+            </SwiperSlide>
+            
+          );
+        })}
+        </Swiper>
+{/*
       <motion.div
        drag={width > 768 ? undefined : 'y'}
         animate={
@@ -90,7 +136,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
           href={"https://www.instagram.com/marabuntaagenciacreativa/"} target={"_blank"}>
             <svg xmlns="http://www.w3.org/2000/svg" height="32" width="28" viewBox="0 0 448 512"><path fill="#fff" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
           </Link>
-      </section>
+      </section>*/}
     </main>
   );
 }
