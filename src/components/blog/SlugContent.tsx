@@ -82,9 +82,6 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
   function reemplazarCadena(cadena: string) {
     let contador = 0;
     const reemplazos = ['‘‘', '’’'];
-    console.log("cadena", cadena);
-    
-  
     return cadena.replace(/\\"/g, (match) => {
       const reemplazo = reemplazos[contador % 2];
       contador++;
