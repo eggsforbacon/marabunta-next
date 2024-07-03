@@ -38,12 +38,12 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
         //home && home.services && <Services s={home?.services} lang={lang}/>
       }
       {
-        window.screen.width > 780 ? 
+        width > 780 ? 
         <Swiper
         keyboard
         modules={[Navigation]}
         spaceBetween={10}
-        slidesPerView={window.screen.width < 1680 ? 3.3 : 4.3}
+        slidesPerView={width < 1680 ? 3.3 : 4.3}
         scrollbar={{draggable: true}}
         navigation
         pagination={{ clickable: true }}
