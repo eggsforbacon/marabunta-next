@@ -51,9 +51,14 @@ export default function Blogs({lang, s}: { lang: Locale, s: { [_: string]: any }
     }
 
     function renderBlogs() {
-        const filteredBlogs = filter !== "" && blogs.length !== 1 ? blogs.slice(1) : blogs;
+        let filteredBlogs = filter !== "" && blogs.length !== 1 ? blogs.slice(1) : blogs;
+        filteredBlogs = filteredBlogs.sort((a,b)=> {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return dateB.getTime() - dateA.getTime();
+        })
         return filteredBlogs.map((blog, i) => {
-            const weight: 1 | 2 | 3 = i % 3 === 0 ? 3 : i % 2 === 0 ? 2 : 1;
+            //const weight: 1 | 2 | 3 = i % 3 === 0 ? 3 : i % 2 === 0 ? 2 : 1;
             const {
                 date,
                 title,
@@ -71,14 +76,14 @@ export default function Blogs({lang, s}: { lang: Locale, s: { [_: string]: any }
                           publishedDate={date}
                           slug={slug}
                           category={category}
-                          weight={weight}>
+                          weight={3}>
                     <Image
                         src={`${process.env.NEXT_PUBLIC_STRAPI_URL ?? ""}${thumbnail.data.attributes.url}`}
                         alt={thumbnail.data.attributes.alternativeText! ?? "No alt text"}
                         height={thumbnail.data.attributes.height}
                         width={thumbnail.data.attributes.width}
                         priority={i <= 1}
-                        className={styles[weight]}/>
+                        className={styles[3]}/>
                 </BlogCard>
             );
         })
