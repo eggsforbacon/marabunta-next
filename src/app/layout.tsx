@@ -96,6 +96,7 @@ export default function RootLayout(
           type="application/ld+json"
           dangerouslySetInnerHTML={{__html: JSON.stringify(organizationData)}}
       />
+      <img src="https://tracker.metricool.com/c3po.jpg?hash=27c130581a9f46f58b038d66cb07a4a6"/>
       </body>
       </html>
   )
