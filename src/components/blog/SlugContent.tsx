@@ -155,7 +155,7 @@ export default function SlugContent({slug, s, lang}: { slug: string, s: { [_: st
                           case 4:
                             return <h4 className={"text-3xl font-bold"}>{children}</h4>
                           case 5:
-                            return <h5 className={""}>{children}</h5>
+                            return <h5 className={"text-2xl"}>{children}</h5>
                           case 6:
                             return <h6 className={""}>{children}</h6>
                         }
