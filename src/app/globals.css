@@ -51,6 +51,10 @@
     background-color: #030303;
   }
 
+  .hero:nth-child(1) {
+    height: 100vh !important;
+  }
+
   .blog a {
     color: #52c0e1 !important;
   }

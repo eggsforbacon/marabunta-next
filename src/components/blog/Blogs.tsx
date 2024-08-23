@@ -91,7 +91,7 @@ export default function Blogs({lang, s}: { lang: Locale, s: { [_: string]: any }
 
     return (
         <section
-            className={"relative flex flex-col items-stretch justify-start gap-8 lg:gap-16 w-full px-6 lg:px-16 2xl:px-64"}>
+            className={"relative flex flex-col items-stretch justify-start gap-8 lg:gap-16 w-[92%] px-6 lg:px-16"}>
             <ScrollToNewsLetter
                 className={"z-30 lg:-mb-32 hidden lg:grid place-items-center aspect-square w-28 sticky top-32 right-6 lg:ml-[60rem] xl:ml-[78rem] 2xl:ml-[86rem] animate-float-up-sm border-2 p-6 rounded-full border-transparent transition duration-300 ease-back hover:border-marabunta-cyan hover:bg-off-black"}/>
             {

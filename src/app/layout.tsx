@@ -77,7 +77,7 @@ export default function RootLayout(
       <html lang={params.lang}>
       <body className={montserrat.className}>
       {/*<LocaleLoader locale={params.lang}/>*/}
-      <AnimatedCursor
+      {/*<AnimatedCursor
         color="#fff"
         innerSize={8}
         outerSize={35}
@@ -87,7 +87,7 @@ export default function RootLayout(
         outerStyle={{
           backgroundColor: '#fff',
           mixBlendMode: 'exclusion',
-        }}/>
+        }}/>*/}
       {children}
       <div className={"h-[100vh] max-h-[1089px] max-w-[1920px] w-full"}/>
       <Footer lang={lenguage}/>

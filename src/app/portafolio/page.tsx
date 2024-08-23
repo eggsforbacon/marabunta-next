@@ -31,7 +31,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
     });
   }, [lang]);*/
   return (
-    <main className={"h-screen relative bg-off-black overflow-clip slider-projects"}>
+    <main className={"min:h-screen relative bg-off-black overflow-clip slider-projects"}>
       <Navbar current={"/portafolio"} withBorder s={nav} lang={lang}/>
       <span className={"absolute top-0 w-full left-0 h-full pointer-events-none packed-dotted-background opacity-30 overflow-hidden"}/>
       {
@@ -48,11 +48,11 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
         navigation
         pagination={{ clickable: true }}
         mousewheel
-        className={`h-36 md:h-[90vh] !z-[60] rounded-2xl w-full !ml-10 mt-20 absolute -bottom-10 left-4 hidden`}
+        className={`h-36 md:!h-max pb-12 !z-[60] rounded-2xl w-full !ml-10 mt-20 absolute -bottom-10 left-4 hidden`}
         >
            {covers.map((s, i) => {
           return (
-            <SwiperSlide className="w-[20vw]" key={i}>
+            <SwiperSlide className="!w-max !h-screen" key={i}>
               <ProjectCard key={i} >
               <Image key={i} src={s.cover} alt={""} width={504} height={672} quality={100}
                 className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
