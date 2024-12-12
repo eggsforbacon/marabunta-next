@@ -17,10 +17,10 @@ export const ES = {
   },
   "nav": {
     "home": "Identidad",
-    "services": "Servicios",
+    "team": "Equipo",
     "work": "Trabajos",
     "blog": "Blog",
-    "contact": "Equipo"
+    "quote": "Cotizador",
   },
   "home": {
     "intro": {
@@ -174,7 +174,7 @@ export const ES = {
       },
       "ingenieria_sas": {
         "title": "",
-        "subtitle": "<strong>Hacemos Ingeniería</strong> consideraba fundamental desarrollar una identidad de marca que transmitiera con presición su actividad y el alto nivel de calidad de sus proyectos. Este es el resultado de nuestra propuesta de Branding.",
+        "subtitle": "<strong>Hacemos Ingeniería</strong> consideraba fundamental desarrollar una identidad de marca que transmitiera con precisión su actividad y el alto nivel de calidad de sus proyectos. Este es el resultado de nuestra propuesta de Branding.",
         "about": {
           "title": "Concepto",
           "articles": [
@@ -290,9 +290,9 @@ export const ES = {
     ],
     "categoryDescriptions": {
       "marabunta": "Descubre lo último de Marabunta: noticias, ideas y actualizaciones. Explora nuestro mundo y encuentra tus favoritos, desde listas top hasta álbumes de música.",
-      "diseño": "Sumérgete en el mundo del diseño con tendencias, consejos e inspiración. Encuentra tu creatividad y hazla realidad con nuestras ideas y recursos.",
+      "design": "Sumérgete en el mundo del diseño con tendencias, consejos e inspiración. Encuentra tu creatividad y hazla realidad con nuestras ideas y recursos.",
       "estrategia": "Haz crecer tu negocio con estrategias de marketing y digital. Encuentra el camino hacia el éxito con nuestras guías y consejos prácticos.",
-      "producción": "Organiza eventos memorables y optimiza tu logística con nuestros artículos sobre producción y eventos. Desde planificación hasta ejecución, te ayudamos a brillar."
+      "production": "Organiza eventos memorables y optimiza tu logística con nuestros artículos sobre producción y eventos. Desde planificación hasta ejecución, te ayudamos a brillar."
     },
     "dropdownDefaultOption": "Escoge un tema",
     "featured": "Nuestro artículo",
@@ -315,6 +315,23 @@ export const ES = {
     "entry" : {
       "publishedOn": "Publicado"
     }
+  },
+  "quote": {
+    "title": "Título",
+    "copy": "Copy",
+    "start": "¡Comencemos!",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "continue": "Continuar",
+    "finish": "Finalizar",
+    "questions": [
+      {
+        "prompt": "¿?",
+        "options": [
+            "A", "B", "C"
+        ]
+      }
+    ]
   },
   "contact": {
     "actions": {

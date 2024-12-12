@@ -4,11 +4,11 @@ import {Locale} from "@/_i18n.config";
 import Image from "next/image";
 import React from "react";
 import Team from "@/components/home/Team";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 export default async function TeamPage({params: {lang = 'es'}}: { params: { lang: Locale } }) {
 
-  const {nav, team} = getLenguage(lang);
+  const {nav, team} = getLanguage(lang);
 
   return (
       <main>

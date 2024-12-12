@@ -4,12 +4,12 @@ import {Locale} from "@/_i18n.config";
 //import {getDictionary} from "@/lib/dictionary";
 import { ProjectAbout } from "@/types/work";
 import Image from "next/image";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 
 export default async function PatrimonioVital({params : {lang}} : {params : {lang : Locale}}) {
   //const {nav, work} = await getDictionary(lang);
-  const {nav, work} = getLenguage(lang);
+  const {nav, work} = getLanguage(lang);
   const about : ProjectAbout = work.projects.patrimonio_vital.about;
   const title : string | undefined = work.projects.patrimonio_vital.title;
 

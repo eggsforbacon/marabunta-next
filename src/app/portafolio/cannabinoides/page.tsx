@@ -4,11 +4,11 @@ import {Locale} from "@/_i18n.config";
 import Image from "next/image";
 //import { getDictionary } from "@/lib/dictionary";
 import { ProjectAbout } from "@/types/work";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 export default async function Cannabinoides({params : {lang}} : {params : {lang : Locale}}) {
   //const {nav, work} = await getDictionary(lang);
-  const {nav, work} = getLenguage(lang);
+  const {nav, work} = getLanguage(lang);
   const about : ProjectAbout = work.projects.clinicannabis.about;
 
   return (

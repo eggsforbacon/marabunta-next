@@ -4,11 +4,11 @@ import {Locale} from "@/_i18n.config";
 import Image from "next/image";
 //import { getDictionary } from "@/lib/dictionary";
 import TimeLine from "@/components/time-line";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 export default async function FiestaDeMiPueblo21({params : {lang}} : {params : {lang : Locale}}) {
 
-  const {nav} = getLenguage(lang);
+  const {nav} = getLanguage(lang);
 
   return (
     <main className="flex flex-col">

@@ -97,7 +97,7 @@ export default function Reel({t}: { t: { [_: string]: any } }) {
             }
           </button>
           <input type={"range"} className={"w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"}
-                 min={0} max={100} value={seekbarValue}
+                 min={0} max={100} value={seekbarValue.toString()}
                  ref={rangeInputRef}
                  onChange={handleSeekbarChange}/>
           <button className={"rounded-full p-2 flex items-center justify-center border border-off-white"}

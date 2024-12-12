@@ -5,7 +5,7 @@ export const Hero = () => {
 
     return (
         <header
-            className={"bg-off-black w-full h-[100vh] md:h-screen lg:h-auto flex items-center justify-center relative overflow-clip z-50"}
+            className={"bg-off-black w-full h-[100vh] md:h-screen lg:h-auto flex items-center justify-center relative overflow-clip"}
         >
             <BlobPlayground/>
             <video autoPlay muted controls={false} playsInline height={1720}

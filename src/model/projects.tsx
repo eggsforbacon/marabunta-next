@@ -1,9 +1,9 @@
-import {ProjectCardDirection, ProjectCardMetadata, ServiceNames} from "@/types/work";
+import {ProjectCardDirection, ProjectCardMetadata} from "@/types/work";
 import React, {ReactNode} from "react";
 import Image from "next/image";
 import {Locale} from "@/_i18n.config";
 //import {getDictionary} from "@/lib/dictionary";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 export const projects = async (lang: Locale): Promise<{
     direction: ProjectCardDirection;
@@ -13,7 +13,7 @@ export const projects = async (lang: Locale): Promise<{
     cover: ReactNode;
 }[]> => {
     //const { work } = await getDictionary(lang);
-    const {work} = getLenguage(lang);
+    const {work} = getLanguage(lang);
     
     const p: any = Object.values(work.projects);
     return [
