@@ -1,5 +1,7 @@
 import {Locale} from "@/_i18n.config";
 import {Month} from "@/types/common";
+import {en} from "@/constants/quote/en";
+import {es} from "@/constants/quote/es";
 
 export const options = {
     "method": "GET",
@@ -17,4 +19,15 @@ export function getCurrentMonth() : Month {
     const d = new Date();
     const month = d.getMonth();
     return (month + 1) as Month;
+}
+
+export function getText(lang: Locale, id: number, key: "prompt" | "answers" | "options" | "highlight") {
+    switch (lang) {
+        case "en":
+            return en.filter((t) => id === t.id)[0][key];
+        case "es":
+            const res = es.filter((t) => id === t.id)[0][key];
+            console.log(res);
+            return res;
+    }
 }
