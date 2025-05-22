@@ -19,7 +19,7 @@ export default async function Footer ({lang} : {lang : Locale}) {
                     <ScrollToTop className={"animate-float-up-sm border-2 p-6 rounded-full border-transparent transition duration-300 ease-back hover:border-marabunta-yellow flex w-min mx-auto mt-32"} />
                     <iframe className="hidden" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.635183059755!2d-76.55008722418688!3d3.4386132513033365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a681f2d96d95%3A0x8bb15a936fe040ca!2sMarabunta%20Agencia%20Creativa!5e0!3m2!1ses-419!2sco!4v1715198873179!5m2!1ses-419!2sco" width="600" height="450" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                 <section
-                    className={"flex flex-col bg-off-black z-0 h-full w-full justify-end mb-4 md:mb-0"}>
+                    className={"flex flex-col bg-off-black z-0 h-full w-full justify-end mb-4 md:mb-0 mt-12"}>
                     <section className={"w-full flex flex-col items-center justify-center h-full md:h-auto leading-[4rem] -pt-16 md:pt-16"}>
                         <ul className={"w-full flex items-center justify-center gap-4 -mt-24 md:mt-0 px-6 lg:px-32 flex-wrap md:gap-8 lg:gap-10 xl:gap-14 2xl:gap-16 md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl !tracking-[-0.05em] font-light text-off-white"}>
                             <li className={"text-center w-24 grow"}><Link passHref
@@ -53,8 +53,30 @@ export default async function Footer ({lang} : {lang : Locale}) {
                         </ul>
                     </section>
                     
-                    <section className={"md:pt-12 md:pb-4 px-6 md:px-16 flex items-center md:items-end justify-between"}>
-                        <ul className={"text-sm md:text-base flex flex-col items-start justify-start gap-2 text-off-white font-light md:mb-12 md:w-52"}>
+                    <section className={"flex flex-col md:flex-row md:pt-12 md:pb-4 px-6 md:px-16 items-center md:items-end justify-between"}>
+                        <div className={"w-full md:w-1/3 md:order-2"}>
+                            <FooterForm s={footer} lang={lang} />
+                        </div>
+
+                        <div className={"flex flex-row items-center justify-between w-full md:hidden mt-8"}>
+                            <ul className={"text-sm flex flex-col items-start justify-start gap-2 text-off-white font-light"}>
+                                <li><Link
+                                        className={"transition duration-300 ease-in-out hover:text-marabunta-cyan focus:text-marabunta-cyan"}
+                                        href={"tel:+576024072035"} target={"_blank"} rel={"noreferrer"}>(602) 407 2035</Link>
+                                </li>
+                                <li><Link
+                                        className={"transition duration-300 ease-in-out hover:text-marabunta-cyan focus:text-marabunta-cyan"}
+                                        href={"mailto:info@marabunta.co"} target={"_blank"}
+                                        rel={"noreferrer"}>info@marabunta.co</Link></li>
+                                <li><Link
+                                        className={"transition duration-300 ease-in-out hover:text-marabunta-cyan focus:text-marabunta-cyan"}
+                                        href={"https://goo.gl/maps/2tR1LGMZnG4zo3CSA"} target={"_blank"} rel={"noreferrer"}>
+                                        Calle 8 oeste #28-45, Cali</Link></li>
+                            </ul>
+                            <FooterLogo lang={lang} />
+                        </div>
+
+                        <ul className={"hidden md:flex md:w-1/3 md:order-1 text-sm md:text-base flex-col items-start justify-start gap-2 text-off-white font-light md:mb-12"}>
                             <li><Link
                                 className={"transition duration-300 ease-in-out hover:text-marabunta-cyan focus:text-marabunta-cyan"}
                                 href={"tel:+576024072035"} target={"_blank"} rel={"noreferrer"}>(602) 407 2035</Link>
@@ -65,12 +87,13 @@ export default async function Footer ({lang} : {lang : Locale}) {
                                 rel={"noreferrer"}>info@marabunta.co</Link></li>
                             <li><Link
                                 className={"transition duration-300 ease-in-out hover:text-marabunta-cyan focus:text-marabunta-cyan"}
-                                href={"https://goo.gl/maps/2tR1LGMZnG4zo3CSA"} target={"_blank"} rel={"noreferrer"}>Calle
-                                8
-                                oeste #28-45, Cali</Link></li>
+                                href={"https://goo.gl/maps/2tR1LGMZnG4zo3CSA"} target={"_blank"} rel={"noreferrer"}>
+                                Calle 8 oeste #28-45, Cali</Link></li>
                         </ul>
-                        <FooterForm s={footer} lang={lang}/>
-                        <FooterLogo lang={lang}/>
+
+                        <div className={"hidden md:flex md:w-1/3 md:order-3 justify-end"}>
+                            <FooterLogo lang={lang} />
+                        </div>
                     </section>
                     
                 </section>
