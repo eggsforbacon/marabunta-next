@@ -60,12 +60,13 @@ const Navbar = ({current, s, lang, blogData}: _PProps) => {
             className={`transition-all z-[60] duration-300 ease-in-out fixed top-2 lg:top-6 left-1/2 -translate-x-1/2 ${open ? "h-112 md:h-64 w-screen -translate-y-5 rounded-none py-10" : "h-20 w-[90%] md:w-4/5 translate-y-0 rounded-xl py-4"} lg:translate-y-0 lg:h-auto z-20 lg:w-224 xl:w-288 2xl:w-320 bg-neutral-800/80 shadow-sm backdrop-blur-3xl lg:rounded-3xl text-sm text-neutral-400 uppercase flex flex-col lg:flex-row items-center justify-end gap-8 lg:gap-0 lg:justify-between px-6 lg:py-4`}>
           <div className={`flex flex-row items-center w-full lg:w-auto justify-between h-20 lg:h-10 absolute lg:relative px-6 lg:px-0 transition-all duration-300 ease-in-out ${open ? "top-4" : "-top-1"} lg:top-auto`}>
             <LocaleLink lang={lang} href={"/"} className={"relative z-20 flex group gap-2"} passHref>
-              <div
+              {/* <div
                   className={`${open ? "opacity-0" : "animate-fade-ant"} lg:animate-none lg:opacity-0 absolute -top-[1.75rem] lg:top-auto h-16 aspect-square lg:relative flex items-center justify-center transition-all duration-700 ease-in-out group-hover:opacity-100`}>
                 <Image src={"/_ant.svg"} alt={"Marabunta Agencia Creativa"} width={32} height={32} className={"rotate-90"}/>
-              </div>
+              </div> */}
               <MarabuntaHor
-                  className={`${open ? "opacity-100" : "animate-fade-marabunta"} lg:animate-none fill-white absolute -top-4 lg:top-auto lg:relative lg:ml-0 lg:pl-0 w-40 lg:w-44 lg:-mt-1 transition-all duration-200 ease-in-out hover:fill-marabunta-cyan`}/>
+                    className={"fill-white lg:ml-0 lg:pl-0 w-40 lg:w-44 lg:-mt-1 transition duration-200 ease-in-out hover:fill-marabunta-cyan"}/> {/* Provisional mientras se aprueba la hormiga */}
+                  {/* className={`${open ? "opacity-100" : "animate-fade-marabunta"} lg:animate-none fill-white absolute -top-4 lg:top-auto lg:relative lg:ml-0 lg:pl-0 w-40 lg:w-44 lg:-mt-1 transition-all duration-200 ease-in-out hover:fill-marabunta-cyan`}/> */}
             </LocaleLink>
             <button
                 className={"lg:hidden z-10 flex items-center justify-center"}>
