@@ -7,8 +7,8 @@ import {Locale} from "@/_i18n.config";
 export const FooterForm = ({s, lang} : {s : {[key : string] : any}, lang : Locale}) => {
 
     return (
-        <form className={"left-1/2 bottom-36 hidden md:flex md:bottom-4 flex-col items-center justify-start gap-4"}>
-            <section className={"flex flex-col items-center justify-end gap-4"}>
+        <form className="flex flex-col items-center justify-start gap-4 w-full md:w-auto">
+            <section className="flex flex-col items-center justify-end gap-4 w-full md:w-auto">
                 <TextField type={"email"} required name={"email"} label={s.email}
                            overrideText={"text-neutral-200"} focusedLabel={"px-4 text-marabunta-cyan"}
                            className={"focus:outline-none transition duration-300 ease-in-out focus:text-marabunta-cyan focus:border-marabunta-cyan"}/>

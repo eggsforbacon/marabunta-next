@@ -8,6 +8,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            screens: {
+                'xs': '385px',
+            },
             height: {
                 '112': '26rem',
                 '120': '28rem',
@@ -70,8 +73,8 @@ module.exports = {
                     'black': '#0e0e0e'
                 },
                 'marabunta': {
-                    'red': '#e20830',
-                    'cyan': '#51c1e1',
+                    'red': '#c91132',
+                    'cyan': '#129cc0',
                     'yellow': '#fcea1e',
                     'yellow-alt': '#fdd24c',
                 },
@@ -241,6 +244,26 @@ module.exports = {
                     '0%': {transform: 'translateX(0)'},
                     '100%': {transform: 'translateX(calc(-100% - 1rem))'},
                 },
+                'fade-marabunta': {
+                    '0%, 22%': { opacity: '1' },       // NAME
+                    '23%, 25%': { opacity: '0' },     // SWITCH
+                    '26%, 47%': { opacity: '0' },   // ANT
+                    '48%, 50%': { opacity: '0' },     // SWITCH
+                    '51%, 72%': { opacity: '1' },   // NAME
+                    '73%, 75%': { opacity: '0' },     // SWITCH
+                    '76%, 97%': { opacity: '0' },   // ANT
+                    '98%, 100%': { opacity: '0' },    // SWITCH
+                },
+                'fade-ant': {
+                    '0%, 22%': { opacity: '0' },      // NAME
+                    '23%, 25%': { opacity: '0' },     // SWITCH
+                    '26%, 47%': { opacity: '1' },   // ANT
+                    '48%, 50%': { opacity: '0' },     // SWITCH
+                    '52%, 72%': { opacity: '0' },   // NAME
+                    '73%, 75%': { opacity: '0' },     // SWITCH
+                    '76%, 97%': { opacity: '1' },   // ANT
+                    '98%, 100%': { opacity: '0' },    // SWITCH
+                },
             },
             animation: {
                 'pan-text-rtl': 'pan-text-rtl 30s linear infinite backwards',
@@ -252,6 +275,8 @@ module.exports = {
                 'fade-out-in': "fade-out-in 1s ease-in-out 1 both",
                 'fade-in': "fade-in 1s ease-in-out 1 both",
                 'slide-infinite': "slide-infinite linear 50s infinite both",
+                'fade-marabunta': 'fade-marabunta 30s linear infinite both',
+                'fade-ant': 'fade-ant 30s linear infinite both',
             },
         },
     },

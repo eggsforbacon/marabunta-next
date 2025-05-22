@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 type props = {
   yearCurrent: number
@@ -25,11 +26,11 @@ export default function TimeLine ({yearCurrent}: props) {
   return <section className="w-full pb-16 bg-black flex justify-center items-center">
     {
       years.map((item, i) => <>
-        <a className="relative mx-[-8px] md:mx-[-22px]" href={item.link}>
+        <Link key={i} className="relative mx-[-8px] md:mx-[-22px]" href={item.link}>
           <Image className="h-auto w-[20px] md:w-[40px]" src={yearCurrent === item.year ? "/images/point-line-time-dark.png" : "/images/point-line-time.png"} alt={""} width={40} height={40}
           quality={100}/>
-          <span className={yearCurrent === item.year ? "absolute text-projects-pueblo-yelow text-md md:text-3xl font-black font-organik text-projects-pueblo-yelow ml-[-8px]" : "text-white absolute mx-[-2px] text-xs md:text-xl"}>{item.year}</span>
-        </a>
+          <span className={yearCurrent === item.year ? "absolute text-md md:text-3xl font-black font-organik text-projects-pueblo-yelow ml-[-8px]" : "text-white absolute mx-[-2px] text-xs md:text-xl"}>{item.year}</span>
+        </Link>
         {
           i < (years.length-1) && 
           <Image className="w-[100px] md:w-auto" src={"/images/time-line.png"} alt={""} width={320} height={40}

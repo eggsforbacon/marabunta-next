@@ -3,10 +3,10 @@ import Navbar from "@/components/ui/Navbar";
 import {Locale} from "@/_i18n.config";
 import Image from "next/image";
 import { ProjectAbout } from "@/types/work";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 export default async function JuegosPanamericanos({params : {lang}} : {params : {lang : Locale}}) {
-  const {nav, work} = getLenguage(lang);
+  const {nav, work} = getLanguage(lang);
   const about : ProjectAbout = work.projects.panamericanos.about;
   const subtitle : string | undefined = work.projects.panamericanos.subtitle;
 

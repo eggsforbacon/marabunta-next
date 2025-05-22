@@ -28,6 +28,7 @@
     "react": "^18.2.0",
     "react-animated-cursor": "^2.11.2",
     "react-dom": "^18.2.0",
+    "react-material-symbols": "^4.4.0",
     "sharp": "^0.32.1",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.0.7",

@@ -5,21 +5,20 @@ import React, { useEffect, useState } from "react";
 import Navbar from "@/components/ui/Navbar";
 import { Locale } from "@/_i18n.config";
 //import { getDictionary } from "@/lib/dictionary";
-import { ProjectAbout } from "@/types/work";
 import Image from "next/image";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 
 
 export default function Work({params: {lang}}: { params: { lang: Locale } }) {
   //const [nav, setNav] = useState<{ [key: string]: any }>([]);
-  const [about, setAbout] = useState<{ articles: string[]; } | { articles: string[]; }>();
+  const [about, setAbout] = useState<{ articles: string[]; }>();
 
-  const {nav, work} = getLenguage(lang);
+  const {nav, work} = getLanguage(lang);
 
   useEffect(() => {
     setAbout(work.projects.promotores.about)
-  }, []);
+  }, [work.projects.promotores.about]);
 
   return (
     <main className="flex flex-col">
@@ -38,8 +37,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
           className={"md:object-cover md:w-full h-max w-auto pointer-events-none select-none"}/>
         <iframe 
           className="w-full md:h-[800px]" 
-          title="Guardabosque" 
-          frameBorder="0" 
+          title="Guardabosque"
           allowFullScreen 
           allow="autoplay; fullscreen; xr-spatial-tracking" 
           xr-spatial-tracking 

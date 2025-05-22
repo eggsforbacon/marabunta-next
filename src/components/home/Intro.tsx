@@ -7,7 +7,7 @@ import {motion, useScroll, useTransform, Variants} from "framer-motion";
 import {useWindowSize} from "@uidotdev/usehooks";
 import {breakPoints} from "@/types/common";
 
-export const Intro = ({s}: { s: { [key: string]: any } }) => {
+export const Intro = ({s}: { s: { [_: string]: any } }) => {
 
     const {scrollYProgress} = useScroll();
     const {width: windowWidth} = useWindowSize();
@@ -47,6 +47,12 @@ export const Intro = ({s}: { s: { [key: string]: any } }) => {
         ["0.1", "0.8", "0.5"]
     )
 
+    const opacityM = useTransform(
+        scrollYProgress,
+        [0, 1],
+        ["0.6", "0.6"]
+    )
+
     const cardVariants: Variants = {
         offscreen: {
             y: 100,
@@ -83,13 +89,13 @@ export const Intro = ({s}: { s: { [key: string]: any } }) => {
             <section className={"absolute -top-10 left-0 w-full h-full"}>
                 <p className={"sr-only"}>{s.sr}</p>
                 <motion.div
-                    className={"absolute -top-28 md:-top-44 lg:-top-36 left-10 md:left-4 lg:left-56 xl:left-112 2xl:left-136 w-120 md:w-fit h-120 md:h-fit pointer-events-none select-none"}
-                    style={windowWidth! < breakPoints.md ?? false ? {} : {x, opacity}}
+                    className={"absolute -top-16 md:-top-40 lg:-top-32 xl:-top-24 left-10 md:left-4 lg:left-56 xl:left-112 2xl:left-136 w-120 md:w-fit h-120 md:h-fit pointer-events-none select-none overflow-y-visible"}
+                    style={windowWidth! < breakPoints.md ?? false ? {opacity : opacityM} : {x, opacity}}
                 >
-                    <Image src={"/images/home/png/marabuntaVerticalRed.png"}
+                    <Image src={"/images/svg/marabunta-red-vertical.svg"}
                            alt={"Marabunta en rojo, separado en 3 grupos de sílabas alineado a la derecha, en minúsculas"}
-                           width={640} height={360} loading={"lazy"} quality={100}
-                           className={"scale-[.65] md:scale-75 lg:scale-[.8] 2xl:scale-90"}/>
+                           width={640} height={905} loading={"lazy"} quality={100}
+                           className={"scale-[.65] md:scale-[.55] lg:scale-[.7] 2xl:scale-90"}/>
                 </motion.div>
                 <div
                     className={"h-80 md:h-144 lg:h-192 xl:h-224 2xl:h-256 aspect-square absolute top-28 md:top-24 lg:top-12 2xl:top-0 -left-6 md:-left-12 xl:left-12 2xl:left-0"}>

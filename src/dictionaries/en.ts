@@ -17,10 +17,10 @@ export const EN = {
   },
   "nav": {
     "home": "Identity",
-    "services": "Services",
+    "team": "Team",
     "work": "Works",
     "blog": "Blog",
-    "contact": "Team"
+    "quote": "Pricing",
   },
   "home": {
     "intro": {
@@ -306,6 +306,23 @@ export const EN = {
     "entry": {
       "publishedOn": "Published"
     }
+  },
+  "quote": {
+    "title": "Title",
+    "copy": "Copy",
+    "start": "Let's go!",
+    "next": "Next",
+    "previous": "Previous",
+    "continue": "Continue",
+    "finish": "Finish",
+    "questions": [
+      {
+        "prompt": "?",
+        "options": [
+          "A", "B", "C"
+        ]
+      }
+    ]
   },
   "contact": {
     "actions": {

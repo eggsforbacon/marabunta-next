@@ -75,10 +75,10 @@ export default function Reel({t}: { t: { [_: string]: any } }) {
           <video autoPlay muted={muted} loop playsInline height={1920 * .85}
                  onClick={togglePlay}
                  width={1920 * .85} onProgress={handleProgress} ref={videoRef}
-                 className={"top-0 left-0 rounded-xl w-full aspect-[9/16] lg:aspect-auto object-cover lg:h-full cursor-none"}> {/* bottom-44 md:bottom-24 lg:-bottom-9 xl:-bottom-24 2xl:-bottom-9 -translate-x-1/2 md:translate-x-0 left-[55%] md:-right-44 lg:-right-[14rem] xl:-right-72 2xl:-right-[14rem] scale-[2] md:scale-125 lg:scale-100 xl:scale-75 2xl:scale-100 */}
+                 className={"top-0 left-0 rounded-xl w-full lg:aspect-auto object-cover lg:h-full cursor-none"}> {/* bottom-44 md:bottom-24 lg:-bottom-9 xl:-bottom-24 2xl:-bottom-9 -translate-x-1/2 md:translate-x-0 left-[55%] md:-right-44 lg:-right-[14rem] xl:-right-72 2xl:-right-[14rem] scale-[2] md:scale-125 lg:scale-100 xl:scale-75 2xl:scale-100 */}
             <source
                 src="/videos/webm/reel2023.mp4"
-                type="video/webm"/>
+                type="video/mp4"/>
           </video>
           <div ref={cursorRef}
                className={"border-4 text-black border-off-black opacity-0 h-2 aspect-square rounded-full z-30 pointer-events-none absolute top-4 -left-24 bg-off-white transition-all duration-200 ease-in-out lg:group-hover:opacity-100 lg:group-hover:h-28 xl:group-hover:h-32 text-2xl font-bold inline-flex items-center justify-center gap-2 pl-2"}>
@@ -97,7 +97,7 @@ export default function Reel({t}: { t: { [_: string]: any } }) {
             }
           </button>
           <input type={"range"} className={"w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"}
-                 min={0} max={100} value={seekbarValue}
+                 min={0} max={100} value={seekbarValue.toString()}
                  ref={rangeInputRef}
                  onChange={handleSeekbarChange}/>
           <button className={"rounded-full p-2 flex items-center justify-center border border-off-white"}

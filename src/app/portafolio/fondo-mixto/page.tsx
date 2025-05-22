@@ -3,12 +3,12 @@ import Navbar from "@/components/ui/Navbar";
 import {Locale} from "@/_i18n.config";
 import Image from "next/image";
 //import { getDictionary } from "@/lib/dictionary";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 export default async function FondoMixto({params : {lang}} : {params : {lang : Locale}}) {
 
   //const {nav} = await getDictionary(lang);
-  const {nav} = getLenguage(lang);
+  const {nav} = getLanguage(lang);
 
   return (
     <main className="flex flex-col">

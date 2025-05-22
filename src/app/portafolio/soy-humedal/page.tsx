@@ -2,12 +2,12 @@ import Navbar from "@/components/ui/Navbar";
 //import {getDictionary} from "@/lib/dictionary";
 import {Locale} from "@/_i18n.config";
 import Image from "next/image";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 export default async function SoyHumedal({params: {lang}}: { params: { lang: Locale } }) {
 
     //const { nav } = await getDictionary(lang);
-    const {nav} = getLenguage(lang);
+    const {nav} = getLanguage(lang);
 
     return (
         <main>

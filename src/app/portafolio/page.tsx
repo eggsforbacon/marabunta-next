@@ -1,11 +1,11 @@
 "use client";
 
-import React, {useEffect, useRef, useState} from "react";
+import React, {useState} from "react";
 import { Navigation } from 'swiper/modules';
 import Image from "next/image";
 import {motion} from "framer-motion";
 import Link from "next/link";
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import Navbar from "@/components/ui/Navbar";
 import {Locale} from "@/_i18n.config";
@@ -13,7 +13,7 @@ import {Locale} from "@/_i18n.config";
 import ProjectCard from "@/components/work/ProjectCard";
 import useScreenSize from "@/hooks/useScreenSize";
 import { covers } from "@/constants/covers";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 import 'swiper/css';
 import './styles.css';
@@ -21,7 +21,7 @@ import './styles.css';
 
 export default function Work({params: {lang}}: { params: { lang: Locale } }) {
   const [sliderMove, setSliderMove] = useState(0);
-  const {nav} = getLenguage(lang);
+  const {nav} = getLanguage(lang);
 
   const {width} = useScreenSize();
 
@@ -80,19 +80,13 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
         :
         <>
         <motion.div
-       drag={width > 768 ? undefined : 'y'}
-        animate={
-          {
-            x: sliderMove
-          }
-        }
-        dragConstraints={width > 768 ? {
-          right: 550,
-          left: -(covers.length*440),
-        } : {
-          top: -(covers.length*480),
-          bottom: 120
-        }}
+       drag={width > 768 ? "y" : undefined}
+            animate={{ x: sliderMove }}
+            dragConstraints={
+              width > 768
+                ? { right: 550, left: -(covers.length * 440) }
+                : undefined
+            }
         className={"box-border w-screen lg:w-fit cursor-grab lg:min-h-screen relative flex flex-col lg:flex-row items-center justify-start py-16 lg:p-16 gap-6 [perspective:10000px] active:cursor-grabbing"}
         >
         {covers.map((s, i) => {

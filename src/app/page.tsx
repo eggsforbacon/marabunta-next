@@ -8,10 +8,10 @@ import Strategy from "@/components/home/Strategy";
 
 import CallToAction from "@/components/home/CallToAction";
 import Image from "next/image";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 export default async function Home({params: {lang}}: { params: { lang: Locale } }) {
-  const {nav, home} = getLenguage(lang);
+  const {nav, home} = getLanguage(lang);
 
   return (
       <main>

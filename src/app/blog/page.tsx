@@ -5,12 +5,12 @@ import Blogs from "@/components/blog/Blogs";
 import React from "react";
 import NewsletterForm from "@/components/blog/NewsletterForm";
 import BlogFilters from "@/components/blog/BlogFilters";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 export default async function BlogPage({params: {lang}}: { params: { lang: Locale } }) {
 
 
-  const {nav, blog, common: {months}, footer: {terms}} = getLenguage(lang);
+  const {nav, blog, common: {months}, footer: {terms}} = getLanguage(lang);
 
   return (
       <main>

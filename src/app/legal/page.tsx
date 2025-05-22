@@ -4,11 +4,11 @@ import Navbar from "@/components/ui/Navbar";
 import LegalNavigation from "@/components/legal/LegalNavigation";
 import LocaleLink from "@/components/ui/LocaleLink";
 import Link from "next/link";
-import { getLenguage } from "@/dictionaries";
+import { getLanguage } from "@/dictionaries";
 
 export default async function Legal({params: {lang}}: { params: { lang: Locale } }) {
     //const {nav, legal} = await getDictionary(lang);
-    const { nav, legal } = await getLenguage(lang);
+    const { nav, legal } = await getLanguage(lang);
 
 
     const liStyle: string = "list-decimal ml-6 flex flex-col gap-6";
