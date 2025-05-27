@@ -26,8 +26,6 @@ export function getText(lang: Locale, id: number, key: "prompt" | "answers" | "o
         case "en":
             return en.filter((t) => id === t.id)[0][key];
         case "es":
-            const res = es.filter((t) => id === t.id)[0][key];
-            console.log(res);
-            return res;
+            return es.filter((t) => id === t.id)[0][key];
     }
 }
