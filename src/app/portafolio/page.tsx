@@ -80,19 +80,13 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
         :
         <>
         <motion.div
-       drag={width > 768 ? undefined : 'y'}
-        animate={
-          {
-            x: sliderMove
-          }
-        }
-        dragConstraints={width > 768 ? {
-          right: 550,
-          left: -(covers.length*440),
-        } : {
-          top: -(covers.length*480),
-          bottom: 120
-        }}
+       drag={width > 768 ? "y" : undefined}
+            animate={{ x: sliderMove }}
+            dragConstraints={
+              width > 768
+                ? { right: 550, left: -(covers.length * 440) }
+                : undefined
+            }
         className={"box-border w-screen lg:w-fit cursor-grab lg:min-h-screen relative flex flex-col lg:flex-row items-center justify-start py-16 lg:p-16 gap-6 [perspective:10000px] active:cursor-grabbing"}
         >
         {covers.map((s, i) => {
