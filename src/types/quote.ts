@@ -16,6 +16,7 @@ export type Question = {
     highlight?: string;
     area: ProductTypes
     types: QuestionTypes[] | QuestionTypes;
+    closed?: boolean;
     choices?: Choice[];
     ranges?: number[];
     options?: {unique: boolean[], values: string[][]};

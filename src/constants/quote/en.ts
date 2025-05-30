@@ -87,34 +87,16 @@ export const en: {id: number, prompt : string, highlight? : string, answers?: Ch
     },
     {
         id: 0x1102,
-        "prompt": "How do you want the $?",
-        "highlight": "design",
-        "answers": [
-            {
-                "title": "I already have one",
-                "description": "Great! Provide us with your design, and we'll integrate it into a functional and optimized platform."
-            },
-            {
-                "title": "I want a custom design",
-                "description": "We'll create a unique, custom design that reflects your brand identity and captivates your audience."
-            },
-            {
-                "title": "I want to use a template",
-                "description": "We'll help you find and customize a professional template that suits your needs."
-            },
-            {
-                "title": "I need help deciding",
-                "description": "We're happy to help! We'll advise you to find the best design for your goals and budget."
-            },
-        ]
-    },
-    {
-        id: 0x1103,
         "prompt": "How $ is your site?",
         "highlight": "big",
     },
     {
-        id: 0x1105,
+        id: 0x1103,
+        "prompt": "How many $ does your site have?",
+        "highlight": "products",
+    },
+    {
+        id: 0x1104,
         "prompt": "Do you need a $ gateway?",
         "highlight": "payment",
         "answers": [
@@ -143,6 +125,29 @@ export const en: {id: number, prompt : string, highlight? : string, answers?: Ch
                 "Online banking (like Paypal or Revolut)",
                 "Other"
             ]
+        ]
+    },
+    {
+        id: 0x1105,
+        "prompt": "How do you want the $?",
+        "highlight": "design",
+        "answers": [
+            {
+                "title": "I already have one",
+                "description": "Great! Provide us with your design, and we'll integrate it into a functional and optimized platform."
+            },
+            {
+                "title": "I want a custom design",
+                "description": "We'll create a unique, custom design that reflects your brand identity and captivates your audience."
+            },
+            {
+                "title": "I want to use a template",
+                "description": "We'll help you find and customize a professional template that suits your needs."
+            },
+            {
+                "title": "I need help deciding",
+                "description": "We're happy to help! We'll advise you to find the best design for your goals and budget."
+            },
         ]
     },
     {

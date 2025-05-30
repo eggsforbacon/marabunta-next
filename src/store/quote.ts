@@ -1,7 +1,5 @@
 import {create} from "zustand";
-import {Answer, Question} from "@/types/quote";
-import {getQuestion} from "@/model/quote";
-import {id} from "postcss-selector-parser";
+import {Answer} from "@/types/quote";
 
 interface QuoteStore {
     quoteEmail: string;
@@ -12,9 +10,14 @@ interface QuoteStore {
     addToBasket: (p: Answer) => void;
     removeFromBasket: (id: number) => void;
     current: number;
-    next: (id: number) => void;
-    previous: (id: number) => void;
+    continueQuestion: (id: number) => void;
+    stack: number[],
+    goBackQuestion: () => void;
     reset: () => void;
+    activeOption: number;
+    setActiveOption: (i: number) => void;
+    rangeValue: number;
+    setRangeValue: (i: number) => void;
 }
 
 export const useQuoteStore = create<QuoteStore>()((set) => ({
@@ -36,23 +39,29 @@ export const useQuoteStore = create<QuoteStore>()((set) => ({
         };
     }),
     current: 0x0000,
-    next: (id : number) => set((state) => {
-        return {
-            current: id,
-        }
-    }),
-    previous: (id : number) => set((state) => {
-        return {
-            current: id,
-        }
-    }),
-    reset: () => set((state) => {
-        return {
-            current: 0x0000,
-            basket: [],
-            floor: 0,
-            ceiling: 0,
-            average: 0,
-        }
-    }),
+    stack: [0x0000],
+    continueQuestion: (id: number) => set((state) => ({
+        current: id,
+        stack: [...state.stack, id],
+    })),
+    goBackQuestion: () => set((state) => ({
+        stack: state.stack.slice(0, -1),
+        current: state.stack.slice(0, -1).at(-1) ?? 0x0000,
+    })),
+    reset: () => set(() => ({
+        current: 0x0000,
+        stack: [0x0000],
+        basket: [],
+        floor: 0,
+        ceiling: 0,
+        average: 0,
+    })),
+    activeOption: 0,
+    setActiveOption: (i: number) => set((_) => ({
+        activeOption: i,
+    })),
+    rangeValue: 0,
+    setRangeValue: (i: number) => set((_) => ({
+        rangeValue: i,
+    }))
 }));
