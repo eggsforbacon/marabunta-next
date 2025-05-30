@@ -45,7 +45,7 @@ export default function Strategy({s}: { s: { [_: string]: any } }) {
                className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 left-0 h-full max-w-none object-cover"}/>  */
 
     const images = [
-        <Image key={0} src={"/videos/webm/360/1.png"} alt={""} width={1920} height={1080}
+        <Image key={0} src={"/videos/webm/360/1_card.png"} alt={""} width={1920} height={1080}
                className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 left-0 h-full max-w-none object-cover"}/>,
         <video key={1} playsInline loop muted controls={false} autoPlay
                className={"absolute md:scale-[1.2] lg:scale-100 opacity-100 saturate-0 brightness-50 top-0 md:-top-4 lg:top-0 -left-168 md:-left-96 lg:left-0 h-full max-w-none object-cover"}
@@ -53,7 +53,7 @@ export default function Strategy({s}: { s: { [_: string]: any } }) {
             <source src={"/videos/webm/360/2.mp4"} type={"video/mp4"}/>
             <source src={"/videos/webm/360/2.webm"} type={"video/webm"}/>
         </video>,
-        <Image key={0} src={"/videos/webm/360/3.png"} alt={""} width={1920} height={1080}
+        <Image key={0} src={"/videos/webm/360/3_card.png"} alt={""} width={1920} height={1080}
         className={"absolute lg:scale-100 opacity-80 lg:opacity-100 saturate-0 brightness-50 top-0 left-0 h-full max-w-none object-cover"}/>,
         <video key={3} playsInline loop muted controls={false} autoPlay
                className={"absolute md:scale-[1.2] lg:scale-100 opacity-100 saturate-0 brightness-50 top-0 md:-top-4 lg:top-0 -left-168 md:-left-80 lg:left-0 h-full max-w-none object-cover"}

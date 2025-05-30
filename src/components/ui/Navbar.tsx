@@ -88,9 +88,9 @@ const Navbar = ({current, s, lang, blogData}: _PProps) => {
             <li className={`${linkHoverStyle} ${current === "/blog" ? "text-off-white font-bold" : ""}`}>
               <LocaleLink lang={lang} href={"/blog"}>{s.blog}</LocaleLink>
             </li>
-            {/* <li className={`${linkHoverStyle} ${current === "/cotizador" ? "text-off-white font-bold" : ""}`}>
+            <li className={`${linkHoverStyle} ${current === "/cotizador" ? "text-off-white font-bold" : ""}`}>
               <LocaleLink lang={lang} href={"/cotizador"}>{s.quote}</LocaleLink>
-            </li> */}
+            </li>
             <div className={"hidden lg:flex"}>
               <LanguageSwitcher lang={lang} state={[openLang, setOpenLang]}/>
             </div>
