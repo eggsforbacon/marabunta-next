@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    /* async redirects() {
+    async redirects() {
         return [
             {
                 source: '/cotizador',
@@ -8,7 +8,7 @@ const nextConfig = {
                 permanent: true,
             },
         ]
-    }, */
+    },
     images: {
         remotePatterns: [
             {
