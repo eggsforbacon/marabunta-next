@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import { Locale } from "@/_i18n.config";
 import { useQuoteStore } from "@/store/quote";
 import { getQuestion } from "@/model/quote";
@@ -26,6 +26,7 @@ const Question = ({ lang }: IntroductionProps) => {
     setActiveOption,
     rangeValue,
     setRangeValue,
+    answers
   } = useQuoteStore();
 
   const question = useMemo(() => {
@@ -58,6 +59,11 @@ const Question = ({ lang }: IntroductionProps) => {
     closed,
     types,
   } = question;
+
+  useEffect(() => {
+    const savedAnswer = answers[id];
+    setActiveOption(savedAnswer !== undefined ? savedAnswer : 0);
+  }, [id, answers, setActiveOption]);
 
   return (
     <div
@@ -123,10 +129,11 @@ const Question = ({ lang }: IntroductionProps) => {
         </button>
         {/*<span className={"debug"}>{id.toString(16)}</span>*/}
         <button
-          className={"flex gap-2 items-center"}
-          onClick={() =>
-            continueQuestion(next.length === 1 ? next[0] : next[activeOption])
-          }
+          className="flex gap-2 items-center"
+          onClick={() => {
+            if (next[activeOption] === undefined) return; // Validación
+            continueQuestion(next.length === 1 ? next[0] : next[activeOption]);
+          }}
         >
           <p>Siguiente</p>
           <MaterialSymbol icon={"north_east"} color={"#129cc0"} size={16} />

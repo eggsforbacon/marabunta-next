@@ -257,6 +257,251 @@ export const es: {
       },
     ],
   },
+
+  {
+    id: 0x1201,
+    prompt: "¿Qué clase de $?",
+    highlight: "aplicación",
+    answers: [
+      {
+        title: "Herramienta interna del negocio (CRM, ERP, etc).",
+        description:
+          "Optimiza tu operación con un CRM, ERP u otra solución empresarial.",
+      },
+      {
+        title: "Aplicación de escritorio standalone.",
+        description:
+          "Ejecuta sin depender de internet con una app de escritorio independiente.",
+      },
+      {
+        title: "Aplicación lúdica-educativa (videojuego educativo).",
+        description:
+          "Enseña de forma divertida con un videojuego educativo personalizado.",
+      },
+      {
+        title: "A medida.",
+        description:
+          "¿Tienes una idea única? Creamos la app que necesitas desde cero.",
+      },
+    ],
+  },
+  {
+    id: 0x1202,
+    prompt: "¿Para qué $?",
+    highlight: "sistema operativo",
+    answers: [
+      {
+        title: "Windows.",
+        description:
+          "Optimiza tu app para el sistema operativo más usado del mundo.",
+      },
+      {
+        title: "MacOS/Linux.",
+        description:
+          "Desarrolla tu aplicación para entornos Mac o Linux según tu público.",
+      },
+    ],
+  },
+  {
+    id: 0x1203,
+    prompt: "¿Cuál es su $?",
+    highlight: "propósito",
+    answers: [
+      {
+        title: "Automatización / Optimización.",
+        description:
+          "Ahorra tiempo y mejora procesos con herramientas inteligentes.",
+      },
+      {
+        title: "Análisis de Datos.",
+        description:
+          "Toma mejores decisiones con visualizaciones e informes claros.",
+      },
+      {
+        title: "Creación de Contenido.",
+        description:
+          "Diseña, edita o produce contenido con herramientas especializadas.",
+      },
+      {
+        title: "Otro.",
+        description:
+          "¿Tienes otro objetivo en mente? Lo adaptamos a tu necesidad.",
+      },
+    ],
+  },
+
+  {
+    id: 0x1401,
+    prompt: "¿Necesitas $ de terceros?",
+    highlight: "integración",
+    answers: [
+      {
+        title: "No.",
+        description:
+          "Tu aplicación funcionará de forma independiente, sin conectarse a otros servicios.",
+      },
+      {
+        title: "Sí, básica.",
+        description:
+          "Incluye conexión con servicios comunes como correo, APIs o redes sociales.",
+      },
+      {
+        title: "Sí, avanzada.",
+        description:
+          "Integra sistemas complejos como pasarelas de pago, CRMs o bases de datos externas.",
+      },
+    ],
+  },
+  {
+    id: 0x1402,
+    prompt: "¿Cómo quieres el $?",
+    highlight: "diseño",
+    answers: [
+      {
+        title: "No requiero diseño.",
+        description:
+          "Ya cuentas con el diseño o prefieres enfocarte solo en la funcionalidad.",
+      },
+      {
+        title: "Quiero un diseño personalizado.",
+        description:
+          "Creamos una interfaz única que refleje la identidad de tu marca.",
+      },
+      {
+        title: "Quiero usar una plantilla.",
+        description:
+          "Ahorra tiempo y costos usando un diseño prediseñado y adaptable.",
+      },
+      {
+        title: "Necesito asesoría decidiendo.",
+        description:
+          "Te orientamos para elegir la mejor opción según tus objetivos y presupuesto.",
+      },
+    ],
+  },
+  {
+    id: 0x1403,
+    prompt: "¿Datos $?",
+    highlight: "sensibles",
+    answers: [
+      {
+        title: "Si.",
+        description:
+          "Tu app manejará información confidencial y requiere altos estándares de seguridad.",
+      },
+      {
+        title: "No.",
+        description:
+          "No se gestionará información delicada, el enfoque será funcional y general.",
+      },
+    ],
+  },
+  {
+    id: 0x1404,
+    prompt: "¿Cuántas $?",
+    highlight: "vistas/pantallas",
+    hint: "",
+  },
+  {
+    id: 0x1405,
+    prompt: "¿Offline o $?",
+    highlight: "Online",
+    answers: [
+      {
+        title: "Offline y Online.",
+        description:
+          "Funciona con o sin conexión para mayor flexibilidad y accesibilidad.",
+      },
+      {
+        title: "Online.",
+        description:
+          "Requiere conexión a internet para operar y acceder a sus funciones.",
+      },
+      {
+        title: "Offline.",
+        description:
+          "Todo funciona localmente, sin necesidad de conexión a internet.",
+      },
+    ],
+  },
+
+  {
+    id: 0x1301,
+    prompt: "¿Qué clase de $?",
+    highlight: "app",
+    answers: [
+      {
+        title: "App de contenido.",
+        description:
+          "Comparte información, noticias o multimedia desde tu dispositivo móvil.",
+      },
+      {
+        title: "ECommerce.",
+        description:
+          "Vende productos o servicios desde una tienda fácil de usar en el celular.",
+      },
+      {
+        title: "Utilidad / Herramienta.",
+        description:
+          "Facilita tareas diarias con una app práctica y funcional.",
+      },
+      {
+        title: "A medida.",
+        description:
+          "¿Tienes una idea distinta? Creamos tu app móvil desde cero.",
+      },
+    ],
+  },
+  {
+    id: 0x1302,
+    prompt: "¿Para qué $?",
+    highlight: "plataformas",
+    answers: [
+      {
+        title: "Android.",
+        description:
+          "Desarrolla tu app para la plataforma más usada a nivel global.",
+      },
+      {
+        title: "iOS.",
+        description:
+          "Llega a usuarios de iPhone con una app optimizada para Apple.",
+      },
+      {
+        title: "Ambas.",
+        description:
+          "Amplía tu alcance con una app disponible en Android y iOS.",
+      },
+    ],
+  },
+  {
+    id: 0x1302,
+    prompt: "¿Qué clase de $?",
+    highlight: "app",
+    answers: [
+      {
+        title: "App de contenido.",
+        description:
+          "",
+      },
+      {
+        title: "ECommerce.",
+        description:
+          "",
+      },
+      {
+        title: "Utilidad / Herramienta.",
+        description:
+          "",
+      },
+      {
+        title: "A medida.",
+        description:
+          "",
+      },
+    ],
+  },
+
   {
     id: 0x1001,
     prompt: "¿Necesitas varios $ para tu desarrollo?",

@@ -1,13 +1,13 @@
 "use client";
 
-import {MaterialSymbol} from "react-material-symbols";
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Swiper as SwiperCore} from "swiper/types";
+import { MaterialSymbol } from "react-material-symbols";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperCore } from "swiper/types";
 import Image from "next/image";
 import Answer from "@/components/quote/Answer";
-import {useRef} from "react";
-import {Choice, QuestionTypes} from "@/types/quote";
-import {useQuoteStore} from "@/store/quote";
+import { useRef, useEffect } from "react";
+import { Choice, QuestionTypes } from "@/types/quote";
+import { useQuoteStore } from "@/store/quote";
 import OptionAnswer from "@/components/quote/OptionAnswer";
 import OpenAnswer from "@/components/quote/OpenAnswer";
 
@@ -26,27 +26,40 @@ const MultipleChoice = (
     {
         id,
         choices,
-        state: {activeOption, setActiveOption},
+        state: { activeOption, setActiveOption },
         area,
         next,
         closed,
         options,
         types,
     }: _Props) => {
-    const {continueQuestion} = useQuoteStore();
+    const { continueQuestion, setAnswer, answers } = useQuoteStore();
     const swiperRef = useRef<SwiperCore>();
     const choicesLength = choices?.length ?? 4;
     const idHexString = "0x" + ("0000" + id.toString(16).toUpperCase()).slice(-4);
     let controlIndex = -1;
+
+    useEffect(() => {
+        if (swiperRef.current && swiperRef.current.activeIndex !== activeOption) {
+            swiperRef.current.slideTo(activeOption);
+        }
+    }, [activeOption]);
+
+    const handleSelectOption = (index: number) => {
+        setAnswer(id, index);
+        setActiveOption(index);
+        continueQuestion(next[index]);
+    };
+
     return (
         <>
             {!closed || typeof closed === undefined ? (
                 <>
-          <span
-              className={
-                  "h-full w-1/2 absolute bg-gradient-to-r from-black/70 via-25% via-black/10 pointer-events-none select-none left-0 top-0 z-10"
-              }
-          />
+                    <span
+                        className={
+                            "h-full w-1/2 absolute bg-gradient-to-r from-black/70 via-25% via-black/10 pointer-events-none select-none left-0 top-0 z-10"
+                        }
+                    />
                     <span
                         className={
                             "h-full w-1/2 absolute bg-gradient-to-l from-black/70 via-25% via-black/10 pointer-events-none select-none right-0 top-0 z-10"
@@ -77,8 +90,8 @@ const MultipleChoice = (
                     <Swiper
                         className={"!w-screen !box-border !px-[4.75rem]"}
                         spaceBetween={20}
-                        slidesPerView={1.02}
-                        scrollbar={{draggable: true}}
+                        slidesPerView='auto'
+                        scrollbar={{ draggable: true }}
                         mousewheel
                         keyboard
                         centeredSlides
@@ -91,7 +104,7 @@ const MultipleChoice = (
                             setActiveOption(swiper.activeIndex);
                         }}
                     >
-                        {choices.map(({title, description}, index) => {
+                        {choices.map(({ title, description }, index) => {
                             return (
                                 <SwiperSlide key={index} className={"!w-56"}>
                                     <Answer
@@ -106,7 +119,7 @@ const MultipleChoice = (
                                             height={512}
                                             width={512}
                                             quality={100}
-                                            onClick={() => continueQuestion(next[activeOption])}
+                                            onClick={() => handleSelectOption(index)}
                                             className={`h-full object-cover absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 rounded-3xl transition-all duration-500 ease-in-out delay-200 ${activeOption === index ? "border-4 border-marabunta-red" : "border-0 border-transparent"}`}
                                         />
                                     </Answer>
@@ -117,7 +130,7 @@ const MultipleChoice = (
                 </>
             ) : (
                 <div className={"flex flex-col items-stretch justify-start gap-3 px-8"}>
-                    {choices.map(({title}, index) => {
+                    {choices.map(({ title }, index) => {
                         const isSingle = (types as QuestionTypes[]) === undefined;
                         const isOpenAnswer = (types as QuestionTypes[])[index] === QuestionTypes.USER_INPUT.valueOf();
                         if (
@@ -138,7 +151,7 @@ const MultipleChoice = (
                         } else if (isOpenAnswer) {
                             return (
                                 <OpenAnswer key={index}
-                                prompt={title}/>
+                                    prompt={title} />
                             )
                         } else {
                             return (

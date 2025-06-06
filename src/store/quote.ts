@@ -1,10 +1,10 @@
-import {create} from "zustand";
-import {Answer} from "@/types/quote";
+import { create } from "zustand";
+import { Answer } from "@/types/quote";
 
 interface QuoteStore {
     quoteEmail: string;
-    average : number;
-    floor : number;
+    average: number;
+    floor: number;
     ceiling: number;
     basket: Answer[];
     addToBasket: (p: Answer) => void;
@@ -18,12 +18,14 @@ interface QuoteStore {
     setActiveOption: (i: number) => void;
     rangeValue: number;
     setRangeValue: (i: number) => void;
+    answers: { [key: number]: number };
+    setAnswer: (questionId: number, optionIndex: number) => void;
 }
 
 export const useQuoteStore = create<QuoteStore>()((set) => ({
     quoteEmail: "",
     average: 0,
-    floor : 0,
+    floor: 0,
     ceiling: 0,
     basket: [],
     addToBasket: (p: Answer) => set((state) => {
@@ -40,14 +42,39 @@ export const useQuoteStore = create<QuoteStore>()((set) => ({
     }),
     current: 0x0000,
     stack: [0x0000],
-    continueQuestion: (id: number) => set((state) => ({
-        current: id,
-        stack: [...state.stack, id],
-    })),
-    goBackQuestion: () => set((state) => ({
-        stack: state.stack.slice(0, -1),
-        current: state.stack.slice(0, -1).at(-1) ?? 0x0000,
-    })),
+    continueQuestion: (id: number) => set((state) => {
+        const current = state.current;
+        const stack = state.stack;
+
+        if (current === 4354 && stack[stack.length - 2] === 4355) {
+            return {
+                current: 0x1105,
+                stack: [...stack, 0x1105],
+                activeOption: 0,
+            };
+        }
+
+        return {
+            current: id,
+            stack: [...state.stack, id],
+            activeOption: 0,
+        };
+    }),
+    goBackQuestion: () => set((state) => {
+        if (state.stack.length <= 1) {
+            return {
+                current: 0x0000,
+                stack: [0x0000],
+            };
+        }
+
+        const newStack = state.stack.slice(0, -1);
+        return {
+            current: newStack[newStack.length - 1],
+            stack: newStack,
+            activeOption: 0,
+        };
+    }),
     reset: () => set(() => ({
         current: 0x0000,
         stack: [0x0000],
@@ -55,6 +82,7 @@ export const useQuoteStore = create<QuoteStore>()((set) => ({
         floor: 0,
         ceiling: 0,
         average: 0,
+        answers: {},
     })),
     activeOption: 0,
     setActiveOption: (i: number) => set((_) => ({
@@ -63,5 +91,10 @@ export const useQuoteStore = create<QuoteStore>()((set) => ({
     rangeValue: 0,
     setRangeValue: (i: number) => set((_) => ({
         rangeValue: i,
-    }))
+    })),
+    answers: {},
+    setAnswer: (questionId: number, optionIndex: number) =>
+    set((state) => ({
+      answers: { ...state.answers, [questionId]: optionIndex },
+    })),
 }));
