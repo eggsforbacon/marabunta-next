@@ -10,7 +10,7 @@ interface QuoteStore {
     addToBasket: (p: Answer) => void;
     removeFromBasket: (id: number) => void;
     current: number;
-    continueQuestion: (id: number) => void;
+    continueQuestion: (id: number | number[]) => void;
     stack: number[],
     goBackQuestion: () => void;
     reset: () => void;
@@ -18,8 +18,10 @@ interface QuoteStore {
     setActiveOption: (i: number) => void;
     rangeValue: number;
     setRangeValue: (i: number) => void;
-    answers: { [key: number]: number };
-    setAnswer: (questionId: number, optionIndex: number) => void;
+    answers: { [key: number]: number | { index: number; timestamp: number }[] };
+    setAnswer: (questionId: number, optionIndex: number | { index: number; timestamp: number }[]) => void;
+    selectedOptions: { index: number; timestamp: number }[];
+    setSelectedOptions: (options: { index: number; timestamp: number }[]) => void;
 }
 
 export const useQuoteStore = create<QuoteStore>()((set) => ({
@@ -42,7 +44,9 @@ export const useQuoteStore = create<QuoteStore>()((set) => ({
     }),
     current: 0x0000,
     stack: [0x0000],
-    continueQuestion: (id: number) => set((state) => {
+    continueQuestion: (id: number | number[]) => set((state) => {
+        const ids = Array.isArray(id) ? id : [id];
+        const newStack = [...state.stack, ...ids];
         const current = state.current;
         const stack = state.stack;
 
@@ -55,9 +59,10 @@ export const useQuoteStore = create<QuoteStore>()((set) => ({
         }
 
         return {
-            current: id,
-            stack: [...state.stack, id],
+            current: ids[0],
+            stack: newStack,
             activeOption: 0,
+            selectedOptions: [],
         };
     }),
     goBackQuestion: () => set((state) => {
@@ -93,8 +98,10 @@ export const useQuoteStore = create<QuoteStore>()((set) => ({
         rangeValue: i,
     })),
     answers: {},
-    setAnswer: (questionId: number, optionIndex: number) =>
-    set((state) => ({
-      answers: { ...state.answers, [questionId]: optionIndex },
-    })),
+    setAnswer: (questionId: number, optionIndex: number | { index: number; timestamp: number }[]) =>
+        set((state) => ({
+            answers: { ...state.answers, [questionId]: optionIndex },
+        })),
+    selectedOptions: [],
+    setSelectedOptions: (options: { index: number; timestamp: number }[]) => set(() => ({ selectedOptions: options })),
 }));

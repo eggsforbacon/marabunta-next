@@ -4,7 +4,7 @@ import { useMemo, useEffect } from "react";
 import { Locale } from "@/_i18n.config";
 import { useQuoteStore } from "@/store/quote";
 import { getQuestion } from "@/model/quote";
-import { Question as QuestionType } from "@/types/quote";
+import { Question as QuestionType, QuestionTypes } from "@/types/quote";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -26,25 +26,28 @@ const Question = ({ lang }: IntroductionProps) => {
     setActiveOption,
     rangeValue,
     setRangeValue,
-    answers
+    answers,
+    selectedOptions,
+    setSelectedOptions,
+    setAnswer,
   } = useQuoteStore();
 
   const question = useMemo(() => {
-    return current !== 0
-      ? (getQuestion(current, lang) as QuestionType)
-      : {
-          id: 0,
-          options: { unique: [], values: [] },
-          choices: [],
-          ranges: [],
-          prompt: "",
-          highlight: "",
-          area: 0,
-          next: [],
-          previous: [],
-          closed: false,
-          types: [],
-        };
+    const q = current !== 0 ? (getQuestion(current, lang) as QuestionType) : {
+      id: 0,
+      options: { unique: [], values: [] },
+      choices: [],
+      ranges: [],
+      prompt: "",
+      highlight: "",
+      area: 0,
+      next: [],
+      previous: [],
+      closed: false,
+      types: [],
+      context: "",
+    };
+    return { ...q, context: q.context || "" };
   }, [current, lang]);
 
   const {
@@ -58,12 +61,19 @@ const Question = ({ lang }: IntroductionProps) => {
     next,
     closed,
     types,
+    context,
   } = question;
+
+  const isMultipleSelect = types === QuestionTypes.MULTIPLE_SELECT;
 
   useEffect(() => {
     const savedAnswer = answers[id];
-    setActiveOption(savedAnswer !== undefined ? savedAnswer : 0);
-  }, [id, answers, setActiveOption]);
+    if (isMultipleSelect && Array.isArray(savedAnswer)) {
+      setSelectedOptions(savedAnswer as { index: number; timestamp: number }[]);
+    } else {
+      setActiveOption(savedAnswer !== undefined ? savedAnswer : 0);
+    }
+  }, [id, answers, setActiveOption, setSelectedOptions, isMultipleSelect]);
 
   return (
     <div
@@ -71,6 +81,7 @@ const Question = ({ lang }: IntroductionProps) => {
     >
       <section className={"w-full flex flex-col items-stretch gap-6"}>
         <h2 className="text-center px-9 font-bold text-3xl w-full relative z-10">
+          {question.context && <p className="text-sm mb-2 text-gray-700">{question.context}</p>}
           {highlight ? (
             <>
               {prompt.split("$")[0]}
@@ -130,9 +141,23 @@ const Question = ({ lang }: IntroductionProps) => {
         {/*<span className={"debug"}>{id.toString(16)}</span>*/}
         <button
           className="flex gap-2 items-center"
+          disabled={isMultipleSelect && selectedOptions.length === 0}
           onClick={() => {
-            if (next[activeOption] === undefined) return; // Validación
-            continueQuestion(next.length === 1 ? next[0] : next[activeOption]);
+            if (isMultipleSelect) {
+              if (selectedOptions.length === 0) return;
+              const sortedSelections = [...selectedOptions].sort(
+                (a, b) => a.timestamp - b.timestamp
+              );
+              const nextIds = sortedSelections
+                .map((selection) => next[selection.index])
+                .filter((id) => id !== -1); // Ignoramos -1 como "sin flujo"
+              setAnswer(id, sortedSelections);
+              continueQuestion(nextIds);
+            } else {
+              if (next[activeOption] === undefined) return;
+              setAnswer(id, activeOption);
+              continueQuestion(next.length === 1 ? next[0] : next[activeOption]);
+            }
           }}
         >
           <p>Siguiente</p>

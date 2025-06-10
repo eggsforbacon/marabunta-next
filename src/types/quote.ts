@@ -1,5 +1,5 @@
 export enum QuestionTypes {
-    DEFAULT = 0, USER_INPUT = 1, NUM_RANGE = 2, OPTIONS = 3, TERMINAL = 4
+    DEFAULT = 0, USER_INPUT = 1, NUM_RANGE = 2, OPTIONS = 3, TERMINAL = 4, MULTIPLE_SELECT = 5
 }
 
 export enum ProductTypes {
@@ -23,6 +23,7 @@ export type Question = {
     prices?: Price[];
     previous: number[];
     next: number[];
+    context?: string;
 }
 
 export type Answer = {

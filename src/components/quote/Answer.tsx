@@ -7,6 +7,7 @@ type _Props = {
   active: boolean;
   closed?: boolean;
   action?: () => void;
+  isMultipleSelect?: boolean;
 };
 
 const Answer = ({
@@ -16,6 +17,7 @@ const Answer = ({
   active,
   closed,
   action,
+  isMultipleSelect = false,
 }: _Props) => {
   return (
     <>
@@ -25,7 +27,7 @@ const Answer = ({
             {children}
           </div>
           <div
-            className={`-mx-4 flex flex-col items-start justify-center transition-all duration-400 delay-200 ease-in-out ${active ? "opacity-100" : "opacity-0 select-none pointer-events-none"}`}
+            className={`flex flex-col items-start justify-center transition-all duration-400 delay-200 ease-in-out ${isMultipleSelect ? "" : "-mx-4"} ${active ? "opacity-100" : "opacity-0 select-none pointer-events-none"}`}
           >
             <h3 className={"font-bold text-2xl"}>{title}</h3>
             {description && (

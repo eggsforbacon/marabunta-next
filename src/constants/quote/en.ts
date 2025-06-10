@@ -1,6 +1,6 @@
 import {Choice} from "@/types/quote";
 
-export const en: {id: number, prompt : string, highlight? : string, answers?: Choice[], options?: string[][]}[] = [
+export const en: {id: number, context?: string, prompt : string, highlight? : string, answers?: Choice[], options?: string[][]}[] = [
     {
         id: 0x0001,
         "prompt": "What are we going to $ together?",

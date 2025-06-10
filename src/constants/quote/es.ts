@@ -2,6 +2,7 @@ import { Choice } from "@/types/quote";
 
 export const es: {
   id: number;
+  context?: string;
   prompt: string;
   highlight?: string;
   answers?: Choice[];
@@ -57,6 +58,9 @@ export const es: {
       },
     ],
   },
+
+  // DESARROLLO
+
   {
     id: 0x1100,
     prompt: "¿Qué $ de software?",
@@ -259,7 +263,7 @@ export const es: {
   },
 
   {
-    id: 0x1201,
+    id: 0x1111,
     prompt: "¿Qué clase de $?",
     highlight: "aplicación",
     answers: [
@@ -286,7 +290,7 @@ export const es: {
     ],
   },
   {
-    id: 0x1202,
+    id: 0x1112,
     prompt: "¿Para qué $?",
     highlight: "sistema operativo",
     answers: [
@@ -303,7 +307,7 @@ export const es: {
     ],
   },
   {
-    id: 0x1203,
+    id: 0x1113,
     prompt: "¿Cuál es su $?",
     highlight: "propósito",
     answers: [
@@ -331,7 +335,7 @@ export const es: {
   },
 
   {
-    id: 0x1401,
+    id: 0x1131,
     prompt: "¿Necesitas $ de terceros?",
     highlight: "integración",
     answers: [
@@ -353,7 +357,7 @@ export const es: {
     ],
   },
   {
-    id: 0x1402,
+    id: 0x1132,
     prompt: "¿Cómo quieres el $?",
     highlight: "diseño",
     answers: [
@@ -380,7 +384,7 @@ export const es: {
     ],
   },
   {
-    id: 0x1403,
+    id: 0x1133,
     prompt: "¿Datos $?",
     highlight: "sensibles",
     answers: [
@@ -397,13 +401,13 @@ export const es: {
     ],
   },
   {
-    id: 0x1404,
+    id: 0x1134,
     prompt: "¿Cuántas $?",
     highlight: "vistas/pantallas",
     hint: "",
   },
   {
-    id: 0x1405,
+    id: 0x1135,
     prompt: "¿Offline o $?",
     highlight: "Online",
     answers: [
@@ -426,7 +430,7 @@ export const es: {
   },
 
   {
-    id: 0x1301,
+    id: 0x1121,
     prompt: "¿Qué clase de $?",
     highlight: "app",
     answers: [
@@ -453,7 +457,7 @@ export const es: {
     ],
   },
   {
-    id: 0x1302,
+    id: 0x1122,
     prompt: "¿Para qué $?",
     highlight: "plataformas",
     answers: [
@@ -474,28 +478,292 @@ export const es: {
       },
     ],
   },
+
+  // FIN DESARROLLO
+
+  // DESARROLLO DE MARCA
+
   {
-    id: 0x1302,
-    prompt: "¿Qué clase de $?",
-    highlight: "app",
+    id: 0x1200,
+    prompt: "¿Qué $ de marca necesitas?",
+    highlight: "servicios",
     answers: [
       {
-        title: "App de contenido.",
+        title: "Identidad de marca.",
         description:
           "",
       },
       {
-        title: "ECommerce.",
+        title: "Estrategia de marca.",
         description:
           "",
       },
       {
-        title: "Utilidad / Herramienta.",
+        title: "Diseño y material empresarial.",
         description:
           "",
       },
       {
-        title: "A medida.",
+        title: "Producción audiovisual.",
+        description:
+          "",
+      },
+      {
+        title: "Gestión de redes sociales.",
+        description:
+          "",
+      },
+    ],
+  },
+
+  // ESTA PREGUNTA SE DESPLIEGA SI SE ESCOGE IDENTIDAD DE MARCA
+  {
+    id: 0x1201,
+    context: "Identidad de marca",
+    prompt: "¿Qué $ requieres?",
+    highlight: "componentes",
+    answers: [
+      {
+        title: "Naming.",
+        description:
+          "",
+      },
+      {
+        title: "Benchmarking.",
+        description:
+          "",
+      },
+      {
+        title: "Personalidad de marca.",
+        description:
+          "",
+      },
+      {
+        title: "Diseño de logotipo.",
+        description:
+          "",
+      },
+      {
+        title: "Manual de marca.",
+        description:
+          "",
+      },
+    ],
+  },
+
+  // ESTA PREGUNTA SE DESPLIEGA SI SE ESCOGE NAMING (EN 0X1201)
+  {
+    id: 0x1202,
+    context: "Identidad de marca",
+    prompt: "¿Ya tienes alguna $ de nombre?",
+    highlight: "idea",
+    answers: [
+      {
+        title: "Quiero que lo generen completamente desde cero.",
+        description:
+          "",
+      },
+      {
+        title: "Ya tengo 2–3 opciones y necesito validación y registro de marca (verificación de disponibilidad).",
+        description:
+          "",
+      },
+      {
+        title: "Solo quiero verificar y validar un nombre existente (sin generación).",
+        description:
+          "",
+      },
+    ],
+  },
+
+  {
+    id: 0x1203,
+    context: "HOLAa",
+    prompt: "¿Ya tienes definidos $ a transmitir?",
+    highlight: "valores",
+    answers: [
+      {
+        title: "No, deseo que nos apoyen en definirlos desde cero.",
+        description:
+          "",
+      },
+      {
+        title: "Sí, tengo algunos valores y necesito refinarlos.",
+        description:
+          "",
+      },
+      {
+        title: "Solo necesito validación de la personalidad existente.",
+        description:
+          "",
+      },
+    ],
+  },
+
+  {
+    id: 0x1204,
+    context: "HOLAa",
+    prompt: "¿Qué estilo de $ prefieres?",
+    highlight: "logotipo",
+    answers: [
+      {
+        title: "Tengo algo en mente.",
+        description:
+          "",
+      },
+      {
+        title: "Lo necesito desde cero.",
+        description:
+          "",
+      },
+      {
+        title: "Necesito asesoría.",
+        description:
+          "",
+      },
+    ],
+  },
+
+  // ESTA PREGUNTA SE DESPLIEGA SI SE ESCOGE ESTRATEGIA DE MARCA (EN 0X1200)
+  {
+    id: 0x1211,
+    context: "HOLAa",
+    prompt: "¿Ya tienes un borrador de $?",
+    highlight: "objetivos, misión o visión",
+    answers: [
+      {
+        title: "No, es desde cero.",
+        description:
+          "",
+      },
+      {
+        title: "Sí, tengo un borrador y necesito revisión y ajuste.",
+        description:
+          "",
+      },
+      {
+        title: "Solo quiero validación rápida (feedback puntual).",
+        description:
+          "",
+      },
+    ],
+  },
+
+  // ESTAS PREGUNTAS SE DESPLIEGAN SI SE ESCOGE PRODUCCION AUDIOVISUAL (EN 0X1200)
+  {
+    id: 0x1221,
+    context: "HOLAa",
+    prompt: "¿Cuentas con $ o recursos?",
+    highlight: "insumos",
+    answers: [
+      {
+        title: "Si, ya cuento con imagenes de archivo.",
+        description:
+          "",
+      },
+      {
+        title: "Si, cuento con recursos pero quiero realizar nuevo rodaje.",
+        description:
+          "",
+      },
+      {
+        title: "No tengo insumos o recursos.",
+        description:
+          "",
+      },
+    ],
+  },
+
+  {
+    id: 0x1222,
+    context: "HOLAa",
+    prompt: "¿El $ mostrará a alguien hablando o solo imágenes del lugar?",
+    highlight: "video",
+    answers: [
+      {
+        title: "Persona hablando a cámara.",
+        description:
+          "",
+      },
+      {
+        title: "Solo tomas del lugar.",
+        description:
+          "",
+      },
+      {
+        title: "Ambas.",
+        description:
+          "",
+      },
+    ],
+  },
+
+  {
+    id: 0x1223,
+    context: "HOLAa",
+    prompt: "¿Se requiere $ de iluminación y sonido?",
+    highlight: "equipos",
+    answers: [
+      {
+        title: "Si.",
+        description:
+          "",
+      },
+      {
+        title: "No.",
+        description:
+          "",
+      },
+      {
+        title: "Necesito asesoría.",
+        description:
+          "",
+      },
+    ],
+  },
+
+  {
+    id: 0x1224,
+    context: "HOLAa",
+    prompt: "¿De cuanto es la $ aproximada del video?",
+    highlight: "duracion",
+    answers: [
+      {
+        title: "Si.",
+        description:
+          "",
+      },
+      {
+        title: "No.",
+        description:
+          "",
+      },
+      {
+        title: "Necesito asesoría.",
+        description:
+          "",
+      },
+    ],
+  },
+
+  {
+    id: 0x1251,
+    context: "HOLAa",
+    prompt: "¿De cuanto es la $ aproximada del video?",
+    highlight: "duracion",
+    answers: [
+      {
+        title: "Si.",
+        description:
+          "",
+      },
+      {
+        title: "No.",
+        description:
+          "",
+      },
+      {
+        title: "Necesito asesoría.",
         description:
           "",
       },
