@@ -515,7 +515,6 @@ export const es: {
       },
     ],
   },
-
   // ESTA PREGUNTA SE DESPLIEGA SI SE ESCOGE IDENTIDAD DE MARCA
   {
     id: 0x1201,
@@ -550,7 +549,6 @@ export const es: {
       },
     ],
   },
-
   // ESTA PREGUNTA SE DESPLIEGA SI SE ESCOGE NAMING (EN 0X1201)
   {
     id: 0x1202,
@@ -575,7 +573,6 @@ export const es: {
       },
     ],
   },
-
   {
     id: 0x1203,
     context: "HOLAa",
@@ -599,7 +596,6 @@ export const es: {
       },
     ],
   },
-
   {
     id: 0x1204,
     context: "HOLAa",
@@ -623,7 +619,6 @@ export const es: {
       },
     ],
   },
-
   // ESTA PREGUNTA SE DESPLIEGA SI SE ESCOGE ESTRATEGIA DE MARCA (EN 0X1200)
   {
     id: 0x1211,
@@ -648,7 +643,6 @@ export const es: {
       },
     ],
   },
-
   // ESTAS PREGUNTAS SE DESPLIEGAN SI SE ESCOGE PRODUCCION AUDIOVISUAL (EN 0X1200)
   {
     id: 0x1221,
@@ -673,7 +667,6 @@ export const es: {
       },
     ],
   },
-
   {
     id: 0x1222,
     context: "HOLAa",
@@ -697,7 +690,6 @@ export const es: {
       },
     ],
   },
-
   {
     id: 0x1223,
     context: "HOLAa",
@@ -721,7 +713,6 @@ export const es: {
       },
     ],
   },
-
   {
     id: 0x1224,
     context: "HOLAa",
@@ -748,9 +739,33 @@ export const es: {
 
   {
     id: 0x1251,
-    context: "HOLAa",
-    prompt: "¿De cuanto es la $ aproximada del video?",
-    highlight: "duracion",
+    context: "CASI CASI",
+    prompt: "¿Ya $?",
+    highlight: "casi",
+    answers: [
+      {
+        title: "Si.",
+        description:
+          "",
+      },
+      {
+        title: "No.",
+        description:
+          "",
+      },
+      {
+        title: "Pailas.",
+        description:
+          "",
+      },
+    ],
+  },
+
+  {
+    id: 0x1252,
+    context: "SIIII",
+    prompt: "¿Ya $?",
+    highlight: "casito",
     answers: [
       {
         title: "Si.",

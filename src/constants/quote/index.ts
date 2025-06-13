@@ -361,8 +361,9 @@ export const questions = (lang: Locale): Question[] => [
     area: ProductTypes.DIGITAL,
     types: QuestionTypes.MULTIPLE_SELECT,
     previous: [],
-    next: [0x1201, 0x1211, 0x1221, 0x1231, 0x1241],
+    next: [0x1201, 0x1211, -1, 0x1221, -1],
     choices: getText(lang, 0x1200, "answers") as Choice[],
+    postFlowId: 0x1251,
   },
 
   // IDENTIDAD
@@ -478,13 +479,26 @@ export const questions = (lang: Locale): Question[] => [
 
   {
     id: 0x1251,
+    context: getText(lang, 0x1251, "context") as string,
     prompt: getText(lang, 0x1251, "prompt") as string,
     highlight: (getText(lang, 0x1251, "highlight") ?? "") as string,
     area: ProductTypes.DIGITAL,
     types: QuestionTypes.DEFAULT,
     previous: [],
-    next: [],
+    next: [0x1252, 0x1252, 0x1252],
     choices: getText(lang, 0x1251, "answers") as Choice[],
+  },
+
+  {
+    id: 0x1252,
+    context: getText(lang, 0x1252, "context") as string,
+    prompt: getText(lang, 0x1252, "prompt") as string,
+    highlight: (getText(lang, 0x1252, "highlight") ?? "") as string,
+    area: ProductTypes.DIGITAL,
+    types: QuestionTypes.DEFAULT,
+    previous: [],
+    next: [],
+    choices: getText(lang, 0x1252, "answers") as Choice[],
   },
 
   // Fase 3

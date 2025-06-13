@@ -24,6 +24,7 @@ export type Question = {
     previous: number[];
     next: number[];
     context?: string;
+    postFlowId?: number;
 }
 
 export type Answer = {

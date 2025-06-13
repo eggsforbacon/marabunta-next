@@ -30,24 +30,30 @@ const Question = ({ lang }: IntroductionProps) => {
     selectedOptions,
     setSelectedOptions,
     setAnswer,
+    setLang,
   } = useQuoteStore();
 
+  useEffect(() => {
+    setLang(lang);
+  }, [lang, setLang]);
+
   const question = useMemo(() => {
-    const q = current !== 0 ? (getQuestion(current, lang) as QuestionType) : {
-      id: 0,
-      options: { unique: [], values: [] },
-      choices: [],
-      ranges: [],
-      prompt: "",
-      highlight: "",
-      area: 0,
-      next: [],
-      previous: [],
-      closed: false,
-      types: [],
-      context: "",
-    };
-    return { ...q, context: q.context || "" };
+    return current !== 0
+      ? (getQuestion(current, lang) as QuestionType)
+      : {
+        id: 0,
+        options: { unique: [], values: [] },
+        choices: [],
+        ranges: [],
+        prompt: "",
+        highlight: "",
+        area: 0,
+        next: [],
+        previous: [],
+        closed: false,
+        types: [],
+        context: "",
+      };
   }, [current, lang]);
 
   const {
@@ -68,10 +74,10 @@ const Question = ({ lang }: IntroductionProps) => {
 
   useEffect(() => {
     const savedAnswer = answers[id];
-    if (isMultipleSelect && Array.isArray(savedAnswer)) {
+    if (!isMultipleSelect) {
+      setActiveOption(savedAnswer !== undefined ? (savedAnswer as number) : 0);
+    } else if (Array.isArray(savedAnswer)) {
       setSelectedOptions(savedAnswer as { index: number; timestamp: number }[]);
-    } else {
-      setActiveOption(savedAnswer !== undefined ? savedAnswer : 0);
     }
   }, [id, answers, setActiveOption, setSelectedOptions, isMultipleSelect]);
 
@@ -140,23 +146,23 @@ const Question = ({ lang }: IntroductionProps) => {
         </button>
         {/*<span className={"debug"}>{id.toString(16)}</span>*/}
         <button
-          className="flex gap-2 items-center"
+          className={`flex gap-2 items-center ${isMultipleSelect && selectedOptions.length === 0
+            ? "opacity-50 cursor-not-allowed"
+            : ""
+            }`}
           disabled={isMultipleSelect && selectedOptions.length === 0}
           onClick={() => {
             if (isMultipleSelect) {
-              if (selectedOptions.length === 0) return;
-              const sortedSelections = [...selectedOptions].sort(
-                (a, b) => a.timestamp - b.timestamp
-              );
+              const sortedSelections = [...selectedOptions].sort((a, b) => a.timestamp - b.timestamp);
               const nextIds = sortedSelections
                 .map((selection) => next[selection.index])
-                .filter((id) => id !== -1); // Ignoramos -1 como "sin flujo"
+                .filter((id) => id !== -1);
               setAnswer(id, sortedSelections);
               continueQuestion(nextIds);
             } else {
-              if (next[activeOption] === undefined) return;
+              const nextId = next.length === 1 ? next[0] : next[activeOption];
               setAnswer(id, activeOption);
-              continueQuestion(next.length === 1 ? next[0] : next[activeOption]);
+              continueQuestion(nextId ? [nextId] : []);
             }
           }}
         >
