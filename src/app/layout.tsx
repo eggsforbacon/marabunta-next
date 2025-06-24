@@ -106,7 +106,7 @@ export default function RootLayout(
             dangerouslySetInnerHTML={{__html: JSON.stringify(organizationData)}}
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://tracker.metricool.com/c3po.jpg?hash=27c130581a9f46f58b038d66cb07a4a6" alt={"tracker_metricool.com"}/>
+        {/*<img src="https://tracker.metricool.com/c3po.jpg?hash=27c130581a9f46f58b038d66cb07a4a6" alt={"tracker_metricool.com"}/>*/}
         </body>
         </html>
     )

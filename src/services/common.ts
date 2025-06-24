@@ -21,7 +21,7 @@ export function getCurrentMonth() : Month {
     return (month + 1) as Month;
 }
 
-export function getText(lang: Locale, id: number, key: "context" | "prompt" | "answers" | "options" | "highlight") {
+export function getText(lang: Locale, id: string, key: "context" | "prompt" | "answers" | "options" | "highlight") {
     switch (lang) {
         case "en":
             return en.filter((t) => id === t.id)[0][key];

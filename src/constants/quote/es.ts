@@ -1,7 +1,7 @@
 import { Choice } from "@/types/quote";
 
 export const es: {
-  id: number;
+  id: string;
   context?: string;
   prompt: string;
   highlight?: string;
@@ -10,7 +10,7 @@ export const es: {
   hint? : string,
 }[] = [
   {
-    id: 0x0001,
+    id: "0",
     prompt: "¿Qué vamos a $ juntos?",
     highlight: "crear",
     answers: [
@@ -18,26 +18,30 @@ export const es: {
         title: "Un proyecto digital",
         description:
           "Estrategias y contenidos que conectan, impulsan tu marca y generan interacción auténtica en redes sociales.",
+        complexityFilter: false,
       },
       {
         title: "Un proyecto de producción",
         description:
           "Gestión creativa y técnica para dar vida a tus ideas, desde la planificación hasta la ejecución logística.",
+        complexityFilter: false,
       },
       {
         title: "Un proyecto de comunicaciones",
         description:
           "Planes integrales que fortalecen la conexión de tu marca con su audiencia, transmitiendo mensajes claros y efectivos.",
+        complexityFilter: false,
       },
       {
         title: "Un proyecto de diseño",
         description:
           "Creaciones visuales impactantes que representan la esencia de tu marca y capturan la atención de tu público objetivo.",
+        complexityFilter: false,
       },
     ],
   },
   {
-    id: 0x1000,
+    id: "G0",
     prompt: "¿Cómo te podemos $?",
     highlight: "ayudar",
     answers: [
@@ -45,16 +49,19 @@ export const es: {
         title: "Quiero un producto de software",
         description:
           "Soluciones personalizadas que resuelven tus necesidades tecnológicas, optimizando procesos y brindando experiencias digitales de calidad.",
+        complexityFilter: false,
       },
       {
         title: "Quiero desarrollar mi marca",
         description:
           "Planes integrales para construir desde cero una marca sólida, reconocible y alineada con tus valores.",
+        complexityFilter: false,
       },
       {
         title: "Quiero establecer mi marca",
         description:
           "Estrategias creativas para potenciar la identidad de tu marca y conectar emocionalmente con tu audiencia.",
+        complexityFilter: false,
       },
     ],
   },
@@ -62,7 +69,7 @@ export const es: {
   // DESARROLLO
 
   {
-    id: 0x1100,
+    id: "G1",
     prompt: "¿Qué $ de software?",
     highlight: "tipo",
     answers: [
@@ -70,21 +77,24 @@ export const es: {
         title: "Un producto web",
         description:
           "Desarrollos innovadores que aprovechan la web para ofrecer soluciones escalables, accesibles y adaptadas a tus necesidades empresariales.",
+        complexityFilter: false,
       },
       {
         title: "Un producto para computador",
         description:
           "Aplicaciones robustas y eficientes diseñadas para entornos de escritorio, optimizando el rendimiento y la productividad.",
+        complexityFilter: false,
       },
       {
         title: "Un producto móvil",
         description:
           "Apps intuitivas y dinámicas que ofrecen experiencias optimizadas para usuarios en dispositivos móviles.",
+        complexityFilter: false,
       },
     ],
   },
   {
-    id: 0x1101,
+    id: "G1.1.1",
     prompt: "¿Qué $ de página?",
     highlight: "clase",
     answers: [
@@ -92,26 +102,30 @@ export const es: {
         title: "Una landing page",
         description:
           "Captura leads y aumenta conversiones con una página de destino.",
+        complexityFilter: false,
       },
       {
         title: "Un Ecommerce",
         description:
           "Vende tus productos y servicios en línea con una tienda virtual.",
+        complexityFilter: false,
       },
       {
         title: "Un blog",
         description:
           "Atrae tráfico y posiciona tu marca con un blog informativo.",
+        complexityFilter: false,
       },
       {
         title: "Una página web a medida",
         description:
           "¿Algo más en mente? Creamos tu sitio web a la medida de tus necesidades.",
+        complexityFilter: false,
       },
     ],
   },
   {
-    id: 0x1102,
+    id: "G1.1.6",
     prompt: "¿Cuántas $ tiene tu sitio?",
     highlight: "páginas",
     hint: "",
@@ -123,7 +137,7 @@ export const es: {
     hint: "",
   },
   {
-    id: 0x1104,
+    id: "G1b.3",
     prompt: "¿Necesitas una $ de pagos?",
     highlight: "pasarela",
     answers: [
@@ -131,14 +145,17 @@ export const es: {
         title: "Sí, necesito crearla",
         description:
           "Te ayudamos a configurar tu pasarela de pagos para que puedas empezar a recibir pagos.",
+        complexityFilter: false,
       },
       {
         title: "Tengo una, necesito integrarla",
         description:
           "Cuéntanos cuál es y nos encargamos de integrarla a tu sitio web.",
+        complexityFilter: false,
       },
       {
         title: "No",
+        complexityFilter: false,
       },
     ],
     options: [
@@ -156,7 +173,7 @@ export const es: {
     ],
   },
   {
-    id: 0x1105,
+    id: "G1b.4",
     prompt: "¿Cómo quieres el $?",
     highlight: "diseño",
     answers: [
@@ -164,26 +181,30 @@ export const es: {
         title: "Ya tengo uno",
         description:
           "¡Perfecto! Proporciónanos tu diseño y lo integraremos a una plataforma funcional y optimizada.",
+        complexityFilter: false,
       },
       {
         title: "Quiero un diseño personalizado",
         description:
           "Creamos un diseño único y a medida que refleje la identidad de tu marca y cautive a tu audiencia.",
+        complexityFilter: false,
       },
       {
         title: "Quiero usar una plantilla",
         description:
           "Te ayudamos a encontrar y personalizar una plantilla profesional que se adapte a tus necesidades.",
+        complexityFilter: false,
       },
       {
         title: "Necesito asesoría decidiendo",
         description:
           "¡Con gusto te ayudamos! Te asesoramos para encontrar el diseño que mejor se adapte a tus objetivos y presupuesto.",
+        complexityFilter: false,
       },
     ],
   },
   {
-    id: 0x1106,
+    id: "G1b.5",
     prompt: "¿Necesitas usuarios e $?",
     highlight: "inicio de sesión",
     answers: [
@@ -191,73 +212,88 @@ export const es: {
         title: "Sí, para fines administrativos",
         description:
           "Implementamos sistemas seguros y eficientes para gestionar tu plataforma.",
+        complexityFilter: false,
       },
       {
         title: "Sí, para los usuarios de mi sitio",
         description:
           "Creamos experiencias de inicio de sesión fáciles de usar, asegurando la protección de datos y la accesibilidad para tus usuarios.",
+        complexityFilter: false,
       },
       {
         title: "Sí, múltiples inicios de sesión",
         description:
           "Desarrollamos sistemas complejos que gestionan diferentes roles de usuario, priorizando la seguridad y la funcionalidad.",
+        complexityFilter: false,
       },
       {
         title: "No",
+        complexityFilter: false,
       },
     ],
   },
   {
-    id: 0x1107,
+    id: "G1.1.3",
     prompt: "¿Necesitas servicios de $ interna?",
     highlight: "búsqueda",
     answers: [
       {
         title: "Sí, dentro de una página específica del sitio",
+        complexityFilter: false,
       },
       {
         title: "Sí, a nivel global en el sitio",
+        complexityFilter: false,
       },
       {
         title: "No",
+        complexityFilter: false,
       },
       {
         title: "Necesito asesoría decidiendo",
+        complexityFilter: false,
       },
     ],
   },
   {
-    id: 0x1108,
+    id: "G1.1.4",
     prompt: "¿Ya tienes $?",
     highlight: "Hosting o Dominio",
     answers: [
       {
         title: "Sí, tengo ambos",
+        complexityFilter: false,
       },
       {
         title: "Sólo tengo el hosting",
+        complexityFilter: false,
       },
       {
         title: "Sólo tengo el dominio",
+        complexityFilter: false,
       },
       {
         title: "No tengo ninguno",
+        complexityFilter: false,
       },
     ],
   },
   {
-    id: 0x1109,
+    id: "G1.1.5",
     prompt: "¿Necesitas servicios de $?",
     highlight: "SEO",
     answers: [
       {
         title: "Sí",
+        complexityFilter: false,
       },
       {
         title: "No los necesito",
+        complexityFilter: false,
       },
       {
         title: "Necesito asesoría decidiendo",
+        complexityFilter: false,
       },
     ],
   },
@@ -271,21 +307,25 @@ export const es: {
         title: "Herramienta interna del negocio (CRM, ERP, etc).",
         description:
           "Optimiza tu operación con un CRM, ERP u otra solución empresarial.",
+        complexityFilter: false,
       },
       {
         title: "Aplicación de escritorio standalone.",
         description:
           "Ejecuta sin depender de internet con una app de escritorio independiente.",
+        complexityFilter: false,
       },
       {
         title: "Aplicación lúdica-educativa (videojuego educativo).",
         description:
           "Enseña de forma divertida con un videojuego educativo personalizado.",
+        complexityFilter: false,
       },
       {
         title: "A medida.",
         description:
           "¿Tienes una idea única? Creamos la app que necesitas desde cero.",
+        complexityFilter: false,
       },
     ],
   },
@@ -298,11 +338,13 @@ export const es: {
         title: "Windows.",
         description:
           "Optimiza tu app para el sistema operativo más usado del mundo.",
+        complexityFilter: false,
       },
       {
         title: "MacOS/Linux.",
         description:
           "Desarrolla tu aplicación para entornos Mac o Linux según tu público.",
+        complexityFilter: false,
       },
     ],
   },
@@ -315,21 +357,25 @@ export const es: {
         title: "Automatización / Optimización.",
         description:
           "Ahorra tiempo y mejora procesos con herramientas inteligentes.",
+        complexityFilter: false,
       },
       {
         title: "Análisis de Datos.",
         description:
           "Toma mejores decisiones con visualizaciones e informes claros.",
+        complexityFilter: false,
       },
       {
         title: "Creación de Contenido.",
         description:
           "Diseña, edita o produce contenido con herramientas especializadas.",
+        complexityFilter: false,
       },
       {
         title: "Otro.",
         description:
           "¿Tienes otro objetivo en mente? Lo adaptamos a tu necesidad.",
+        complexityFilter: false,
       },
     ],
   },
@@ -343,16 +389,19 @@ export const es: {
         title: "No.",
         description:
           "Tu aplicación funcionará de forma independiente, sin conectarse a otros servicios.",
+        complexityFilter: false,
       },
       {
         title: "Sí, básica.",
         description:
           "Incluye conexión con servicios comunes como correo, APIs o redes sociales.",
+        complexityFilter: false,
       },
       {
         title: "Sí, avanzada.",
         description:
           "Integra sistemas complejos como pasarelas de pago, CRMs o bases de datos externas.",
+        complexityFilter: false,
       },
     ],
   },
@@ -365,45 +414,51 @@ export const es: {
         title: "No requiero diseño.",
         description:
           "Ya cuentas con el diseño o prefieres enfocarte solo en la funcionalidad.",
+        complexityFilter: false,
       },
       {
         title: "Quiero un diseño personalizado.",
         description:
           "Creamos una interfaz única que refleje la identidad de tu marca.",
+        complexityFilter: false,
       },
       {
         title: "Quiero usar una plantilla.",
         description:
           "Ahorra tiempo y costos usando un diseño prediseñado y adaptable.",
+        complexityFilter: false,
       },
       {
         title: "Necesito asesoría decidiendo.",
         description:
           "Te orientamos para elegir la mejor opción según tus objetivos y presupuesto.",
+        complexityFilter: false,
       },
     ],
   },
   {
-    id: 0x1133,
-    prompt: "¿Datos $?",
-    highlight: "sensibles",
+    id: "G1b.6",
+    prompt: "¿Tu producto maneja $?",
+    highlight: "datos sensibles",
     answers: [
       {
         title: "Si.",
         description:
           "Tu app manejará información confidencial y requiere altos estándares de seguridad.",
+        complexityFilter: false,
       },
       {
         title: "No.",
         description:
           "No se gestionará información delicada, el enfoque será funcional y general.",
+        complexityFilter: false,
       },
     ],
   },
   {
-    id: 0x1134,
-    prompt: "¿Cuántas $?",
-    highlight: "vistas/pantallas",
+    id: "G1b.3",
+    prompt: "¿Cuántas $ necesitas?",
+    highlight: "pantallas",
     hint: "",
   },
   {
@@ -415,16 +470,19 @@ export const es: {
         title: "Offline y Online.",
         description:
           "Funciona con o sin conexión para mayor flexibilidad y accesibilidad.",
+        complexityFilter: false,
       },
       {
         title: "Online.",
         description:
           "Requiere conexión a internet para operar y acceder a sus funciones.",
+        complexityFilter: false,
       },
       {
         title: "Offline.",
         description:
           "Todo funciona localmente, sin necesidad de conexión a internet.",
+        complexityFilter: false,
       },
     ],
   },
@@ -438,21 +496,25 @@ export const es: {
         title: "App de contenido.",
         description:
           "Comparte información, noticias o multimedia desde tu dispositivo móvil.",
+        complexityFilter: false,
       },
       {
         title: "ECommerce.",
         description:
           "Vende productos o servicios desde una tienda fácil de usar en el celular.",
+        complexityFilter: false,
       },
       {
         title: "Utilidad / Herramienta.",
         description:
           "Facilita tareas diarias con una app práctica y funcional.",
+        complexityFilter: false,
       },
       {
         title: "A medida.",
         description:
           "¿Tienes una idea distinta? Creamos tu app móvil desde cero.",
+        complexityFilter: false,
       },
     ],
   },
@@ -465,16 +527,19 @@ export const es: {
         title: "Android.",
         description:
           "Desarrolla tu app para la plataforma más usada a nivel global.",
+        complexityFilter: false,
       },
       {
         title: "iOS.",
         description:
           "Llega a usuarios de iPhone con una app optimizada para Apple.",
+        complexityFilter: false,
       },
       {
         title: "Ambas.",
         description:
           "Amplía tu alcance con una app disponible en Android y iOS.",
+        complexityFilter: false,
       },
     ],
   },
@@ -492,26 +557,31 @@ export const es: {
         title: "Identidad de marca.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Estrategia de marca.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Diseño y material empresarial.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Producción audiovisual.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Gestión de redes sociales.",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -526,26 +596,31 @@ export const es: {
         title: "Naming.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Benchmarking.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Personalidad de marca.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Diseño de logotipo.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Manual de marca.",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -560,16 +635,19 @@ export const es: {
         title: "Quiero que lo generen completamente desde cero.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Ya tengo 2–3 opciones y necesito validación y registro de marca (verificación de disponibilidad).",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Solo quiero verificar y validar un nombre existente (sin generación).",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -583,16 +661,19 @@ export const es: {
         title: "No, deseo que nos apoyen en definirlos desde cero.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Sí, tengo algunos valores y necesito refinarlos.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Solo necesito validación de la personalidad existente.",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -606,16 +687,19 @@ export const es: {
         title: "Tengo algo en mente.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Lo necesito desde cero.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Necesito asesoría.",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -630,16 +714,19 @@ export const es: {
         title: "No, es desde cero.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Sí, tengo un borrador y necesito revisión y ajuste.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Solo quiero validación rápida (feedback puntual).",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -654,16 +741,19 @@ export const es: {
         title: "Si, ya cuento con imagenes de archivo.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Si, cuento con recursos pero quiero realizar nuevo rodaje.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "No tengo insumos o recursos.",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -677,16 +767,19 @@ export const es: {
         title: "Persona hablando a cámara.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Solo tomas del lugar.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Ambas.",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -700,16 +793,19 @@ export const es: {
         title: "Si.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "No.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Necesito asesoría.",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -723,16 +819,19 @@ export const es: {
         title: "Si.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "No.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Necesito asesoría.",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -747,16 +846,19 @@ export const es: {
         title: "Si.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "No.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Pailas.",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -771,16 +873,19 @@ export const es: {
         title: "Si.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "No.",
         description:
           "",
+        complexityFilter: false,
       },
       {
         title: "Necesito asesoría.",
         description:
           "",
+        complexityFilter: false,
       },
     ],
   },
@@ -792,9 +897,11 @@ export const es: {
     answers: [
       {
         title: "Sí",
+        complexityFilter: false,
       },
       {
         title: "No ",
+        complexityFilter: false,
       },
     ],
     options: [["Español", "Inglés", "Alemán", "Francés", "Italiano", "Otro"]],
@@ -806,15 +913,19 @@ export const es: {
     answers: [
       {
         title: "No necesito animaciones o interacciones puntuales.",
+        complexityFilter: false,
       },
       {
         title: "Menos de 3 animaciones, o con interacciones estándares.",
+        complexityFilter: false,
       },
       {
         title: "Más de 3 animaciones, o con interacciones complejas.",
+        complexityFilter: false,
       },
       {
         title: "Necesito ayuda decidiendo.",
+        complexityFilter: false,
       },
     ],
   },
@@ -827,21 +938,25 @@ export const es: {
         title: "En ceros, sólo está la idea.",
         description:
           "No hay avances previos; partiremos desde cero para conceptualizar, diseñar y desarrollar tu producto completamente.",
+        complexityFilter: false,
       },
       {
         title: "Tengo algunas referencias, pero no hay nada hecho.",
         description:
           "Tienes una idea general y algunas inspiraciones; trabajaremos para convertir esas referencias en un producto claro y funcional.",
+        complexityFilter: false,
       },
       {
         title: "Ya está en desarrollo.",
         description:
           "Tu proyecto tiene progreso inicial o intermedio; podemos integrarnos para completar el desarrollo según tus objetivos.",
+        complexityFilter: false,
       },
       {
         title: "Está desarrollada. Quiero actualizarla o migrarla.",
         description:
           "Tu producto ya existe, y necesitas ayuda para actualizarlo con nuevas características o adaptarlo a otra plataforma o tecnología.",
+        complexityFilter: false,
       },
     ],
   },

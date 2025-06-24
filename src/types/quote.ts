@@ -8,31 +8,25 @@ export enum ProductTypes {
 
 export type Choice = {title: string, description?: string}
 
-export type Price = { floor: number; average?: number; increment?: number, ceiling: number }
-
 export type Question = {
-    id: number;
+    id: string;
     prompt: string;
     highlight?: string;
-    area: ProductTypes
-    types: QuestionTypes[] | QuestionTypes;
     closed?: boolean;
+    multi?: boolean;
     choices?: Choice[];
-    ranges?: number[];
     options?: {unique: boolean[], values: string[][]};
-    prices?: Price[];
     previous: number[];
     next: number[];
     context?: string;
     postFlowId?: number;
+    complexityFilter?: boolean;
 }
 
 export type Answer = {
     id: number;
     prompt: string;
     choice?: number;
-    range?: number
     options?: string[]
-    price: Price;
     type: ProductTypes;
 }
