@@ -1,963 +1,1024 @@
-import { Choice } from "@/types/quote";
+import {Choice} from "@/types/quote";
 
 export const es: {
-  id: string;
-  context?: string;
-  prompt: string;
-  highlight?: string;
-  answers?: Choice[];
-  options?: string[][];
-  hint? : string,
+    id: string;
+    context?: string;
+    prompt: string;
+    highlight?: string;
+    answers?: Choice[];
+    options?: string[][];
+    hint?: string,
 }[] = [
-  {
-    id: "0",
-    prompt: "¿Qué vamos a $ juntos?",
-    highlight: "crear",
-    answers: [
-      {
-        title: "Un proyecto digital",
-        description:
-          "Estrategias y contenidos que conectan, impulsan tu marca y generan interacción auténtica en redes sociales.",
-        complexityFilter: false,
-      },
-      {
-        title: "Un proyecto de producción",
-        description:
-          "Gestión creativa y técnica para dar vida a tus ideas, desde la planificación hasta la ejecución logística.",
-        complexityFilter: false,
-      },
-      {
-        title: "Un proyecto de comunicaciones",
-        description:
-          "Planes integrales que fortalecen la conexión de tu marca con su audiencia, transmitiendo mensajes claros y efectivos.",
-        complexityFilter: false,
-      },
-      {
-        title: "Un proyecto de diseño",
-        description:
-          "Creaciones visuales impactantes que representan la esencia de tu marca y capturan la atención de tu público objetivo.",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: "G0",
-    prompt: "¿Cómo te podemos $?",
-    highlight: "ayudar",
-    answers: [
-      {
-        title: "Quiero un producto de software",
-        description:
-          "Soluciones personalizadas que resuelven tus necesidades tecnológicas, optimizando procesos y brindando experiencias digitales de calidad.",
-        complexityFilter: false,
-      },
-      {
-        title: "Quiero desarrollar mi marca",
-        description:
-          "Planes integrales para construir desde cero una marca sólida, reconocible y alineada con tus valores.",
-        complexityFilter: false,
-      },
-      {
-        title: "Quiero establecer mi marca",
-        description:
-          "Estrategias creativas para potenciar la identidad de tu marca y conectar emocionalmente con tu audiencia.",
-        complexityFilter: false,
-      },
-    ],
-  },
+    {
+        id: "0",
+        prompt: "¿Qué vamos a $ juntos?",
+        highlight: "crear",
+        answers: [
+            {
+                title: "Un proyecto digital",
+                description:
+                    "Estrategias y contenidos que conectan, impulsan tu marca y generan interacción auténtica en redes sociales.",
+            },
+            {
+                title: "Un proyecto de producción",
+                description:
+                    "Gestión creativa y técnica para dar vida a tus ideas, desde la planificación hasta la ejecución logística.",
+            },
+            {
+                title: "Un proyecto de comunicaciones",
+                description:
+                    "Planes integrales que fortalecen la conexión de tu marca con su audiencia, transmitiendo mensajes claros y efectivos.",
+            },
+            {
+                title: "Un proyecto de diseño",
+                description:
+                    "Creaciones visuales impactantes que representan la esencia de tu marca y capturan la atención de tu público objetivo.",
+            },
+        ],
+    },
+    {
+        id: "G0",
+        prompt: "¿Cómo te podemos $?",
+        highlight: "ayudar",
+        answers: [
+            {
+                title: "Quiero un producto de software",
+                description:
+                    "Soluciones personalizadas que resuelven tus necesidades tecnológicas, optimizando procesos y brindando experiencias digitales de calidad.",
 
-  // DESARROLLO
+            },
+            {
+                title: "Quiero desarrollar mi marca",
+                description:
+                    "Planes integrales para construir desde cero una marca sólida, reconocible y alineada con tus valores.",
 
-  {
-    id: "G1",
-    prompt: "¿Qué $ de software?",
-    highlight: "tipo",
-    answers: [
-      {
-        title: "Un producto web",
-        description:
-          "Desarrollos innovadores que aprovechan la web para ofrecer soluciones escalables, accesibles y adaptadas a tus necesidades empresariales.",
-        complexityFilter: false,
-      },
-      {
-        title: "Un producto para computador",
-        description:
-          "Aplicaciones robustas y eficientes diseñadas para entornos de escritorio, optimizando el rendimiento y la productividad.",
-        complexityFilter: false,
-      },
-      {
-        title: "Un producto móvil",
-        description:
-          "Apps intuitivas y dinámicas que ofrecen experiencias optimizadas para usuarios en dispositivos móviles.",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: "G1.1.1",
-    prompt: "¿Qué $ de página?",
-    highlight: "clase",
-    answers: [
-      {
-        title: "Una landing page",
-        description:
-          "Captura leads y aumenta conversiones con una página de destino.",
-        complexityFilter: false,
-      },
-      {
-        title: "Un Ecommerce",
-        description:
-          "Vende tus productos y servicios en línea con una tienda virtual.",
-        complexityFilter: false,
-      },
-      {
-        title: "Un blog",
-        description:
-          "Atrae tráfico y posiciona tu marca con un blog informativo.",
-        complexityFilter: false,
-      },
-      {
-        title: "Una página web a medida",
-        description:
-          "¿Algo más en mente? Creamos tu sitio web a la medida de tus necesidades.",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: "G1.1.6",
-    prompt: "¿Cuántas $ tiene tu sitio?",
-    highlight: "páginas",
-    hint: "",
-  },
-  {
-    id: 0x1103,
-    prompt: "¿Cuántos $ tiene tu sitio?",
-    highlight: "productos",
-    hint: "",
-  },
-  {
-    id: "G1b.3",
-    prompt: "¿Necesitas una $ de pagos?",
-    highlight: "pasarela",
-    answers: [
-      {
-        title: "Sí, necesito crearla",
-        description:
-          "Te ayudamos a configurar tu pasarela de pagos para que puedas empezar a recibir pagos.",
-        complexityFilter: false,
-      },
-      {
-        title: "Tengo una, necesito integrarla",
-        description:
-          "Cuéntanos cuál es y nos encargamos de integrarla a tu sitio web.",
-        complexityFilter: false,
-      },
-      {
-        title: "No",
-        complexityFilter: false,
-      },
-    ],
-    options: [
-      [
-        "PayU Latam" + "MercadoPago",
-        "Place to Pay",
-        "ePayco",
-        "PSE (Pagos Seguros en Línea)",
-        "Stripe",
-        "Square",
-        "Provista por un banco (nacional o internacional)",
-        "Banco en Linea (como Nequi o Daviplata)",
-        "Otra",
-      ],
-    ],
-  },
-  {
-    id: "G1b.4",
-    prompt: "¿Cómo quieres el $?",
-    highlight: "diseño",
-    answers: [
-      {
-        title: "Ya tengo uno",
-        description:
-          "¡Perfecto! Proporciónanos tu diseño y lo integraremos a una plataforma funcional y optimizada.",
-        complexityFilter: false,
-      },
-      {
-        title: "Quiero un diseño personalizado",
-        description:
-          "Creamos un diseño único y a medida que refleje la identidad de tu marca y cautive a tu audiencia.",
-        complexityFilter: false,
-      },
-      {
-        title: "Quiero usar una plantilla",
-        description:
-          "Te ayudamos a encontrar y personalizar una plantilla profesional que se adapte a tus necesidades.",
-        complexityFilter: false,
-      },
-      {
-        title: "Necesito asesoría decidiendo",
-        description:
-          "¡Con gusto te ayudamos! Te asesoramos para encontrar el diseño que mejor se adapte a tus objetivos y presupuesto.",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: "G1b.5",
-    prompt: "¿Necesitas usuarios e $?",
-    highlight: "inicio de sesión",
-    answers: [
-      {
-        title: "Sí, para fines administrativos",
-        description:
-          "Implementamos sistemas seguros y eficientes para gestionar tu plataforma.",
-        complexityFilter: false,
-      },
-      {
-        title: "Sí, para los usuarios de mi sitio",
-        description:
-          "Creamos experiencias de inicio de sesión fáciles de usar, asegurando la protección de datos y la accesibilidad para tus usuarios.",
-        complexityFilter: false,
-      },
-      {
-        title: "Sí, múltiples inicios de sesión",
-        description:
-          "Desarrollamos sistemas complejos que gestionan diferentes roles de usuario, priorizando la seguridad y la funcionalidad.",
-        complexityFilter: false,
-      },
-      {
-        title: "No",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: "G1.1.3",
-    prompt: "¿Necesitas servicios de $ interna?",
-    highlight: "búsqueda",
-    answers: [
-      {
-        title: "Sí, dentro de una página específica del sitio",
-        complexityFilter: false,
-      },
-      {
-        title: "Sí, a nivel global en el sitio",
-        complexityFilter: false,
-      },
-      {
-        title: "No",
-        complexityFilter: false,
-      },
-      {
-        title: "Necesito asesoría decidiendo",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: "G1.1.4",
-    prompt: "¿Ya tienes $?",
-    highlight: "Hosting o Dominio",
-    answers: [
-      {
-        title: "Sí, tengo ambos",
-        complexityFilter: false,
-      },
-      {
-        title: "Sólo tengo el hosting",
-        complexityFilter: false,
-      },
-      {
-        title: "Sólo tengo el dominio",
-        complexityFilter: false,
-      },
-      {
-        title: "No tengo ninguno",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: "G1.1.5",
-    prompt: "¿Necesitas servicios de $?",
-    highlight: "SEO",
-    answers: [
-      {
-        title: "Sí",
-        complexityFilter: false,
-      },
-      {
-        title: "No los necesito",
-        complexityFilter: false,
-      },
-      {
-        title: "Necesito asesoría decidiendo",
-        complexityFilter: false,
-      },
-    ],
-  },
+            },
+            {
+                title: "Quiero establecer mi marca",
+                description:
+                    "Estrategias creativas para potenciar la identidad de tu marca y conectar emocionalmente con tu audiencia.",
 
-  {
-    id: 0x1111,
-    prompt: "¿Qué clase de $?",
-    highlight: "aplicación",
-    answers: [
-      {
-        title: "Herramienta interna del negocio (CRM, ERP, etc).",
-        description:
-          "Optimiza tu operación con un CRM, ERP u otra solución empresarial.",
-        complexityFilter: false,
-      },
-      {
-        title: "Aplicación de escritorio standalone.",
-        description:
-          "Ejecuta sin depender de internet con una app de escritorio independiente.",
-        complexityFilter: false,
-      },
-      {
-        title: "Aplicación lúdica-educativa (videojuego educativo).",
-        description:
-          "Enseña de forma divertida con un videojuego educativo personalizado.",
-        complexityFilter: false,
-      },
-      {
-        title: "A medida.",
-        description:
-          "¿Tienes una idea única? Creamos la app que necesitas desde cero.",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: 0x1112,
-    prompt: "¿Para qué $?",
-    highlight: "sistema operativo",
-    answers: [
-      {
-        title: "Windows.",
-        description:
-          "Optimiza tu app para el sistema operativo más usado del mundo.",
-        complexityFilter: false,
-      },
-      {
-        title: "MacOS/Linux.",
-        description:
-          "Desarrolla tu aplicación para entornos Mac o Linux según tu público.",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: 0x1113,
-    prompt: "¿Cuál es su $?",
-    highlight: "propósito",
-    answers: [
-      {
-        title: "Automatización / Optimización.",
-        description:
-          "Ahorra tiempo y mejora procesos con herramientas inteligentes.",
-        complexityFilter: false,
-      },
-      {
-        title: "Análisis de Datos.",
-        description:
-          "Toma mejores decisiones con visualizaciones e informes claros.",
-        complexityFilter: false,
-      },
-      {
-        title: "Creación de Contenido.",
-        description:
-          "Diseña, edita o produce contenido con herramientas especializadas.",
-        complexityFilter: false,
-      },
-      {
-        title: "Otro.",
-        description:
-          "¿Tienes otro objetivo en mente? Lo adaptamos a tu necesidad.",
-        complexityFilter: false,
-      },
-    ],
-  },
+            },
+        ],
+    },
 
-  {
-    id: 0x1131,
-    prompt: "¿Necesitas $ de terceros?",
-    highlight: "integración",
-    answers: [
-      {
-        title: "No.",
-        description:
-          "Tu aplicación funcionará de forma independiente, sin conectarse a otros servicios.",
-        complexityFilter: false,
-      },
-      {
-        title: "Sí, básica.",
-        description:
-          "Incluye conexión con servicios comunes como correo, APIs o redes sociales.",
-        complexityFilter: false,
-      },
-      {
-        title: "Sí, avanzada.",
-        description:
-          "Integra sistemas complejos como pasarelas de pago, CRMs o bases de datos externas.",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: 0x1132,
-    prompt: "¿Cómo quieres el $?",
-    highlight: "diseño",
-    answers: [
-      {
-        title: "No requiero diseño.",
-        description:
-          "Ya cuentas con el diseño o prefieres enfocarte solo en la funcionalidad.",
-        complexityFilter: false,
-      },
-      {
-        title: "Quiero un diseño personalizado.",
-        description:
-          "Creamos una interfaz única que refleje la identidad de tu marca.",
-        complexityFilter: false,
-      },
-      {
-        title: "Quiero usar una plantilla.",
-        description:
-          "Ahorra tiempo y costos usando un diseño prediseñado y adaptable.",
-        complexityFilter: false,
-      },
-      {
-        title: "Necesito asesoría decidiendo.",
-        description:
-          "Te orientamos para elegir la mejor opción según tus objetivos y presupuesto.",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: "G1b.6",
-    prompt: "¿Tu producto maneja $?",
-    highlight: "datos sensibles",
-    answers: [
-      {
-        title: "Si.",
-        description:
-          "Tu app manejará información confidencial y requiere altos estándares de seguridad.",
-        complexityFilter: false,
-      },
-      {
-        title: "No.",
-        description:
-          "No se gestionará información delicada, el enfoque será funcional y general.",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: "G1b.3",
-    prompt: "¿Cuántas $ necesitas?",
-    highlight: "pantallas",
-    hint: "",
-  },
-  {
-    id: 0x1135,
-    prompt: "¿Offline o $?",
-    highlight: "Online",
-    answers: [
-      {
-        title: "Offline y Online.",
-        description:
-          "Funciona con o sin conexión para mayor flexibilidad y accesibilidad.",
-        complexityFilter: false,
-      },
-      {
-        title: "Online.",
-        description:
-          "Requiere conexión a internet para operar y acceder a sus funciones.",
-        complexityFilter: false,
-      },
-      {
-        title: "Offline.",
-        description:
-          "Todo funciona localmente, sin necesidad de conexión a internet.",
-        complexityFilter: false,
-      },
-    ],
-  },
+    // DESARROLLO
 
-  {
-    id: 0x1121,
-    prompt: "¿Qué clase de $?",
-    highlight: "app",
-    answers: [
-      {
-        title: "App de contenido.",
-        description:
-          "Comparte información, noticias o multimedia desde tu dispositivo móvil.",
-        complexityFilter: false,
-      },
-      {
-        title: "ECommerce.",
-        description:
-          "Vende productos o servicios desde una tienda fácil de usar en el celular.",
-        complexityFilter: false,
-      },
-      {
-        title: "Utilidad / Herramienta.",
-        description:
-          "Facilita tareas diarias con una app práctica y funcional.",
-        complexityFilter: false,
-      },
-      {
-        title: "A medida.",
-        description:
-          "¿Tienes una idea distinta? Creamos tu app móvil desde cero.",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: 0x1122,
-    prompt: "¿Para qué $?",
-    highlight: "plataformas",
-    answers: [
-      {
-        title: "Android.",
-        description:
-          "Desarrolla tu app para la plataforma más usada a nivel global.",
-        complexityFilter: false,
-      },
-      {
-        title: "iOS.",
-        description:
-          "Llega a usuarios de iPhone con una app optimizada para Apple.",
-        complexityFilter: false,
-      },
-      {
-        title: "Ambas.",
-        description:
-          "Amplía tu alcance con una app disponible en Android y iOS.",
-        complexityFilter: false,
-      },
-    ],
-  },
+    {
+        id: "G1",
+        prompt: "¿Qué $ de software?",
+        highlight: "tipo",
+        answers: [
+            {
+                title: "Un producto web",
+                description:
+                    "Desarrollos innovadores que aprovechan la web para ofrecer soluciones escalables, accesibles y adaptadas a tus necesidades empresariales.",
 
-  // FIN DESARROLLO
+            },
+            {
+                title: "Un producto para computador",
+                description:
+                    "Aplicaciones robustas y eficientes diseñadas para entornos de escritorio, optimizando el rendimiento y la productividad.",
 
-  // DESARROLLO DE MARCA
+            },
+            {
+                title: "Un producto móvil",
+                description:
+                    "Apps intuitivas y dinámicas que ofrecen experiencias optimizadas para usuarios en dispositivos móviles.",
 
-  {
-    id: 0x1200,
-    prompt: "¿Qué $ de marca necesitas?",
-    highlight: "servicios",
-    answers: [
-      {
-        title: "Identidad de marca.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Estrategia de marca.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Diseño y material empresarial.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Producción audiovisual.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Gestión de redes sociales.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
-  // ESTA PREGUNTA SE DESPLIEGA SI SE ESCOGE IDENTIDAD DE MARCA
-  {
-    id: 0x1201,
-    context: "Identidad de marca",
-    prompt: "¿Qué $ requieres?",
-    highlight: "componentes",
-    answers: [
-      {
-        title: "Naming.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Benchmarking.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Personalidad de marca.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Diseño de logotipo.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Manual de marca.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
-  // ESTA PREGUNTA SE DESPLIEGA SI SE ESCOGE NAMING (EN 0X1201)
-  {
-    id: 0x1202,
-    context: "Identidad de marca",
-    prompt: "¿Ya tienes alguna $ de nombre?",
-    highlight: "idea",
-    answers: [
-      {
-        title: "Quiero que lo generen completamente desde cero.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Ya tengo 2–3 opciones y necesito validación y registro de marca (verificación de disponibilidad).",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Solo quiero verificar y validar un nombre existente (sin generación).",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: 0x1203,
-    context: "HOLAa",
-    prompt: "¿Ya tienes definidos $ a transmitir?",
-    highlight: "valores",
-    answers: [
-      {
-        title: "No, deseo que nos apoyen en definirlos desde cero.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Sí, tengo algunos valores y necesito refinarlos.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Solo necesito validación de la personalidad existente.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: 0x1204,
-    context: "HOLAa",
-    prompt: "¿Qué estilo de $ prefieres?",
-    highlight: "logotipo",
-    answers: [
-      {
-        title: "Tengo algo en mente.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Lo necesito desde cero.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Necesito asesoría.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
-  // ESTA PREGUNTA SE DESPLIEGA SI SE ESCOGE ESTRATEGIA DE MARCA (EN 0X1200)
-  {
-    id: 0x1211,
-    context: "HOLAa",
-    prompt: "¿Ya tienes un borrador de $?",
-    highlight: "objetivos, misión o visión",
-    answers: [
-      {
-        title: "No, es desde cero.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Sí, tengo un borrador y necesito revisión y ajuste.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Solo quiero validación rápida (feedback puntual).",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
-  // ESTAS PREGUNTAS SE DESPLIEGAN SI SE ESCOGE PRODUCCION AUDIOVISUAL (EN 0X1200)
-  {
-    id: 0x1221,
-    context: "HOLAa",
-    prompt: "¿Cuentas con $ o recursos?",
-    highlight: "insumos",
-    answers: [
-      {
-        title: "Si, ya cuento con imagenes de archivo.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Si, cuento con recursos pero quiero realizar nuevo rodaje.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "No tengo insumos o recursos.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: 0x1222,
-    context: "HOLAa",
-    prompt: "¿El $ mostrará a alguien hablando o solo imágenes del lugar?",
-    highlight: "video",
-    answers: [
-      {
-        title: "Persona hablando a cámara.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Solo tomas del lugar.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Ambas.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: 0x1223,
-    context: "HOLAa",
-    prompt: "¿Se requiere $ de iluminación y sonido?",
-    highlight: "equipos",
-    answers: [
-      {
-        title: "Si.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "No.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Necesito asesoría.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: 0x1224,
-    context: "HOLAa",
-    prompt: "¿De cuanto es la $ aproximada del video?",
-    highlight: "duracion",
-    answers: [
-      {
-        title: "Si.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "No.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Necesito asesoría.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
+            },
+        ],
+    },
 
-  {
-    id: 0x1251,
-    context: "CASI CASI",
-    prompt: "¿Ya $?",
-    highlight: "casi",
-    answers: [
-      {
-        title: "Si.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "No.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Pailas.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
+    // WEB
+    {
+        id: "G1.1.1",
+        prompt: "¿Qué $ de página?",
+        highlight: "clase",
+        answers: [
+            {
+                title: "Una landing page",
+                description:
+                    "Captura leads y aumenta conversiones con una página de destino.",
 
-  {
-    id: 0x1252,
-    context: "SIIII",
-    prompt: "¿Ya $?",
-    highlight: "casito",
-    answers: [
-      {
-        title: "Si.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "No.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-      {
-        title: "Necesito asesoría.",
-        description:
-          "",
-        complexityFilter: false,
-      },
-    ],
-  },
+            },
+            {
+                title: "Un Ecommerce",
+                description:
+                    "Vende tus productos y servicios en línea con una tienda virtual.",
 
-  {
-    id: 0x1001,
-    prompt: "¿Necesitas varios $ para tu desarrollo?",
-    highlight: "idiomas",
-    answers: [
-      {
-        title: "Sí",
-        complexityFilter: false,
-      },
-      {
-        title: "No ",
-        complexityFilter: false,
-      },
-    ],
-    options: [["Español", "Inglés", "Alemán", "Francés", "Italiano", "Otro"]],
-  },
-  {
-    id: 0x1002,
-    prompt: "¿Qué nivel de $ necesitas para tu producto?",
-    highlight: "interacciones y animaciones",
-    answers: [
-      {
-        title: "No necesito animaciones o interacciones puntuales.",
-        complexityFilter: false,
-      },
-      {
-        title: "Menos de 3 animaciones, o con interacciones estándares.",
-        complexityFilter: false,
-      },
-      {
-        title: "Más de 3 animaciones, o con interacciones complejas.",
-        complexityFilter: false,
-      },
-      {
-        title: "Necesito ayuda decidiendo.",
-        complexityFilter: false,
-      },
-    ],
-  },
-  {
-    id: 0x1003,
-    prompt: "¿En qué $ se encuentra tu producto?",
-    highlight: "etapa",
-    answers: [
-      {
-        title: "En ceros, sólo está la idea.",
-        description:
-          "No hay avances previos; partiremos desde cero para conceptualizar, diseñar y desarrollar tu producto completamente.",
-        complexityFilter: false,
-      },
-      {
-        title: "Tengo algunas referencias, pero no hay nada hecho.",
-        description:
-          "Tienes una idea general y algunas inspiraciones; trabajaremos para convertir esas referencias en un producto claro y funcional.",
-        complexityFilter: false,
-      },
-      {
-        title: "Ya está en desarrollo.",
-        description:
-          "Tu proyecto tiene progreso inicial o intermedio; podemos integrarnos para completar el desarrollo según tus objetivos.",
-        complexityFilter: false,
-      },
-      {
-        title: "Está desarrollada. Quiero actualizarla o migrarla.",
-        description:
-          "Tu producto ya existe, y necesitas ayuda para actualizarlo con nuevas características o adaptarlo a otra plataforma o tecnología.",
-        complexityFilter: false,
-      },
-    ],
-  },
+            },
+            {
+                title: "Un blog",
+                description:
+                    "Atrae tráfico y posiciona tu marca con un blog informativo.",
+
+            },
+            {
+                title: "Una página web a medida",
+                description:
+                    "¿Algo más en mente? Creamos tu sitio web a la medida de tus necesidades.",
+
+            },
+        ],
+    },
+    {
+        id: "G1a",
+        prompt: "¿Cuántos $ tiene tu sitio?",
+        highlight: "productos",
+        hint: "",
+    },
+    {
+        id: "G1.1.2",
+        prompt: "¿Necesitas servicios de $ interna?",
+        highlight: "búsqueda",
+        answers: [
+            {
+                title: "Sí, dentro de una página específica del sitio",
+
+            },
+            {
+                title: "Sí, a nivel global en el sitio",
+
+            },
+            {
+                title: "No",
+
+            },
+            {
+                title: "Necesito asesoría decidiendo",
+
+            },
+        ],
+    },
+    {
+        id: "G1.1.3",
+        prompt: "¿Ya tienes $?",
+        highlight: "Hosting o Dominio",
+        answers: [
+            {
+                title: "Sí, tengo ambos",
+
+            },
+            {
+                title: "Sólo tengo el hosting",
+
+            },
+            {
+                title: "Sólo tengo el dominio",
+
+            },
+            {
+                title: "No tengo ninguno",
+
+            },
+        ],
+    },
+    {
+        id: "G1.1.4",
+        prompt: "¿Necesitas servicios de $?",
+        highlight: "SEO",
+        answers: [
+            {
+                title: "Sí",
+
+            },
+            {
+                title: "No los necesito",
+
+            },
+            {
+                title: "Necesito asesoría decidiendo",
+
+            },
+        ],
+    },
+    {
+        id: "G1.1.5",
+        prompt: "¿Cuántas $ tiene tu sitio?",
+        highlight: "páginas",
+        hint: "",
+    },
+
+    // Móvil
+    {
+        id: "G1.2.1",
+        prompt: "¿Qué clase de $?",
+        highlight: "aplicativo",
+        answers: [
+            {
+                title: "App de contenido.",
+                description:
+                    "Comparte información, noticias o multimedia desde tu dispositivo móvil.",
+
+            },
+            {
+                title: "ECommerce.",
+                description:
+                    "Vende productos o servicios desde una tienda fácil de usar en el celular.",
+
+            },
+            {
+                title: "Utilidad / Herramienta.",
+                description:
+                    "Facilita tareas diarias con una app práctica y funcional.",
+
+            },
+            {
+                title: "A medida.",
+                description:
+                    "¿Tienes una idea distinta? Creamos tu app móvil desde cero.",
+
+            },
+        ],
+    },
+    {
+        id: "G1.2.2",
+        prompt: "¿Para qué $?",
+        highlight: "plataformas",
+        answers: [
+            {
+                title: "Android.",
+                description:
+                    "Desarrolla tu app para la plataforma más usada a nivel global.",
+
+            },
+            {
+                title: "iOS.",
+                description:
+                    "Llega a usuarios de iPhone con una app optimizada para Apple.",
+
+            },
+            {
+                title: "Ambas.",
+                description:
+                    "Amplía tu alcance con una app disponible en Android y iOS.",
+
+            },
+        ],
+    },
+
+    // Escritorio
+    {
+        id: "G1.3.1",
+        prompt: "¿Qué clase de $?",
+        highlight: "aplicación",
+        answers: [
+            {
+                title: "Herramienta interna del negocio (CRM, ERP, etc).",
+                description:
+                    "Optimiza tu operación con un CRM, ERP u otra solución empresarial.",
+
+            },
+            {
+                title: "Aplicación de escritorio standalone.",
+                description:
+                    "Ejecuta sin depender de internet con una app de escritorio independiente.",
+
+            },
+            {
+                title: "Aplicación lúdica-educativa (videojuego educativo).",
+                description:
+                    "Enseña de forma divertida con un videojuego educativo personalizado.",
+
+            },
+            {
+                title: "A medida.",
+                description:
+                    "¿Tienes una idea única? Creamos la app que necesitas desde cero.",
+
+            },
+        ],
+    },
+    {
+        id: "G1.3.2",
+        prompt: "¿Para qué $?",
+        highlight: "sistema operativo",
+        answers: [
+            {
+                title: "Windows.",
+                description:
+                    "Optimiza tu app para el sistema operativo más usado del mundo.",
+
+            },
+            {
+                title: "MacOS/Linux.",
+                description:
+                    "Desarrolla tu aplicación para entornos Mac o Linux según tu público.",
+
+            },
+        ],
+    },
+    {
+        id: "G1.3.3",
+        prompt: "¿Cuál es su $?",
+        highlight: "propósito",
+        answers: [
+            {
+                title: "Automatización / Optimización.",
+                description:
+                    "Ahorra tiempo y mejora procesos con herramientas inteligentes.",
+
+            },
+            {
+                title: "Análisis de Datos.",
+                description:
+                    "Toma mejores decisiones con visualizaciones e informes claros.",
+
+            },
+            {
+                title: "Creación de Contenido.",
+                description:
+                    "Diseña, edita o produce contenido con herramientas especializadas.",
+
+            },
+            {
+                title: "Otro.",
+                description:
+                    "¿Tienes otro objetivo en mente? Lo adaptamos a tu necesidad.",
+
+            },
+        ],
+    },
+
+
+    // CONVERGENCIA
+    {
+        id: "G1b.1",
+        prompt: "¿Necesitas $ de terceros?",
+        highlight: "integración",
+        answers: [
+            {
+                title: "No.",
+                description:
+                    "Tu aplicación funcionará de forma independiente, sin conectarse a otros servicios.",
+
+            },
+            {
+                title: "Sí, básica.",
+                description:
+                    "Incluye conexión con servicios comunes como correo, APIs o redes sociales.",
+
+            },
+            {
+                title: "Sí, avanzada.",
+                description:
+                    "Integra sistemas complejos como pasarelas de pago, CRMs o bases de datos externas.",
+
+            },
+        ],
+    },
+    {
+        id: "G1b.2",
+        prompt: "¿Offline o $?",
+        highlight: "Online",
+        answers: [
+            {
+                title: "Offline y Online.",
+                description:
+                    "Funciona con o sin conexión para mayor flexibilidad y accesibilidad.",
+
+            },
+            {
+                title: "Online.",
+                description:
+                    "Requiere conexión a internet para operar y acceder a sus funciones.",
+
+            },
+            {
+                title: "Offline.",
+                description:
+                    "Todo funciona localmente, sin necesidad de conexión a internet.",
+
+            },
+        ],
+    },
+    {
+        id: "G1b.3",
+        prompt: "¿Cuántas $ necesitas?",
+        highlight: "pantallas",
+        hint: "",
+    },
+    {
+        id: "G1b.4",
+        prompt: "¿Necesitas una $ de pagos?",
+        highlight: "pasarela",
+        answers: [
+            {
+                title: "Sí, necesito crearla",
+                description:
+                    "Te ayudamos a configurar tu pasarela de pagos para que puedas empezar a recibir pagos.",
+
+            },
+            {
+                title: "Tengo una, necesito integrarla",
+                description:
+                    "Cuéntanos cuál es y nos encargamos de integrarla a tu sitio web.",
+
+            },
+            {
+                title: "No",
+
+            },
+        ],
+        options: [
+            [
+                "PayU Latam" + "MercadoPago",
+                "Place to Pay",
+                "ePayco",
+                "PSE (Pagos Seguros en Línea)",
+                "Stripe",
+                "Square",
+                "Provista por un banco (nacional o internacional)",
+                "Banco en Linea (como Nequi o Daviplata)",
+                "Otra",
+            ],
+        ],
+    },
+    {
+        id: "G1b.5",
+        prompt: "¿Cómo quieres el $?",
+        highlight: "diseño",
+        answers: [
+            {
+                title: "Ya tengo uno",
+                description:
+                    "¡Perfecto! Proporciónanos tu diseño y lo integraremos a una plataforma funcional y optimizada.",
+
+            },
+            {
+                title: "Quiero un diseño personalizado",
+                description:
+                    "Creamos un diseño único y a medida que refleje la identidad de tu marca y cautive a tu audiencia.",
+
+            },
+            {
+                title: "Quiero usar una plantilla",
+                description:
+                    "Te ayudamos a encontrar y personalizar una plantilla profesional que se adapte a tus necesidades.",
+
+            },
+            {
+                title: "Necesito asesoría decidiendo",
+                description:
+                    "¡Con gusto te ayudamos! Te asesoramos para encontrar el diseño que mejor se adapte a tus objetivos y presupuesto.",
+
+            },
+        ],
+    },
+    {
+        id: "G1b.6",
+        prompt: "¿Necesitas usuarios e $?",
+        highlight: "inicio de sesión",
+        answers: [
+            {
+                title: "Sí, para fines administrativos",
+                description:
+                    "Implementamos sistemas seguros y eficientes para gestionar tu plataforma.",
+
+            },
+            {
+                title: "Sí, para los usuarios de mi sitio",
+                description:
+                    "Creamos experiencias de inicio de sesión fáciles de usar, asegurando la protección de datos y la accesibilidad para tus usuarios.",
+
+            },
+            {
+                title: "Sí, múltiples inicios de sesión",
+                description:
+                    "Desarrollamos sistemas complejos que gestionan diferentes roles de usuario, priorizando la seguridad y la funcionalidad.",
+
+            },
+            {
+                title: "No",
+
+            },
+        ],
+    },
+    {
+        id: "G1b.7",
+        prompt: "¿Tu producto maneja $?",
+        highlight: "datos sensibles",
+        answers: [
+            {
+                title: "Si.",
+                description:
+                    "Tu app manejará información confidencial y requiere altos estándares de seguridad.",
+
+            },
+            {
+                title: "No.",
+                description:
+                    "No se gestionará información delicada, el enfoque será funcional y general.",
+
+            },
+        ],
+    },
+    {
+        id: "G1b.8",
+        prompt: "¿Necesitas varios $ para tu desarrollo?",
+        highlight: "idiomas",
+        answers: [
+            {
+                title: "Sí",
+
+            },
+            {
+                title: "No ",
+
+            },
+        ],
+        options: [["Español", "Inglés", "Alemán", "Francés", "Italiano", "Otro"]],
+    },
+    {
+        id: "G1b.9",
+        prompt: "¿Qué nivel de $ necesitas para tu producto?",
+        highlight: "interacciones y animaciones",
+        answers: [
+            {
+                title: "No necesito animaciones o interacciones puntuales.",
+            },
+            {
+                title: "Menos de 3 animaciones, o con interacciones estándares.",
+
+            },
+            {
+                title: "Más de 3 animaciones, o con interacciones complejas.",
+
+            },
+            {
+                title: "Necesito ayuda decidiendo.",
+
+            },
+        ],
+    },
+    {
+        id: "G1b.10",
+        prompt: "¿En qué $ se encuentra tu producto?",
+        highlight: "etapa",
+        answers: [
+            {
+                title: "En ceros, sólo está la idea.",
+                description:
+                    "No hay avances previos; partiremos desde cero para conceptualizar, diseñar y desarrollar tu producto completamente.",
+
+            },
+            {
+                title: "Tengo algunas referencias, pero no hay nada hecho.",
+                description:
+                    "Tienes una idea general y algunas inspiraciones; trabajaremos para convertir esas referencias en un producto claro y funcional.",
+
+            },
+            {
+                title: "Ya está en desarrollo.",
+                description:
+                    "Tu proyecto tiene progreso inicial o intermedio; podemos integrarnos para completar el desarrollo según tus objetivos.",
+
+            },
+            {
+                title: "Está desarrollada. Quiero actualizarla o migrarla.",
+                description:
+                    "Tu producto ya existe, y necesitas ayuda para actualizarlo con nuevas características o adaptarlo a otra plataforma o tecnología.",
+
+            },
+        ],
+    },
+
+    // FIN DESARROLLO
+
+    // DESARROLLO DE MARCA
+    // FALTA DESCRIPCIONES
+    {
+        id: "G2.1",
+        prompt: "¿Cuál es el estado de tu $?",
+        highlight: "marca",
+        answers: [
+            {
+                title: "Solo está la idea, no hay nada definido.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Tengo algunos bocetos o referencias, pero nada implementado.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Marca en desarrollo (algunos activos ya existen, pero incompletos).",
+                description:
+                    "",
+
+            },
+            {
+                title: "Marca establecida, necesito actualización o ampliación de servicios.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    {
+        id: "G2.2",
+        prompt: "¿Necesitas $?",
+        highlight: "naming",
+        answers: [
+            {
+                title: "Quiero que lo generen completamente desde cero.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Ya tengo 2–3 opciones y necesito validación y registro de marca (verificación de disponibilidad).",
+                description:
+                    "",
+
+            },
+            {
+                title: "Solo quiero verificar y validar un nombre existente (sin generación).",
+                description:
+                    "",
+
+            },
+            {
+                title: "No necesito.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    {
+        id: "G2.3",
+        prompt: "¿Necesitas $?",
+        highlight: "Benchmarking",
+        answers: [
+            {
+                title: "Si porfis.",
+                description:
+                    "",
+
+            },
+            {
+                title: "No necesito.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    {
+        id: "G2.4",
+        prompt: "¿Ya tienes definidos $ a transmitir?",
+        highlight: "valores",
+        answers: [
+            {
+                title: "No, deseo que nos apoyen en definirlos desde cero.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Sí, tengo algunos valores y necesito refinarlos.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Solo necesito validación de la personalidad existente.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Si, no necesito definirlos.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    {
+        id: "G2.5",
+        prompt: "¿Necesitas $?",
+        highlight: "diagnostico de marca",
+        answers: [
+            {
+                title: "Si porfis.",
+                description:
+                    "",
+
+            },
+            {
+                title: "No necesito.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    {
+        id: "G2.6",
+        prompt: "¿Necesitas $?",
+        highlight: "análisis de mercado",
+        answers: [
+            {
+                title: "Si porfis.",
+                description:
+                    "",
+
+            },
+            {
+                title: "No necesito.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    {
+        id: "G2.7",
+        prompt: "¿Ya tienes un borrador de $?",
+        highlight: "objetivos, misión y/o visión",
+        answers: [
+            {
+                title: "No, es desde cero.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Sí, tengo un borrador y necesito revisión y ajuste.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Solo quiero validación rápida (feedback puntual).",
+                description:
+                    "",
+
+            },
+            {
+                title: "Si, no necesito.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    {
+        id: "G2.8",
+        prompt: "¿Necesitas $?",
+        highlight: "análisis de competencia",
+        answers: [
+            {
+                title: "Si porfis.",
+                description:
+                    "",
+
+            },
+            {
+                title: "No necesito.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    {
+        id: "G2.9",
+        prompt: "¿Necesitas realizar $?",
+        highlight: "lanzamiento de marca",
+        answers: [
+            {
+                title: "Si porfis.",
+                description:
+                    "",
+
+            },
+            {
+                title: "No necesito.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+
+    // PRODUCCION AUDIOVISUAL
+    {
+        id: 0x1204,
+        context: "HOLAa",
+        prompt: "¿Qué estilo de $ prefieres?",
+        highlight: "logotipo",
+        answers: [
+            {
+                title: "Tengo algo en mente.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Lo necesito desde cero.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Necesito asesoría.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    // ESTA PREGUNTA SE DESPLIEGA SI SE ESCOGE ESTRATEGIA DE MARCA (EN 0X1200)
+    {
+        id: 0x1211,
+        context: "HOLAa",
+        prompt: "¿Ya tienes un borrador de $?",
+        highlight: "objetivos, misión o visión",
+        answers: [
+            {
+                title: "No, es desde cero.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Sí, tengo un borrador y necesito revisión y ajuste.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Solo quiero validación rápida (feedback puntual).",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    // ESTAS PREGUNTAS SE DESPLIEGAN SI SE ESCOGE PRODUCCION AUDIOVISUAL (EN 0X1200)
+    {
+        id: 0x1221,
+        context: "HOLAa",
+        prompt: "¿Cuentas con $ o recursos?",
+        highlight: "insumos",
+        answers: [
+            {
+                title: "Si, ya cuento con imagenes de archivo.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Si, cuento con recursos pero quiero realizar nuevo rodaje.",
+                description:
+                    "",
+
+            },
+            {
+                title: "No tengo insumos o recursos.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    {
+        id: 0x1222,
+        context: "HOLAa",
+        prompt: "¿El $ mostrará a alguien hablando o solo imágenes del lugar?",
+        highlight: "video",
+        answers: [
+            {
+                title: "Persona hablando a cámara.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Solo tomas del lugar.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Ambas.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    {
+        id: 0x1223,
+        context: "HOLAa",
+        prompt: "¿Se requiere $ de iluminación y sonido?",
+        highlight: "equipos",
+        answers: [
+            {
+                title: "Si.",
+                description:
+                    "",
+
+            },
+            {
+                title: "No.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Necesito asesoría.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+    {
+        id: 0x1224,
+        context: "HOLAa",
+        prompt: "¿De cuanto es la $ aproximada del video?",
+        highlight: "duracion",
+        answers: [
+            {
+                title: "Si.",
+                description:
+                    "",
+
+            },
+            {
+                title: "No.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Necesito asesoría.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+
+    {
+        id: 0x1251,
+        context: "CASI CASI",
+        prompt: "¿Ya $?",
+        highlight: "casi",
+        answers: [
+            {
+                title: "Si.",
+                description:
+                    "",
+
+            },
+            {
+                title: "No.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Pailas.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+
+    {
+        id: 0x1252,
+        context: "SIIII",
+        prompt: "¿Ya $?",
+        highlight: "casito",
+        answers: [
+            {
+                title: "Si.",
+                description:
+                    "",
+
+            },
+            {
+                title: "No.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Necesito asesoría.",
+                description:
+                    "",
+
+            },
+        ],
+    },
 ];

@@ -14,10 +14,11 @@ export type Question = {
     highlight?: string;
     closed?: boolean;
     multi?: boolean;
+    types?: QuestionTypes;
     choices?: Choice[];
     options?: {unique: boolean[], values: string[][]};
-    previous: number[];
-    next: number[];
+    previous: string[];
+    next: string[];
     context?: string;
     postFlowId?: number;
     complexityFilter?: boolean;
