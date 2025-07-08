@@ -248,7 +248,7 @@ export const questions = (lang: Locale): Question[] => [
   },
 
   // --- PRODUCCION AUDIOVISUAL (G3) ---
-  // Este es un flujo corto, se asume que las preguntas son secuenciales
+  
   {
     id: "G3.1",
     prompt: getText(lang, "G3.1", "prompt") as string,
