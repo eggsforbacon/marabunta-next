@@ -596,25 +596,25 @@ export const es: {
             {
                 title: "Solo está la idea, no hay nada definido.",
                 description:
-                    "",
+                    "Partimos desde cero para crear una identidad de marca única, diseñando desde el nombre hasta los elementos visuales que representen tu visión.",
 
             },
             {
                 title: "Tengo algunos bocetos o referencias, pero nada implementado.",
                 description:
-                    "",
+                    "Tomamos tus ideas iniciales o referencias y las transformamos en una marca coherente y profesional, alineada con tus objetivos.",
 
             },
             {
                 title: "Marca en desarrollo (algunos activos ya existen, pero incompletos).",
                 description:
-                    "",
+                    "Completamos y optimizamos los elementos existentes de tu marca, asegurando consistencia y un impacto visual sólido en todos los canales.",
 
             },
             {
                 title: "Marca establecida, necesito actualización o ampliación de servicios.",
                 description:
-                    "",
+                    "Actualizamos o ampliamos tu marca con nuevos elementos visuales, estrategias digitales o campañas para mantenerla relevante y competitiva.",
 
             },
         ],
@@ -627,25 +627,25 @@ export const es: {
             {
                 title: "Quiero que lo generen completamente desde cero.",
                 description:
-                    "",
+                    "Creamos un nombre único y memorable para tu marca, asegurándonos de que sea distintivo y esté disponible para registro.",
 
             },
             {
                 title: "Ya tengo 2–3 opciones y necesito validación y registro de marca (verificación de disponibilidad).",
                 description:
-                    "",
+                    "Analizamos tus opciones de nombre, verificamos su disponibilidad legal y te ayudamos a seleccionar la mejor para tu marca.",
 
             },
             {
                 title: "Solo quiero verificar y validar un nombre existente (sin generación).",
                 description:
-                    "",
+                    "Revisamos tu nombre actual para confirmar su disponibilidad y viabilidad, asegurando que sea adecuado para tu mercado objetivo.",
 
             },
             {
                 title: "No necesito.",
                 description:
-                    "",
+                    "Si ya tienes un nombre definido, nos enfocamos en otros aspectos de tu marca, como diseño o estrategia de posicionamiento.",
 
             },
         ],
@@ -656,15 +656,15 @@ export const es: {
         highlight: "Benchmarking",
         answers: [
             {
-                title: "Si porfis.",
+                title: "Si, Por Favor.",
                 description:
-                    "",
+                    "Realizamos un análisis detallado de tu industria y competidores para identificar oportunidades y posicionar tu marca de manera efectiva.",
 
             },
             {
                 title: "No necesito.",
                 description:
-                    "",
+                    "Si ya tienes claridad sobre tu mercado, nos enfocamos directamente en desarrollar o mejorar los elementos de tu marca.",
 
             },
         ],
@@ -677,25 +677,24 @@ export const es: {
             {
                 title: "No, deseo que nos apoyen en definirlos desde cero.",
                 description:
-                    "",
+                    "Te ayudamos a identificar y articular los valores fundamentales de tu marca, creando una base sólida para su identidad y comunicación.",
 
             },
             {
                 title: "Sí, tengo algunos valores y necesito refinarlos.",
                 description:
-                    "",
+                    "Trabajamos contigo para pulir y alinear tus valores existentes, asegurando que reflejen la esencia de tu marca y conecten con tu audiencia.",
 
             },
             {
                 title: "Solo necesito validación de la personalidad existente.",
                 description:
-                    "",
-
+                     "Revisamos los valores actuales de tu marca para confirmar que son coherentes y efectivos, ofreciendo ajustes si es necesario.",
             },
             {
                 title: "Si, no necesito definirlos.",
                 description:
-                    "",
+                    "Si tus valores ya están definidos, nos enfocamos en integrarlos en tu estrategia de marca y diseño visual",
 
             },
         ],
@@ -706,15 +705,15 @@ export const es: {
         highlight: "diagnostico de marca",
         answers: [
             {
-                title: "Si porfis.",
+                title: "Si, Por Favor.",
                 description:
-                    "",
+                    "Realizamos un análisis completo de tu marca actual para evaluar su posicionamiento, coherencia y oportunidades de mejora.",
 
             },
             {
                 title: "No necesito.",
                 description:
-                    "",
+                    "Si tu marca ya está bien establecida, avanzamos directamente con los servicios de diseño, estrategia o implementación que necesites.",
 
             },
         ],
@@ -725,15 +724,15 @@ export const es: {
         highlight: "análisis de mercado",
         answers: [
             {
-                title: "Si porfis.",
+                title: "Si, Por Favor.",
                 description:
-                    "",
+                    "Estudiamos tu mercado objetivo para identificar tendencias, necesidades y oportunidades que fortalezcan la estrategia de tu marca.",
 
             },
             {
                 title: "No necesito.",
                 description:
-                    "",
+                    "Si ya conoces tu mercado, nos enfocamos en crear o mejorar los elementos visuales y estratégicos de tu marca.",
 
             },
         ],
@@ -746,25 +745,25 @@ export const es: {
             {
                 title: "No, es desde cero.",
                 description:
-                    "",
+                    "Creamos desde cero tu misión, visión y objetivos, asegurando que representen la esencia de tu marca y guíen su estrategia.",
 
             },
             {
                 title: "Sí, tengo un borrador y necesito revisión y ajuste.",
                 description:
-                    "",
+                    "Revisamos y optimizamos tu borrador de misión, visión y objetivos para que sean claros, inspiradores y alineados con tu marca.",
 
             },
             {
                 title: "Solo quiero validación rápida (feedback puntual).",
                 description:
-                    "",
+                    "Evaluamos rápidamente tu misión, visión y objetivos existentes, proporcionando feedback para asegurar su efectividad.",
 
             },
             {
                 title: "Si, no necesito.",
                 description:
-                    "",
+                    "Si ya tienes misión, visión y objetivos definidos, nos enfocamos en integrarlos en tu estrategia de branding y diseño.",
 
             },
         ],
@@ -775,15 +774,15 @@ export const es: {
         highlight: "análisis de competencia",
         answers: [
             {
-                title: "Si porfis.",
+                title: "Si, Por Favor.",
                 description:
-                    "",
+                    "Analizamos a tus competidores para identificar fortalezas, debilidades y oportunidades que posicionen tu marca de manera única.",
 
             },
             {
                 title: "No necesito.",
                 description:
-                    "",
+                    "Si ya tienes un análisis de competencia, nos enfocamos en desarrollar o mejorar los elementos de tu marca directamente.",
 
             },
         ],
@@ -794,15 +793,15 @@ export const es: {
         highlight: "lanzamiento de marca",
         answers: [
             {
-                title: "Si porfis.",
+                title: "Si, Por Favor.",
                 description:
-                    "",
+                    "Planificamos y ejecutamos una estrategia de lanzamiento impactante para presentar tu marca al mercado con éxito.",
 
             },
             {
                 title: "No necesito.",
                 description:
-                    "",
+                    "Si tu marca ya está lanzada, nos enfocamos en optimizarla o en crear nuevos elementos para su crecimiento.",
 
             },
         ],
@@ -810,61 +809,7 @@ export const es: {
 
     // PRODUCCION AUDIOVISUAL
     {
-        id: 0x1204,
-        context: "HOLAa",
-        prompt: "¿Qué estilo de $ prefieres?",
-        highlight: "logotipo",
-        answers: [
-            {
-                title: "Tengo algo en mente.",
-                description:
-                    "",
-
-            },
-            {
-                title: "Lo necesito desde cero.",
-                description:
-                    "",
-
-            },
-            {
-                title: "Necesito asesoría.",
-                description:
-                    "",
-
-            },
-        ],
-    },
-    // ESTA PREGUNTA SE DESPLIEGA SI SE ESCOGE ESTRATEGIA DE MARCA (EN 0X1200)
-    {
-        id: 0x1211,
-        context: "HOLAa",
-        prompt: "¿Ya tienes un borrador de $?",
-        highlight: "objetivos, misión o visión",
-        answers: [
-            {
-                title: "No, es desde cero.",
-                description:
-                    "",
-
-            },
-            {
-                title: "Sí, tengo un borrador y necesito revisión y ajuste.",
-                description:
-                    "",
-
-            },
-            {
-                title: "Solo quiero validación rápida (feedback puntual).",
-                description:
-                    "",
-
-            },
-        ],
-    },
-    // ESTAS PREGUNTAS SE DESPLIEGAN SI SE ESCOGE PRODUCCION AUDIOVISUAL (EN 0X1200)
-    {
-        id: 0x1221,
+        id: "G3.1",
         context: "HOLAa",
         prompt: "¿Cuentas con $ o recursos?",
         highlight: "insumos",
@@ -872,25 +817,25 @@ export const es: {
             {
                 title: "Si, ya cuento con imagenes de archivo.",
                 description:
-                    "",
+                    "Usamos tus imágenes de archivo para crear contenido audiovisual de alta calidad, optimizando tiempo y recursos.",
 
             },
             {
                 title: "Si, cuento con recursos pero quiero realizar nuevo rodaje.",
                 description:
-                    "",
+                    "Combinamos tus recursos existentes con un nuevo rodaje para producir contenido fresco y alineado con tu visión.",
 
             },
             {
                 title: "No tengo insumos o recursos.",
                 description:
-                    "",
+                    "Producimos todo desde cero, incluyendo rodaje, fotografía y edición, para crear contenido audiovisual impactante.",
 
             },
         ],
     },
     {
-        id: 0x1222,
+        id: "G3.2",
         context: "HOLAa",
         prompt: "¿El $ mostrará a alguien hablando o solo imágenes del lugar?",
         highlight: "video",
@@ -898,25 +843,51 @@ export const es: {
             {
                 title: "Persona hablando a cámara.",
                 description:
-                    "",
+                    "Creamos un video con una persona comunicando tu mensaje directamente, ideal para transmitir cercanía y autenticidad.",
 
             },
             {
                 title: "Solo tomas del lugar.",
                 description:
-                    "",
+                    "Producimos un video con imágenes del entorno, perfecto para destacar locaciones, productos o experiencias visuales.",
 
             },
             {
                 title: "Ambas.",
                 description:
-                    "",
+                    "Combinamos tomas de personas hablando y escenas del lugar para un video dinámico y completo que capte la atención.",
 
             },
         ],
     },
     {
-        id: 0x1223,
+        id: "G3.3",
+        context: "HOLAa",
+        prompt: "¿Tienes la $ para tu video?",
+        highlight: "idea",
+        answers: [
+            {
+                title: "Necesito ayuda con la idea y el storyboarding",
+                description:
+                     "Creamos desde cero la idea creativa y el guion gráfico para tu video, asegurando un concepto claro y visualmente impactante.",
+
+            },
+            {
+                title: "Tengo la idea pero necesito el storyboarding",
+                description:
+                    "Tomamos tu idea y la convertimos en un guion gráfico detallado, listo para guiar la producción de tu video.",
+
+            },
+            {
+                title: "Tengo el storyboarding hecho",
+                description:
+                     "Usamos tu guion gráfico existente para producir un video profesional, optimizando cada detalle según tus objetivos.",
+
+            },
+        ]
+    },
+    {
+        id: "G3.4",
         context: "HOLAa",
         prompt: "¿Se requiere $ de iluminación y sonido?",
         highlight: "equipos",
@@ -924,101 +895,1070 @@ export const es: {
             {
                 title: "Si.",
                 description:
-                    "",
+                    "Proporcionamos equipos profesionales de iluminación y sonido para garantizar una producción audiovisual de alta calidad.",
 
             },
             {
                 title: "No.",
                 description:
-                    "",
+                    "Si no necesitas equipos especializados, optimizamos la producción con recursos básicos para cumplir tus objetivos.",
 
             },
             {
                 title: "Necesito asesoría.",
                 description:
-                    "",
+                    "Te ayudamos a determinar qué equipos de iluminación y sonido son necesarios según el tipo de video que deseas.",
 
             },
         ],
     },
     {
-        id: 0x1224,
+        id: "G3.5",
+        context: "HOLAa",
+        prompt: "¿Cuántos $ necesitas?",
+        highlight: "videos",
+        hint: "",
+    },
+
+    {
+        id: "G3.6",
         context: "HOLAa",
         prompt: "¿De cuanto es la $ aproximada del video?",
         highlight: "duracion",
-        answers: [
-            {
-                title: "Si.",
-                description:
-                    "",
-
-            },
-            {
-                title: "No.",
-                description:
-                    "",
-
-            },
-            {
-                title: "Necesito asesoría.",
-                description:
-                    "",
-
-            },
-        ],
+        hint: "",
     },
 
-    {
-        id: 0x1251,
+    // GESTION DE REDES SOCIALES
+     
+   {
+        id: "G4.1",
         context: "CASI CASI",
-        prompt: "¿Ya $?",
-        highlight: "casi",
-        answers: [
-            {
-                title: "Si.",
-                description:
-                    "",
-
-            },
-            {
-                title: "No.",
-                description:
-                    "",
-
-            },
-            {
-                title: "Pailas.",
-                description:
-                    "",
-
-            },
+        prompt: "¿Qué $ sociales?",
+        highlight: "redes",
+        options: [
+            [
+                "LinkedIn",
+                "Instagram",
+                "Facebook",
+                "Twitter/X",
+                "TikTok",
+                "YouTube",
+                "Pinterest",
+                "WhatsApp",
+                "Otra",
+            ],
         ],
     },
 
     {
-        id: 0x1252,
+        id: "G4.2",
         context: "SIIII",
-        prompt: "¿Ya $?",
-        highlight: "casito",
+        prompt: "¿Necesitas $ y cronoposts?",
+        highlight: "publicaciones",
         answers: [
             {
                 title: "Si.",
-                description:
-                    "",
+                
 
             },
             {
                 title: "No.",
-                description:
-                    "",
-
-            },
-            {
-                title: "Necesito asesoría.",
-                description:
-                    "",
+               
 
             },
         ],
     },
+
+{
+        id: "G4.3",
+        context: "SIIII",
+        prompt: "¿Necesitas $ tu comunidad?",
+        highlight: "gestionar",
+        answers: [
+            {
+                title: "Si.",
+               
+
+            },
+            {
+                title: "No.",
+                
+
+            },
+        ],
+    },
+
+
+//DISEÑO
+
+
+{
+        id: "D0         ",
+        context: "SIIII",
+        prompt: "¿Cómo te podemos $?",
+        highlight: "ayudar",
+        answers: [
+            {
+                title: "Quiero diseño gráfico y 2D",
+                description:
+                     "Creamos diseños visuales impactantes en 2D, desde logotipos hasta materiales corporativos, para fortalecer la identidad de tu marca.",
+
+            },
+            {
+                title: "Quiero diseño animado",
+                description:
+                     "Producimos animaciones dinámicas en 2D o 3D que capturan la atención y comunican tu mensaje de forma creativa.",
+
+            },
+            {
+                title: "Quiero un diseño 3D estático",
+                description:
+                    "Desarrollamos modelos 3D estáticos para productos, espacios o visualizaciones, con alto nivel de detalle y realismo.",
+
+            },
+            {
+                title: "Quiero fotografía y postproducción",
+                description:
+                    "Ofrecemos sesiones fotográficas profesionales y edición avanzada para crear imágenes impactantes para tu marca o proyecto.",
+
+            },
+        ],
+
+},
+
+//DISEÑO GRAFICO Y 2D 
+
+{
+        id: "D1",
+        context: "SIIII",
+        prompt: "¿Qué $ requieres?",
+        highlight: "servicio",
+        answers: [
+            {
+                title: "Branding",
+                description:
+                     "Creamos o renovamos la identidad visual de tu marca, incluyendo logotipos, paletas de colores y tipografías únicas.",
+
+            },
+            {
+                title: "Material Corporativo",
+                description:
+                    "Diseñamos piezas corporativas como tarjetas de presentación, folletos y banners, alineadas con la identidad de tu marca.",
+
+            },  
+            {
+                title: "Diseño Editorial",
+                description:
+                    "Producimos publicaciones como revistas, catálogos o libros con un diseño atractivo y una diagramación profesional.",
+                
+            },
+            {
+                title: "Ilustración",
+                description:
+                    "Creamos ilustraciones personalizadas para campañas, productos o contenido digital, adaptadas a tu estilo y necesidades.",
+            },
+        ]
+},
+
+//BRANDING
+
+{
+        id: "D1.1.1",
+        context: "SIIII",
+        prompt: "¿Necesitas nuevo $ o rediseño?",
+        highlight: "branding",
+        answers: [
+            {
+                title: "Nuevo branding",
+                description:
+                    "Desarrollamos una identidad de marca desde cero, creando elementos visuales que representen tu visión y conecten con tu audiencia.",
+            },
+            {
+                title: "Rediseño",
+                description:
+                    "Actualizamos tu branding existente para modernizarlo, mejorar su impacto y alinearlo con tus objetivos actuales.",
+            },
+        ]
+},
+
+{
+        id: "D1.1.2",
+        context: "SIIII",
+        prompt: "¿Necesitas $ de marca?",
+        highlight: "manual",
+        answers: [
+            {
+                title: "Si, Por Favor.",
+               
+            },
+            {
+                title: "No necesito.",
+               
+            },
+        ]
+},
+
+{
+        id: "D1.1.3",
+        context: "SIIII",
+        prompt: "¿Necesitas $ de logotipo?",
+        highlight: "diseño",
+        answers: [
+            {
+                title: "Si, Por Favor.",
+                
+            },
+            {
+                title: "No necesito.",
+              
+            },
+        ]
+},
+
+//MATERIAL CORPORATIVO
+
+{
+        id: "D1.2.1",
+        context: "SIIII",
+        prompt: "¿Qué tipo de $ necesitas",
+        highlight: "piezas",
+        answers: [
+            {
+                title: "Piezas grandes",
+                description:
+                    "Diseñamos materiales de gran formato como vallas, pendones o carteles para un impacto visual máximo en eventos o espacios públicos.",
+            },
+            {
+                title: "Piezas pequeñas",
+                description:
+                   "Creamos elementos compactos como tarjetas de presentación, volantes o etiquetas, perfectos para detalles corporativos.",
+            },
+            {
+                title: "Piezas digitales",
+                description:
+                    "Producimos gráficos optimizados para redes sociales, sitios web o campañas digitales, adaptados a tus necesidades online.",
+            },
+        ]
+},
+{
+        id: "D1.2.2",
+        context: "SIIII",
+        prompt: "¿Cantidad de piezas $ a diseñar?",
+        highlight: "distintas",
+        hint: "",
+},
+
+//DISEÑO EDITORIAL
+
+{
+        id: "D1.3.1",
+        context: "SIIII",
+        prompt: "¿Qué tipo de $ necesitas?",
+        highlight: "publicación",
+        answers: [
+            {
+                title: "Revista",
+                description:
+                    "Diseñamos revistas atractivas con una diagramación profesional que combina estética y funcionalidad para captar a tu audiencia.",
+            },
+            {
+                title: "Catalogo",
+                description:
+                    "Creamos catálogos visualmente impactantes para mostrar tus productos o servicios de manera clara y organizada.",
+            },
+            {
+                title: "Libro",
+                description:
+                    "Producimos el diseño y diagramación de libros, asegurando un formato elegante y legible que resalte tu contenido.",
+            },
+            {
+                title: "Informe",
+                description:
+                    "Diseñamos informes profesionales con gráficos claros y un diseño limpio para comunicar datos de manera efectiva.",
+            },
+        ]
+},
+
+{
+        id: "D1.3.2",
+        context: "SIIII",
+        prompt: "¿Necesitas $ o solo diseño?",
+        highlight: "diagramación",
+        answers: [
+           {
+                title: "Necesito diagramación y diseño.",
+                description:
+                    "Creamos el diseño visual y la diagramación completa de tu publicación, asegurando un resultado profesional y cohesivo.",
+            },
+            {
+                title: "Necesito solo diagramación.",
+                description:
+                    "Organizamos tu contenido existente en un formato claro y atractivo, optimizando la estructura de la publicación.",
+            },
+            {
+                title: "Necesito solo diseño.",
+                description:
+                    "Diseñamos elementos visuales para tu publicación, como portadas o gráficos, sin incluir la diagramación completa.",
+            },
+            {
+                title: "No necesito.",
+                description:
+                    "Si ya tienes el diseño y la diagramación, nos enfocamos en otros aspectos de tu proyecto editorial.",
+            },
+        ]
+},
+
+{
+        id: "D1.3.3",
+        context: "SIIII",
+        prompt: "¿Número $ de páginas?",
+        highlight: "estimado",
+        hint: "",
+},
+
+
+//ILUSTRACION
+
+{
+        id: "D1.4.1",
+        context: "SIIII",
+        prompt: "¿Qué tipo de $ necesitas??",
+        highlight: "ilustración",
+        answers: [
+           {
+                title: "Ilustración conceptual",
+                description:
+                    "Creamos ilustraciones abstractas que transmiten ideas o conceptos, ideales para campañas creativas o narrativas visuales.",
+            },
+            {
+                title: "Ilustración de personaje",
+                description:
+                    "Diseñamos personajes únicos para tu marca, historias o campañas, con un estilo que conecta con tu audiencia.",
+            },
+            {
+                title: "Ilustración técnica",
+                description:
+                    "Producimos ilustraciones precisas para manuales, diagramas o productos, con un enfoque en claridad y detalle.",
+            },
+           
+        ]
+},
+
+{
+        id: "D1.4.2",
+        context: "SIIII",
+        prompt: "¿Qué $ de ilustración buscas?",
+        highlight: "estilo",
+        answers: [
+            {
+                title: "Sketch",
+                description:
+                    "Creamos ilustraciones con un estilo de boceto a mano, perfecto para un look orgánico y creativo.",
+            },
+            {
+                title: "Vectorial",
+                description:
+                    "Diseñamos ilustraciones vectoriales escalables, ideales para branding, impresiones y uso digital sin pérdida de calidad.",
+            },
+            {
+                title: "Digital",
+                description:
+                    "Producimos ilustraciones digitales con acabados modernos, adaptadas a tus necesidades en redes sociales o campañas.",
+            },
+        ]
+},
+{
+        id: "D1.4.3",
+        context: "SIIII",
+        prompt: "¿Número piezas estimadas?",
+        highlight: "manual",
+        hint: "", 
+},
+
+//DISEÑO ANIMADO
+
+{
+        id: "D2.1",
+        context: "SIIII",
+        prompt: "¿Qué clase de $ necesitas?",
+        highlight: "animación",
+        answers: [            
+           {
+                title: "Animación 2D",
+                description:
+                    "Creamos animaciones bidimensionales vibrantes, perfectas para videos explicativos, anuncios o contenido digital.",
+            },
+            {
+                title: "Animación 3D",
+                description:
+                    "Producimos animaciones tridimensionales con alto nivel de detalle, ideales para productos o visualizaciones inmersivas.",
+            },
+            {
+                title: "Animación 2D y 3D",
+                description:
+                    "Combinamos técnicas 2D y 3D para crear animaciones únicas que destacan por su creatividad y versatilidad.",
+            },
+        ]
+},
+
+{
+        id: "D2.2",
+        context: "SIIII",
+        prompt: "¿Qué nivel de $ deseas?",
+        highlight: "realismo",
+        answers: [
+           {
+                title: "Cartoon",
+                description:
+                    "Diseñamos animaciones con un estilo caricaturesco, ideal para contenido lúdico, educativo o de entretenimiento.",
+            },
+            {
+                title: "Realista",
+                description:
+                    "Creamos animaciones con un enfoque realista, perfectas para visualizaciones de productos o proyectos técnicos.",
+            },
+        ]
+},
+
+{
+        id: "D2.3",
+        context: "SIIII",
+        prompt: "¿Qué tipo de $ buscas?",
+        highlight: "contenido",
+        answers: [
+            {
+                title: "Producto",
+                description:
+                    "Animamos productos para destacar sus características y atraer a tu audiencia en campañas o presentaciones.",
+            },
+            {
+                title: "Arquitectura",
+                description:
+                    "Creamos animaciones de espacios arquitectónicos para visualizar proyectos de diseño o construcciones de manera impactante.",
+            },
+            {
+                title: "Personajes",
+                description:
+                    "Diseñamos y animamos personajes que dan vida a historias o campañas, conectando emocionalmente con tu público.",
+            },
+        ]
+},
+
+{
+        id: "D2.4",
+        context: "SIIII",
+        prompt: "¿Qué $ de animación buscas?",
+        highlight: "tipo",
+        answers: [
+            {
+                title: "Explicativa",
+                description:
+                    "Producimos animaciones que explican conceptos o procesos de forma clara y atractiva, ideales para tutoriales o presentaciones.",
+            },
+            {
+                title: "Storytelling",
+                description:
+                    "Creamos animaciones narrativas que cuentan historias envolventes para conectar emocionalmente con tu audiencia.",
+            },
+            {
+                title: "Motion graphics",
+                description:
+                    "Diseñamos gráficos en movimiento modernos para anuncios, intros o contenido digital que capte la atención.",
+            },
+        ]
+},
+{
+        id: "D2.5",
+        context: "SIIII",
+        prompt: "¿Duración $ de la animación?",
+        highlight: "estimada",
+        hint: "",
+},
+     
+
+//DISEÑO 3D ESTATICO
+
+{
+        id: "D3.1",
+        context: "SIIII",
+        prompt: "¿Que $ necesitas?",
+        highlight: "servicios",
+        answers: [
+            {
+                title: "Modelado 3D",
+                description:
+                    "Creamos modelos tridimensionales detallados para productos, objetos o personajes, listos para renderizado o uso digital.",
+            },
+            {
+                title: "Stands y espacios",
+                description:
+                    "Diseñamos visualizaciones 3D de stands o espacios para eventos, ferias o presentaciones, con un enfoque en impacto visual.",
+            },
+            {
+                title: "Modelado de espacios",
+                description:
+                    "Producimos modelos 3D de entornos arquitectónicos o interiores, ideales para proyectos de diseño o planificación.",
+            },
+        ]
+},
+
+//MODELO 3D 
+
+{
+        id: "D3.1.1",
+        context: "SIIII",
+        prompt: "¿Qué tipo de $ necesitas?",
+        highlight: "objeto",
+        answers: [
+           {
+                title: "Mueble",
+                description:
+                    "Modelamos muebles en 3D con detalles precisos, perfectos para catálogos, visualizaciones o diseño de interiores.",
+            },
+            {
+                title: "Electrodoméstico",
+                description:
+                    "Creamos modelos 3D de electrodomésticos, optimizados para presentaciones de productos o campañas publicitarias.",
+            },
+            {
+                title: "Pieza industrial",
+                description:
+                    "Diseñamos piezas industriales en 3D con alta precisión, ideales para prototipos o visualizaciones técnicas.",
+            },
+            {
+                title: "Otro",
+                description:
+                    "¿Tienes un objeto único en mente? Creamos un modelo 3D personalizado según tus necesidades específicas.",
+            },
+        ]
+},
+
+{
+        id: "D3.1.2",
+        context: "SIIII",
+        prompt: "¿Cuántos objetos $?",
+        highlight: "distintos",
+        hint: "",
+},
+
+{
+        id: "D3.1.3",
+        context: "SIIII",
+        prompt: "¿Deseas solo el $ base o incluir el render?",
+        highlight: "modelo",
+        answers: [
+           {
+                title: "Modelo base + Render",
+                description:
+                    "Producimos el modelo 3D y un render de alta calidad para visualizar tu objeto con detalles realistas.",
+            },
+            {
+                title: "Modelo base",
+                description:
+                    "Creamos únicamente el modelo 3D, listo para que lo uses en otros procesos como animación o impresión.",
+            },
+        ]
+},
+
+{
+        id: "D3.1.4",
+        context: "SIIII",
+        prompt: "¿Qué tipo de $ quieres para el modelado?",
+        highlight: "detalle",
+        answers: [
+            {
+                title: "Texturizado",
+                description:
+                    "Añadimos texturas detalladas al modelo 3D para un acabado visualmente rico y adaptado a tu proyecto.",
+            },
+            {
+                title: "Materiales realistas",
+                description:
+                    "Aplicamos materiales realistas al modelo 3D, ideales para renders que requieren un alto nivel de autenticidad.",
+            },
+        ]
+},
+
+//STANDS Y ESPACIOS
+
+{
+        id: "D3.2.1",
+        context: "SIIII",
+        prompt: "¿Para qué tipo de $ lo buscas?",
+        highlight: "espacio ",
+        answers: [
+            {
+                title: "Feria",
+                description:
+                    "Diseñamos stands 3D impactantes para ferias, optimizados para atraer visitantes y destacar tu marca.",
+            },
+            {
+                title: "Showroom",
+                description:
+                    "Creamos visualizaciones 3D de showrooms para mostrar productos o servicios en un entorno elegante y funcional.",
+            },
+            {
+                title: "Instalación",
+                description:
+                    "Modelamos instalaciones artísticas o funcionales en 3D, perfectas para eventos o espacios personalizados.",
+            },
+            {
+                title: "Otros",
+                description:
+                    "¿Tienes un espacio único en mente? Diseñamos una solución 3D personalizada para tus necesidades.",
+            },
+        ]
+},
+
+{
+        id: "D3.2.2",
+        context: "SIIII",
+        prompt: "¿Cuántos objetos $?",
+        highlight: "distintos",
+        hint: "",
+},
+
+{
+        id: "D3.2.3",
+        context: "SIIII",
+        prompt: "¿Cómo necesitas la $?",
+        highlight: "entrega",
+        answers: [
+            {
+                title: "Para construcción real",
+                description:
+                    "Proporcionamos diseños 3D detallados con especificaciones técnicas para la construcción física de tu espacio.",
+            },
+            {
+                title: "Para visualización",
+                description:
+                    "Creamos renders 3D de alta calidad para visualizar tu espacio, ideales para presentaciones o aprobaciones.",
+            },
+        ]
+},
+
+//MODELO DE ESPACIOS
+
+{
+        id: "D3.3.1",
+        context: "SIIII",
+        prompt: "¿Qué tipo de $ lo buscas?",
+        highlight: "estilo",
+        answers: [
+           {
+                title: "Realista",
+                description:
+                    "Diseñamos modelos 3D con un estilo realista, perfectos para visualizaciones arquitectónicas o presentaciones profesionales.",
+            },
+            {
+                title: "Cartoon",
+                description:
+                    "Creamos modelos 3D con un estilo caricaturesco, ideales para proyectos lúdicos o educativos.",
+            },
+            {
+                title: "Estilizado",
+                description:
+                    "Producimos modelos 3D con un estilo artístico único, combinando creatividad y detalle para un impacto visual distintivo.",
+            },
+                     
+        ]
+},
+
+{
+        id: "D3.3.2",
+        context: "SIIII",
+        prompt: "¿Cuántos $ deseas?",
+        highlight: "personajes",
+        hint: "",
+},
+
+{
+        id: "D3.3.3",
+        context: "SIIII",
+        prompt: "¿Cuál es la $ de estos?",
+        highlight: "finalidad",
+        answers: [
+             {
+                title: "Render",
+                description:
+                    "Creamos renders 3D de alta calidad para visualizar tus personajes o espacios con un acabado profesional.",
+            },
+            {
+                title: "Impresión 3D",
+                description:
+                    "Diseñamos modelos 3D optimizados para impresión, asegurando precisión y compatibilidad con impresoras 3D.",
+            },
+            {
+                title: "Animación",
+                description:
+                    "Producimos modelos 3D listos para animación, con detalles optimizados para movimientos y narrativas dinámicas.",
+            },
+        ]
+},
+
+{
+        id: "D3.3.4",
+        context: "SIIII",
+        prompt: "¿Incluye $ o solo malla?",
+        highlight: "rigging",
+         answers: [
+            {
+                title: "Malla + Rigging",
+                description:
+                    "Creamos el modelo 3D con rigging completo, listo para animaciones fluidas y movimientos realistas.",
+            },
+            {
+                title: "Solo malla",
+                description:
+                    "Producimos únicamente la malla 3D, ideal para renders estáticos o usos que no requieren animación.",
+            },
+            ]
+
+
+        },
+
+//FOTOGRÁFIA Y POSTPRODUCCION
+
+{
+        id: "D4.1",
+        context: "SIIII",
+        prompt: "¿Cuántas $ necesitas?",
+        highlight: "fotografías",
+        hint: "",
+},
+{
+        id: "D4.2",
+        context: "SIIII",
+        prompt: "¿Qué nivel de $ necesitas?",
+        highlight: "edición",
+        answers: [
+           {
+                title: "Corrección básica",
+                description:
+                    "Ajustamos color, brillo y contraste para mejorar tus fotos, manteniendo un look natural y profesional.",
+            },
+            {
+                title: "Retoque",
+                description:
+                    "Realizamos retoques detallados, como eliminación de imperfecciones o ajustes avanzados, para un acabado impecable.",
+            },
+            {
+                title: "Manipulación digital",
+                description:
+                    "Creamos efectos avanzados o modificaciones complejas, ideales para fotos creativas o campañas publicitarias.",
+            },
+        ]
+},
+{
+        id: "D4.3",
+        context: "SIIII",
+        prompt: "¿Cual es la $ o medio que buscas?",
+        highlight: "finalidad",
+        answers: [
+            {
+                title: "Para web",
+                description:
+                    "Optimizamos tus fotos para sitios web, asegurando tiempos de carga rápidos y calidad visual en digital.",
+            },
+            {
+                title: "Para impresión",
+                description:
+                    "Preparamos tus fotos con alta resolución para impresiones físicas, garantizando nitidez y detalle.",
+            },
+            {
+                title: "Para redes sociales",
+                description:
+                    "Editamos tus fotos para destacar en redes sociales, adaptándolas a formatos y estilos que maximicen el engagement.",
+            },
+            {
+                title: "Otros",
+                description:
+                    "¿Tienes un propósito específico en mente? Personalizamos la edición según tus necesidades únicas.",
+            },
+        ]
+},
+
+//COMUNICACIONES
+
+{
+        id: "C0",
+        context: "SIIII",
+        prompt: "¿Cómo te podemos $?",
+        highlight: "ayudar",
+        answers: [
+            {
+                title: "Estrategia y Conceptualización",
+                description:
+                    "Desarrollamos estrategias de comunicación creativas y efectivas, desde la idea hasta la ejecución, para conectar con tu audiencia.",
+            },
+            {
+                title: "Redacción y Guionaje",
+                description:
+                    "Creamos textos y guiones claros y atractivos para campañas, videos o publicaciones que transmitan tu mensaje con impacto.",
+            },
+            {
+                title: "Producción de Audio",
+                description:
+                    "Producimos contenido de audio profesional, como cuñas radiales o efectos sonoros, para potenciar tus proyectos.",
+            },
+            {
+                title: "Producción Audiovisual",
+                description:
+                    "Realizamos videos y fotos de alta calidad, desde la grabación hasta la postproducción, para destacar tu marca.",
+            },
+        ]
+},
+
+//ESTRATEGIA Y CONCEPTUALIZACIÓN
+
+{
+        id: "C1.1",
+        context: "SIIII",
+        prompt: "¿En cuáles de estos $ te gustaría apoyarte?",
+        highlight: "servicios",
+        answers: [
+           {
+                title: "Conceptualización de campaña (idea y mensaje central)",
+                description:
+                    "Creamos el concepto y mensaje central de tu campaña, asegurando que sea memorable y conecte con tu público.",
+            },
+            {
+                title: "Plan de Medios (elección de canales y presupuestos)",
+                description:
+                    "Diseñamos un plan de medios estratégico, seleccionando los canales y presupuestos ideales para maximizar tu alcance.",
+            },
+            {
+                title: "Minuto a minuto (guía detallada de timing y contenidos)",
+                description:
+                    "Elaboramos una guía detallada con cronogramas y contenidos para asegurar una ejecución fluida de tu campaña.",
+            },
+        ]
+},
+
+//REDACCION Y GUIONAJE
+
+{
+        id: "C2.1",
+        context: "SIIII",
+        prompt: "¿Necesitas que realicemos el $?",
+        highlight: "guion",
+        answers: [
+            {
+                title: "Sí",
+
+            },
+            {
+                title: "No ",
+
+            },
+        ],
+},
+
+{
+        id: "C2.2",
+        context: "SIIII",
+        prompt: "¿Requieres textos para piezas $ (banners, posts, flyers)?",
+        highlight: "publicitarias",
+        answers: [
+            {
+                title: "Sí",
+
+            },
+            {
+                title: "No ",
+
+            },
+        ],
+},
+
+{
+        id: "C2.3",
+        context: "SIIII",
+        prompt: "¿Te gustaría incluir $ o captions?",
+        highlight: "subtítulos",
+        answers: [
+            {
+                title: "Sí, subtítulos completos",
+
+            },
+            {
+                title: "No, no los necesito ",
+
+            },
+        ],
+},
+{
+        id: "C2.4",
+        context: "SIIII",
+        prompt: "¿Deseas un $ informativo ?",
+        highlight: "boletín",
+        answers: [
+            {
+                title: "Sí, envíos regulares",
+
+            },
+            {
+                title: "No, no los necesito ",
+
+            },
+        ],
+},
+{
+        id: "C2.5",
+        context: "SIIII",
+        prompt: "¿Planeas un $ sencillo?",
+        highlight: "mailing",
+        answers: [
+            {
+                title: "Sí",
+
+            },
+            {
+                title: "No ",
+
+            },
+        ],
+},
+{
+        id: "C2.6",
+        context: "SIIII",
+        prompt: "¿Quieres $ para una revista?",
+        highlight: "contenidos",
+        answers: [
+            {
+                title: "Sí",
+
+            },
+            {
+                title: "No ",
+
+            },
+        ],
+},
+
+
+//PRODUCCION DE AUDIO
+
+{
+        id: "C3.1",
+        context: "SIIII",
+        prompt: "¿Qué $ necesitas??",
+        highlight: "servicios",
+        answers: [
+           {
+                title: "Cuña radial (spot para radio)",
+                description:
+                    "Producimos cuñas radiales impactantes que transmiten tu mensaje de forma clara y atractiva para la audiencia.",
+            },
+            {
+                title: "Edición y montaje de pistas de audio",
+                description:
+                    "Editamos y mezclamos pistas de audio para crear contenido profesional, optimizado para tu proyecto o campaña.",
+            },
+            {
+                title: "Diseño de efectos sonoros (SFX)",
+                description:
+                    "Creamos efectos sonoros personalizados para videos, animaciones o juegos, añadiendo impacto y realismo.",
+            },
+            {
+                title: "Musicalización royalty-free",
+                description:
+                    "Seleccionamos o componemos música libre de derechos para complementar tus proyectos audiovisuales con el tono perfecto.",
+            },
+        ]
+},
+
+//PRODUCCION AUDIOVISUAL
+
+{
+        id: "C4.1",
+        context: "SIIII",
+        prompt: "¿Requieres $ fotográfica o videográfica?",
+        highlight: "cobertura",
+        answers: [
+           {
+                title: "Necesito cobertura fotográfica",
+                description:
+                    "Capturamos imágenes profesionales de eventos, productos o espacios para destacar tu marca con calidad visual.",
+            },
+            {
+                title: "Necesito cobertura videográfica",
+                description:
+                    "Producimos videos de alta calidad para eventos o campañas, grabando momentos clave con un enfoque creativo.",
+            },
+            {
+                title: "No necesito",
+                description:
+                    "Si no requieres cobertura, nos enfocamos en otros aspectos como edición o producción de contenido audiovisual.",
+            },
+        ]
+},
+{
+        id: "C4.2",
+        context: "SIIII",
+        prompt: "¿Quieres producir un video (reel, spot, etc)?",
+        highlight: "manual",
+        answers: [
+            {
+                title: "Si, Por Favor.",
+              
+            },
+            {
+                title: "No necesito.",
+                
+            },
+        ]
+},
+
+{
+        id: "C4.3",
+        context: "SIIII",
+        prompt: "¿Necesitas una $ fotográfica profesional?",
+        highlight: "sesión",
+        answers: [
+            {
+                title: "Si, Por Favor.",
+                
+            },
+            {
+                title: "No necesito.",
+                
+            },
+        ]
+},
+
+{
+        id: "C4.4",
+        context: "SIIII",
+        prompt: "¿Deseas $ o editar un video ya existente?",
+        highlight: "adaptar",
+        answers: [
+            {
+                title: "Si, Por Favor.",
+                
+            },
+            {
+                title: "No necesito.",
+                
+            },
+        ]
+},
+
+{
+        id: "C4.5",
+        context: "SIIII",
+        prompt: "¿Necesitas un $ digital de imágenes o videos?",
+        highlight: "retoque ",
+        answers: [
+            {
+                title: "Si, Por Favor.",
+                
+            },
+            {
+                title: "No necesito.",
+                
+            },
+        ]
+},
+
 ];
