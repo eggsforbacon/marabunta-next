@@ -27,7 +27,7 @@ const Answer = ({
             {children}
           </div>
           <div
-            className={`flex flex-col items-start justify-center transition-all duration-400 delay-200 ease-in-out ${isMultipleSelect ? "" : "-mx-4"} ${active ? "opacity-100" : "opacity-0 select-none pointer-events-none"}`}
+            className={`px-4 flex flex-col items-start justify-center transition-all duration-400 delay-200 ease-in-out ${isMultipleSelect ? "" : "-mx-4"} ${active ? "opacity-100" : "opacity-30 select-none pointer-events-none"}`}
           >
             <h3 className={"font-bold text-2xl"}>{title}</h3>
             {description && (

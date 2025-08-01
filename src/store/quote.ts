@@ -1,9 +1,11 @@
 import { create } from "zustand";
-import { Answer } from "@/types/quote";
+import { Answer, QuestionTypes, Question } from "@/types/quote";
 import { getQuestion } from "@/model/quote";
-import { QuestionTypes } from "@/types/quote";
 
 type Locale = "es" | "en";
+
+const INTRO_ID = "intro";
+const INITIAL_QUESTION_ID = "0";
 
 interface QuoteStore {
     quoteEmail: string;
@@ -12,48 +14,57 @@ interface QuoteStore {
     ceiling: number;
     basket: Answer[];
     addToBasket: (p: Answer) => void;
-    removeFromBasket: (id: number) => void;
-    current: number;
-    continueQuestion: (id: number | number[]) => void;
-    stack: number[];
-    subflowQueue: number[];
-    flowRootId: number | null;
+    removeFromBasket: (id: string) => void;
+    current: string;
+    continueQuestion: (id: string | string[]) => void;
+    stack: string[];
+    subflowQueue: string[];
+    flowRootId: string | null;
     goBackQuestion: () => void;
     reset: () => void;
     activeOption: number;
     setActiveOption: (i: number) => void;
     rangeValue: number;
     setRangeValue: (i: number) => void;
-    answers: { [key: number]: number | { index: number; timestamp: number }[] };
-    setAnswer: (questionId: number, optionIndex: number | { index: number; timestamp: number }[]) => void;
+    answers: { [key: string]: number | { index: number; timestamp: number }[] };
+    setAnswer: (questionId: string, optionIndex: number | { index: number; timestamp: number }[]) => void;
     selectedOptions: { index: number; timestamp: number }[];
     setSelectedOptions: (options: { index: number; timestamp: number }[]) => void;
     lang: Locale;
     setLang: (lang: Locale) => void;
 }
 
-/** Función auxiliar para determinar el siguiente estado del flujo */
 const determineNextState = (
-    rawIds: number[],
-    current: number,
-    stack: number[],
-    subflowQueue: number[],
-    flowRootId: number | null,
+    rawIds: string[],
+    current: string,
+    stack: string[],
+    subflowQueue: string[],
+    flowRootId: string | null,
     lang: Locale
 ) => {
-    const ids = rawIds.filter((id) => id !== undefined && id !== -1);
+
+    if (current === INTRO_ID) {
+        const nextId = rawIds[0];
+        return {
+            current: nextId,
+            stack: [current, nextId],
+            subflowQueue: [],
+            flowRootId: null,
+            resetOptions: true,
+        };
+    }
+
+    const ids = rawIds.filter((id) => id !== undefined && id !== "-1");
     const currentQuestion = getQuestion(current, lang);
 
-    // Establecer flowRootId si es una pregunta de selección múltiple y no está definido
     let newFlowRootId = flowRootId;
     if (currentQuestion?.types === QuestionTypes.MULTIPLE_SELECT && !flowRootId) {
         newFlowRootId = current;
     }
 
-    // Caso 1: Hay subflujos válidos para procesar (nueva selección)
     if (ids.length > 0) {
         const nextId = ids[0];
-        const newSubflowQueue = [...ids.slice(1), ...subflowQueue]; // Encolar el resto
+        const newSubflowQueue = [...ids.slice(1), ...subflowQueue];
         return {
             current: nextId,
             stack: [...stack, nextId],
@@ -63,7 +74,6 @@ const determineNextState = (
         };
     }
 
-    // Caso 2: Hay subflujos en la cola para procesar
     if (subflowQueue.length > 0) {
         const nextSubflowId = subflowQueue[0];
         const updatedQueue = subflowQueue.slice(1);
@@ -76,7 +86,6 @@ const determineNextState = (
         };
     }
 
-    // Caso 3: No hay más subflujos, avanzar al postFlowId si corresponde
     if (newFlowRootId && stack.includes(newFlowRootId)) {
         const flowQuestion = getQuestion(newFlowRootId, lang);
         if (flowQuestion?.postFlowId) {
@@ -90,13 +99,12 @@ const determineNextState = (
         }
     }
 
-    // Caso 4: Retroceder si no hay más opciones
-    const updatedStack = stack.length > 1 ? stack.slice(0, -1) : [0x0000];
+    const updatedStack = stack.length > 1 ? stack.slice(0, -1) : [INTRO_ID];
     return {
-        current: updatedStack[updatedStack.length - 1] || 0x0000,
+        current: updatedStack[updatedStack.length - 1] || INTRO_ID,
         stack: updatedStack,
         subflowQueue: [],
-        flowRootId: newFlowRootId,
+        flowRootId: null,
         resetOptions: true,
     };
 };
@@ -108,26 +116,15 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
     ceiling: 0,
     basket: [],
     addToBasket: (p: Answer) => set((state) => ({ basket: [...state.basket, p] })),
-    removeFromBasket: (id: number) =>
+    removeFromBasket: (id: string) =>
         set((state) => ({ basket: state.basket.filter((p) => p.id !== id) })),
-    current: 0x0000,
-    stack: [0x0000],
+    current: INTRO_ID,
+    stack: [INTRO_ID],
     subflowQueue: [],
     flowRootId: null,
-    continueQuestion: (id: number | number[]) =>
+    continueQuestion: (id: string | string[]) =>
         set((state) => {
             const rawIds = Array.isArray(id) ? id : [id];
-
-            // Caso especial para 0x1102
-            if (state.current === 4354 && state.stack[state.stack.length - 2] === 4355) {
-                return {
-                    current: 0x1105,
-                    stack: [...state.stack, 0x1105],
-                    activeOption: 0,
-                    selectedOptions: [],
-                };
-            }
-
             const nextState = determineNextState(
                 rawIds,
                 state.current,
@@ -136,7 +133,6 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
                 state.flowRootId,
                 state.lang
             );
-
             return {
                 ...nextState,
                 ...(nextState.resetOptions && {
@@ -148,21 +144,16 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
     goBackQuestion: () =>
         set((state) => {
             if (state.stack.length <= 1) {
-                return {
-                    current: 0x0000,
-                    stack: [0x0000],
-                    subflowQueue: [],
-                    flowRootId: null,
-                    activeOption: 0,
-                    selectedOptions: [],
-                };
+                return { current: INTRO_ID, stack: [INTRO_ID] };
             }
             const newStack = state.stack.slice(0, -1);
+            const previousQuestionId = newStack[newStack.length - 1] || INTRO_ID;
             const newFlowRootId = state.flowRootId !== null && newStack.includes(state.flowRootId) ? state.flowRootId : null;
+
             return {
-                current: newStack[newStack.length - 1] || 0x0000,
+                current: previousQuestionId,
                 stack: newStack,
-                subflowQueue: state.subflowQueue,
+                subflowQueue: [],
                 flowRootId: newFlowRootId,
                 activeOption: 0,
                 selectedOptions: [],
@@ -170,8 +161,8 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
         }),
     reset: () =>
         set(() => ({
-            current: 0x0000,
-            stack: [0x0000],
+            current: INTRO_ID,
+            stack: [INTRO_ID],
             subflowQueue: [],
             flowRootId: null,
             basket: [],
@@ -180,13 +171,16 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
             average: 0,
             answers: {},
             lang: "es",
+            activeOption: 0,
+            selectedOptions: [],
+            rangeValue: 0,
         })),
     activeOption: 0,
     setActiveOption: (i: number) => set(() => ({ activeOption: i })),
     rangeValue: 0,
     setRangeValue: (i: number) => set(() => ({ rangeValue: i })),
     answers: {},
-    setAnswer: (questionId: number, optionIndex: number | { index: number; timestamp: number }[]) =>
+    setAnswer: (questionId: string, optionIndex: number | { index: number; timestamp: number }[]) =>
         set((state) => ({
             answers: { ...state.answers, [questionId]: optionIndex },
         })),

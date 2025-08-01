@@ -1,14 +1,7 @@
 import {Choice} from "@/types/quote";
+import { TranslationEntry } from "@/services/common";
 
-export const es: {
-    id: string;
-    context?: string;
-    prompt: string;
-    highlight?: string;
-    answers?: Choice[];
-    options?: string[][];
-    hint?: string,
-}[] = [
+export const es: TranslationEntry[] = [
     {
         id: "0",
         prompt: "¿Qué vamos a $ juntos?",
@@ -993,7 +986,7 @@ export const es: {
 
 
 {
-        id: "D0         ",
+        id: "D0",
         context: "SIIII",
         prompt: "¿Cómo te podemos $?",
         highlight: "ayudar",
