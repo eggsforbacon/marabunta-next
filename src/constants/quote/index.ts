@@ -13,11 +13,14 @@ export const questions = (lang: Locale): Question[] => [
     next: ["G0", "D0", "C0", "P0"],
     choices: getText(lang, "0", "answers") as Choice[],
   },
+
+  // --- DIGITAL ---
   {
     id: "G0",
+    context: getText(lang, "G0", "context") as string,
     prompt: getText(lang, "G0", "prompt") as string,
     highlight: (getText(lang, "G0", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["0"],
     next: ["G1", "G2.1", "G3.1", "G4.1"],
     choices: getText(lang, "G0", "answers") as Choice[],
@@ -27,18 +30,19 @@ export const questions = (lang: Locale): Question[] => [
 
   {
     id: "G1",
+    context: getText(lang, "G1", "context") as string,
     prompt: getText(lang, "G1", "prompt") as string,
     highlight: (getText(lang, "G1", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["G0"],
-    // Se agregaron las rutas faltantes a G1.2.1 (Móvil) y G1.3.1 (Escritorio).
-    next: ["G1.1.1", "G1.3.1", "G1.2.1"],
+    next: ["G1.1.1", "G1.2.1", "G1.3.1"],
     choices: getText(lang, "G1", "answers") as Choice[],
   },
 
   // WEB (G1.1)
   {
     id: "G1.1.1",
+    context: getText(lang, "G1.1.1", "context") as string,
     prompt: getText(lang, "G1.1.1", "prompt") as string,
     highlight: (getText(lang, "G1.1.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -48,14 +52,16 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G1a",
+    context: getText(lang, "G1.1.1", "context") as string,
     prompt: getText(lang, "G1a", "prompt") as string,
     highlight: (getText(lang, "G1a", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
     previous: ["G1.1.1"],
-    next: ["G1.1.2"], // Flujo corregido para continuar a la siguiente pregunta web.
+    next: ["G1.1.2"],
   },
   {
     id: "G1.1.2",
+    context: getText(lang, "G1.1.1", "context") as string,
     prompt: getText(lang, "G1.1.2", "prompt") as string,
     highlight: (getText(lang, "G1.1.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -65,6 +71,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G1.1.3",
+    context: getText(lang, "G1.1.1", "context") as string,
     prompt: getText(lang, "G1.1.3", "prompt") as string,
     highlight: (getText(lang, "G1.1.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -74,38 +81,51 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G1.1.4",
+    context: getText(lang, "G1.1.1", "context") as string,
     prompt: getText(lang, "G1.1.4", "prompt") as string,
     highlight: (getText(lang, "G1.1.4", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["G1.1.3"],
-    next: ["G1b.1"],
+    next: ["G1b.3"],
     choices: getText(lang, "G1.1.4", "answers") as Choice[],
   },
 
 
-  // MÓVIL (G1.2) - AGREGADO
+  // MÓVIL (G1.2)
   {
     id: "G1.2.1",
+    context: getText(lang, "G1.2.1", "context") as string,
     prompt: getText(lang, "G1.2.1", "prompt") as string,
     highlight: (getText(lang, "G1.2.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["G1"],
-    next: ["G1.2.2", "G1.2.2", "G1.2.2", "G1.2.2"],
+    next: ["G1.2.2", "G2a", "G1.2.2", "G1.2.2"],
     choices: getText(lang, "G1.2.1", "answers") as Choice[],
   },
   {
+    id: "G2a",
+    context: getText(lang, "G1.2.1", "context") as string,
+    prompt: getText(lang, "G2a", "prompt") as string,
+    highlight: (getText(lang, "G2a", "highlight") ?? "") as string,
+    types: QuestionTypes.NUM_RANGE,
+    previous: ["G1.2.1"],
+    next: ["G1.2.2"],
+  },
+  {
     id: "G1.2.2",
+    context: getText(lang, "G1.2.1", "context") as string,
     prompt: getText(lang, "G1.2.2", "prompt") as string,
     highlight: (getText(lang, "G1.2.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["G1.2.1"],
-    next: ["G1b.1", "G1b.1", "G1b.1"], // El flujo debe ir a las preguntas comunes.
+    next: ["G1b.1", "G1b.1", "G1b.1"],
     choices: getText(lang, "G1.2.2", "answers") as Choice[],
   },
 
-  // ESCRITORIO (G1.3) - AGREGADO
+  // ESCRITORIO (G1.3)
   {
     id: "G1.3.1",
+    context: getText(lang, "G1.3.1", "context") as string,
     prompt: getText(lang, "G1.3.1", "prompt") as string,
     highlight: (getText(lang, "G1.3.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -115,36 +135,39 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G1.3.2",
+    context: getText(lang, "G1.3.1", "context") as string,
     prompt: getText(lang, "G1.3.2", "prompt") as string,
     highlight: (getText(lang, "G1.3.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["G1.3.1"],
-    next: ["G1.3.3", "G1.3.3"],
+    next: ["G1.3.3"],
     choices: getText(lang, "G1.3.2", "answers") as Choice[],
   },
   {
     id: "G1.3.3",
+    context: getText(lang, "G1.3.1", "context") as string,
     prompt: getText(lang, "G1.3.3", "prompt") as string,
     highlight: (getText(lang, "G1.3.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["G1.3.2"],
-    next: ["G1b.1", "G1b.1", "G1b.1", "G1b.1"], // El flujo debe ir a las preguntas comunes.
+    next: ["G1b.1", "G1b.1", "G1b.1", "G1b.1"],
     choices: getText(lang, "G1.3.3", "answers") as Choice[],
   },
 
   // CONVERGENCIA SOFTWARE (G1b)
-  // AGREGADO G1b.1 y G1b.2
   {
     id: "G1b.1",
+    context: getText(lang, "G1", "context") as string,
     prompt: getText(lang, "G1b.1", "prompt") as string,
     highlight: (getText(lang, "G1b.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
-    previous: ["G1.1.5", "G1.2.2", "G1.3.3"],
+    previous: [],
     next: ["G1b.2", "G1b.2", "G1b.2"],
     choices: getText(lang, "G1b.1", "answers") as Choice[],
   },
   {
     id: "G1b.2",
+    context: getText(lang, "G1", "context") as string,
     prompt: getText(lang, "G1b.2", "prompt") as string,
     highlight: (getText(lang, "G1b.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -154,24 +177,32 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G1b.3",
+    context: getText(lang, "G1", "context") as string,
     prompt: getText(lang, "G1b.3", "prompt") as string,
     highlight: (getText(lang, "G1b.3", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
-    previous: ["G1b.2"], // Corregido para venir de la pregunta anterior.
-    next: ["G1b.4", "G1b.4", "G1b.4", "G1b.4"],
+    previous: [],
+    next: ["G1b.4"],
     choices: getText(lang, "G1b.3", "answers") as Choice[],
   },
   {
     id: "G1b.4",
+    context: getText(lang, "G1", "context") as string,
     prompt: getText(lang, "G1b.4", "prompt") as string,
     highlight: (getText(lang, "G1b.4", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: [QuestionTypes.DEFAULT, QuestionTypes.OPTIONS, QuestionTypes.DEFAULT],
+    closed: true,
     previous: ["G1b.3"],
-    next: ["G1b.5", "G1b.5", "G1b.5", "G1b.5"],
+    next: ["G1b.5", "G1b.5", "G1b.5"],
     choices: getText(lang, "G1b.4", "answers") as Choice[],
+    options: {
+      unique: [true],
+      values: getText(lang, "G1b.4", "options") as string[][],
+    },
   },
   {
     id: "G1b.5",
+    context: getText(lang, "G1", "context") as string,
     prompt: getText(lang, "G1b.5", "prompt") as string,
     highlight: (getText(lang, "G1b.5", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -181,6 +212,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G1b.6",
+    context: getText(lang, "G1", "context") as string,
     prompt: getText(lang, "G1b.6", "prompt") as string,
     highlight: (getText(lang, "G1b.6", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -190,44 +222,54 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G1b.7",
+    context: getText(lang, "G1", "context") as string,
     prompt: getText(lang, "G1b.7", "prompt") as string,
     highlight: (getText(lang, "G1b.7", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["G1b.6"],
-    next: ["G1b.8", "G1b.8", "G1b.8", "G1b.8"],
+    next: ["G1b.8", "G1b.8"],
     choices: getText(lang, "G1b.7", "answers") as Choice[],
   },
   {
     id: "G1b.8",
+    context: getText(lang, "G1", "context") as string,
     prompt: getText(lang, "G1b.8", "prompt") as string,
     highlight: (getText(lang, "G1b.8", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: [QuestionTypes.OPTIONS, QuestionTypes.DEFAULT],
+    closed: true,
     previous: ["G1b.7"],
-    next: ["G1b.9", "G1b.9", "G1b.9", "G1b.9"],
+    next: ["G1b.9", "G1b.9"],
     choices: getText(lang, "G1b.8", "answers") as Choice[],
+    options: {
+      unique: [true],
+      values: getText(lang, "G1b.8", "options") as string[][],
+    },
   },
   {
     id: "G1b.9",
+    context: getText(lang, "G1", "context") as string,
     prompt: getText(lang, "G1b.9", "prompt") as string,
     highlight: (getText(lang, "G1b.9", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["G1b.8"],
-    next: ["G1b.10"], // Corregido para apuntar a la pregunta final.
+    next: ["G1b.10", "G1b.10", "G1b.10", "G1b.10"],
     choices: getText(lang, "G1b.9", "answers") as Choice[],
   },
   {
     id: "G1b.10",
+    context: getText(lang, "G1", "context") as string,
     prompt: getText(lang, "G1b.10", "prompt") as string,
     highlight: (getText(lang, "G1b.10", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["G1b.9"],
-    next: [], // FIN
+    next: [],
     choices: getText(lang, "G1b.10", "answers") as Choice[],
   },
 
   // --- DESARROLLO DE MARCA (G2) ---
   {
     id: "G2.1",
+    context: getText(lang, "G2.1", "context") as string,
     prompt: getText(lang, "G2.1", "prompt") as string,
     highlight: (getText(lang, "G2.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -237,6 +279,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G2.2",
+    context: getText(lang, "G2.1", "context") as string,
     prompt: getText(lang, "G2.2", "prompt") as string,
     highlight: (getText(lang, "G2.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -246,6 +289,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G2.3",
+    context: getText(lang, "G2.1", "context") as string,
     prompt: getText(lang, "G2.3", "prompt") as string,
     highlight: (getText(lang, "G2.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -255,6 +299,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G2.4",
+    context: getText(lang, "G2.1", "context") as string,
     prompt: getText(lang, "G2.4", "prompt") as string,
     highlight: (getText(lang, "G2.4", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -264,6 +309,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G2.5",
+    context: getText(lang, "G2.1", "context") as string,
     prompt: getText(lang, "G2.5", "prompt") as string,
     highlight: (getText(lang, "G2.5", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -273,6 +319,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G2.6",
+    context: getText(lang, "G2.1", "context") as string,
     prompt: getText(lang, "G2.6", "prompt") as string,
     highlight: (getText(lang, "G2.6", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -282,6 +329,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G2.7",
+    context: getText(lang, "G2.1", "context") as string,
     prompt: getText(lang, "G2.7", "prompt") as string,
     highlight: (getText(lang, "G2.7", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -291,6 +339,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G2.8",
+    context: getText(lang, "G2.1", "context") as string,
     prompt: getText(lang, "G2.8", "prompt") as string,
     highlight: (getText(lang, "G2.8", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -300,17 +349,19 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G2.9",
+    context: getText(lang, "G2.1", "context") as string,
     prompt: getText(lang, "G2.9", "prompt") as string,
     highlight: (getText(lang, "G2.9", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["G2.8"],
-    next: [], // FIN
+    next: [],
     choices: getText(lang, "G2.9", "answers") as Choice[],
   },
 
   // --- PRODUCCION AUDIOVISUAL (G3) ---
   {
     id: "G3.1",
+    context: getText(lang, "G3.1", "context") as string,
     prompt: getText(lang, "G3.1", "prompt") as string,
     highlight: (getText(lang, "G3.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -320,6 +371,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G3.2",
+    context: getText(lang, "G3.1", "context") as string,
     prompt: getText(lang, "G3.2", "prompt") as string,
     highlight: (getText(lang, "G3.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -329,6 +381,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G3.3",
+    context: getText(lang, "G3.1", "context") as string,
     prompt: getText(lang, "G3.3", "prompt") as string,
     highlight: (getText(lang, "G3.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -338,6 +391,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G3.4",
+    context: getText(lang, "G3.1", "context") as string,
     prompt: getText(lang, "G3.4", "prompt") as string,
     highlight: (getText(lang, "G3.4", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -347,6 +401,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G3.5",
+    context: getText(lang, "G3.1", "context") as string,
     prompt: getText(lang, "G3.5", "prompt") as string,
     highlight: (getText(lang, "G3.5", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
@@ -355,22 +410,29 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "G3.6",
+    context: getText(lang, "G3.1", "context") as string,
     prompt: getText(lang, "G3.6", "prompt") as string,
     highlight: (getText(lang, "G3.6", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
     previous: ["G3.5"],
-    next: [], // FIN
+    next: [],
   },
 
   // --- GESTION DE REDES (G4) ---
   {
     id: "G4.1",
+    context: getText(lang, "G4.1", "context") as string,
     prompt: getText(lang, "G4.1", "prompt") as string,
     highlight: (getText(lang, "G4.1", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.OPTIONS,
+    closed: true,
     previous: ["G0"],
     next: ["G4.2"],
     choices: getText(lang, "G4.1", "answers") as Choice[],
+    options: {
+      unique: [true],
+      values: getText(lang, "G4.1", "options") as string[][],
+    },
   },
   {
     id: "G4.2",
@@ -387,16 +449,17 @@ export const questions = (lang: Locale): Question[] => [
     highlight: (getText(lang, "G4.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["G4.2"],
-    next: [], // FIN
+    next: [],
     choices: getText(lang, "G4.3", "answers") as Choice[],
   },
 
   // --- DISEÑO (D) ---
   {
     id: "D0",
+    context: getText(lang, "D0", "context") as string,
     prompt: getText(lang, "D0", "prompt") as string,
     highlight: (getText(lang, "D0", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["0"],
     next: ["D1", "D2.1", "D3.1", "D4.1"],
     choices: getText(lang, "D0", "answers") as Choice[],
@@ -405,9 +468,10 @@ export const questions = (lang: Locale): Question[] => [
   // --- DISEÑO GRAFICO Y 2D (D1) ---
   {
     id: "D1",
+    context: getText(lang, "D1", "context") as string,
     prompt: getText(lang, "D1", "prompt") as string,
     highlight: (getText(lang, "D1", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["D0"],
     next: ["D1.1.1", "D1.2.1", "D1.3.1", "D1.4.1"],
     choices: getText(lang, "D1", "answers") as Choice[],
@@ -415,6 +479,7 @@ export const questions = (lang: Locale): Question[] => [
   // Branding (D1.1)
   {
     id: "D1.1.1",
+    context: getText(lang, "D1.1.1", "context") as string,
     prompt: getText(lang, "D1.1.1", "prompt") as string,
     highlight: (getText(lang, "D1.1.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -437,12 +502,13 @@ export const questions = (lang: Locale): Question[] => [
     highlight: (getText(lang, "D1.1.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["D1.1.2"],
-    next: [], // FIN
+    next: [],
     choices: getText(lang, "D1.1.3", "answers") as Choice[],
   },
   // Material Corporativo (D1.2)
   {
     id: "D1.2.1",
+    context: getText(lang, "D1.2.1", "context") as string,
     prompt: getText(lang, "D1.2.1", "prompt") as string,
     highlight: (getText(lang, "D1.2.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -452,15 +518,17 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D1.2.2",
+    context: getText(lang, "D1.2.1", "context") as string,
     prompt: getText(lang, "D1.2.2", "prompt") as string,
     highlight: (getText(lang, "D1.2.2", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
     previous: ["D1.2.1"],
-    next: [], // FIN
+    next: [],
   },
   // Diseño Editorial (D1.3)
   {
     id: "D1.3.1",
+    context: getText(lang, "D1.3.1", "context") as string,
     prompt: getText(lang, "D1.3.1", "prompt") as string,
     highlight: (getText(lang, "D1.3.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -470,6 +538,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D1.3.2",
+    context: getText(lang, "D1.3.1", "context") as string,
     prompt: getText(lang, "D1.3.2", "prompt") as string,
     highlight: (getText(lang, "D1.3.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -479,15 +548,17 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D1.3.3",
+    context: getText(lang, "D1.3.1", "context") as string,
     prompt: getText(lang, "D1.3.3", "prompt") as string,
     highlight: (getText(lang, "D1.3.3", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
     previous: ["D1.3.2"],
-    next: [], // FIN
+    next: [],
   },
   // Ilustración (D1.4)
   {
     id: "D1.4.1",
+    context: getText(lang, "D1.4.1", "context") as string,
     prompt: getText(lang, "D1.4.1", "prompt") as string,
     highlight: (getText(lang, "D1.4.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -497,6 +568,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D1.4.2",
+    context: getText(lang, "D1.4.1", "context") as string,
     prompt: getText(lang, "D1.4.2", "prompt") as string,
     highlight: (getText(lang, "D1.4.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -506,16 +578,18 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D1.4.3",
+    context: getText(lang, "D1.4.1", "context") as string,
     prompt: getText(lang, "D1.4.3", "prompt") as string,
     highlight: (getText(lang, "D1.4.3", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
     previous: ["D1.4.2"],
-    next: [], // FIN
+    next: [],
   },
 
   // --- DISEÑO ANIMADO (D2) ---
   {
     id: "D2.1",
+    context: getText(lang, "D2.1", "context") as string,
     prompt: getText(lang, "D2.1", "prompt") as string,
     highlight: (getText(lang, "D2.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -525,6 +599,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D2.2",
+    context: getText(lang, "D2.1", "context") as string,
     prompt: getText(lang, "D2.2", "prompt") as string,
     highlight: (getText(lang, "D2.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -534,6 +609,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D2.3",
+    context: getText(lang, "D2.1", "context") as string,
     prompt: getText(lang, "D2.3", "prompt") as string,
     highlight: (getText(lang, "D2.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -543,6 +619,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D2.4",
+    context: getText(lang, "D2.1", "context") as string,
     prompt: getText(lang, "D2.4", "prompt") as string,
     highlight: (getText(lang, "D2.4", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -552,19 +629,31 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D2.5",
+    context: getText(lang, "D2.1", "context") as string,
     prompt: getText(lang, "D2.5", "prompt") as string,
     highlight: (getText(lang, "D2.5", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
     previous: ["D2.4"],
-    next: [], // FIN
+    next: ["D2.6"],
+  },
+  {
+    id: "D2.6",
+    context: getText(lang, "D2.1", "context") as string,
+    prompt: getText(lang, "D2.6", "prompt") as string,
+    highlight: (getText(lang, "D2.6", "highlight") ?? "") as string,
+    types: QuestionTypes.MULTIPLE_SELECT,
+    previous: ["D2.5"],
+    next: [],
+    choices: getText(lang, "D2.6", "answers") as Choice[],
   },
 
   // --- DISEÑO 3D ESTATICO (D3) ---
   {
     id: "D3.1",
+    context: getText(lang, "D3.1", "context") as string,
     prompt: getText(lang, "D3.1", "prompt") as string,
     highlight: (getText(lang, "D3.1", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["D0"],
     next: ["D3.1.1", "D3.2.1", "D3.3.1"],
     choices: getText(lang, "D3.1", "answers") as Choice[],
@@ -572,6 +661,7 @@ export const questions = (lang: Locale): Question[] => [
   // Modelo 3D (D3.1)
   {
     id: "D3.1.1",
+    context: getText(lang, "D3.1.1", "context") as string,
     prompt: getText(lang, "D3.1.1", "prompt") as string,
     highlight: (getText(lang, "D3.1.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -581,6 +671,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D3.1.2",
+    context: getText(lang, "D3.1.1", "context") as string,
     prompt: getText(lang, "D3.1.2", "prompt") as string,
     highlight: (getText(lang, "D3.1.2", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
@@ -589,6 +680,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D3.1.3",
+    context: getText(lang, "D3.1.1", "context") as string,
     prompt: getText(lang, "D3.1.3", "prompt") as string,
     highlight: (getText(lang, "D3.1.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -598,16 +690,18 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D3.1.4",
+    context: getText(lang, "D3.1.1", "context") as string,
     prompt: getText(lang, "D3.1.4", "prompt") as string,
     highlight: (getText(lang, "D3.1.4", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["D3.1.3"],
-    next: [], // FIN
+    next: [], 
     choices: getText(lang, "D3.1.4", "answers") as Choice[],
   },
   // Stands y Espacios (D3.2)
   {
     id: "D3.2.1",
+    context: getText(lang, "D3.2.1", "context") as string,
     prompt: getText(lang, "D3.2.1", "prompt") as string,
     highlight: (getText(lang, "D3.2.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -617,6 +711,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D3.2.2",
+    context: getText(lang, "D3.2.1", "context") as string,
     prompt: getText(lang, "D3.2.2", "prompt") as string,
     highlight: (getText(lang, "D3.2.2", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
@@ -625,16 +720,18 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D3.2.3",
+    context: getText(lang, "D3.2.1", "context") as string,
     prompt: getText(lang, "D3.2.3", "prompt") as string,
     highlight: (getText(lang, "D3.2.3", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["D3.2.2"],
-    next: [], // FIN
+    next: [],
     choices: getText(lang, "D3.2.3", "answers") as Choice[],
   },
-  // Modelo de Personajes (D3.3)
+  // Modelo de Espacios (D3.3)
   {
     id: "D3.3.1",
+    context: getText(lang, "D3.3.1", "context") as string,
     prompt: getText(lang, "D3.3.1", "prompt") as string,
     highlight: (getText(lang, "D3.3.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -644,6 +741,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D3.3.2",
+    context: getText(lang, "D3.3.1", "context") as string,
     prompt: getText(lang, "D3.3.2", "prompt") as string,
     highlight: (getText(lang, "D3.3.2", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
@@ -652,6 +750,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D3.3.3",
+    context: getText(lang, "D3.3.1", "context") as string,
     prompt: getText(lang, "D3.3.3", "prompt") as string,
     highlight: (getText(lang, "D3.3.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -661,17 +760,19 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D3.3.4",
+    context: getText(lang, "D3.3.1", "context") as string,
     prompt: getText(lang, "D3.3.4", "prompt") as string,
     highlight: (getText(lang, "D3.3.4", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["D3.3.3"],
-    next: [], // FIN
+    next: [],
     choices: getText(lang, "D3.3.4", "answers") as Choice[],
   },
 
   // --- FOTOGRAFÍA Y POSTPRODUCCION (D4) ---
   {
     id: "D4.1",
+    context: getText(lang, "D4.1", "context") as string,
     prompt: getText(lang, "D4.1", "prompt") as string,
     highlight: (getText(lang, "D4.1", "highlight") ?? "") as string,
     types: QuestionTypes.NUM_RANGE,
@@ -680,6 +781,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D4.2",
+    context: getText(lang, "D4.1", "context") as string,
     prompt: getText(lang, "D4.2", "prompt") as string,
     highlight: (getText(lang, "D4.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -689,20 +791,22 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "D4.3",
+    context: getText(lang, "D4.1", "context") as string,
     prompt: getText(lang, "D4.3", "prompt") as string,
     highlight: (getText(lang, "D4.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["D4.2"],
-    next: [], // FIN
+    next: [],
     choices: getText(lang, "D4.3", "answers") as Choice[],
   },
 
   // --- COMUNICACIONES (C) ---
   {
     id: "C0",
+    context: getText(lang, "C0", "context") as string,
     prompt: getText(lang, "C0", "prompt") as string,
     highlight: (getText(lang, "C0", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["0"],
     next: ["C1.1", "C2.1", "C3.1", "C4.1"],
     choices: getText(lang, "C0", "answers") as Choice[],
@@ -710,16 +814,18 @@ export const questions = (lang: Locale): Question[] => [
   // Estrategia y Conceptualización (C1)
   {
     id: "C1.1",
+    context: getText(lang, "C1.1", "context") as string,
     prompt: getText(lang, "C1.1", "prompt") as string,
     highlight: (getText(lang, "C1.1", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["C0"],
-    next: [], // FIN
+    next: [],
     choices: getText(lang, "C1.1", "answers") as Choice[],
   },
   // Redacción y Guionaje (C2)
   {
     id: "C2.1",
+    context: getText(lang, "C2.1", "context") as string,
     prompt: getText(lang, "C2.1", "prompt") as string,
     highlight: (getText(lang, "C2.1", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -729,6 +835,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "C2.2",
+    context: getText(lang, "C2.1", "context") as string,
     prompt: getText(lang, "C2.2", "prompt") as string,
     highlight: (getText(lang, "C2.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -738,6 +845,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "C2.3",
+    context: getText(lang, "C2.1", "context") as string,
     prompt: getText(lang, "C2.3", "prompt") as string,
     highlight: (getText(lang, "C2.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -747,6 +855,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "C2.4",
+    context: getText(lang, "C2.1", "context") as string,
     prompt: getText(lang, "C2.4", "prompt") as string,
     highlight: (getText(lang, "C2.4", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -756,6 +865,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "C2.5",
+    context: getText(lang, "C2.1", "context") as string,
     prompt: getText(lang, "C2.5", "prompt") as string,
     highlight: (getText(lang, "C2.5", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -765,35 +875,39 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "C2.6",
+    context: getText(lang, "C2.6", "context") as string,
     prompt: getText(lang, "C2.6", "prompt") as string,
     highlight: (getText(lang, "C2.6", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["C2.5"],
-    next: [], // FIN
+    next: [],
     choices: getText(lang, "C2.6", "answers") as Choice[],
   },
   // Producción de Audio (C3)
   {
     id: "C3.1",
+    context: getText(lang, "C3.1", "context") as string,
     prompt: getText(lang, "C3.1", "prompt") as string,
     highlight: (getText(lang, "C3.1", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["C0"],
-    next: [], // FIN
+    next: [],
     choices: getText(lang, "C3.1", "answers") as Choice[],
   },
   // Producción Audiovisual (C4)
   {
     id: "C4.1",
+    context: getText(lang, "C4.1", "context") as string,
     prompt: getText(lang, "C4.1", "prompt") as string,
     highlight: (getText(lang, "C4.1", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["C0"],
     next: ["C4.2", "C4.2", "C4.2"],
     choices: getText(lang, "C4.1", "answers") as Choice[],
   },
   {
     id: "C4.2",
+    context: getText(lang, "C4.1", "context") as string,
     prompt: getText(lang, "C4.2", "prompt") as string,
     highlight: (getText(lang, "C4.2", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -803,6 +917,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "C4.3",
+    context: getText(lang, "C4.1", "context") as string,
     prompt: getText(lang, "C4.3", "prompt") as string,
     highlight: (getText(lang, "C4.3", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -812,6 +927,7 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "C4.4",
+    context: getText(lang, "C4.1", "context") as string,
     prompt: getText(lang, "C4.4", "prompt") as string,
     highlight: (getText(lang, "C4.4", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
@@ -821,11 +937,12 @@ export const questions = (lang: Locale): Question[] => [
   },
   {
     id: "C4.5",
+    context: getText(lang, "C4.1", "context") as string,
     prompt: getText(lang, "C4.5", "prompt") as string,
     highlight: (getText(lang, "C4.5", "highlight") ?? "") as string,
     types: QuestionTypes.DEFAULT,
     previous: ["C4.4"],
-    next: [], // FIN
+    next: [],
     choices: getText(lang, "C4.5", "answers") as Choice[],
   },
 ];

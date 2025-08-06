@@ -13,9 +13,9 @@ export const es: TranslationEntry[] = [
                     "Estrategias y contenidos que conectan, impulsan tu marca y generan interacción auténtica en redes sociales.",
             },
             {
-                title: "Un proyecto de producción",
+                title: "Un proyecto de diseño",
                 description:
-                    "Gestión creativa y técnica para dar vida a tus ideas, desde la planificación hasta la ejecución logística.",
+                    "Creaciones visuales impactantes que representan la esencia de tu marca y capturan la atención de tu público objetivo.",
             },
             {
                 title: "Un proyecto de comunicaciones",
@@ -23,14 +23,17 @@ export const es: TranslationEntry[] = [
                     "Planes integrales que fortalecen la conexión de tu marca con su audiencia, transmitiendo mensajes claros y efectivos.",
             },
             {
-                title: "Un proyecto de diseño",
+                title: "Un proyecto de producción",
                 description:
-                    "Creaciones visuales impactantes que representan la esencia de tu marca y capturan la atención de tu público objetivo.",
+                    "Gestión creativa y técnica para dar vida a tus ideas, desde la planificación hasta la ejecución logística.",
             },
         ],
     },
+
+    // DIGITAL
     {
         id: "G0",
+        context: "DIGITAL",
         prompt: "¿Cómo te podemos $?",
         highlight: "ayudar",
         answers: [
@@ -47,20 +50,27 @@ export const es: TranslationEntry[] = [
 
             },
             {
-                title: "Quiero establecer mi marca",
+                title: "Quiero producción audiovisual",
                 description:
-                    "Estrategias creativas para potenciar la identidad de tu marca y conectar emocionalmente con tu audiencia.",
+                    "Gestión creativa y técnica para dar vida a tus ideas, desde la planificación hasta la ejecución logística.",
+
+            },
+            {
+                title: "Quiero gestión de mis redes sociales",
+                description:
+                    "Diseñamos y administramos contenido estratégico para tus redes, aumentando engagement y visibilidad.",
 
             },
         ],
     },
 
-    // DESARROLLO
+    // PRODUCTO DE SOFTWARE
 
     {
         id: "G1",
-        prompt: "¿Qué $ de software?",
-        highlight: "tipo",
+        context: "PRODUCTO DE SOFTWARE",
+        prompt: "¿Qué tipo de $?",
+        highlight: "software",
         answers: [
             {
                 title: "Un producto web",
@@ -69,15 +79,15 @@ export const es: TranslationEntry[] = [
 
             },
             {
-                title: "Un producto para computador",
-                description:
-                    "Aplicaciones robustas y eficientes diseñadas para entornos de escritorio, optimizando el rendimiento y la productividad.",
-
-            },
-            {
                 title: "Un producto móvil",
                 description:
                     "Apps intuitivas y dinámicas que ofrecen experiencias optimizadas para usuarios en dispositivos móviles.",
+
+            },
+            {
+                title: "Un producto para computador",
+                description:
+                    "Aplicaciones robustas y eficientes diseñadas para entornos de escritorio, optimizando el rendimiento y la productividad.",
 
             },
         ],
@@ -86,6 +96,7 @@ export const es: TranslationEntry[] = [
     // WEB
     {
         id: "G1.1.1",
+        context: "WEB",
         prompt: "¿Qué $ de página?",
         highlight: "clase",
         answers: [
@@ -128,19 +139,19 @@ export const es: TranslationEntry[] = [
         answers: [
             {
                 title: "Sí, dentro de una página específica del sitio",
-
+                description: "Implementamos búsqueda localizada para encontrar contenido en una sección concreta."
             },
             {
                 title: "Sí, a nivel global en el sitio",
-
+                description: "Configuramos búsqueda global para indexar y buscar en todo tu sitio."
             },
             {
                 title: "No",
-
+                description: "Omitimos buscador; el sitio se navegará con su estructura de menús estándar."
             },
             {
                 title: "Necesito asesoría decidiendo",
-
+                description: "Te asesoramos para definir la mejor estrategia de búsqueda interna."
             },
         ],
     },
@@ -151,19 +162,19 @@ export const es: TranslationEntry[] = [
         answers: [
             {
                 title: "Sí, tengo ambos",
-
+                description: "Gestionamos dominio y hosting, asegurando configuración óptima."
             },
             {
                 title: "Sólo tengo el hosting",
-
+                description: "Registramos dominio y lo vinculamos con tu hosting existente."
             },
             {
                 title: "Sólo tengo el dominio",
-
+                description: "Contratamos y configuramos hosting para tu dominio."
             },
             {
                 title: "No tengo ninguno",
-
+                description: "Registramos dominio y contratamos hosting desde cero."
             },
         ],
     },
@@ -174,28 +185,23 @@ export const es: TranslationEntry[] = [
         answers: [
             {
                 title: "Sí",
-
+                description: "Analizamos y optimizamos tu sitio para mejorar visibilidad y ranking en buscadores."
             },
             {
                 title: "No los necesito",
-
+                description: "Omitimos SEO; confiamos en la visibilidad orgánica actual."
             },
             {
                 title: "Necesito asesoría decidiendo",
-
+                description: "Te guiamos en estrategia SEO para definir necesidades y acciones."
             },
         ],
-    },
-    {
-        id: "G1.1.5",
-        prompt: "¿Cuántas $ tiene tu sitio?",
-        highlight: "páginas",
-        hint: "",
     },
 
     // Móvil
     {
         id: "G1.2.1",
+        context: "MÓVIL",
         prompt: "¿Qué clase de $?",
         highlight: "aplicativo",
         answers: [
@@ -226,6 +232,12 @@ export const es: TranslationEntry[] = [
         ],
     },
     {
+        id: "G2a",
+        prompt: "¿Cuántos $ tiene tu sitio?",
+        highlight: "productos",
+        hint: "",
+    },
+    {
         id: "G1.2.2",
         prompt: "¿Para qué $?",
         highlight: "plataformas",
@@ -254,6 +266,7 @@ export const es: TranslationEntry[] = [
     // Escritorio
     {
         id: "G1.3.1",
+        context: "COMPUTADOR",
         prompt: "¿Qué clase de $?",
         highlight: "aplicación",
         answers: [
@@ -302,6 +315,7 @@ export const es: TranslationEntry[] = [
             },
         ],
     },
+    // Se finaliza el flujo si escoge MacOS/Linux
     {
         id: "G1.3.3",
         prompt: "¿Cuál es su $?",
@@ -416,7 +430,8 @@ export const es: TranslationEntry[] = [
         ],
         options: [
             [
-                "PayU Latam" + "MercadoPago",
+                "PayU Latam",
+                "MercadoPago",
                 "Place to Pay",
                 "ePayco",
                 "PSE (Pagos Seguros en Línea)",
@@ -530,18 +545,19 @@ export const es: TranslationEntry[] = [
         answers: [
             {
                 title: "No necesito animaciones o interacciones puntuales.",
+                description: "Manejamos un producto estático sin efectos de movimiento o interactividad."
             },
             {
                 title: "Menos de 3 animaciones, o con interacciones estándares.",
-
+                description: "Añadimos pocas animaciones simples e interacciones predeterminadas para mejorar UX."
             },
             {
                 title: "Más de 3 animaciones, o con interacciones complejas.",
-
+                description: "Implementamos múltiples animaciones e interacciones avanzadas para una experiencia dinámica."
             },
             {
                 title: "Necesito ayuda decidiendo.",
-
+                description: "Te asesoramos en definir el nivel óptimo de animaciones e interacciones en caso de verlo necesario."
             },
         ],
     },
@@ -577,12 +593,10 @@ export const es: TranslationEntry[] = [
         ],
     },
 
-    // FIN DESARROLLO
-
     // DESARROLLO DE MARCA
-    // FALTA DESCRIPCIONES
     {
         id: "G2.1",
+        context: "DESARROLLO DE MARCA",
         prompt: "¿Cuál es el estado de tu $?",
         highlight: "marca",
         answers: [
@@ -649,7 +663,7 @@ export const es: TranslationEntry[] = [
         highlight: "Benchmarking",
         answers: [
             {
-                title: "Si, Por Favor.",
+                title: "Si.",
                 description:
                     "Realizamos un análisis detallado de tu industria y competidores para identificar oportunidades y posicionar tu marca de manera efectiva.",
 
@@ -698,7 +712,7 @@ export const es: TranslationEntry[] = [
         highlight: "diagnostico de marca",
         answers: [
             {
-                title: "Si, Por Favor.",
+                title: "Si.",
                 description:
                     "Realizamos un análisis completo de tu marca actual para evaluar su posicionamiento, coherencia y oportunidades de mejora.",
 
@@ -717,7 +731,7 @@ export const es: TranslationEntry[] = [
         highlight: "análisis de mercado",
         answers: [
             {
-                title: "Si, Por Favor.",
+                title: "Si.",
                 description:
                     "Estudiamos tu mercado objetivo para identificar tendencias, necesidades y oportunidades que fortalezcan la estrategia de tu marca.",
 
@@ -767,7 +781,7 @@ export const es: TranslationEntry[] = [
         highlight: "análisis de competencia",
         answers: [
             {
-                title: "Si, Por Favor.",
+                title: "Si.",
                 description:
                     "Analizamos a tus competidores para identificar fortalezas, debilidades y oportunidades que posicionen tu marca de manera única.",
 
@@ -786,7 +800,7 @@ export const es: TranslationEntry[] = [
         highlight: "lanzamiento de marca",
         answers: [
             {
-                title: "Si, Por Favor.",
+                title: "Si.",
                 description:
                     "Planificamos y ejecutamos una estrategia de lanzamiento impactante para presentar tu marca al mercado con éxito.",
 
@@ -803,7 +817,7 @@ export const es: TranslationEntry[] = [
     // PRODUCCION AUDIOVISUAL
     {
         id: "G3.1",
-        context: "HOLAa",
+        context: "PRODUCCIÓN AUDIOVISUAL",
         prompt: "¿Cuentas con $ o recursos?",
         highlight: "insumos",
         answers: [
@@ -829,7 +843,6 @@ export const es: TranslationEntry[] = [
     },
     {
         id: "G3.2",
-        context: "HOLAa",
         prompt: "¿El $ mostrará a alguien hablando o solo imágenes del lugar?",
         highlight: "video",
         answers: [
@@ -855,7 +868,6 @@ export const es: TranslationEntry[] = [
     },
     {
         id: "G3.3",
-        context: "HOLAa",
         prompt: "¿Tienes la $ para tu video?",
         highlight: "idea",
         answers: [
@@ -881,7 +893,6 @@ export const es: TranslationEntry[] = [
     },
     {
         id: "G3.4",
-        context: "HOLAa",
         prompt: "¿Se requiere $ de iluminación y sonido?",
         highlight: "equipos",
         answers: [
@@ -907,7 +918,6 @@ export const es: TranslationEntry[] = [
     },
     {
         id: "G3.5",
-        context: "HOLAa",
         prompt: "¿Cuántos $ necesitas?",
         highlight: "videos",
         hint: "",
@@ -915,19 +925,24 @@ export const es: TranslationEntry[] = [
 
     {
         id: "G3.6",
-        context: "HOLAa",
         prompt: "¿De cuanto es la $ aproximada del video?",
         highlight: "duracion",
         hint: "",
     },
 
     // GESTION DE REDES SOCIALES
-     
+    // FALTA DESCRIPCIONES
    {
         id: "G4.1",
-        context: "CASI CASI",
+        context: "GESTIÓN DE REDES SOCIALES",
         prompt: "¿Qué $ sociales?",
         highlight: "redes",
+        answers: [
+            {
+                title: "Selecciona las redes sociales que necesites",
+
+            },
+        ],
         options: [
             [
                 "LinkedIn",
@@ -945,38 +960,32 @@ export const es: TranslationEntry[] = [
 
     {
         id: "G4.2",
-        context: "SIIII",
         prompt: "¿Necesitas $ y cronoposts?",
         highlight: "publicaciones",
         answers: [
             {
                 title: "Si.",
-                
-
+                description: "Creamos y programamos publicaciones según tu calendario editorial."
             },
             {
                 title: "No.",
-               
-
+                description: "Omitimos programación; nos centramos en otros formatos de contenido."
             },
         ],
     },
 
-{
+    {
         id: "G4.3",
-        context: "SIIII",
         prompt: "¿Necesitas $ tu comunidad?",
         highlight: "gestionar",
         answers: [
             {
                 title: "Si.",
-               
-
+                description: "Moderamos y fomentamos la interacción para fortalecer el vínculo con tu audiencia."
             },
             {
                 title: "No.",
-                
-
+                description: "No gestionamos comunidad; mantienes comunicación directa con tus seguidores."
             },
         ],
     },
@@ -987,7 +996,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D0",
-        context: "SIIII",
+        context: "DISEÑO",
         prompt: "¿Cómo te podemos $?",
         highlight: "ayudar",
         answers: [
@@ -1023,7 +1032,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D1",
-        context: "SIIII",
+        context: "DISEÑO GRÁFICO Y 2D",
         prompt: "¿Qué $ requieres?",
         highlight: "servicio",
         answers: [
@@ -1057,7 +1066,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D1.1.1",
-        context: "SIIII",
+        context: "BRANDING",
         prompt: "¿Necesitas nuevo $ o rediseño?",
         highlight: "branding",
         answers: [
@@ -1076,34 +1085,32 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D1.1.2",
-        context: "SIIII",
         prompt: "¿Necesitas $ de marca?",
         highlight: "manual",
         answers: [
             {
-                title: "Si, Por Favor.",
-               
+                title: "Si.",
+                description: "Desarrollamos manual de marca con lineamientos de identidad visual y uso correcto."
             },
             {
                 title: "No necesito.",
-               
+                description: "Omitimos manual; puedes usar tus propias guías de identidad visual."
             },
         ]
 },
 
 {
         id: "D1.1.3",
-        context: "SIIII",
         prompt: "¿Necesitas $ de logotipo?",
         highlight: "diseño",
         answers: [
             {
-                title: "Si, Por Favor.",
-                
+                title: "Si.",
+                description: "Creamos un logotipo único y alineado con la identidad de tu marca."
             },
             {
                 title: "No necesito.",
-              
+                description: "Omitimos diseño de logotipo; puedes usar uno existente o proporcionarlo."
             },
         ]
 },
@@ -1112,7 +1119,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D1.2.1",
-        context: "SIIII",
+        context: "MATERIAL CORPORATIVO",
         prompt: "¿Qué tipo de $ necesitas",
         highlight: "piezas",
         answers: [
@@ -1135,7 +1142,6 @@ export const es: TranslationEntry[] = [
 },
 {
         id: "D1.2.2",
-        context: "SIIII",
         prompt: "¿Cantidad de piezas $ a diseñar?",
         highlight: "distintas",
         hint: "",
@@ -1145,7 +1151,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D1.3.1",
-        context: "SIIII",
+        context: "DISEÑO EDITORIAL",
         prompt: "¿Qué tipo de $ necesitas?",
         highlight: "publicación",
         answers: [
@@ -1174,7 +1180,6 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D1.3.2",
-        context: "SIIII",
         prompt: "¿Necesitas $ o solo diseño?",
         highlight: "diagramación",
         answers: [
@@ -1203,9 +1208,8 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D1.3.3",
-        context: "SIIII",
-        prompt: "¿Número $ de páginas?",
-        highlight: "estimado",
+        prompt: "¿Número estimado de $?",
+        highlight: "páginas",
         hint: "",
 },
 
@@ -1214,7 +1218,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D1.4.1",
-        context: "SIIII",
+        context: "ILUSTRACIÓN",
         prompt: "¿Qué tipo de $ necesitas??",
         highlight: "ilustración",
         answers: [
@@ -1239,7 +1243,6 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D1.4.2",
-        context: "SIIII",
         prompt: "¿Qué $ de ilustración buscas?",
         highlight: "estilo",
         answers: [
@@ -1262,9 +1265,8 @@ export const es: TranslationEntry[] = [
 },
 {
         id: "D1.4.3",
-        context: "SIIII",
-        prompt: "¿Número piezas estimadas?",
-        highlight: "manual",
+        prompt: "¿Número $ estimadas?",
+        highlight: "piezas",
         hint: "", 
 },
 
@@ -1272,7 +1274,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D2.1",
-        context: "SIIII",
+        context: "DISEÑO ANIMADO",
         prompt: "¿Qué clase de $ necesitas?",
         highlight: "animación",
         answers: [            
@@ -1296,7 +1298,6 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D2.2",
-        context: "SIIII",
         prompt: "¿Qué nivel de $ deseas?",
         highlight: "realismo",
         answers: [
@@ -1315,7 +1316,6 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D2.3",
-        context: "SIIII",
         prompt: "¿Qué tipo de $ buscas?",
         highlight: "contenido",
         answers: [
@@ -1339,9 +1339,8 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D2.4",
-        context: "SIIII",
-        prompt: "¿Qué $ de animación buscas?",
-        highlight: "tipo",
+        prompt: "¿Qué tipo de $ buscas?",
+        highlight: "animación",
         answers: [
             {
                 title: "Explicativa",
@@ -1360,12 +1359,40 @@ export const es: TranslationEntry[] = [
             },
         ]
 },
+
 {
         id: "D2.5",
-        context: "SIIII",
-        prompt: "¿Duración $ de la animación?",
-        highlight: "estimada",
+        prompt: "¿Duración estimada de la $?",
+        highlight: "animación",
         hint: "",
+},
+
+{
+        id: "D2.6",
+        prompt: "¿Deseas agregar algo más a la $?",
+        highlight: "animación",
+        answers: [
+            {
+                title: "Voz en off",
+                description:
+                    "Incluimos una narración profesional que guía al espectador, aporta contexto adicional y refuerza el mensaje de tu animación.",
+            },
+            {
+                title: "Música",
+                description:
+                    "Añadimos una banda sonora original o libre de derechos para potenciar la atmósfera, evocar emociones y hacer tu animación más envolvente.",
+            },
+            {
+                title: "Subtítulos",
+                description:
+                    "Incorporamos subtítulos sincronizados para asegurar la accesibilidad, facilitar la comprensión en entornos sin sonido y llegar a audiencias multilingües.",
+            },
+            {
+                title: "Ninguna",
+                description:
+                    "Optamos por dejar la animación sin elementos adicionales, manteniendo su simplicidad y pureza para un enfoque directo en lo visual.",
+            },
+        ]
 },
      
 
@@ -1373,7 +1400,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D3.1",
-        context: "SIIII",
+        context: "DISEÑO 3D ESTÁTICO",
         prompt: "¿Que $ necesitas?",
         highlight: "servicios",
         answers: [
@@ -1399,7 +1426,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D3.1.1",
-        context: "SIIII",
+        context: "MODELADO 3D",
         prompt: "¿Qué tipo de $ necesitas?",
         highlight: "objeto",
         answers: [
@@ -1428,15 +1455,13 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D3.1.2",
-        context: "SIIII",
-        prompt: "¿Cuántos objetos $?",
-        highlight: "distintos",
+        prompt: "¿Cuántos $ distintos?",
+        highlight: "objetos",
         hint: "",
 },
 
 {
         id: "D3.1.3",
-        context: "SIIII",
         prompt: "¿Deseas solo el $ base o incluir el render?",
         highlight: "modelo",
         answers: [
@@ -1455,9 +1480,8 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D3.1.4",
-        context: "SIIII",
-        prompt: "¿Qué tipo de $ quieres para el modelado?",
-        highlight: "detalle",
+        prompt: "¿Qué tipo de detalle quieres para el $?",
+        highlight: "modelado",
         answers: [
             {
                 title: "Texturizado",
@@ -1476,7 +1500,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D3.2.1",
-        context: "SIIII",
+        context: "STANDS Y ESPACIOS",
         prompt: "¿Para qué tipo de $ lo buscas?",
         highlight: "espacio ",
         answers: [
@@ -1505,15 +1529,13 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D3.2.2",
-        context: "SIIII",
-        prompt: "¿Cuántos objetos $?",
-        highlight: "distintos",
+        prompt: "¿Cuántos $ distintos?",
+        highlight: "objetos",
         hint: "",
 },
 
 {
         id: "D3.2.3",
-        context: "SIIII",
         prompt: "¿Cómo necesitas la $?",
         highlight: "entrega",
         answers: [
@@ -1534,7 +1556,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D3.3.1",
-        context: "SIIII",
+        context: "MODELADO DE ESPACIOS",
         prompt: "¿Qué tipo de $ lo buscas?",
         highlight: "estilo",
         answers: [
@@ -1559,7 +1581,6 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D3.3.2",
-        context: "SIIII",
         prompt: "¿Cuántos $ deseas?",
         highlight: "personajes",
         hint: "",
@@ -1567,7 +1588,6 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D3.3.3",
-        context: "SIIII",
         prompt: "¿Cuál es la $ de estos?",
         highlight: "finalidad",
         answers: [
@@ -1591,7 +1611,6 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D3.3.4",
-        context: "SIIII",
         prompt: "¿Incluye $ o solo malla?",
         highlight: "rigging",
          answers: [
@@ -1614,14 +1633,13 @@ export const es: TranslationEntry[] = [
 
 {
         id: "D4.1",
-        context: "SIIII",
+        context: "FOTOGRAFÍA Y POSTPRODUCCIÓN",
         prompt: "¿Cuántas $ necesitas?",
         highlight: "fotografías",
         hint: "",
 },
 {
         id: "D4.2",
-        context: "SIIII",
         prompt: "¿Qué nivel de $ necesitas?",
         highlight: "edición",
         answers: [
@@ -1644,7 +1662,6 @@ export const es: TranslationEntry[] = [
 },
 {
         id: "D4.3",
-        context: "SIIII",
         prompt: "¿Cual es la $ o medio que buscas?",
         highlight: "finalidad",
         answers: [
@@ -1675,7 +1692,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "C0",
-        context: "SIIII",
+        context: "COMUNICACIONES",
         prompt: "¿Cómo te podemos $?",
         highlight: "ayudar",
         answers: [
@@ -1706,7 +1723,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "C1.1",
-        context: "SIIII",
+        context: "ESTRATEGIA Y CONCEPTUALIZACIÓN",
         prompt: "¿En cuáles de estos $ te gustaría apoyarte?",
         highlight: "servicios",
         answers: [
@@ -1732,99 +1749,94 @@ export const es: TranslationEntry[] = [
 
 {
         id: "C2.1",
-        context: "SIIII",
+        context: "REDACCIÓN Y GUIONAJE",
         prompt: "¿Necesitas que realicemos el $?",
         highlight: "guion",
         answers: [
             {
-                title: "Sí",
-
+                title: "Sí.",
+                description: "Redactamos y estructuramos el guion para garantizar claridad y coherencia."
             },
             {
-                title: "No ",
-
+                title: "No.",
+                description: "No generamos guion; adaptamos o revisamos el tuyo según tus indicaciones."
             },
         ],
 },
 
 {
         id: "C2.2",
-        context: "SIIII",
         prompt: "¿Requieres textos para piezas $ (banners, posts, flyers)?",
         highlight: "publicitarias",
         answers: [
             {
-                title: "Sí",
-
+                title: "Sí.",
+                description: "Creamos textos atractivos y persuasivos para tus banners, posts y flyers."
             },
             {
-                title: "No ",
-
+                title: "No.",
+                description: "No generamos textos; puedes usar o adaptar los tuyos propios."
             },
         ],
 },
 
 {
         id: "C2.3",
-        context: "SIIII",
         prompt: "¿Te gustaría incluir $ o captions?",
         highlight: "subtítulos",
         answers: [
             {
-                title: "Sí, subtítulos completos",
-
+                title: "Sí, subtítulos completos.",
+                description: "Añadimos subtítulos sincronizados para accesibilidad y claridad."
             },
             {
-                title: "No, no los necesito ",
-
+                title: "No, no los necesito.",
+                description: "Omitimos subtítulos; mantenemos solo audio y visual."
             },
         ],
 },
 {
         id: "C2.4",
-        context: "SIIII",
         prompt: "¿Deseas un $ informativo ?",
         highlight: "boletín",
         answers: [
             {
-                title: "Sí, envíos regulares",
-
+                title: "Sí, envíos regulares.",
+                description: "Diseñamos y enviamos boletines con contenido relevante para tu audiencia."
             },
             {
-                title: "No, no los necesito ",
-
+                title: "No, no lo necesito.",
+                description: "No generamos boletines; nos enfocamos en otros formatos de comunicación."
             },
         ],
 },
 {
         id: "C2.5",
-        context: "SIIII",
         prompt: "¿Planeas un $ sencillo?",
         highlight: "mailing",
         answers: [
             {
-                title: "Sí",
-
+                title: "Sí.",
+                description: "Creamos y enviamos mailings simples con diseño limpio y mensaje conciso."
             },
             {
-                title: "No ",
-
+                title: "No.",
+                description: "No diseñamos mailings; priorizamos otros canales de comunicación."
             },
         ],
 },
 {
         id: "C2.6",
-        context: "SIIII",
         prompt: "¿Quieres $ para una revista?",
         highlight: "contenidos",
         answers: [
             {
-                title: "Sí",
-
+                title: "Sí.",
+                description: "Creamos artículos y diseños adaptados al estilo de tu revista."
             },
             {
-                title: "No ",
-
+                title: "No.",
+                description: "No elaboramos contenidos; puedes usar los tuyos propios."
             },
         ],
 },
@@ -1834,7 +1846,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "C3.1",
-        context: "SIIII",
+        context: "PRODUCCIÓN DE AUDIO",
         prompt: "¿Qué $ necesitas??",
         highlight: "servicios",
         answers: [
@@ -1865,7 +1877,7 @@ export const es: TranslationEntry[] = [
 
 {
         id: "C4.1",
-        context: "SIIII",
+        context: "PRODUCCIÓN AUDIOVISUAL",
         prompt: "¿Requieres $ fotográfica o videográfica?",
         highlight: "cobertura",
         answers: [
@@ -1888,68 +1900,64 @@ export const es: TranslationEntry[] = [
 },
 {
         id: "C4.2",
-        context: "SIIII",
-        prompt: "¿Quieres producir un video (reel, spot, etc)?",
-        highlight: "manual",
+        prompt: "¿Quieres $ un video (reel, spot, etc)?",
+        highlight: "producir",
         answers: [
             {
-                title: "Si, Por Favor.",
-              
+                title: "Si.",
+                description: "Creamos reels y spots con grabación, edición y producción profesional."
             },
             {
                 title: "No necesito.",
-                
+                description: "No producimos videos; ofrecemos edición y consultoría audiovisual."
             },
         ]
 },
 
 {
         id: "C4.3",
-        context: "SIIII",
         prompt: "¿Necesitas una $ fotográfica profesional?",
         highlight: "sesión",
         answers: [
             {
-                title: "Si, Por Favor.",
-                
+                title: "Si.",
+                description: "Organizamos sesión fotográfica profesional con iluminación, dirección y retoque de alta calidad."
             },
             {
                 title: "No necesito.",
-                
+                description: "Omitimos sesión; podemos usar o mejorar fotos existentes según tus necesidades."
             },
         ]
 },
 
 {
         id: "C4.4",
-        context: "SIIII",
         prompt: "¿Deseas $ o editar un video ya existente?",
         highlight: "adaptar",
         answers: [
             {
-                title: "Si, Por Favor.",
-                
+                title: "Si.",
+                description: "Adaptamos y editamos tu video existente para mejorar calidad y estilo."
             },
             {
                 title: "No necesito.",
-                
+                description: "No editamos videos; nos enfocamos en nueva producción audiovisual."
             },
         ]
 },
 
 {
         id: "C4.5",
-        context: "SIIII",
         prompt: "¿Necesitas un $ digital de imágenes o videos?",
         highlight: "retoque ",
         answers: [
             {
-                title: "Si, Por Favor.",
-                
+                title: "Si.",
+                description: "Realizamos retoque digital profesional para mejorar color, iluminación y detalles."
             },
             {
                 title: "No necesito.",
-                
+                description: "Omitimos retoque; mantenemos la calidad original de tus imágenes o videos."
             },
         ]
 },

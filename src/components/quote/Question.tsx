@@ -117,7 +117,7 @@ const Question = ({ lang }: QuestionComponentProps) => {
             types={types}
           />
         )}
-        {types === QuestionTypes.NUM_RANGE && ranges && (
+        {types === QuestionTypes.NUM_RANGE && (
           <div className={"flex px-8 w-full"}>
             <input
               type={"number"}

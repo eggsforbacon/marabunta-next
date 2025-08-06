@@ -125,6 +125,16 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
     continueQuestion: (id: string | string[]) =>
         set((state) => {
             const rawIds = Array.isArray(id) ? id : [id];
+
+            if (state.current === "G1b.3" && ['G1a', 'G2a', 'G1.3.1'].some(val => state.stack.includes(val))) {
+                return {
+                    current: "G1b.5",
+                    stack: [...state.stack, "G1b.5"],
+                    activeOption: 0,
+                    selectedOptions: [],
+                };
+            }
+            
             const nextState = determineNextState(
                 rawIds,
                 state.current,
