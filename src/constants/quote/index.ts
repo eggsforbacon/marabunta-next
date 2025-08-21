@@ -1,4 +1,4 @@
-import { Choice, ProductTypes, Question, QuestionTypes } from "@/types/quote";
+import { Choice, ProductTypes, Question, QuestionTypes, QuoteMode } from "@/types/quote";
 import { Locale } from "@/_i18n.config";
 import { getText } from "@/services/common";
 
@@ -12,6 +12,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["none"],
     next: ["G0", "D0", "C0", "P0"],
     choices: getText(lang, "0", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
 
   // --- DIGITAL ---
@@ -24,10 +25,12 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["0"],
     next: ["G1", "G2.1", "G3.1", "G4.1"],
     choices: getText(lang, "G0", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
 
   // --- DESARROLLO SOFTWARE (G1) ---
 
+  // MODO COMPLEJO
   {
     id: "G1",
     context: getText(lang, "G1", "context") as string,
@@ -37,6 +40,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G0"],
     next: ["G1.1.1", "G1.2.1", "G1.3.1"],
     choices: getText(lang, "G1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
 
   // WEB (G1.1)
@@ -49,6 +53,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1"],
     next: ["G1.1.2", "G1a", "G1.1.2", "G1.1.2"],
     choices: getText(lang, "G1.1.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1a",
@@ -58,6 +63,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["G1.1.1"],
     next: ["G1.1.2"],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1.1.2",
@@ -68,6 +74,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1.1.1", "G1a"],
     next: ["G1.1.3", "G1.1.3", "G1.1.3", "G1.1.3"],
     choices: getText(lang, "G1.1.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1.1.3",
@@ -78,6 +85,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1.1.2"],
     next: ["G1.1.4", "G1.1.4", "G1.1.4", "G1.1.4"],
     choices: getText(lang, "G1.1.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1.1.4",
@@ -88,6 +96,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1.1.3"],
     next: ["G1b.3"],
     choices: getText(lang, "G1.1.4", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
 
 
@@ -101,6 +110,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1"],
     next: ["G1.2.2", "G2a", "G1.2.2", "G1.2.2"],
     choices: getText(lang, "G1.2.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G2a",
@@ -110,6 +120,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["G1.2.1"],
     next: ["G1.2.2"],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1.2.2",
@@ -120,6 +131,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1.2.1"],
     next: ["G1b.1", "G1b.1", "G1b.1"],
     choices: getText(lang, "G1.2.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
 
   // ESCRITORIO (G1.3)
@@ -132,6 +144,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1"],
     next: ["G1.3.2", "G1.3.2", "G1.3.2", "G1.3.2"],
     choices: getText(lang, "G1.3.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1.3.2",
@@ -142,6 +155,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1.3.1"],
     next: ["G1.3.3"],
     choices: getText(lang, "G1.3.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1.3.3",
@@ -152,6 +166,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1.3.2"],
     next: ["G1b.1", "G1b.1", "G1b.1", "G1b.1"],
     choices: getText(lang, "G1.3.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
 
   // CONVERGENCIA SOFTWARE (G1b)
@@ -164,6 +179,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: [],
     next: ["G1b.2", "G1b.2", "G1b.2"],
     choices: getText(lang, "G1b.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1b.2",
@@ -174,6 +190,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1b.1"],
     next: ["G1b.3", "G1b.3", "G1b.3"],
     choices: getText(lang, "G1b.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1b.3",
@@ -184,6 +201,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: [],
     next: ["G1b.4"],
     choices: getText(lang, "G1b.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1b.4",
@@ -199,6 +217,7 @@ export const questions = (lang: Locale): Question[] => [
       unique: [true],
       values: getText(lang, "G1b.4", "options") as string[][],
     },
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1b.5",
@@ -209,6 +228,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1b.4"],
     next: ["G1b.6", "G1b.6", "G1b.6", "G1b.6"],
     choices: getText(lang, "G1b.5", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1b.6",
@@ -219,6 +239,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1b.5"],
     next: ["G1b.7", "G1b.7", "G1b.7", "G1b.7"],
     choices: getText(lang, "G1b.6", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1b.7",
@@ -229,6 +250,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1b.6"],
     next: ["G1b.8", "G1b.8"],
     choices: getText(lang, "G1b.7", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1b.8",
@@ -244,6 +266,7 @@ export const questions = (lang: Locale): Question[] => [
       unique: [true],
       values: getText(lang, "G1b.8", "options") as string[][],
     },
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1b.9",
@@ -254,6 +277,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1b.8"],
     next: ["G1b.10", "G1b.10", "G1b.10", "G1b.10"],
     choices: getText(lang, "G1b.9", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G1b.10",
@@ -264,6 +288,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G1b.9"],
     next: [],
     choices: getText(lang, "G1b.10", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
 
   // --- DESARROLLO DE MARCA (G2) ---
@@ -276,6 +301,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G0"],
     next: ["G2.2", "G2.2", "G2.2", "G2.2"],
     choices: getText(lang, "G2.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G2.2",
@@ -286,6 +312,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G2.1"],
     next: ["G2.3", "G2.3", "G2.3", "G2.3"],
     choices: getText(lang, "G2.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G2.3",
@@ -296,6 +323,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G2.2"],
     next: ["G2.4", "G2.4"],
     choices: getText(lang, "G2.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G2.4",
@@ -306,6 +334,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G2.3"],
     next: ["G2.5", "G2.5", "G2.5", "G2.5"],
     choices: getText(lang, "G2.4", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G2.5",
@@ -316,6 +345,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G2.4"],
     next: ["G2.6", "G2.6"],
     choices: getText(lang, "G2.5", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G2.6",
@@ -326,6 +356,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G2.5"],
     next: ["G2.7", "G2.7"],
     choices: getText(lang, "G2.6", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G2.7",
@@ -336,6 +367,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G2.6"],
     next: ["G2.8", "G2.8", "G2.8", "G2.8"],
     choices: getText(lang, "G2.7", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G2.8",
@@ -346,6 +378,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G2.7"],
     next: ["G2.9", "G2.9"],
     choices: getText(lang, "G2.8", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G2.9",
@@ -356,6 +389,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G2.8"],
     next: [],
     choices: getText(lang, "G2.9", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
 
   // --- PRODUCCION AUDIOVISUAL (G3) ---
@@ -368,6 +402,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G0"],
     next: ["G3.2", "G3.2", "G3.2"],
     choices: getText(lang, "G3.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G3.2",
@@ -378,6 +413,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G3.1"],
     next: ["G3.3", "G3.3", "G3.3"],
     choices: getText(lang, "G3.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G3.3",
@@ -388,6 +424,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G3.2"],
     next: ["G3.4", "G3.4", "G3.4"],
     choices: getText(lang, "G3.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G3.4",
@@ -398,6 +435,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G3.3"],
     next: ["G3.5", "G3.5", "G3.5"],
     choices: getText(lang, "G3.4", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G3.5",
@@ -407,6 +445,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["G3.4"],
     next: ["G3.6"],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G3.6",
@@ -416,6 +455,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["G3.5"],
     next: [],
+    mode: [QuoteMode.COMPLEX],
   },
 
   // --- GESTION DE REDES (G4) ---
@@ -433,6 +473,7 @@ export const questions = (lang: Locale): Question[] => [
       unique: [true],
       values: getText(lang, "G4.1", "options") as string[][],
     },
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G4.2",
@@ -442,6 +483,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G4.1"],
     next: ["G4.3", "G4.3"],
     choices: getText(lang, "G4.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "G4.3",
@@ -451,6 +493,242 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["G4.2"],
     next: [],
     choices: getText(lang, "G4.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
+  },
+
+  // MODO SIMPLE
+  // SOFTWARE
+  {
+    id: "G1",
+    context: getText(lang, "G1", "context") as string,
+    prompt: getText(lang, "G1", "prompt") as string,
+    highlight: (getText(lang, "G1", "highlight") ?? "") as string,
+    types: QuestionTypes.MULTIPLE_SELECT,
+    previous: ["G0"],
+    next: ["GS1.1.1", "GS1.2.1", "GS1.3.1"],
+    choices: getText(lang, "G1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS1.1.1",
+    context: getText(lang, "G1.1.1", "context") as string,
+    prompt: getText(lang, "GS1.1.1", "prompt") as string,
+    highlight: (getText(lang, "GS1.1.1", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G1"],
+    next: ["GS1b.1", "GS1b.1", "GS1b.1"],
+    choices: getText(lang, "GS1.1.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS1.2.1",
+    context: getText(lang, "G1.2.1", "context") as string,
+    prompt: getText(lang, "GS1.2.1", "prompt") as string,
+    highlight: (getText(lang, "GS1.2.1", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G1"],
+    next: ["GS1b.1", "GS1b.1", "GS1b.1"],
+    choices: getText(lang, "GS1.2.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS1.3.1",
+    context: getText(lang, "G1.3.1", "context") as string,
+    prompt: getText(lang, "GS1.3.1", "prompt") as string,
+    highlight: (getText(lang, "GS1.3.1", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G1"],
+    next: ["GS1b.1", "GS1b.1", "GS1b.1"],
+    choices: getText(lang, "GS1.3.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS1b.1",
+    context: getText(lang, "G1", "context") as string,
+    prompt: getText(lang, "GS1b.1", "prompt") as string,
+    highlight: (getText(lang, "GS1b.1", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G1"],
+    next: ["GS1b.2", "GS1b.2", "GS1b.2"],
+    choices: getText(lang, "GS1b.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS1b.2",
+    context: getText(lang, "G1", "context") as string,
+    prompt: getText(lang, "GS1b.2", "prompt") as string,
+    highlight: (getText(lang, "GS1b.2", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["GS1b.1"],
+    next: [],
+    choices: getText(lang, "GS1b.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  // MARCA
+  {
+    id: "G2.1",
+    context: getText(lang, "G2.1", "context") as string,
+    prompt: getText(lang, "G2.1", "prompt") as string,
+    highlight: (getText(lang, "G2.1", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G0"],
+    next: ["GS2.2", "GS2.2", "GS2.2", "GS2.2"],
+    choices: getText(lang, "G2.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS2.2",
+    context: getText(lang, "G2.1", "context") as string,
+    prompt: getText(lang, "GS2.2", "prompt") as string,
+    highlight: (getText(lang, "GS2.2", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G2.1"],
+    next: ["GS2.3", "GS2.3"],
+    choices: getText(lang, "GS2.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS2.3",
+    context: getText(lang, "G2.1", "context") as string,
+    prompt: getText(lang, "G2.3", "prompt") as string,
+    highlight: (getText(lang, "G2.3", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["GS2.2"],
+    next: ["GS2.4", "GS2.4"],
+    choices: getText(lang, "G2.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS2.4",
+    context: getText(lang, "G2.1", "context") as string,
+    prompt: getText(lang, "G2.5", "prompt") as string,
+    highlight: (getText(lang, "G2.5", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["GS2.3"],
+    next: ["GS2.5", "GS2.5"],
+    choices: getText(lang, "G2.5", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS2.5",
+    context: getText(lang, "G2.1", "context") as string,
+    prompt: getText(lang, "G2.6", "prompt") as string,
+    highlight: (getText(lang, "G2.6", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["GS2.4"],
+    next: ["GS2.6", "GS2.6"],
+    choices: getText(lang, "G2.6", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS2.6",
+    context: getText(lang, "G2.1", "context") as string,
+    prompt: getText(lang, "G2.8", "prompt") as string,
+    highlight: (getText(lang, "G2.8", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["GS2.5"],
+    next: ["GS2.7", "GS2.7"],
+    choices: getText(lang, "G2.8", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS2.7",
+    context: getText(lang, "G2.1", "context") as string,
+    prompt: getText(lang, "G2.9", "prompt") as string,
+    highlight: (getText(lang, "G2.9", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["GS2.6"],
+    next: [],
+    choices: getText(lang, "G2.9", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  // PRODUCCIÓN AUDIOVISUAL
+
+  {
+    id: "G3.1",
+    context: getText(lang, "G3.1", "context") as string,
+    prompt: getText(lang, "GS3.1", "prompt") as string,
+    highlight: (getText(lang, "GS3.1", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G0"],
+    next: ["GS3.2", "GS3.2"],
+    choices: getText(lang, "GS3.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS3.2",
+    context: getText(lang, "G3.1", "context") as string,
+    prompt: getText(lang, "GS3.2", "prompt") as string,
+    highlight: (getText(lang, "GS3.2", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G3.1"],
+    next: ["GS3.3", "GS3.3"],
+    choices: getText(lang, "GS3.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS3.3",
+    context: getText(lang, "G3.1", "context") as string,
+    prompt: getText(lang, "GS3.3", "prompt") as string,
+    highlight: (getText(lang, "GS3.3", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G3.2"],
+    next: ["GS3.4", "GS3.4"],
+    choices: getText(lang, "GS3.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS3.4",
+    context: getText(lang, "G3.1", "context") as string,
+    prompt: getText(lang, "GS3.4", "prompt") as string,
+    highlight: (getText(lang, "GS3.4", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G3.3"],
+    next: ["", ""],
+    choices: getText(lang, "GS3.4", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  // REDES SOCIALES
+
+  {
+    id: "G4.1",
+    context: getText(lang, "G4.1", "context") as string,
+    prompt: getText(lang, "G4.2", "prompt") as string,
+    highlight: (getText(lang, "G4.2", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G0"],
+    next: ["GS4.2", "GS4.2"],
+    choices: getText(lang, "G4.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "GS4.2",
+    context: getText(lang, "G4.1", "context") as string,
+    prompt: getText(lang, "G4.3", "prompt") as string,
+    highlight: (getText(lang, "G4.3", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["G4.1"],
+    next: [],
+    choices: getText(lang, "G4.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
   },
 
   // --- DISEÑO (D) ---
@@ -463,9 +741,11 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["0"],
     next: ["D1", "D2.1", "D3.1", "D4.1"],
     choices: getText(lang, "D0", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
 
   // --- DISEÑO GRAFICO Y 2D (D1) ---
+  // MODO COMPLEJO
   {
     id: "D1",
     context: getText(lang, "D1", "context") as string,
@@ -475,6 +755,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D0"],
     next: ["D1.1.1", "D1.2.1", "D1.3.1", "D1.4.1"],
     choices: getText(lang, "D1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   // Branding (D1.1)
   {
@@ -486,6 +767,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D1"],
     next: ["D1.1.2", "D1.1.2"],
     choices: getText(lang, "D1.1.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D1.1.2",
@@ -495,6 +777,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D1.1.1"],
     next: ["D1.1.3", "D1.1.3"],
     choices: getText(lang, "D1.1.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D1.1.3",
@@ -504,6 +787,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D1.1.2"],
     next: [],
     choices: getText(lang, "D1.1.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   // Material Corporativo (D1.2)
   {
@@ -515,6 +799,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D1"],
     next: ["D1.2.2", "D1.2.2", "D1.2.2"],
     choices: getText(lang, "D1.2.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D1.2.2",
@@ -524,6 +809,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["D1.2.1"],
     next: [],
+    mode: [QuoteMode.COMPLEX],
   },
   // Diseño Editorial (D1.3)
   {
@@ -535,6 +821,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D1"],
     next: ["D1.3.2", "D1.3.2", "D1.3.2", "D1.3.2"],
     choices: getText(lang, "D1.3.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D1.3.2",
@@ -545,6 +832,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D1.3.1"],
     next: ["D1.3.3", "D1.3.3", "D1.3.3", "D1.3.3"],
     choices: getText(lang, "D1.3.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D1.3.3",
@@ -554,6 +842,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["D1.3.2"],
     next: [],
+    mode: [QuoteMode.COMPLEX],
   },
   // Ilustración (D1.4)
   {
@@ -565,6 +854,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D1"],
     next: ["D1.4.2", "D1.4.2", "D1.4.2"],
     choices: getText(lang, "D1.4.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D1.4.2",
@@ -575,6 +865,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D1.4.1"],
     next: ["D1.4.3", "D1.4.3", "D1.4.3"],
     choices: getText(lang, "D1.4.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D1.4.3",
@@ -584,6 +875,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["D1.4.2"],
     next: [],
+    mode: [QuoteMode.COMPLEX],
   },
 
   // --- DISEÑO ANIMADO (D2) ---
@@ -596,6 +888,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D0"],
     next: ["D2.2", "D2.2", "D2.2"],
     choices: getText(lang, "D2.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D2.2",
@@ -606,6 +899,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D2.1"],
     next: ["D2.3", "D2.3"],
     choices: getText(lang, "D2.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D2.3",
@@ -616,6 +910,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D2.2"],
     next: ["D2.4", "D2.4", "D2.4"],
     choices: getText(lang, "D2.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D2.4",
@@ -626,6 +921,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D2.3"],
     next: ["D2.5", "D2.5", "D2.5"],
     choices: getText(lang, "D2.4", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D2.5",
@@ -635,6 +931,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["D2.4"],
     next: ["D2.6"],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D2.6",
@@ -645,6 +942,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D2.5"],
     next: [],
     choices: getText(lang, "D2.6", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
 
   // --- DISEÑO 3D ESTATICO (D3) ---
@@ -657,6 +955,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D0"],
     next: ["D3.1.1", "D3.2.1", "D3.3.1"],
     choices: getText(lang, "D3.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   // Modelo 3D (D3.1)
   {
@@ -668,6 +967,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D3.1"],
     next: ["D3.1.2", "D3.1.2", "D3.1.2", "D3.1.2"],
     choices: getText(lang, "D3.1.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D3.1.2",
@@ -677,6 +977,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["D3.1.1"],
     next: ["D3.1.3"],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D3.1.3",
@@ -687,6 +988,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D3.1.2"],
     next: ["D3.1.4", "D3.1.4"],
     choices: getText(lang, "D3.1.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D3.1.4",
@@ -697,6 +999,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D3.1.3"],
     next: [], 
     choices: getText(lang, "D3.1.4", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   // Stands y Espacios (D3.2)
   {
@@ -708,6 +1011,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D3.1"],
     next: ["D3.2.2", "D3.2.2", "D3.2.2", "D3.2.2"],
     choices: getText(lang, "D3.2.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D3.2.2",
@@ -717,6 +1021,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["D3.2.1"],
     next: ["D3.2.3"],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D3.2.3",
@@ -727,6 +1032,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D3.2.2"],
     next: [],
     choices: getText(lang, "D3.2.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   // Modelo de Espacios (D3.3)
   {
@@ -738,6 +1044,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D3.1"],
     next: ["D3.3.2", "D3.3.2", "D3.3.2"],
     choices: getText(lang, "D3.3.1", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D3.3.2",
@@ -747,6 +1054,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["D3.3.1"],
     next: ["D3.3.3"],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D3.3.3",
@@ -757,6 +1065,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D3.3.2"],
     next: ["D3.3.4", "D3.3.4", "D3.3.4"],
     choices: getText(lang, "D3.3.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D3.3.4",
@@ -767,6 +1076,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D3.3.3"],
     next: [],
     choices: getText(lang, "D3.3.4", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
 
   // --- FOTOGRAFÍA Y POSTPRODUCCION (D4) ---
@@ -778,6 +1088,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.NUM_RANGE,
     previous: ["D0"],
     next: ["D4.2"],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D4.2",
@@ -788,6 +1099,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D4.1"],
     next: ["D4.3", "D4.3", "D4.3"],
     choices: getText(lang, "D4.2", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
   },
   {
     id: "D4.3",
@@ -798,6 +1110,261 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["D4.2"],
     next: [],
     choices: getText(lang, "D4.3", "answers") as Choice[],
+    mode: [QuoteMode.COMPLEX],
+  },
+
+  // MODO SIMPLE
+  // DISEÑO GRAFICO Y 2D
+  {
+    id: "D1",
+    context: getText(lang, "D1", "context") as string,
+    prompt: getText(lang, "D1", "prompt") as string,
+    highlight: (getText(lang, "D1", "highlight") ?? "") as string,
+    types: QuestionTypes.MULTIPLE_SELECT,
+    previous: ["D0"],
+    next: ["DS1.1.1", "DS1.2.1", "DS1.3.1", "DS1.4.1"],
+    choices: getText(lang, "D1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS1.1.1",
+    context: getText(lang, "D1.1.1", "context") as string,
+    prompt: getText(lang, "D1.1.1", "prompt") as string,
+    highlight: (getText(lang, "D1.1.1", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["D1"],
+    next: ["DS1.1.2", "DS1.1.2"],
+    choices: getText(lang, "D1.1.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS1.1.2",
+    context: getText(lang, "D1.1.1", "context") as string,
+    prompt: getText(lang, "D1.1.2", "prompt") as string,
+    highlight: (getText(lang, "D1.1.2", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["DS1.1.1"],
+    next: ["DS1.1.3", "DS1.1.3"],
+    choices: getText(lang, "D1.1.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS1.1.3",
+    context: getText(lang, "D1.1.1", "context") as string,
+    prompt: getText(lang, "D1.1.3", "prompt") as string,
+    highlight: (getText(lang, "D1.1.3", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["DS1.1.2"],
+    next: [],
+    choices: getText(lang, "D1.1.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS1.2.1",
+    context: getText(lang, "D1.2.1", "context") as string,
+    prompt: getText(lang, "D1.2.2", "prompt") as string,
+    highlight: (getText(lang, "D1.2.2", "highlight") ?? "") as string,
+    types: QuestionTypes.NUM_RANGE,
+    previous: ["D1"],
+    next: [],
+    choices: getText(lang, "D1.2.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS1.3.1",
+    context: getText(lang, "D1.3.1", "context") as string,
+    prompt: getText(lang, "D1.3.2", "prompt") as string,
+    highlight: (getText(lang, "D1.3.2", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["D1"],
+    next: ["DS1.3.2", "DS1.3.2", "DS1.3.2", "DS1.3.2"],
+    choices: getText(lang, "D1.3.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS1.3.2",
+    context: getText(lang, "D1.3.1", "context") as string,
+    prompt: getText(lang, "D1.3.3", "prompt") as string,
+    highlight: (getText(lang, "D1.3.3", "highlight") ?? "") as string,
+    types: QuestionTypes.NUM_RANGE,
+    previous: ["DS1.3.1"],
+    next: [],
+    choices: getText(lang, "D1.3.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS1.4.1",
+    context: getText(lang, "D1.4.1", "context") as string,
+    prompt: getText(lang, "D1.4.3", "prompt") as string,
+    highlight: (getText(lang, "D1.4.3", "highlight") ?? "") as string,
+    types: QuestionTypes.NUM_RANGE,
+    previous: ["D1"],
+    next: [],
+    choices: getText(lang, "D1.4.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "D2.1",
+    context: getText(lang, "D2.1", "context") as string,
+    prompt: getText(lang, "D2.1", "prompt") as string,
+    highlight: (getText(lang, "D2.1", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["D0"],
+    next: ["DS2.2", "DS2.2", "DS2.2"],
+    choices: getText(lang, "D2.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS2.2",
+    context: getText(lang, "D2.1", "context") as string,
+    prompt: getText(lang, "DS2.2", "prompt") as string,
+    highlight: (getText(lang, "DS2.2", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["D2.1"],
+    next: ["DS2.3", "DS2.3"],
+    choices: getText(lang, "DS2.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS2.3",
+    context: getText(lang, "D2.1", "context") as string,
+    prompt: getText(lang, "DS2.3", "prompt") as string,
+    highlight: (getText(lang, "DS2.3", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["DS2.2"],
+    next: ["DS2.4", "DS2.4", "DS2.4", "DS2.4"],
+    choices: getText(lang, "DS2.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS2.4",
+    context: getText(lang, "D2.1", "context") as string,
+    prompt: getText(lang, "DS2.4", "prompt") as string,
+    highlight: (getText(lang, "DS2.4", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["DS2.3"],
+    next: [],
+    choices: getText(lang, "DS2.4", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "D3.1",
+    context: getText(lang, "D3.1", "context") as string,
+    prompt: getText(lang, "D3.1", "prompt") as string,
+    highlight: (getText(lang, "D3.1", "highlight") ?? "") as string,
+    types: QuestionTypes.MULTIPLE_SELECT,
+    previous: ["D0"],
+    next: ["DS3.1.1", "DS3.2.1", "DS3.3.1"],
+    choices: getText(lang, "D3.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS3.1.1",
+    context: getText(lang, "D3.1.1", "context") as string,
+    prompt: getText(lang, "D3.1.2", "prompt") as string,
+    highlight: (getText(lang, "D3.1.2", "highlight") ?? "") as string,
+    types: QuestionTypes.NUM_RANGE,
+    previous: ["D3.1"],
+    next: ["DS3.1.2"],
+    choices: getText(lang, "D3.1.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS3.1.2",
+    context: getText(lang, "D3.1.1", "context") as string,
+    prompt: getText(lang, "D3.1.3", "prompt") as string,
+    highlight: (getText(lang, "D3.1.3", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["DS3.1.1"],
+    next: [],
+    choices: getText(lang, "D3.1.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS3.2.1",
+    context: getText(lang, "D3.2.1", "context") as string,
+    prompt: getText(lang, "D3.2.1", "prompt") as string,
+    highlight: (getText(lang, "D3.2.1", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["D3.1"],
+    next: ["DS3.2.2", "DS3.2.2", "DS3.2.2", "DS3.2.2"],
+    choices: getText(lang, "D3.2.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS3.2.2",
+    context: getText(lang, "D3.2.1", "context") as string,
+    prompt: getText(lang, "D3.2.2", "prompt") as string,
+    highlight: (getText(lang, "D3.2.2", "highlight") ?? "") as string,
+    types: QuestionTypes.NUM_RANGE,
+    previous: ["DS3.2.1"],
+    next: [],
+    choices: getText(lang, "D3.2.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS3.3.1",
+    context: getText(lang, "D3.3.1", "context") as string,
+    prompt: getText(lang, "D3.3.2", "prompt") as string,
+    highlight: (getText(lang, "D3.3.2", "highlight") ?? "") as string,
+    types: QuestionTypes.NUM_RANGE,
+    previous: ["D3.1"],
+    next: ["DS3.3.2"],
+    choices: getText(lang, "D3.3.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS3.3.2",
+    context: getText(lang, "D3.3.1", "context") as string,
+    prompt: getText(lang, "D3.3.3", "prompt") as string,
+    highlight: (getText(lang, "D3.3.3", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["DS3.3.1"],
+    next: [],
+    choices: getText(lang, "D3.3.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "D4.1",
+    context: getText(lang, "D4.1", "context") as string,
+    prompt: getText(lang, "D4.1", "prompt") as string,
+    highlight: (getText(lang, "D4.1", "highlight") ?? "") as string,
+    types: QuestionTypes.NUM_RANGE,
+    previous: ["D0"],
+    next: ["DS4.2"],
+    choices: getText(lang, "D4.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
+  },
+
+  {
+    id: "DS4.2",
+    context: getText(lang, "D4.1", "context") as string,
+    prompt: getText(lang, "D4.3", "prompt") as string,
+    highlight: (getText(lang, "D4.3", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["D4.1"],
+    next: [],
+    choices: getText(lang, "D4.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE],
   },
 
   // --- COMUNICACIONES (C) ---
@@ -810,6 +1377,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["0"],
     next: ["C1.1", "C2.1", "C3.1", "C4.1"],
     choices: getText(lang, "C0", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   // Estrategia y Conceptualización (C1)
   {
@@ -821,6 +1389,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C0"],
     next: [],
     choices: getText(lang, "C1.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   // Redacción y Guionaje (C2)
   {
@@ -832,6 +1401,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C0"],
     next: ["C2.2", "C2.2"],
     choices: getText(lang, "C2.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   {
     id: "C2.2",
@@ -842,6 +1412,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C2.1"],
     next: ["C2.3", "C2.3"],
     choices: getText(lang, "C2.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   {
     id: "C2.3",
@@ -852,6 +1423,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C2.2"],
     next: ["C2.4", "C2.4"],
     choices: getText(lang, "C2.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   {
     id: "C2.4",
@@ -862,6 +1434,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C2.3"],
     next: ["C2.5", "C2.5"],
     choices: getText(lang, "C2.4", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   {
     id: "C2.5",
@@ -872,6 +1445,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C2.4"],
     next: ["C2.6", "C2.6"],
     choices: getText(lang, "C2.5", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   {
     id: "C2.6",
@@ -882,6 +1456,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C2.5"],
     next: [],
     choices: getText(lang, "C2.6", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   // Producción de Audio (C3)
   {
@@ -893,6 +1468,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C0"],
     next: [],
     choices: getText(lang, "C3.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   // Producción Audiovisual (C4)
   {
@@ -904,6 +1480,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C0"],
     next: ["C4.2", "C4.2", "C4.2"],
     choices: getText(lang, "C4.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   {
     id: "C4.2",
@@ -914,6 +1491,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C4.1"],
     next: ["C4.3", "C4.3"],
     choices: getText(lang, "C4.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   {
     id: "C4.3",
@@ -924,6 +1502,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C4.2"],
     next: ["C4.4", "C4.4"],
     choices: getText(lang, "C4.3", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   {
     id: "C4.4",
@@ -934,6 +1513,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C4.3"],
     next: ["C4.5", "C4.5"],
     choices: getText(lang, "C4.4", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
   {
     id: "C4.5",
@@ -944,5 +1524,6 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C4.4"],
     next: [],
     choices: getText(lang, "C4.5", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
 ];

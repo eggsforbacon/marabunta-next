@@ -93,6 +93,8 @@ export const es: TranslationEntry[] = [
         ],
     },
 
+    //MODO COMPLEJO
+
     // WEB
     {
         id: "G1.1.1",
@@ -931,7 +933,6 @@ export const es: TranslationEntry[] = [
     },
 
     // GESTION DE REDES SOCIALES
-    // FALTA DESCRIPCIONES
    {
         id: "G4.1",
         context: "GESTIÓN DE REDES SOCIALES",
@@ -990,9 +991,229 @@ export const es: TranslationEntry[] = [
         ],
     },
 
+    // MODO SIMPLE
+
+    {
+        id: "GS1.1.1",
+        prompt: "¿Qué $ de página?",
+        highlight: "clase",
+        answers: [
+            {
+                title: "Una landing page.",
+                description:
+                    "Captura leads y aumenta conversiones con una página de destino.",
+
+            },
+            {
+                title: "Un Ecommerce.",
+                description:
+                    "Vende tus productos y servicios en línea con una tienda virtual.",
+
+            },
+            {
+                title: "Otro.",
+                description:
+                    "¿Algo más en mente? Creamos tu sitio web a la medida de tus necesidades.",
+
+            },
+        ],
+    },
+    {
+        id: "GS1.2.1",
+        prompt: "¿Qué clase de $?",
+        highlight: "aplicativo",
+        answers: [
+            {
+                title: "App simple.",
+                description:
+                    "Aplicación básica enfocada en funcionalidades esenciales y experiencia directa.",
+
+            },
+            {
+                title: "Un Ecommerce.",
+                description:
+                    "App de tienda online con catálogo, carrito y pasarelas de pago integradas.",
+
+            },
+            {
+                title: "Utilidad.",
+                description:
+                    "Herramienta para resolver tareas específicas o automatizar procesos.",
+
+            },
+        ],
+    },
+    {
+        id: "GS1.3.1",
+        prompt: "¿Qué clase de $?",
+        highlight: "aplicación",
+        answers: [
+            {
+                title: "Herramienta ligera.",
+                description:
+                    "Aplicación de escritorio enfocada en tareas puntuales y bajo consumo de recursos.",
+
+            },
+            {
+                title: "Herramienta compleja.",
+                description:
+                    "Aplicación robusta con múltiples módulos, integración y alto rendimiento.",
+
+            },
+        ],
+    },
+    {
+        id: "GS1b.1",
+        prompt: "¿Qué rango de $ estimas?",
+        highlight: "páginas, vistas o módulos",
+        answers: [
+            {
+                title: "Pocos, hasta 8.",
+                description:
+                    "Sitio pequeño, estructura simple, desarrollo más rápido y costo menor.",
+
+            },
+            {
+                title: "Varios, de 8 a 16.",
+                description:
+                    "Sitio mediano con secciones variadas y funcionalidades moderadas.",
+
+            },
+            {
+                title: "Muchos, más de 16.",
+                description:
+                    "Proyecto grande y complejo con múltiples módulos, mayor tiempo y costo.",
+
+            },
+        ],
+    },
+    {
+        id: "GS1b.2",
+        prompt: "¿Posees $ o alguna plataforma ya existente?",
+        highlight: "hosting",
+        answers: [
+            {
+                title: "Si",
+                description:
+                    "Tengo hosting/plataforma; gestionamos integración, configuración y despliegue.",
+
+            },
+            {
+                title: "No.",
+                description:
+                    "No tengo; contratamos y configuramos hosting y plataforma desde cero.",
+
+            },
+        ],
+    },
+
+    // MARCA
+    {
+        id: "GS2.2",
+        prompt: "¿Necesitas $?",
+        highlight: "naming",
+        answers: [
+            {
+                title: "Si.",
+                description:
+                    "Creamos, analizamos o revisamos un nombre único y memorable para tu marca.",
+
+            },
+            {
+                title: "No necesito.",
+                description:
+                    "Si ya tienes un nombre definido, nos enfocamos en otros aspectos de tu marca, como diseño o estrategia de posicionamiento.",
+
+            },
+        ],
+    },
+
+    // PRODUCCIÓN AUDIOVISUAL
+    {
+        id: "GS3.1",
+        prompt: "¿Cuentas con $?",
+        highlight: "insumos o recursos",
+        answers: [
+            {
+                title: "Si, tengo material existente.",
+                description:
+                    "Usamos tus imágenes de archivo para crear contenido audiovisual de alta calidad, optimizando tiempo y recursos.",
+
+            },
+            {
+                title: "No tengo insumos o recursos.",
+                description:
+                    "Producimos todo desde cero, incluyendo rodaje, fotografía y edición, para crear contenido audiovisual impactante.",
+
+            },
+        ],
+    },
+
+    {
+        id: "GS3.2",
+        prompt: "¿Se requiere equipos de $?",
+        highlight: "iluminación y sonido",
+        answers: [
+            {
+                title: "Si.",
+                description:
+                    "Proporcionamos equipos profesionales de iluminación y sonido para garantizar una producción audiovisual de alta calidad.",
+
+            },
+            {
+                title: "No, no necesito.",
+                description:
+                    "Si no necesitas equipos especializados, optimizamos la producción con recursos básicos para cumplir tus objetivos.",
+
+            },
+        ],
+    },
+
+    {
+        id: "GS3.3",
+        prompt: "¿Cuántos $ necesitas?",
+        highlight: "videos",
+        answers: [
+            {
+                title: "Solo uno.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Más de uno.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+
+    {
+        id: "GS3.4",
+        prompt: "¿De cuanto es la $ aproximada del video?",
+        highlight: "duración",
+        answers: [
+            {
+                title: "Hasta un minuto.",
+                description:
+                    "",
+
+            },
+            {
+                title: "De más de un minuto.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+
+    // REDES SOCIALES
+
 
 //DISEÑO
-
+// MODO COMPLEJO
 
 {
         id: "D0",
@@ -1686,6 +1907,77 @@ export const es: TranslationEntry[] = [
                     "¿Tienes un propósito específico en mente? Personalizamos la edición según tus necesidades únicas.",
             },
         ]
+},
+
+// MODO SIMPLE
+
+{
+    id: "DS2.2",
+    prompt: "¿Tienes una $ definida para el video?",
+    highlight: "idea",
+    answers: [
+        {
+            title: "Si, tengo clara la idea.",
+            description:
+                "Tienes guion/brief; producimos el diseño fiel a tu concepto.",
+        },
+        {
+            title: "No, necesito ayuda creativa.",
+            description:
+                "Desarrollamos idea, guion y propuesta visual para tu diseño.",
+        }
+    ]
+},
+
+{
+    id: "DS2.3",
+    prompt: "¿Cuál es el $ del video?",
+    highlight: "objetivo",
+    answers: [
+        {
+            title: "Explicar algo.",
+            description:
+                "Presentar conceptos o procesos de forma clara y visualmente atractiva.",
+        },
+        {
+            title: "Promocionar un producto.",
+            description:
+                "Destacar beneficios y características para generar interés y ventas.",
+        },
+        {
+            title: "Contar una historia.",
+            description:
+                "Narrativa emocional que conecta con la audiencia y refuerza tu mensaje.",
+        },
+        {
+            title: "No estoy seguro.",
+            description:
+                "Te asesoramos para definir objetivo y orientar la propuesta creativa.",
+        }
+    ]
+},
+
+{
+    id: "DS2.4",
+    prompt: "¿Duración estimada de la $?",
+    highlight: "animación",
+    answers: [
+        {
+            title: "Menos de 1 minuto.",
+            description:
+                "",
+        },
+        {
+            title: "1 a 3 minutos.",
+            description:
+                "",
+        },
+        {
+            title: "Más de 3 minutos.",
+            description:
+                "",
+        }
+    ]
 },
 
 //COMUNICACIONES

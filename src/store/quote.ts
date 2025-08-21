@@ -1,11 +1,10 @@
 import { create } from "zustand";
-import { Answer, QuestionTypes, Question } from "@/types/quote";
+import { Answer, Question, QuestionTypes, QuoteMode } from "@/types/quote";
 import { getQuestion } from "@/model/quote";
 
 type Locale = "es" | "en";
 
 const INTRO_ID = "intro";
-const INITIAL_QUESTION_ID = "0";
 
 interface QuoteStore {
     quoteEmail: string;
@@ -32,6 +31,8 @@ interface QuoteStore {
     setSelectedOptions: (options: { index: number; timestamp: number }[]) => void;
     lang: Locale;
     setLang: (lang: Locale) => void;
+    quoteMode: QuoteMode | null;
+    setQuoteMode: (mode: QuoteMode) => void;
 }
 
 const determineNextState = (
@@ -40,9 +41,9 @@ const determineNextState = (
     stack: string[],
     subflowQueue: string[],
     flowRootId: string | null,
-    lang: Locale
+    lang: Locale,
+    quoteMode: QuoteMode | null
 ) => {
-
     if (current === INTRO_ID) {
         const nextId = rawIds[0];
         return {
@@ -55,7 +56,7 @@ const determineNextState = (
     }
 
     const ids = rawIds.filter((id) => id !== undefined && id !== "-1");
-    const currentQuestion = getQuestion(current, lang);
+    const currentQuestion = getQuestion(current, lang, quoteMode);
 
     let newFlowRootId = flowRootId;
     if (currentQuestion?.types === QuestionTypes.MULTIPLE_SELECT && !flowRootId) {
@@ -87,7 +88,7 @@ const determineNextState = (
     }
 
     if (newFlowRootId && stack.includes(newFlowRootId)) {
-        const flowQuestion = getQuestion(newFlowRootId, lang);
+        const flowQuestion = getQuestion(newFlowRootId, lang, quoteMode);
         if (flowQuestion?.postFlowId) {
             return {
                 current: flowQuestion.postFlowId,
@@ -109,15 +110,16 @@ const determineNextState = (
     };
 };
 
-export const useQuoteStore = create<QuoteStore>((set) => ({
+export const useQuoteStore = create<QuoteStore>((set, get) => ({
+    quoteMode: null,
+    setQuoteMode: (mode: QuoteMode) => set({ quoteMode: mode, current: '0', stack: [INTRO_ID, '0'] }),
     quoteEmail: "",
     average: 0,
     floor: 0,
     ceiling: 0,
     basket: [],
     addToBasket: (p: Answer) => set((state) => ({ basket: [...state.basket, p] })),
-    removeFromBasket: (id: string) =>
-        set((state) => ({ basket: state.basket.filter((p) => p.id !== id) })),
+    removeFromBasket: (id: string) => set((state) => ({ basket: state.basket.filter((p) => p.id !== id) })),
     current: INTRO_ID,
     stack: [INTRO_ID],
     subflowQueue: [],
@@ -134,14 +136,15 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
                     selectedOptions: [],
                 };
             }
-            
+
             const nextState = determineNextState(
                 rawIds,
                 state.current,
                 state.stack,
                 state.subflowQueue,
                 state.flowRootId,
-                state.lang
+                state.lang,
+                state.quoteMode
             );
             return {
                 ...nextState,
@@ -153,8 +156,8 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
         }),
     goBackQuestion: () =>
         set((state) => {
-            if (state.stack.length <= 1) {
-                return { current: INTRO_ID, stack: [INTRO_ID] };
+            if (state.stack.length <= 1 || state.current === '0') {
+                return { current: INTRO_ID, stack: [INTRO_ID], quoteMode: null };
             }
             const newStack = state.stack.slice(0, -1);
             const previousQuestionId = newStack[newStack.length - 1] || INTRO_ID;
@@ -171,6 +174,7 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
         }),
     reset: () =>
         set(() => ({
+            quoteMode: null,
             current: INTRO_ID,
             stack: [INTRO_ID],
             subflowQueue: [],
@@ -186,9 +190,9 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
             rangeValue: 0,
         })),
     activeOption: 0,
-    setActiveOption: (i: number) => set(() => ({ activeOption: i })),
+    setActiveOption: (i: number) => set({ activeOption: i }),
     rangeValue: 0,
-    setRangeValue: (i: number) => set(() => ({ rangeValue: i })),
+    setRangeValue: (i: number) => set({ rangeValue: i }),
     answers: {},
     setAnswer: (questionId: string, optionIndex: number | { index: number; timestamp: number }[]) =>
         set((state) => ({
@@ -196,7 +200,7 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
         })),
     selectedOptions: [],
     setSelectedOptions: (options: { index: number; timestamp: number }[]) =>
-        set(() => ({ selectedOptions: options })),
+        set({ selectedOptions: options }),
     lang: "es",
-    setLang: (lang: Locale) => set(() => ({ lang })),
+    setLang: (lang: Locale) => set({ lang }),
 }));
