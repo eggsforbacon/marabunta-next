@@ -44,7 +44,7 @@ export const covers: coverType[] = [
     cover: "/images/projects/clinicannabis/cover.png",
     link: "/portafolio/cannabinoides",
     name: "Seminario Iberoamericano Cannabinoides",
-    category: "Salud"
+    category: "Desarrollo Software"
   },
   {
     cover: "/images/projects/promotores-ambientales/cover.jpg",
@@ -62,5 +62,36 @@ export const covers: coverType[] = [
     cover: "/images/projects/fondo-mixto/cover.jpg",
     link: "/portafolio/fondo-mixto",
     name: "Fondo mixto"
-  }
+  },
+  {
+    cover: "/images/projects/copito-recicla/cover.png",
+    link: "/portafolio/copito-recicla",
+    name: "Copito Recicla",
+    category:"Desarrollo Software"
+  },
+  {
+    cover: "/images/projects/gesprode/header.webp",
+    link: "/portafolio/gesprode",
+    name: "Gesprode",
+    category:"Desarrollo Software"
+  },
+  {
+    cover: "/images/projects/solarmarias/cover.png",
+    fore: "/images/projects/solarmarias/forer.png",
+    link: "/portafolio/solarmarias",
+    name: "Solar las Marias",
+    category: "Desarrollo Software"
+  },
+  {
+    cover: "/images/projects/tierraposible/cover.png",
+    link: "/portafolio/tierraposible",
+    name: "Tierra Posible",
+    category:"Desarrollo Software"
+  },
+{
+    cover: "/images/projects/rhpositivo/cover.png",
+    link: "/portafolio/rhpositivo",
+    name: "RHPositivo",
+    category:"Desarrollo Software"
+  },
 ]

@@ -120,7 +120,8 @@ export const ES = {
       "Turismo",
       "Social",
       "Gobierno",
-      "Corporativo"
+      "Corporativo",
+      "Desarrollo Software"
     ],
     "projects": {
       "cali": {

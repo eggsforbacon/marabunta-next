@@ -25,15 +25,55 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
 
   const {width} = useScreenSize();
 
+  const [selectedCategory, setSelectedCategory] = useState(
+    "Selecciona una categoría"
+  ); // Estado para la categoría seleccionada
+
+// Filtrar proyectos según la categoría seleccionada
+  const filteredCovers = selectedCategory === "Selecciona una categoría"
+    ? covers
+    : covers.filter((project) => project.category === selectedCategory);
+
   /*useEffect(() => {
     getDictionary(lang).then((d) => {
       setNav(d.nav);
     });
   }, [lang]);*/
   return (
-    <main className={"min:h-screen relative bg-off-black overflow-clip slider-projects"}>
+    <main className={" min:h-screen relative bg-off-black overflow-clip slider-projects"}>
       <Navbar current={"/portafolio"} withBorder s={nav} lang={lang}/>
       <span className={"absolute top-0 w-full left-0 h-full pointer-events-none packed-dotted-background opacity-30 overflow-hidden"}/>
+      {/* Selector de categorías */}
+      <div className={`  w-full flex  !z-[999] ${
+        width <= 780
+            ? "fixed bottom-6 justify-center items-center"
+            : "absolute top-28  left-14 justify-start  items-start"
+        }`}
+      >
+        <select
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+          className="bg-black text-white rounded-lg p-1 pr-8 pl-2 border border-white focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer "
+        >
+          {[
+            "Selecciona una categoría",
+            "Salud",
+            "Deporte",
+            "Medio Ambiente",
+            "Cultura",
+            "Turismo",
+            "Social",
+            "Gobierno",
+            "Corporativo",
+            "Desarrollo Software",
+          ].map((category) => (
+            <option key={category} value={category} className="p-2">
+              {category}
+            </option>
+          ))}
+        </select>
+      </div>
+      
       {
         //home && home.services && <Services s={home?.services} lang={lang}/>
       }
@@ -50,10 +90,10 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
         mousewheel
         className={`h-36 md:!h-max pb-12 !z-[60] rounded-2xl w-full !ml-10 mt-20 absolute -bottom-10 left-4 hidden`}
         >
-           {covers.map((s, i) => {
-          return (
-            <SwiperSlide className="!w-max !h-screen" key={i}>
-              <ProjectCard key={i} >
+          {filteredCovers.map((s, i) => {
+            return (
+              <SwiperSlide className="!w-max !h-screen" key={i}>
+                <ProjectCard key={i}>
               <Image key={i} src={s.cover} alt={""} width={504} height={672} quality={100}
                 className={"absolute top-0 left-0 object-cover h-full w-auto pointer-events-none select-none rounded-xl"}/>
               <article key={i} className={"card absolute top-0 left-0 w-full h-full flex"}>
@@ -89,7 +129,7 @@ export default function Work({params: {lang}}: { params: { lang: Locale } }) {
             }
         className={"box-border w-screen lg:w-fit cursor-grab lg:min-h-screen relative flex flex-col lg:flex-row items-center justify-start py-16 lg:p-16 gap-6 [perspective:10000px] active:cursor-grabbing"}
         >
-        {covers.map((s, i) => {
+        {filteredCovers.map((s, i) => {
           return (
             <ProjectCard key={i} >
               <Image key={i} src={s.cover} alt={""} width={504} height={672} quality={100}
