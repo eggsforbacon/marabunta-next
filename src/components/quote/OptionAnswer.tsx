@@ -27,14 +27,16 @@ const OptionAnswer = ({ index, title, options }: _Props) => {
         }
         onClick={() => {
           setShowOptions(!showOptions);
-          setShownOptions(options.values[index]);
+          if (!showOptions) {
+            setShownOptions(options.values[index]);
+          }
         }}
       >
         <span className={"absolute top-0 right-2"}>{showOptions ? <DashCircle/> : <PlusCircle/>}</span>
         {title}
       </button>
       <div
-        className={`flex flex-col items-center justify-start gap-2 transition-all duration-200 ease-in-out ${showOptions ? `h-[calc(1.5rem*${shownOptions.length}+1rem)]` : "h-0"}`}
+        className={`flex flex-col items-center justify-start gap-2 transition-all duration-200 ease-in-out overflow-hidden ${showOptions ? `h-[calc(1.5rem*${shownOptions.length}+1rem)]` : "h-0"}`}
       >
         {shownOptions.map((option, i) => {
           const isSelected = selectedOptions.hasOwnProperty(i);

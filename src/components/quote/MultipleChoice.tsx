@@ -154,9 +154,15 @@ const MultipleChoice = ({
             ) : (
                 <div className={"flex flex-col items-stretch justify-start gap-3 px-8"}>
                     {choices.map(({ title }, index) => {
-                        const typeArray = Array.isArray(types) ? types : [];
-                        const isOptionAnswer = options && !Array.isArray(types) && typeArray[index] === QuestionTypes.OPTIONS;
-                        const isOpenAnswer = typeArray[index] === QuestionTypes.USER_INPUT;
+                        let currentChoiceType: QuestionTypes | undefined;
+                        if (Array.isArray(types)) {
+                            currentChoiceType = types[index];
+                        } else {
+                            currentChoiceType = types;
+                        }
+
+                        const isOptionAnswer = options && currentChoiceType === QuestionTypes.OPTIONS;
+                        const isOpenAnswer = currentChoiceType === QuestionTypes.USER_INPUT;
 
                         if (isOptionAnswer) {
                             controlIndex++;

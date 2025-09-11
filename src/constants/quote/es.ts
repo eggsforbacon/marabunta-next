@@ -1,5 +1,5 @@
 import {Choice} from "@/types/quote";
-import {TranslationEntry} from "@/services/common";
+import { TranslationEntry } from "@/services/common";
 
 export const es: TranslationEntry[] = [
     {
@@ -29,8 +29,11 @@ export const es: TranslationEntry[] = [
             },
         ],
     },
+
+    // DIGITAL
     {
         id: "G0",
+        context: "DIGITAL",
         prompt: "¿Cómo te podemos $?",
         highlight: "ayudar",
         answers: [
@@ -47,20 +50,27 @@ export const es: TranslationEntry[] = [
 
             },
             {
-                title: "Quiero establecer mi marca",
+                title: "Quiero producción audiovisual",
                 description:
-                    "Estrategias creativas para potenciar la identidad de tu marca y conectar emocionalmente con tu audiencia.",
+                    "Gestión creativa y técnica para dar vida a tus ideas, desde la planificación hasta la ejecución logística.",
+
+            },
+            {
+                title: "Quiero gestión de mis redes sociales",
+                description:
+                    "Diseñamos y administramos contenido estratégico para tus redes, aumentando engagement y visibilidad.",
 
             },
         ],
     },
 
-    // DESARROLLO
+    // PRODUCTO DE SOFTWARE
 
     {
         id: "G1",
-        prompt: "¿Qué $ de software?",
-        highlight: "tipo",
+        context: "PRODUCTO DE SOFTWARE",
+        prompt: "¿Qué tipo de $?",
+        highlight: "software",
         answers: [
             {
                 title: "Un producto web",
@@ -69,23 +79,26 @@ export const es: TranslationEntry[] = [
 
             },
             {
-                title: "Un producto para computador",
-                description:
-                    "Aplicaciones robustas y eficientes diseñadas para entornos de escritorio, optimizando el rendimiento y la productividad.",
-
-            },
-            {
                 title: "Un producto móvil",
                 description:
                     "Apps intuitivas y dinámicas que ofrecen experiencias optimizadas para usuarios en dispositivos móviles.",
 
             },
+            {
+                title: "Un producto para computador",
+                description:
+                    "Aplicaciones robustas y eficientes diseñadas para entornos de escritorio, optimizando el rendimiento y la productividad.",
+
+            },
         ],
     },
+
+    //MODO COMPLEJO
 
     // WEB
     {
         id: "G1.1.1",
+        context: "WEB",
         prompt: "¿Qué $ de página?",
         highlight: "clase",
         answers: [
@@ -128,19 +141,19 @@ export const es: TranslationEntry[] = [
         answers: [
             {
                 title: "Sí, dentro de una página específica del sitio",
-
+                description: "Implementamos búsqueda localizada para encontrar contenido en una sección concreta."
             },
             {
                 title: "Sí, a nivel global en el sitio",
-
+                description: "Configuramos búsqueda global para indexar y buscar en todo tu sitio."
             },
             {
                 title: "No",
-
+                description: "Omitimos buscador; el sitio se navegará con su estructura de menús estándar."
             },
             {
                 title: "Necesito asesoría decidiendo",
-
+                description: "Te asesoramos para definir la mejor estrategia de búsqueda interna."
             },
         ],
     },
@@ -151,19 +164,19 @@ export const es: TranslationEntry[] = [
         answers: [
             {
                 title: "Sí, tengo ambos",
-
+                description: "Gestionamos dominio y hosting, asegurando configuración óptima."
             },
             {
                 title: "Sólo tengo el hosting",
-
+                description: "Registramos dominio y lo vinculamos con tu hosting existente."
             },
             {
                 title: "Sólo tengo el dominio",
-
+                description: "Contratamos y configuramos hosting para tu dominio."
             },
             {
                 title: "No tengo ninguno",
-
+                description: "Registramos dominio y contratamos hosting desde cero."
             },
         ],
     },
@@ -174,28 +187,23 @@ export const es: TranslationEntry[] = [
         answers: [
             {
                 title: "Sí",
-
+                description: "Analizamos y optimizamos tu sitio para mejorar visibilidad y ranking en buscadores."
             },
             {
                 title: "No los necesito",
-
+                description: "Omitimos SEO; confiamos en la visibilidad orgánica actual."
             },
             {
                 title: "Necesito asesoría decidiendo",
-
+                description: "Te guiamos en estrategia SEO para definir necesidades y acciones."
             },
         ],
-    },
-    {
-        id: "G1.1.5",
-        prompt: "¿Cuántas $ tiene tu sitio?",
-        highlight: "páginas",
-        hint: "",
     },
 
     // Móvil
     {
         id: "G1.2.1",
+        context: "MÓVIL",
         prompt: "¿Qué clase de $?",
         highlight: "aplicativo",
         answers: [
@@ -226,6 +234,12 @@ export const es: TranslationEntry[] = [
         ],
     },
     {
+        id: "G2a",
+        prompt: "¿Cuántos $ tiene tu sitio?",
+        highlight: "productos",
+        hint: "",
+    },
+    {
         id: "G1.2.2",
         prompt: "¿Para qué $?",
         highlight: "plataformas",
@@ -254,6 +268,7 @@ export const es: TranslationEntry[] = [
     // Escritorio
     {
         id: "G1.3.1",
+        context: "COMPUTADOR",
         prompt: "¿Qué clase de $?",
         highlight: "aplicación",
         answers: [
@@ -302,6 +317,7 @@ export const es: TranslationEntry[] = [
             },
         ],
     },
+    // Se finaliza el flujo si escoge MacOS/Linux
     {
         id: "G1.3.3",
         prompt: "¿Cuál es su $?",
@@ -416,7 +432,8 @@ export const es: TranslationEntry[] = [
         ],
         options: [
             [
-                "PayU Latam" + "MercadoPago",
+                "PayU Latam",
+                "MercadoPago",
                 "Place to Pay",
                 "ePayco",
                 "PSE (Pagos Seguros en Línea)",
@@ -530,18 +547,19 @@ export const es: TranslationEntry[] = [
         answers: [
             {
                 title: "No necesito animaciones o interacciones puntuales.",
+                description: "Manejamos un producto estático sin efectos de movimiento o interactividad."
             },
             {
                 title: "Menos de 3 animaciones, o con interacciones estándares.",
-
+                description: "Añadimos pocas animaciones simples e interacciones predeterminadas para mejorar UX."
             },
             {
                 title: "Más de 3 animaciones, o con interacciones complejas.",
-
+                description: "Implementamos múltiples animaciones e interacciones avanzadas para una experiencia dinámica."
             },
             {
                 title: "Necesito ayuda decidiendo.",
-
+                description: "Te asesoramos en definir el nivel óptimo de animaciones e interacciones en caso de verlo necesario."
             },
         ],
     },
@@ -577,12 +595,10 @@ export const es: TranslationEntry[] = [
         ],
     },
 
-    // FIN DESARROLLO
-
     // DESARROLLO DE MARCA
-    // FALTA DESCRIPCIONES
     {
         id: "G2.1",
+        context: "DESARROLLO DE MARCA",
         prompt: "¿Cuál es el estado de tu $?",
         highlight: "marca",
         answers: [
@@ -649,7 +665,7 @@ export const es: TranslationEntry[] = [
         highlight: "Benchmarking",
         answers: [
             {
-                title: "Si, Por Favor.",
+                title: "Si.",
                 description:
                     "Realizamos un análisis detallado de tu industria y competidores para identificar oportunidades y posicionar tu marca de manera efectiva.",
 
@@ -682,7 +698,7 @@ export const es: TranslationEntry[] = [
             {
                 title: "Solo necesito validación de la personalidad existente.",
                 description:
-                    "Revisamos los valores actuales de tu marca para confirmar que son coherentes y efectivos, ofreciendo ajustes si es necesario.",
+                     "Revisamos los valores actuales de tu marca para confirmar que son coherentes y efectivos, ofreciendo ajustes si es necesario.",
             },
             {
                 title: "Si, no necesito definirlos.",
@@ -698,7 +714,7 @@ export const es: TranslationEntry[] = [
         highlight: "diagnostico de marca",
         answers: [
             {
-                title: "Si, Por Favor.",
+                title: "Si.",
                 description:
                     "Realizamos un análisis completo de tu marca actual para evaluar su posicionamiento, coherencia y oportunidades de mejora.",
 
@@ -717,7 +733,7 @@ export const es: TranslationEntry[] = [
         highlight: "análisis de mercado",
         answers: [
             {
-                title: "Si, Por Favor.",
+                title: "Si.",
                 description:
                     "Estudiamos tu mercado objetivo para identificar tendencias, necesidades y oportunidades que fortalezcan la estrategia de tu marca.",
 
@@ -767,7 +783,7 @@ export const es: TranslationEntry[] = [
         highlight: "análisis de competencia",
         answers: [
             {
-                title: "Si, Por Favor.",
+                title: "Si.",
                 description:
                     "Analizamos a tus competidores para identificar fortalezas, debilidades y oportunidades que posicionen tu marca de manera única.",
 
@@ -786,7 +802,7 @@ export const es: TranslationEntry[] = [
         highlight: "lanzamiento de marca",
         answers: [
             {
-                title: "Si, Por Favor.",
+                title: "Si.",
                 description:
                     "Planificamos y ejecutamos una estrategia de lanzamiento impactante para presentar tu marca al mercado con éxito.",
 
@@ -803,7 +819,7 @@ export const es: TranslationEntry[] = [
     // PRODUCCION AUDIOVISUAL
     {
         id: "G3.1",
-        context: "HOLAa",
+        context: "PRODUCCIÓN AUDIOVISUAL",
         prompt: "¿Cuentas con $ o recursos?",
         highlight: "insumos",
         answers: [
@@ -829,7 +845,6 @@ export const es: TranslationEntry[] = [
     },
     {
         id: "G3.2",
-        context: "HOLAa",
         prompt: "¿El $ mostrará a alguien hablando o solo imágenes del lugar?",
         highlight: "video",
         answers: [
@@ -855,14 +870,13 @@ export const es: TranslationEntry[] = [
     },
     {
         id: "G3.3",
-        context: "HOLAa",
         prompt: "¿Tienes la $ para tu video?",
         highlight: "idea",
         answers: [
             {
                 title: "Necesito ayuda con la idea y el storyboarding",
                 description:
-                    "Creamos desde cero la idea creativa y el guion gráfico para tu video, asegurando un concepto claro y visualmente impactante.",
+                     "Creamos desde cero la idea creativa y el guion gráfico para tu video, asegurando un concepto claro y visualmente impactante.",
 
             },
             {
@@ -874,14 +888,13 @@ export const es: TranslationEntry[] = [
             {
                 title: "Tengo el storyboarding hecho",
                 description:
-                    "Usamos tu guion gráfico existente para producir un video profesional, optimizando cada detalle según tus objetivos.",
+                     "Usamos tu guion gráfico existente para producir un video profesional, optimizando cada detalle según tus objetivos.",
 
             },
         ]
     },
     {
         id: "G3.4",
-        context: "HOLAa",
         prompt: "¿Se requiere $ de iluminación y sonido?",
         highlight: "equipos",
         answers: [
@@ -907,7 +920,6 @@ export const es: TranslationEntry[] = [
     },
     {
         id: "G3.5",
-        context: "HOLAa",
         prompt: "¿Cuántos $ necesitas?",
         highlight: "videos",
         hint: "",
@@ -915,19 +927,23 @@ export const es: TranslationEntry[] = [
 
     {
         id: "G3.6",
-        context: "HOLAa",
         prompt: "¿De cuanto es la $ aproximada del video?",
         highlight: "duracion",
         hint: "",
     },
 
     // GESTION DE REDES SOCIALES
-
-    {
+   {
         id: "G4.1",
-        context: "CASI CASI",
+        context: "GESTIÓN DE REDES SOCIALES",
         prompt: "¿Qué $ sociales?",
         highlight: "redes",
+        answers: [
+            {
+                title: "Selecciona las redes sociales que necesites",
+
+            },
+        ],
         options: [
             [
                 "LinkedIn",
@@ -945,62 +961,276 @@ export const es: TranslationEntry[] = [
 
     {
         id: "G4.2",
-        context: "SIIII",
         prompt: "¿Necesitas $ y cronoposts?",
         highlight: "publicaciones",
         answers: [
             {
                 title: "Si.",
-
-
+                description: "Creamos y programamos publicaciones según tu calendario editorial."
             },
             {
                 title: "No.",
-
-
+                description: "Omitimos programación; nos centramos en otros formatos de contenido."
             },
         ],
     },
 
     {
         id: "G4.3",
-        context: "SIIII",
         prompt: "¿Necesitas $ tu comunidad?",
         highlight: "gestionar",
         answers: [
             {
                 title: "Si.",
+                description: "Moderamos y fomentamos la interacción para fortalecer el vínculo con tu audiencia."
+            },
+            {
+                title: "No.",
+                description: "No gestionamos comunidad; mantienes comunicación directa con tus seguidores."
+            },
+        ],
+    },
 
+    // MODO SIMPLE
+
+    {
+        id: "GS1.1.1",
+        prompt: "¿Qué $ de página?",
+        highlight: "clase",
+        answers: [
+            {
+                title: "Una landing page.",
+                description:
+                    "Captura leads y aumenta conversiones con una página de destino.",
+
+            },
+            {
+                title: "Un Ecommerce.",
+                description:
+                    "Vende tus productos y servicios en línea con una tienda virtual.",
+
+            },
+            {
+                title: "Otro.",
+                description:
+                    "¿Algo más en mente? Creamos tu sitio web a la medida de tus necesidades.",
+
+            },
+        ],
+    },
+    {
+        id: "GS1.2.1",
+        prompt: "¿Qué clase de $?",
+        highlight: "aplicativo",
+        answers: [
+            {
+                title: "App simple.",
+                description:
+                    "Aplicación básica enfocada en funcionalidades esenciales y experiencia directa.",
+
+            },
+            {
+                title: "Un Ecommerce.",
+                description:
+                    "App de tienda online con catálogo, carrito y pasarelas de pago integradas.",
+
+            },
+            {
+                title: "Utilidad.",
+                description:
+                    "Herramienta para resolver tareas específicas o automatizar procesos.",
+
+            },
+        ],
+    },
+    {
+        id: "GS1.3.1",
+        prompt: "¿Qué clase de $?",
+        highlight: "aplicación",
+        answers: [
+            {
+                title: "Herramienta ligera.",
+                description:
+                    "Aplicación de escritorio enfocada en tareas puntuales y bajo consumo de recursos.",
+
+            },
+            {
+                title: "Herramienta compleja.",
+                description:
+                    "Aplicación robusta con múltiples módulos, integración y alto rendimiento.",
+
+            },
+        ],
+    },
+    {
+        id: "GS1b.1",
+        prompt: "¿Qué rango de $ estimas?",
+        highlight: "páginas, vistas o módulos",
+        answers: [
+            {
+                title: "Pocos, hasta 8.",
+                description:
+                    "Sitio pequeño, estructura simple, desarrollo más rápido y costo menor.",
+
+            },
+            {
+                title: "Varios, de 8 a 16.",
+                description:
+                    "Sitio mediano con secciones variadas y funcionalidades moderadas.",
+
+            },
+            {
+                title: "Muchos, más de 16.",
+                description:
+                    "Proyecto grande y complejo con múltiples módulos, mayor tiempo y costo.",
+
+            },
+        ],
+    },
+    {
+        id: "GS1b.2",
+        prompt: "¿Posees $ o alguna plataforma ya existente?",
+        highlight: "hosting",
+        answers: [
+            {
+                title: "Si",
+                description:
+                    "Tengo hosting/plataforma; gestionamos integración, configuración y despliegue.",
 
             },
             {
                 title: "No.",
-
+                description:
+                    "No tengo; contratamos y configuramos hosting y plataforma desde cero.",
 
             },
         ],
     },
 
+    // MARCA
+    {
+        id: "GS2.2",
+        prompt: "¿Necesitas $?",
+        highlight: "naming",
+        answers: [
+            {
+                title: "Si.",
+                description:
+                    "Creamos, analizamos o revisamos un nombre único y memorable para tu marca.",
 
-//DISEÑO
+            },
+            {
+                title: "No necesito.",
+                description:
+                    "Si ya tienes un nombre definido, nos enfocamos en otros aspectos de tu marca, como diseño o estrategia de posicionamiento.",
 
+            },
+        ],
+    },
+
+    // PRODUCCIÓN AUDIOVISUAL
+    {
+        id: "GS3.1",
+        prompt: "¿Cuentas con $?",
+        highlight: "insumos o recursos",
+        answers: [
+            {
+                title: "Si, tengo material existente.",
+                description:
+                    "Usamos tus imágenes de archivo para crear contenido audiovisual de alta calidad, optimizando tiempo y recursos.",
+
+            },
+            {
+                title: "No tengo insumos o recursos.",
+                description:
+                    "Producimos todo desde cero, incluyendo rodaje, fotografía y edición, para crear contenido audiovisual impactante.",
+
+            },
+        ],
+    },
 
     {
+        id: "GS3.2",
+        prompt: "¿Se requiere equipos de $?",
+        highlight: "iluminación y sonido",
+        answers: [
+            {
+                title: "Si.",
+                description:
+                    "Proporcionamos equipos profesionales de iluminación y sonido para garantizar una producción audiovisual de alta calidad.",
+
+            },
+            {
+                title: "No, no necesito.",
+                description:
+                    "Si no necesitas equipos especializados, optimizamos la producción con recursos básicos para cumplir tus objetivos.",
+
+            },
+        ],
+    },
+
+    {
+        id: "GS3.3",
+        prompt: "¿Cuántos $ necesitas?",
+        highlight: "videos",
+        answers: [
+            {
+                title: "Solo uno.",
+                description:
+                    "",
+
+            },
+            {
+                title: "Más de uno.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+
+    {
+        id: "GS3.4",
+        prompt: "¿De cuanto es la $ aproximada del video?",
+        highlight: "duración",
+        answers: [
+            {
+                title: "Hasta un minuto.",
+                description:
+                    "",
+
+            },
+            {
+                title: "De más de un minuto.",
+                description:
+                    "",
+
+            },
+        ],
+    },
+
+    // REDES SOCIALES
+
+
+//DISEÑO
+// MODO COMPLEJO
+
+{
         id: "D0",
-        context: "SIIII",
+        context: "DISEÑO",
         prompt: "¿Cómo te podemos $?",
         highlight: "ayudar",
         answers: [
             {
                 title: "Quiero diseño gráfico y 2D",
                 description:
-                    "Creamos diseños visuales impactantes en 2D, desde logotipos hasta materiales corporativos, para fortalecer la identidad de tu marca.",
+                     "Creamos diseños visuales impactantes en 2D, desde logotipos hasta materiales corporativos, para fortalecer la identidad de tu marca.",
 
             },
             {
                 title: "Quiero diseño animado",
                 description:
-                    "Producimos animaciones dinámicas en 2D o 3D que capturan la atención y comunican tu mensaje de forma creativa.",
+                     "Producimos animaciones dinámicas en 2D o 3D que capturan la atención y comunican tu mensaje de forma creativa.",
 
             },
             {
@@ -1017,20 +1247,20 @@ export const es: TranslationEntry[] = [
             },
         ],
 
-    },
+},
 
 //DISEÑO GRAFICO Y 2D 
 
-    {
+{
         id: "D1",
-        context: "SIIII",
+        context: "DISEÑO GRÁFICO Y 2D",
         prompt: "¿Qué $ requieres?",
         highlight: "servicio",
         answers: [
             {
                 title: "Branding",
                 description:
-                    "Creamos o renovamos la identidad visual de tu marca, incluyendo logotipos, paletas de colores y tipografías únicas.",
+                     "Creamos o renovamos la identidad visual de tu marca, incluyendo logotipos, paletas de colores y tipografías únicas.",
 
             },
             {
@@ -1038,12 +1268,12 @@ export const es: TranslationEntry[] = [
                 description:
                     "Diseñamos piezas corporativas como tarjetas de presentación, folletos y banners, alineadas con la identidad de tu marca.",
 
-            },
+            },  
             {
                 title: "Diseño Editorial",
                 description:
                     "Producimos publicaciones como revistas, catálogos o libros con un diseño atractivo y una diagramación profesional.",
-
+                
             },
             {
                 title: "Ilustración",
@@ -1051,13 +1281,13 @@ export const es: TranslationEntry[] = [
                     "Creamos ilustraciones personalizadas para campañas, productos o contenido digital, adaptadas a tu estilo y necesidades.",
             },
         ]
-    },
+},
 
 //BRANDING
 
-    {
+{
         id: "D1.1.1",
-        context: "SIIII",
+        context: "BRANDING",
         prompt: "¿Necesitas nuevo $ o rediseño?",
         highlight: "branding",
         answers: [
@@ -1072,47 +1302,45 @@ export const es: TranslationEntry[] = [
                     "Actualizamos tu branding existente para modernizarlo, mejorar su impacto y alinearlo con tus objetivos actuales.",
             },
         ]
-    },
+},
 
-    {
+{
         id: "D1.1.2",
-        context: "SIIII",
         prompt: "¿Necesitas $ de marca?",
         highlight: "manual",
         answers: [
             {
-                title: "Si, Por Favor.",
-
+                title: "Si.",
+                description: "Desarrollamos manual de marca con lineamientos de identidad visual y uso correcto."
             },
             {
                 title: "No necesito.",
-
+                description: "Omitimos manual; puedes usar tus propias guías de identidad visual."
             },
         ]
-    },
+},
 
-    {
+{
         id: "D1.1.3",
-        context: "SIIII",
         prompt: "¿Necesitas $ de logotipo?",
         highlight: "diseño",
         answers: [
             {
-                title: "Si, Por Favor.",
-
+                title: "Si.",
+                description: "Creamos un logotipo único y alineado con la identidad de tu marca."
             },
             {
                 title: "No necesito.",
-
+                description: "Omitimos diseño de logotipo; puedes usar uno existente o proporcionarlo."
             },
         ]
-    },
+},
 
 //MATERIAL CORPORATIVO
 
-    {
+{
         id: "D1.2.1",
-        context: "SIIII",
+        context: "MATERIAL CORPORATIVO",
         prompt: "¿Qué tipo de $ necesitas",
         highlight: "piezas",
         answers: [
@@ -1124,7 +1352,7 @@ export const es: TranslationEntry[] = [
             {
                 title: "Piezas pequeñas",
                 description:
-                    "Creamos elementos compactos como tarjetas de presentación, volantes o etiquetas, perfectos para detalles corporativos.",
+                   "Creamos elementos compactos como tarjetas de presentación, volantes o etiquetas, perfectos para detalles corporativos.",
             },
             {
                 title: "Piezas digitales",
@@ -1132,20 +1360,19 @@ export const es: TranslationEntry[] = [
                     "Producimos gráficos optimizados para redes sociales, sitios web o campañas digitales, adaptados a tus necesidades online.",
             },
         ]
-    },
-    {
+},
+{
         id: "D1.2.2",
-        context: "SIIII",
         prompt: "¿Cantidad de piezas $ a diseñar?",
         highlight: "distintas",
         hint: "",
-    },
+},
 
 //DISEÑO EDITORIAL
 
-    {
+{
         id: "D1.3.1",
-        context: "SIIII",
+        context: "DISEÑO EDITORIAL",
         prompt: "¿Qué tipo de $ necesitas?",
         highlight: "publicación",
         answers: [
@@ -1170,15 +1397,14 @@ export const es: TranslationEntry[] = [
                     "Diseñamos informes profesionales con gráficos claros y un diseño limpio para comunicar datos de manera efectiva.",
             },
         ]
-    },
+},
 
-    {
+{
         id: "D1.3.2",
-        context: "SIIII",
         prompt: "¿Necesitas $ o solo diseño?",
         highlight: "diagramación",
         answers: [
-            {
+           {
                 title: "Necesito diagramación y diseño.",
                 description:
                     "Creamos el diseño visual y la diagramación completa de tu publicación, asegurando un resultado profesional y cohesivo.",
@@ -1199,26 +1425,25 @@ export const es: TranslationEntry[] = [
                     "Si ya tienes el diseño y la diagramación, nos enfocamos en otros aspectos de tu proyecto editorial.",
             },
         ]
-    },
+},
 
-    {
+{
         id: "D1.3.3",
-        context: "SIIII",
-        prompt: "¿Número $ de páginas?",
-        highlight: "estimado",
+        prompt: "¿Número estimado de $?",
+        highlight: "páginas",
         hint: "",
-    },
+},
 
 
 //ILUSTRACION
 
-    {
+{
         id: "D1.4.1",
-        context: "SIIII",
+        context: "ILUSTRACIÓN",
         prompt: "¿Qué tipo de $ necesitas??",
         highlight: "ilustración",
         answers: [
-            {
+           {
                 title: "Ilustración conceptual",
                 description:
                     "Creamos ilustraciones abstractas que transmiten ideas o conceptos, ideales para campañas creativas o narrativas visuales.",
@@ -1233,13 +1458,12 @@ export const es: TranslationEntry[] = [
                 description:
                     "Producimos ilustraciones precisas para manuales, diagramas o productos, con un enfoque en claridad y detalle.",
             },
-
+           
         ]
-    },
+},
 
-    {
+{
         id: "D1.4.2",
-        context: "SIIII",
         prompt: "¿Qué $ de ilustración buscas?",
         highlight: "estilo",
         answers: [
@@ -1259,24 +1483,23 @@ export const es: TranslationEntry[] = [
                     "Producimos ilustraciones digitales con acabados modernos, adaptadas a tus necesidades en redes sociales o campañas.",
             },
         ]
-    },
-    {
+},
+{
         id: "D1.4.3",
-        context: "SIIII",
-        prompt: "¿Número piezas estimadas?",
-        highlight: "manual",
-        hint: "",
-    },
+        prompt: "¿Número $ estimadas?",
+        highlight: "piezas",
+        hint: "", 
+},
 
 //DISEÑO ANIMADO
 
-    {
+{
         id: "D2.1",
-        context: "SIIII",
+        context: "DISEÑO ANIMADO",
         prompt: "¿Qué clase de $ necesitas?",
         highlight: "animación",
-        answers: [
-            {
+        answers: [            
+           {
                 title: "Animación 2D",
                 description:
                     "Creamos animaciones bidimensionales vibrantes, perfectas para videos explicativos, anuncios o contenido digital.",
@@ -1292,15 +1515,14 @@ export const es: TranslationEntry[] = [
                     "Combinamos técnicas 2D y 3D para crear animaciones únicas que destacan por su creatividad y versatilidad.",
             },
         ]
-    },
+},
 
-    {
+{
         id: "D2.2",
-        context: "SIIII",
         prompt: "¿Qué nivel de $ deseas?",
         highlight: "realismo",
         answers: [
-            {
+           {
                 title: "Cartoon",
                 description:
                     "Diseñamos animaciones con un estilo caricaturesco, ideal para contenido lúdico, educativo o de entretenimiento.",
@@ -1311,11 +1533,10 @@ export const es: TranslationEntry[] = [
                     "Creamos animaciones con un enfoque realista, perfectas para visualizaciones de productos o proyectos técnicos.",
             },
         ]
-    },
+},
 
-    {
+{
         id: "D2.3",
-        context: "SIIII",
         prompt: "¿Qué tipo de $ buscas?",
         highlight: "contenido",
         answers: [
@@ -1335,13 +1556,12 @@ export const es: TranslationEntry[] = [
                     "Diseñamos y animamos personajes que dan vida a historias o campañas, conectando emocionalmente con tu público.",
             },
         ]
-    },
+},
 
-    {
+{
         id: "D2.4",
-        context: "SIIII",
-        prompt: "¿Qué $ de animación buscas?",
-        highlight: "tipo",
+        prompt: "¿Qué tipo de $ buscas?",
+        highlight: "animación",
         answers: [
             {
                 title: "Explicativa",
@@ -1359,21 +1579,49 @@ export const es: TranslationEntry[] = [
                     "Diseñamos gráficos en movimiento modernos para anuncios, intros o contenido digital que capte la atención.",
             },
         ]
-    },
-    {
-        id: "D2.5",
-        context: "SIIII",
-        prompt: "¿Duración $ de la animación?",
-        highlight: "estimada",
-        hint: "",
-    },
+},
 
+{
+        id: "D2.5",
+        prompt: "¿Duración estimada de la $?",
+        highlight: "animación",
+        hint: "",
+},
+
+{
+        id: "D2.6",
+        prompt: "¿Deseas agregar algo más a la $?",
+        highlight: "animación",
+        answers: [
+            {
+                title: "Voz en off",
+                description:
+                    "Incluimos una narración profesional que guía al espectador, aporta contexto adicional y refuerza el mensaje de tu animación.",
+            },
+            {
+                title: "Música",
+                description:
+                    "Añadimos una banda sonora original o libre de derechos para potenciar la atmósfera, evocar emociones y hacer tu animación más envolvente.",
+            },
+            {
+                title: "Subtítulos",
+                description:
+                    "Incorporamos subtítulos sincronizados para asegurar la accesibilidad, facilitar la comprensión en entornos sin sonido y llegar a audiencias multilingües.",
+            },
+            {
+                title: "Ninguna",
+                description:
+                    "Optamos por dejar la animación sin elementos adicionales, manteniendo su simplicidad y pureza para un enfoque directo en lo visual.",
+            },
+        ]
+},
+     
 
 //DISEÑO 3D ESTATICO
 
-    {
+{
         id: "D3.1",
-        context: "SIIII",
+        context: "DISEÑO 3D ESTÁTICO",
         prompt: "¿Que $ necesitas?",
         highlight: "servicios",
         answers: [
@@ -1393,17 +1641,17 @@ export const es: TranslationEntry[] = [
                     "Producimos modelos 3D de entornos arquitectónicos o interiores, ideales para proyectos de diseño o planificación.",
             },
         ]
-    },
+},
 
 //MODELO 3D 
 
-    {
+{
         id: "D3.1.1",
-        context: "SIIII",
+        context: "MODELADO 3D",
         prompt: "¿Qué tipo de $ necesitas?",
         highlight: "objeto",
         answers: [
-            {
+           {
                 title: "Mueble",
                 description:
                     "Modelamos muebles en 3D con detalles precisos, perfectos para catálogos, visualizaciones o diseño de interiores.",
@@ -1424,23 +1672,21 @@ export const es: TranslationEntry[] = [
                     "¿Tienes un objeto único en mente? Creamos un modelo 3D personalizado según tus necesidades específicas.",
             },
         ]
-    },
+},
 
-    {
+{
         id: "D3.1.2",
-        context: "SIIII",
-        prompt: "¿Cuántos objetos $?",
-        highlight: "distintos",
+        prompt: "¿Cuántos $ distintos?",
+        highlight: "objetos",
         hint: "",
-    },
+},
 
-    {
+{
         id: "D3.1.3",
-        context: "SIIII",
         prompt: "¿Deseas solo el $ base o incluir el render?",
         highlight: "modelo",
         answers: [
-            {
+           {
                 title: "Modelo base + Render",
                 description:
                     "Producimos el modelo 3D y un render de alta calidad para visualizar tu objeto con detalles realistas.",
@@ -1451,13 +1697,12 @@ export const es: TranslationEntry[] = [
                     "Creamos únicamente el modelo 3D, listo para que lo uses en otros procesos como animación o impresión.",
             },
         ]
-    },
+},
 
-    {
+{
         id: "D3.1.4",
-        context: "SIIII",
-        prompt: "¿Qué tipo de $ quieres para el modelado?",
-        highlight: "detalle",
+        prompt: "¿Qué tipo de detalle quieres para el $?",
+        highlight: "modelado",
         answers: [
             {
                 title: "Texturizado",
@@ -1470,13 +1715,13 @@ export const es: TranslationEntry[] = [
                     "Aplicamos materiales realistas al modelo 3D, ideales para renders que requieren un alto nivel de autenticidad.",
             },
         ]
-    },
+},
 
 //STANDS Y ESPACIOS
 
-    {
+{
         id: "D3.2.1",
-        context: "SIIII",
+        context: "STANDS Y ESPACIOS",
         prompt: "¿Para qué tipo de $ lo buscas?",
         highlight: "espacio ",
         answers: [
@@ -1501,19 +1746,17 @@ export const es: TranslationEntry[] = [
                     "¿Tienes un espacio único en mente? Diseñamos una solución 3D personalizada para tus necesidades.",
             },
         ]
-    },
+},
 
-    {
+{
         id: "D3.2.2",
-        context: "SIIII",
-        prompt: "¿Cuántos objetos $?",
-        highlight: "distintos",
+        prompt: "¿Cuántos $ distintos?",
+        highlight: "objetos",
         hint: "",
-    },
+},
 
-    {
+{
         id: "D3.2.3",
-        context: "SIIII",
         prompt: "¿Cómo necesitas la $?",
         highlight: "entrega",
         answers: [
@@ -1528,17 +1771,17 @@ export const es: TranslationEntry[] = [
                     "Creamos renders 3D de alta calidad para visualizar tu espacio, ideales para presentaciones o aprobaciones.",
             },
         ]
-    },
+},
 
 //MODELO DE ESPACIOS
 
-    {
+{
         id: "D3.3.1",
-        context: "SIIII",
+        context: "MODELADO DE ESPACIOS",
         prompt: "¿Qué tipo de $ lo buscas?",
         highlight: "estilo",
         answers: [
-            {
+           {
                 title: "Realista",
                 description:
                     "Diseñamos modelos 3D con un estilo realista, perfectos para visualizaciones arquitectónicas o presentaciones profesionales.",
@@ -1553,25 +1796,23 @@ export const es: TranslationEntry[] = [
                 description:
                     "Producimos modelos 3D con un estilo artístico único, combinando creatividad y detalle para un impacto visual distintivo.",
             },
-
+                     
         ]
-    },
+},
 
-    {
+{
         id: "D3.3.2",
-        context: "SIIII",
         prompt: "¿Cuántos $ deseas?",
         highlight: "personajes",
         hint: "",
-    },
+},
 
-    {
+{
         id: "D3.3.3",
-        context: "SIIII",
         prompt: "¿Cuál es la $ de estos?",
         highlight: "finalidad",
         answers: [
-            {
+             {
                 title: "Render",
                 description:
                     "Creamos renders 3D de alta calidad para visualizar tus personajes o espacios con un acabado profesional.",
@@ -1587,14 +1828,13 @@ export const es: TranslationEntry[] = [
                     "Producimos modelos 3D listos para animación, con detalles optimizados para movimientos y narrativas dinámicas.",
             },
         ]
-    },
+},
 
-    {
+{
         id: "D3.3.4",
-        context: "SIIII",
         prompt: "¿Incluye $ o solo malla?",
         highlight: "rigging",
-        answers: [
+         answers: [
             {
                 title: "Malla + Rigging",
                 description:
@@ -1605,27 +1845,26 @@ export const es: TranslationEntry[] = [
                 description:
                     "Producimos únicamente la malla 3D, ideal para renders estáticos o usos que no requieren animación.",
             },
-        ]
+            ]
 
 
-    },
+        },
 
 //FOTOGRÁFIA Y POSTPRODUCCION
 
-    {
+{
         id: "D4.1",
-        context: "SIIII",
+        context: "FOTOGRAFÍA Y POSTPRODUCCIÓN",
         prompt: "¿Cuántas $ necesitas?",
         highlight: "fotografías",
         hint: "",
-    },
-    {
+},
+{
         id: "D4.2",
-        context: "SIIII",
         prompt: "¿Qué nivel de $ necesitas?",
         highlight: "edición",
         answers: [
-            {
+           {
                 title: "Corrección básica",
                 description:
                     "Ajustamos color, brillo y contraste para mejorar tus fotos, manteniendo un look natural y profesional.",
@@ -1641,10 +1880,9 @@ export const es: TranslationEntry[] = [
                     "Creamos efectos avanzados o modificaciones complejas, ideales para fotos creativas o campañas publicitarias.",
             },
         ]
-    },
-    {
+},
+{
         id: "D4.3",
-        context: "SIIII",
         prompt: "¿Cual es la $ o medio que buscas?",
         highlight: "finalidad",
         answers: [
@@ -1669,13 +1907,84 @@ export const es: TranslationEntry[] = [
                     "¿Tienes un propósito específico en mente? Personalizamos la edición según tus necesidades únicas.",
             },
         ]
-    },
+},
+
+// MODO SIMPLE
+
+{
+    id: "DS2.2",
+    prompt: "¿Tienes una $ definida para el video?",
+    highlight: "idea",
+    answers: [
+        {
+            title: "Si, tengo clara la idea.",
+            description:
+                "Tienes guion/brief; producimos el diseño fiel a tu concepto.",
+        },
+        {
+            title: "No, necesito ayuda creativa.",
+            description:
+                "Desarrollamos idea, guion y propuesta visual para tu diseño.",
+        }
+    ]
+},
+
+{
+    id: "DS2.3",
+    prompt: "¿Cuál es el $ del video?",
+    highlight: "objetivo",
+    answers: [
+        {
+            title: "Explicar algo.",
+            description:
+                "Presentar conceptos o procesos de forma clara y visualmente atractiva.",
+        },
+        {
+            title: "Promocionar un producto.",
+            description:
+                "Destacar beneficios y características para generar interés y ventas.",
+        },
+        {
+            title: "Contar una historia.",
+            description:
+                "Narrativa emocional que conecta con la audiencia y refuerza tu mensaje.",
+        },
+        {
+            title: "No estoy seguro.",
+            description:
+                "Te asesoramos para definir objetivo y orientar la propuesta creativa.",
+        }
+    ]
+},
+
+{
+    id: "DS2.4",
+    prompt: "¿Duración estimada de la $?",
+    highlight: "animación",
+    answers: [
+        {
+            title: "Menos de 1 minuto.",
+            description:
+                "",
+        },
+        {
+            title: "1 a 3 minutos.",
+            description:
+                "",
+        },
+        {
+            title: "Más de 3 minutos.",
+            description:
+                "",
+        }
+    ]
+},
 
 //COMUNICACIONES
 
-    {
+{
         id: "C0",
-        context: "SIIII",
+        context: "COMUNICACIONES",
         prompt: "¿Cómo te podemos $?",
         highlight: "ayudar",
         answers: [
@@ -1700,17 +2009,17 @@ export const es: TranslationEntry[] = [
                     "Realizamos videos y fotos de alta calidad, desde la grabación hasta la postproducción, para destacar tu marca.",
             },
         ]
-    },
+},
 
 //ESTRATEGIA Y CONCEPTUALIZACIÓN
 
-    {
+{
         id: "C1.1",
-        context: "SIIII",
+        context: "ESTRATEGIA Y CONCEPTUALIZACIÓN",
         prompt: "¿En cuáles de estos $ te gustaría apoyarte?",
         highlight: "servicios",
         answers: [
-            {
+           {
                 title: "Conceptualización de campaña (idea y mensaje central)",
                 description:
                     "Creamos el concepto y mensaje central de tu campaña, asegurando que sea memorable y conecte con tu público.",
@@ -1726,119 +2035,114 @@ export const es: TranslationEntry[] = [
                     "Elaboramos una guía detallada con cronogramas y contenidos para asegurar una ejecución fluida de tu campaña.",
             },
         ]
-    },
+},
 
 //REDACCION Y GUIONAJE
 
-    {
+{
         id: "C2.1",
-        context: "SIIII",
+        context: "REDACCIÓN Y GUIONAJE",
         prompt: "¿Necesitas que realicemos el $?",
         highlight: "guion",
         answers: [
             {
-                title: "Sí",
-
+                title: "Sí.",
+                description: "Redactamos y estructuramos el guion para garantizar claridad y coherencia."
             },
             {
-                title: "No ",
-
+                title: "No.",
+                description: "No generamos guion; adaptamos o revisamos el tuyo según tus indicaciones."
             },
         ],
-    },
+},
 
-    {
+{
         id: "C2.2",
-        context: "SIIII",
         prompt: "¿Requieres textos para piezas $ (banners, posts, flyers)?",
         highlight: "publicitarias",
         answers: [
             {
-                title: "Sí",
-
+                title: "Sí.",
+                description: "Creamos textos atractivos y persuasivos para tus banners, posts y flyers."
             },
             {
-                title: "No ",
-
+                title: "No.",
+                description: "No generamos textos; puedes usar o adaptar los tuyos propios."
             },
         ],
-    },
+},
 
-    {
+{
         id: "C2.3",
-        context: "SIIII",
         prompt: "¿Te gustaría incluir $ o captions?",
         highlight: "subtítulos",
         answers: [
             {
-                title: "Sí, subtítulos completos",
-
+                title: "Sí, subtítulos completos.",
+                description: "Añadimos subtítulos sincronizados para accesibilidad y claridad."
             },
             {
-                title: "No, no los necesito ",
-
+                title: "No, no los necesito.",
+                description: "Omitimos subtítulos; mantenemos solo audio y visual."
             },
         ],
-    },
-    {
+},
+{
         id: "C2.4",
-        context: "SIIII",
         prompt: "¿Deseas un $ informativo ?",
         highlight: "boletín",
         answers: [
             {
-                title: "Sí, envíos regulares",
-
+                title: "Sí, envíos regulares.",
+                description: "Diseñamos y enviamos boletines con contenido relevante para tu audiencia."
             },
             {
-                title: "No, no los necesito ",
-
+                title: "No, no lo necesito.",
+                description: "No generamos boletines; nos enfocamos en otros formatos de comunicación."
             },
         ],
-    },
-    {
+},
+{
         id: "C2.5",
-        context: "SIIII",
         prompt: "¿Planeas un $ sencillo?",
         highlight: "mailing",
         answers: [
             {
-                title: "Sí",
-
+                title: "Sí.",
+                description: "Creamos y enviamos mailings simples con diseño limpio y mensaje conciso."
             },
             {
-                title: "No ",
-
+                title: "No.",
+                description: "No diseñamos mailings; priorizamos otros canales de comunicación."
             },
         ],
-    },
-    {
+},
+{
         id: "C2.6",
-        context: "SIIII",
         prompt: "¿Quieres $ para una revista?",
         highlight: "contenidos",
         answers: [
             {
-                title: "Sí",
-
+                title: "Sí.",
+                description: "Creamos artículos y diseños adaptados al estilo de tu revista."
             },
             {
-                title: "No ",
-
+                title: "No.",
+                description: "No elaboramos contenidos; puedes usar los tuyos propios."
             },
         ],
-    },
+},
 
 
 //PRODUCCION DE AUDIO
 
-    {
+{
         id: "C3.1",
-        context: "SIIII",
+        context: "PRODUCCIÓN DE AUDIO",
         prompt: "¿Qué $ necesitas??",
         highlight: "servicios",
         answers: [
-            {
+           {
                 title: "Cuña radial (spot para radio)",
                 description:
                     "Producimos cuñas radiales impactantes que transmiten tu mensaje de forma clara y atractiva para la audiencia.",
@@ -1859,17 +2163,17 @@ export const es: TranslationEntry[] = [
                     "Seleccionamos o componemos música libre de derechos para complementar tus proyectos audiovisuales con el tono perfecto.",
             },
         ]
-    },
+},
 
 //PRODUCCION AUDIOVISUAL
 
-    {
+{
         id: "C4.1",
-        context: "SIIII",
+        context: "PRODUCCIÓN AUDIOVISUAL",
         prompt: "¿Requieres $ fotográfica o videográfica?",
         highlight: "cobertura",
         answers: [
-            {
+           {
                 title: "Necesito cobertura fotográfica",
                 description:
                     "Capturamos imágenes profesionales de eventos, productos o espacios para destacar tu marca con calidad visual.",
@@ -1885,158 +2189,69 @@ export const es: TranslationEntry[] = [
                     "Si no requieres cobertura, nos enfocamos en otros aspectos como edición o producción de contenido audiovisual.",
             },
         ]
-    },
-    {
+},
+{
         id: "C4.2",
-        context: "SIIII",
-        prompt: "¿Quieres producir un video (reel, spot, etc)?",
-        highlight: "manual",
+        prompt: "¿Quieres $ un video (reel, spot, etc)?",
+        highlight: "producir",
         answers: [
             {
-                title: "Si, Por Favor.",
-
+                title: "Si.",
+                description: "Creamos reels y spots con grabación, edición y producción profesional."
             },
             {
                 title: "No necesito.",
-
+                description: "No producimos videos; ofrecemos edición y consultoría audiovisual."
             },
         ]
-    },
+},
 
-    {
+{
         id: "C4.3",
-        context: "SIIII",
         prompt: "¿Necesitas una $ fotográfica profesional?",
         highlight: "sesión",
         answers: [
             {
-                title: "Si, Por Favor.",
-
+                title: "Si.",
+                description: "Organizamos sesión fotográfica profesional con iluminación, dirección y retoque de alta calidad."
             },
             {
                 title: "No necesito.",
-
+                description: "Omitimos sesión; podemos usar o mejorar fotos existentes según tus necesidades."
             },
         ]
-    },
+},
 
-    {
+{
         id: "C4.4",
-        context: "SIIII",
         prompt: "¿Deseas $ o editar un video ya existente?",
         highlight: "adaptar",
         answers: [
             {
-                title: "Si, Por Favor.",
-
+                title: "Si.",
+                description: "Adaptamos y editamos tu video existente para mejorar calidad y estilo."
             },
             {
                 title: "No necesito.",
-
+                description: "No editamos videos; nos enfocamos en nueva producción audiovisual."
             },
         ]
-    },
+},
 
-    {
+{
         id: "C4.5",
-        context: "SIIII",
         prompt: "¿Necesitas un $ digital de imágenes o videos?",
         highlight: "retoque ",
         answers: [
             {
-                title: "Si, Por Favor.",
-
+                title: "Si.",
+                description: "Realizamos retoque digital profesional para mejorar color, iluminación y detalles."
             },
             {
                 title: "No necesito.",
-
+                description: "Omitimos retoque; mantenemos la calidad original de tus imágenes o videos."
             },
         ]
-    },
-
-    //COMUNICACIONES
-
-    {
-        id: "P0",
-        prompt: "¿Cómo te podemos $?",
-        highlight: "ayudar",
-        answers: [
-            {
-                title: "Eventos",
-                description:
-                    "Planeación, transporte, montaje, apoyo logístico, y todo lo que tu idea pueda necesitar para ser un evento inolvidable.",
-            },
-            {
-                title: "Mobiliario",
-                description:
-                    "Desde tarimas hasta vallas, desde cercas metálicas hasta asientos; lo tenemos todo para tu evento.",
-            },
-        ]
-    },
-
-    // EVENTOS
-    {
-        id: "P1.1",
-        prompt: "¿Necesitas $ para tu evento?",
-        highlight: "transporte",
-        answers: [
-            {
-                title: "Sí, de elementos",
-            },
-            {
-                title: "Sí, de personal",
-            },
-            {
-                title: "Sí, de personal y elementos",
-            },
-            {
-                title: "No requiero transporte",
-            },
-        ]
-    },
-    {
-        id: "P1.2",
-        prompt: "¿Cuál la proyección $ para tu evento?",
-        highlight: "logística",
-        answers: [
-            {
-                title: "De 5 a 10 logísticos de apoyo",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
-            },
-            {
-                title: "De 10 a 50 logísticos",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
-            },
-            {
-                title: "De 50 a 100 logísticos",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
-            },
-            {
-                title: "No lo tengo claro, o requiero más de 100 logísticos",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
-            },
-        ]
-    },
-    {
-        id: "P1.3",
-        prompt: "¿Cuál es la $ de tu evento?",
-        highlight: "ubicación",
-        answers: [
-            {
-                title: "En la ciudad o el departamento",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
-            },
-            {
-                title: "Fuera del departamento, dentro del país",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
-            },
-            {
-                title: "Fuera del país",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
-            },
-        ]
-    },
-
-    // INDUMENTARIA
+},
 
 ];

@@ -1,7 +1,7 @@
 import Navbar from "@/components/ui/Navbar";
 import {getLanguage} from "@/dictionaries";
 import {Locale} from "@/_i18n.config";
-import Introduction from "@/components/quote/Introduction";
+import Introduction from "@/components/quote/ModeSelector";
 import Question from "@/components/quote/Question";
 import Warehouse from "@/components/quote/Warehouse";
 

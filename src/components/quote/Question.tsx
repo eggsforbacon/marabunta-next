@@ -30,6 +30,7 @@ const Question = ({ lang }: QuestionComponentProps) => {
     setSelectedOptions,
     setAnswer,
     setLang,
+    quoteMode,
   } = useQuoteStore();
 
   useEffect(() => {
@@ -39,10 +40,9 @@ const Question = ({ lang }: QuestionComponentProps) => {
   const isVisible = current !== "intro" && current !== "BODEGA";
 
   const question: QuestionType | null = useMemo(() => {
-    if (!isVisible) return null;
-
-    return getQuestion(current, lang) ?? null;
-  }, [current, lang, isVisible]);
+    if (!isVisible || !quoteMode) return null;
+    return getQuestion(current, lang, quoteMode) ?? null;
+  }, [current, lang, isVisible, quoteMode]);
 
   useEffect(() => {
     console.info(current);
@@ -56,6 +56,8 @@ const Question = ({ lang }: QuestionComponentProps) => {
       setActiveOption(savedAnswer !== undefined ? (savedAnswer as number) : 0);
     } else if (Array.isArray(savedAnswer)) {
       setSelectedOptions(savedAnswer as { index: number; timestamp: number }[]);
+    } else {
+      setSelectedOptions([]);
     }
   }, [question, answers, setActiveOption, setSelectedOptions]);
 
@@ -85,11 +87,11 @@ const Question = ({ lang }: QuestionComponentProps) => {
         .map((selection) => next[selection.index])
         .filter((id) => id !== "-1" && id !== undefined);
       setAnswer(id, sortedSelections);
-      continueQuestion(nextIds);
+      continueQuestion(nextIds.length > 0 ? nextIds : ['-1']);
     } else {
       const nextId = next.length === 1 ? next[0] : next[activeOption];
       setAnswer(id, activeOption);
-      continueQuestion(nextId ? [nextId] : []);
+      continueQuestion(nextId ? [nextId] : ['-1']);
     }
   };
 
@@ -121,7 +123,7 @@ const Question = ({ lang }: QuestionComponentProps) => {
             types={types}
           />
         )}
-        {types === QuestionTypes.NUM_RANGE && ranges && (
+        {types === QuestionTypes.NUM_RANGE && (
           <div className={"flex px-8 w-full"}>
             <input
               type={"number"}
@@ -133,8 +135,7 @@ const Question = ({ lang }: QuestionComponentProps) => {
               }}
               onKeyDown={(e) => {
                 if (e.code === "Enter") {
-                  const nextId = next.length === 1 ? next[0] : next[activeOption];
-                  continueQuestion(nextId ? [nextId] : []);
+                  handleNext();
                 }
               }}
             />

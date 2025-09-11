@@ -15,6 +15,11 @@ export enum ProductTypes {
     DESIGN = 4,
 }
 
+export enum QuoteMode {
+    SIMPLE = 'simple',
+    COMPLEX = 'complex',
+}
+
 export type Choice = { title: string; description?: string };
 
 export type Question = {
@@ -30,8 +35,8 @@ export type Question = {
     next: string[];
     context?: string;
     postFlowId?: string;
-    complexityFilter?: boolean;
     ranges?: any[];
+    mode: QuoteMode[];
 };
 
 export type Answer = {
