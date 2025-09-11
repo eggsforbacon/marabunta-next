@@ -36,13 +36,17 @@ const Question = ({ lang }: QuestionComponentProps) => {
     setLang(lang);
   }, [lang, setLang]);
 
-  const isVisible = current !== "intro";
+  const isVisible = current !== "intro" && current !== "BODEGA";
 
   const question: QuestionType | null = useMemo(() => {
     if (!isVisible) return null;
 
     return getQuestion(current, lang) ?? null;
   }, [current, lang, isVisible]);
+
+  useEffect(() => {
+    console.info(current);
+  }, [current]);
 
   useEffect(() => {
     if (!question || !question.id) return;

@@ -22,8 +22,6 @@ export default function Team({s, lang}: { s: { [_: string]: any }, lang: Locale 
     data: {ants},
   } = useSWR(['getTeam', lang], () => getTeam(lang), {fallbackData: {ants: []}});
 
-  console.log("ants", ants);
-
   const selectedIs = (compare: Team.Area | "todas" | "all") => {
     return compare.toLowerCase() === selected.toLowerCase();
   }

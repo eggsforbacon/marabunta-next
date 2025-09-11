@@ -32,6 +32,8 @@ interface QuoteStore {
     setSelectedOptions: (options: { index: number; timestamp: number }[]) => void;
     lang: Locale;
     setLang: (lang: Locale) => void;
+    warehouseActive: boolean;
+    setWarehouseActive: (toggle: boolean) => void;
 }
 
 const determineNextState = (
@@ -189,4 +191,6 @@ export const useQuoteStore = create<QuoteStore>((set) => ({
         set(() => ({ selectedOptions: options })),
     lang: "es",
     setLang: (lang: Locale) => set(() => ({ lang })),
+    warehouseActive: false,
+    setWarehouseActive: (toggle: boolean) => set(() => ({ warehouseActive: toggle })),
 }));
