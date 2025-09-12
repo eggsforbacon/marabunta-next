@@ -2,7 +2,7 @@ import {Choice} from "@/types/quote";
 
 export const en: {id: string, context?: string, prompt : string, highlight? : string, answers?: Choice[], options?: string[][]}[] = [
     {
-        id: 0x0001,
+        id: "0x0001",
         "prompt": "What are we going to $ together?",
         "highlight": "create",
         "answers": [
@@ -25,7 +25,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ],
     },
     {
-        id: 0x1000,
+        id: "0x1000",
         "prompt": "How can we $ you?",
         "highlight": "help",
         "answers": [
@@ -44,7 +44,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        id: 0x1100,
+        id: "0x1100",
         "prompt": "What $ of software?",
         "highlight": "type",
         "answers": [
@@ -63,7 +63,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        id: 0x1101,
+        id: "0x1101",
         "prompt": "What $ of page?",
         "highlight": "kind",
         "answers": [
@@ -86,17 +86,17 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        id: 0x1102,
+        id: "0x1102",
         "prompt": "How $ is your site?",
         "highlight": "big",
     },
     {
-        id: 0x1103,
+        id: "0x1103",
         "prompt": "How many $ does your site have?",
         "highlight": "products",
     },
     {
-        id: 0x1104,
+        id: "0x1104",
         "prompt": "Do you need a $ gateway?",
         "highlight": "payment",
         "answers": [
@@ -128,7 +128,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        id: 0x1105,
+        id: "0x1105",
         "prompt": "How do you want the $?",
         "highlight": "design",
         "answers": [
@@ -151,7 +151,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        id: 0x1106,
+        id: "0x1106",
         "prompt": "Do you need $ functionality?",
         "highlight": "users and login",
         "answers": [
@@ -173,7 +173,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        id: 0x1107,
+        id: "0x1107",
         "prompt": "Do you need an internal $ or index?",
         "highlight": "search",
         "answers": [
@@ -192,7 +192,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        id: 0x1108,
+        id: "0x1108",
         "prompt": "Do you have $ already?",
         "highlight": "hosting or domain",
         "answers": [
@@ -211,7 +211,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        id: 0x1109,
+        id: "0x1109",
         "prompt": "Do you need $ services?",
         "highlight": "SEO",
         "answers": [
@@ -227,7 +227,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        id: 0x1001,
+        id: "0x1001",
         "prompt": "Do you need multiple $ for your software?",
         "highlight": "languages",
         "answers": [
@@ -250,7 +250,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        id: 0x1002,
+        id: "0x1002",
         "prompt": "What level of $ do you need for your product?",
         "highlight": "interactions and animations",
         "answers": [
@@ -272,7 +272,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        id: 0x1003,
+        id: "0x1003",
         "prompt": "What kind of $ do you need after delivery?",
         "highlight": "technical support",
         "answers": [
@@ -311,7 +311,7 @@ export const en: {id: string, context?: string, prompt : string, highlight? : st
         ]
     },
     {
-        "id": 0x1004,
+        id: "0x1004",
         "prompt": "What $ is your product at?",
         "highlight": "stage",
         "answers": [
