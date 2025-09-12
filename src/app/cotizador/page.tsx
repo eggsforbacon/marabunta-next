@@ -12,7 +12,7 @@ export default function Quote({params: {lang}}: { params: { lang: Locale } }) {
         <main>
             <Navbar s={nav} lang={lang} current={"/cotizador"}/>
             <section className={"flex flex-col bg-black w-full relative overflow-clip max-h-screen"}>
-                <Introduction lang={"es"} />
+                <Introduction lang={"es"}  />
                 <Question lang={"es"} />
             </section>
         </main>
