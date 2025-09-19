@@ -44,6 +44,8 @@ interface QuoteStore {
     currentStep: number;
     progress: number;
     totalStepsHistory: number[];
+    warehouseActive: boolean;
+    setWarehouseActive: (toggle: boolean) => void;
 }
 
 const determineNextState = (
@@ -55,6 +57,7 @@ const determineNextState = (
     lang: Locale,
     quoteMode: QuoteMode | null
 ) => {
+
     if (current === INTRO_ID) {
         const nextId = rawIds[0];
         return {
@@ -172,7 +175,7 @@ export const useQuoteStore = create<QuoteStore>((set, get) => ({
                 state.subflowQueue,
                 state.flowRootId,
                 state.lang,
-                state.quoteMode
+                state.quoteMode,
             );
 
             const currentStep = nextState.stack.length - 1;
@@ -241,7 +244,6 @@ export const useQuoteStore = create<QuoteStore>((set, get) => ({
         }),
     reset: () =>
         set(() => ({
-            quoteMode: null,
             current: INTRO_ID,
             stack: [INTRO_ID],
             subflowQueue: [],
@@ -281,4 +283,6 @@ export const useQuoteStore = create<QuoteStore>((set, get) => ({
     currentStep: 0,
     progress: 0,
     totalStepsHistory: [],
+    warehouseActive: false,
+    setWarehouseActive: (toggle: boolean) => set(() => ({ warehouseActive: toggle })),
 }));

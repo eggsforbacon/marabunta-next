@@ -1,4 +1,4 @@
-import { Choice, ProductTypes, Question, QuestionTypes, QuoteMode } from "@/types/quote";
+import { Choice, Question, QuestionTypes, QuoteMode } from "@/types/quote";
 import { Locale } from "@/_i18n.config";
 import { getText } from "@/services/common";
 
@@ -1524,6 +1524,48 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["C4.4"],
     next: [],
     choices: getText(lang, "C4.5", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
+  },
+
+  // --- PRODUCCIÓN (P) ---
+  {
+    id: "P0",
+    prompt: getText(lang, "P0", "prompt") as string,
+    highlight: (getText(lang, "P0", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["0"],
+    next: ["P1.1", "BODEGA"],
+    choices: getText(lang, "P0", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
+  },
+  {
+    id: "P1.1",
+    prompt: getText(lang, "P1.1", "prompt") as string,
+    highlight: (getText(lang, "P1.1", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["P0"],
+    next: ["P1.2", "P1.2", "P1.2", "P1.2",],
+    choices: getText(lang, "P1.1", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
+  },
+  {
+    id: "P1.2",
+    prompt: getText(lang, "P1.2", "prompt") as string,
+    highlight: (getText(lang, "P1.2", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["P1.1"],
+    next: ["P1.3", "P1.3", "P1.3", "P1.3",],
+    choices: getText(lang, "P1.2", "answers") as Choice[],
+    mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
+  },
+  {
+    id: "P1.3",
+    prompt: getText(lang, "P1.3", "prompt") as string,
+    highlight: (getText(lang, "P1.3", "highlight") ?? "") as string,
+    types: QuestionTypes.DEFAULT,
+    previous: ["P1.2"],
+    next: [],
+    choices: getText(lang, "P1.2", "answers") as Choice[],
     mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
 ];

@@ -30,7 +30,7 @@ const MultipleChoice = ({
     options,
     types,
 }: _Props) => {
-    const { continueQuestion, setAnswer, answers, selectedOptions, setSelectedOptions } = useQuoteStore();
+    const { continueQuestion, setAnswer, answers, selectedOptions, setSelectedOptions, setWarehouseActive } = useQuoteStore();
     const swiperRef = useRef<SwiperCore>();
     const isMultipleSelect = types === QuestionTypes.MULTIPLE_SELECT;
     let controlIndex = -1;
@@ -70,6 +70,7 @@ const MultipleChoice = ({
             setActiveOption(index);
             const nextId = next[index];
             if (nextId) {
+                if (nextId === "BODEGA") setWarehouseActive(true);
                 continueQuestion([nextId]);
             }
         } else if (isMultipleSelect) {

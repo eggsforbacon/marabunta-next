@@ -42,6 +42,13 @@ export namespace Strapi {
         }
     }
 
+    export type ImageArrayData = {
+        data: {
+            id: number,
+            attributes: BodyImageAttributes
+        }[]
+    }
+
     export type Post = {
         id: number,
         attributes: [Object]
