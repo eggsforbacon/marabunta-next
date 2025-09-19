@@ -3,6 +3,7 @@ import {getLanguage} from "@/dictionaries";
 import {Locale} from "@/_i18n.config";
 import Introduction from "@/components/quote/ModeSelector";
 import Question from "@/components/quote/Question";
+import ProgressBar from "@/components/quote/ProgressBar";
 
 export default function Quote({
                                   params: {lang},
@@ -19,6 +20,7 @@ export default function Quote({
                     "flex flex-col bg-black w-full overflow-x-clip relative max-h-[100vh] overflow-clip"
                 }
             >
+                <ProgressBar />
                 <Question lang={"es"} />
                 <Introduction lang={"es"}/>
             </section>
