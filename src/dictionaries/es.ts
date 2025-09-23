@@ -1,3 +1,5 @@
+import { LEGAL_ES } from "./legal.es.generated";
+
 export const ES = {
   "common": {
     "months": [
@@ -378,59 +380,7 @@ export const ES = {
       "send": "¡Comencemos!"
     }
   },
-  "legal": {
-    "title": "Tratamiento de datos personales",
-    "update": "Actualizado por última vez el 18/01/2023",
-    "navigation": {
-      "data": "Información y Protección",
-      "terms": "Privacidad y Condiciones"
-    },
-    "data": {
-      "title": "Política de seguridad de la información y protección de datos personales",
-      "paragraph1": [
-        "De conformidad con los preceptos fundamentales contemplados en los artículos 15 y 20 de la Constitución Política y en cumplimiento a lo estipulado en el Decreto 1081 de 2015 frente al archivo, protección y tratamiento de datos personales, en especial para el caso de datos sensibles, regulados entre otras normas por las leyes 1437 de 2011, 1581 de 2012 y 1712 de 2014 y el Decreto 1377 de 2013, ",
-        "autorizo ",
-        "a PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA a tratar mis datos personales, derivados o con ocasión de la relación comercial que tuve, tuviere o llegare a tener, los cuales serán utilizados con los siguientes fines:"
-      ],
-      "purposes": [
-        "Recolectar, almacenar, usar, circular, suprimir, compartir, actualizar y transmitir la información personal de los clientes, proveedores y trabajadores en el desarrollo del objeto social de MARABUNTA y de la relación comercial existente.",
-        "Ejecutar la relación contractual existente con sus clientes, proveedores y trabajadores, incluido el pago de obligaciones contractuales.",
-        "Informar a través de los medios que MARABUNTA establezca, las modificaciones que se presenten en el desarrollo de los vínculos contractuales con el titular de la información.",
-        "Suministrar información del titular a la fuerza comercial y/o red de distribución, telemercadeo, investigación de mercados y a cualquier tercero con el que MARABUNTA tenga un vínculo contractual para el desarrollo de este tipo de actividades.",
-        "Contactar a los clientes, proveedores y trabajadores a través de medios telefónicos, electrónicos y/o físicos para realizar encuestas, estudios, confirmación de datos personales y enviar noticias relacionadas con campañas de fidelización, mejoramiento del servicio o cambios en el mismo.",
-        "Desarrollar el proceso de selección, evaluación y vinculación laboral.",
-        "Solicitar y recibir de las entidades de derecho público y/o empresas de carácter privado la información personal académica, laboral y de seguridad social que reposa en sus bases de datos.",
-        "Evaluar la calidad de los productos y/o servicios que suministre como proveedor titular de la información.",
-        "Realizar estudios al interior de MARABUNTA sobre hábitos o tendencias del proveedor titular de la información.",
-        "Transmitir información y datos personales en los procesos de auditoría y/o a terceros con los que se tenga un contrato de procesamiento de datos y sea necesario aportarlos en pro del cumplimiento de objeto contractual.",
-        "Usar las imágenes, videos y/o fotografías en las que aparezca la imagen del proveedor titular de la información. Dichas fotografías podrán ser utilizadas en cualquier medio publicitario que disponga MARABUNTA, así como ser modificadas según la necesidad.",
-        "Realizar invitaciones a eventos y ofrecer nuevos productos y servicios.",
-        "Registrar la información de empleados (activos e inactivos) en las bases de datos de MARABUNTA."
-      ],
-      "paragraph2": "El uso y manejo de los mismos, se efectúa bajo estrictos estándares de responsabilidad, dentro de los cuales está el respeto al debido proceso y a la protección de la información.",
-      "paragraph3": "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA actuará como responsable del tratamiento de sus datos personales y hará uso de los mismos únicamente para las finalidades para las que se encuentra facultado, sobre la base de la ley y la normatividad vigente.",
-      "paragraph4": [
-        "Declaro de manera libre, expresa e informada que se me ha dado a saber de forma clara y comprensible que tengo derecho a conocer, actualizar y rectificar los datos personales proporcionados, a solicitar prueba de esta autorización, a solicitar información sobre el uso que se le ha dado a mis datos personales, a presentar quejas ante la Superintendencia de Industria y Comercio por el uso indebido de mis datos personales, a revocar esta autorización o solicitar la supresión de los datos personales suministrados, acceder de forma gratuita a los mismos y abstenerse de brindar información que contenga datos sensibles. Además, que he sido informado por MARABUNTA de tener a mi disposición los siguientes medios para atender las peticiones, consultas, reclamos o para el ejercicio de los derechos del titular: correo electrónico ",
-        "subgerencia@marabunta.co",
-        ", portal web ",
-        "marabunta.co",
-        "dirección: calle 8 oeste No. 28-45, Cali, que corresponde a nuestras oficinas y/o línea telefónica (602) 4072035 para ser atendido en el horario de lunes a viernes de 8:00 a.m. a 12:00 y de 2:00 a 5:00 p.m."
-      ]
-    },
-    "tos": {
-      "title": "Política De Privacidad Y Condiciones De Uso",
-      "content": [
-        "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA podrá bloquear el acceso al sitio WEB por cualquier utilización que considere irregular e iniciar las investigaciones necesarias de acuerdo a los protocolos correspondientes con fundamento en la Ley 1273 de 2009 y entablar las acciones legales correspondientes.",
-        "De igual forma, las secciones, aplicativos de acceso y emisiones electromagnéticas provenientes de este sistema virtual de información cuentan con los mecanismos de seguridad necesarios para controlar su acceso y utilización, por parte de PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA, el titular de los datos podrá actualizar y rectificar las informaciones recogidas, pudiendo ejercer así, el derecho de Habeas Data tanto presencialmente como por escrito tal y como lo contempla el artículo 15 de la Constitución Política de Colombia.",
-        "La información registrada en éste sistema virtual de información, corresponde a los datos suministrados por el usuario suscritos bajo la gravedad del juramento y ceñido a los postulados de la buena fe. El usuario acepta que de faltar con los postulados anteriormente señalados está incurriendo en un delito y tendrá que atenerse a las consecuencias que para ello contraiga el Código Penal.",
-        "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA, es depositario de la información suministrada en el Portal, por tal motivo, se autoriza la inclusión del correo electrónico del usuario y demás informaciones personales en las bases de datos administrativas de esta agencia; su uso y utilización, para los fines y acciones que estime pertinentes.",
-        "En consecuencia, PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA, es responsable por asegurar la concordancia entre los datos que han sido suministrados y los que registra o divulga, pero no tiene ninguna responsabilidad por la veracidad de tales datos.",
-        "Se entiende y acepta que si por motivos de restructuración, mantenimiento, fallas o errores técnicos tales como caída de línea o congestión en el sistema no se pudiera acceder al portal, no se está coartando el derecho del habeas data.",
-        "Se tiene plena conciencia de que, en cualquier momento PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA y sin previo aviso puede modificar, terminar o posponer la prestación del servicio informático ofrecido y sus actuales condiciones de uso si lo estimare conveniente o necesario.",
-        "Todos los derechos de autor de esta página, secciones, objetos y demás pantallas que se muestran y su disposición, así como las marcas y logos utilizados pertenecen a la PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA, salvo que se indique lo contrario."
-      ]
-    }
-  },
+  "legal": LEGAL_ES,
   "footer": {
     "email": "Déjanos tu correo",
     "talk": "¡Hablemos!",

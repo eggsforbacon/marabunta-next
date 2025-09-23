@@ -1,3 +1,5 @@
+import { LEGAL_ES } from "./legal.es.generated";
+
 export const EN = {
   "common": {
     "months": [
@@ -369,59 +371,7 @@ export const EN = {
       "send": "Let's get started!"
     }
   },
-  "legal": {
-    "title": "Personal Data Processing",
-    "update": "Last updated on 18/01/2023",
-    "navigation": {
-      "data": "Information and Protection",
-      "terms": "Privacy and Conditions"
-    },
-    "data": {
-      "title": "Information Security and Personal Data Protection Policy",
-      "paragraph1": [
-        "In accordance with the fundamental principles set forth in Articles 15 and 20 of the Political Constitution and in compliance with the provisions of Decree 1081 of 2015 regarding the filing, protection, and processing of personal data, especially for sensitive data, regulated, among other norms, by Laws 1437 of 2011, 1581 of 2012, and 1712 of 2014, and Decree 1377 of 2013, ",
-        "I authorize ",
-        "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA to process my personal data, derived or on the occasion of the commercial relationship I have, have had, or may have in the future. These will be used for the following purposes:"
-      ],
-      "purposes": [
-        "Collect, store, use, circulate, delete, share, update, and transmit the personal information of clients, suppliers, and employees in the development of MARABUNTA's social purpose and the existing commercial relationship.",
-        "Execute the existing contractual relationship with its clients, suppliers, and employees, including the payment of contractual obligations.",
-        "Inform through the means established by MARABUNTA of any modifications that occur in the development of contractual links with the data subject.",
-        "Provide information about the data subject to the sales force and/or distribution network, telemarketing, market research, and any third party with whom MARABUNTA has a contractual relationship for the development of these types of activities.",
-        "Contact clients, suppliers, and employees through telephone, electronic, and/or physical means to conduct surveys, studies, confirmation of personal data, and send news related to loyalty campaigns, service improvement, or changes in the same.",
-        "Develop the process of selection, evaluation, and hiring of employees.",
-        "Request and receive from public entities and/or private companies the personal academic, work, and social security information stored in their databases.",
-        "Evaluate the quality of the products and/or services provided as the data subject who is a supplier of information.",
-        "Conduct studies within MARABUNTA on the habits or trends of the data subject who is a supplier of information.",
-        "Transmit information and personal data in audit processes and/or to third parties with whom a data processing contract exists and it is necessary to provide them for the fulfillment of the contractual purpose.",
-        "Use images, videos, and/or photographs in which the image of the data subject who is a supplier of information appears. These photographs may be used in any advertising medium that MARABUNTA deems appropriate, as well as be modified as needed.",
-        "Send invitations to events and offer new products and services.",
-        "Record the information of employees (active and inactive) in the databases of MARABUNTA."
-      ],
-      "paragraph2": "The use and handling of them are carried out under strict standards of responsibility, within which is the respect for due process and the protection of information.",
-      "paragraph3": "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA will act as the data controller of your personal data and will use it only for the purposes for which it is authorized, based on the law and current regulations.",
-      "paragraph4": [
-        "I declare freely, expressly, and informed that it has been made clear and understandable to me that I have the right to know, update, and rectify the personal data provided, to request proof of this authorization, to request information about the use that has been given to my personal data, to file complaints with the Superintendence of Industry and Commerce for the misuse of my personal data, to revoke this authorization or request the deletion of the personal data provided, to access them for free, and to refrain from providing information that contains sensitive data. In addition, I have been informed by MARABUNTA that I have at my disposal the following means to address requests, inquiries, complaints, or to exercise the rights of the data subject: email ",
-        "subgerencia@marabunta.co",
-        ", website ",
-        "marabunta.co",
-        "address: Calle 8 oeste No. 28-45, Cali, which corresponds to our offices and/or telephone line (602) 4072035 to be attended during business hours from Monday to Friday from 8:00 a.m. to 12:00 and from 2:00 p.m. to 5:00 p.m."
-      ]
-    },
-    "tos": {
-      "title": "Privacy Policy and Terms of Use",
-      "content": [
-        "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA may block access to the WEBSITE for any use it deems irregular and initiate the necessary investigations in accordance with the corresponding protocols based on Law 1273 of 2009 and file the corresponding legal actions.",
-        "Similarly, the sections, access applications, and electromagnetic emissions from this virtual information system have the necessary security mechanisms to control their access and use. The data subject may update and rectify the information collected, exercising the right of habeas data both in person and in writing as contemplated by Article 15 of the Political Constitution of Colombia.",
-        "The information recorded in this virtual information system corresponds to the data provided by the user under the gravity of the oath and in adherence to the principles of good faith. The user accepts that by failing to comply with the aforementioned principles, they are committing a crime and will have to face the consequences that the Penal Code may entail for it.",
-        "PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA is the custodian of the information provided on the Portal; therefore, the inclusion of the user's email and other personal information in the administrative databases of this agency is authorized. Its use and utilization, for the purposes and actions it deems pertinent, are authorized.",
-        "Consequently, PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA is responsible for ensuring the concordance between the data that has been provided and those that it records or discloses, but has no responsibility for the veracity of such data.",
-        "It is understood and accepted that if, for reasons of restructuring, maintenance, failures, or technical errors such as a line drop or congestion in the system, access to the portal cannot be obtained, the right to habeas data is not being restricted.",
-        "There is a full awareness that, at any time and without prior notice, PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA may modify, terminate, or postpone the provision of the offered computer service and its current terms of use if it deems it convenient or necessary.",
-        "All copyright rights to this page, sections, objects, and other screens displayed and their arrangement, as well as the trademarks and logos used, belong to PRENSA & ENTRETENIMIENTO AGENCIA DE COMUNICACIONES S.A.S. – MARABUNTA, unless otherwise indicated."
-      ]
-    }
-  },
+  "legal": LEGAL_ES,
   "footer": {
     "email": "Leave us your email",
     "talk": "Let's talk!",
