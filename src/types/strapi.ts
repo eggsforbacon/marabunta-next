@@ -61,7 +61,7 @@ export namespace Strapi {
 
     export type MultipleResponse = {
         data: Post[] | null,
-        meta?: { pagination: { page: number, pageSize: number, pageCount: number, total: number } }
+        meta?: { pagination: { start: number, limit: number, total: number } }
         error?: {
             status: number,
             name : string,

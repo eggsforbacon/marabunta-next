@@ -45,10 +45,6 @@ const Question = ({ lang }: QuestionComponentProps) => {
   }, [current, lang, isVisible, quoteMode]);
 
   useEffect(() => {
-    console.info(current);
-  }, [current]);
-
-  useEffect(() => {
     if (!question || !question.id) return;
     const savedAnswer = answers[question.id];
     const isMultiple = question.types === QuestionTypes.MULTIPLE_SELECT;
@@ -69,7 +65,6 @@ const Question = ({ lang }: QuestionComponentProps) => {
     id,
     options,
     choices,
-    ranges,
     prompt,
     highlight,
     next,

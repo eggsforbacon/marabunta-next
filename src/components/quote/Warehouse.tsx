@@ -4,27 +4,44 @@ import {useQuoteStore} from "@/store/quote";
 import FilterChip from "@/components/ui/FilterChip";
 import {warehouseCategories} from "@/types/warehouse";
 import WarehouseBasketOverlay from "@/components/quote/WarehouseBasketOverlay";
-import {Warehouse as W} from "@/types/warehouse";
 import useSWR from "swr";
-import {getTeam} from "@/services/team";
 import {getWarehouseCombos, getWarehouseElements} from "@/services/warehouse";
 import WarehouseItem from "@/components/quote/WarehouseItem";
-import Image from "next/image";
-import {Strapi} from "@/types/strapi";
 import {useWarehouseStore} from "@/store/warehouse";
+import WarehouseCombo from "@/components/quote/WarehouseCombo";
+import Pagination from "@/components/quote/Pagination";
+import {useEffect, useState} from "react";
+import {MaterialSymbol} from "react-material-symbols";
 
 const Warehouse = () => {
     const lang = "es";
-    const {warehouseActive} = useQuoteStore();
     const {filters} = useWarehouseStore();
+    const {current, goBackQuestion, warehouseActive, setWarehouseActive} = useQuoteStore();
+
+    const [page, setPage] = useState<number>(0);
 
     const {
-        data: {elements},
-    } = useSWR(['getWarehouseElements', lang, filters], () => getWarehouseElements(lang, filters), {fallbackData: {elements: []}});
+        data: {elements, total},
+    } = useSWR(['getWarehouseElements', page, lang, filters], () => getWarehouseElements(page, lang, filters), {
+        fallbackData: {
+            elements: [],
+            total: 0
+        }
+    });
 
     const {
         data: {combos},
     } = useSWR(['getWarehouseCombos', lang], () => getWarehouseCombos(lang), {fallbackData: {combos: []}});
+
+    const itemsPerPage = process.env.NEXT_PUBLIC_STRAPI_LIMIT as unknown as number ?? 6;
+    const from = page * itemsPerPage;
+    const to = Math.min(itemsPerPage * (page + 1), total ?? itemsPerPage);
+    const fixedTotal = total ?? itemsPerPage;
+    const totalPages = Math.ceil(fixedTotal / itemsPerPage);
+
+    useEffect(() => {
+        if (current !== "BODEGA") setWarehouseActive(false);
+    }, [current, setWarehouseActive]);
 
     return (
         <section
@@ -37,15 +54,12 @@ const Warehouse = () => {
             <section className="bg-black relative w-full flex flex-col items-center justify-start gap-4">
                 <div
                     className="w-full flex flex-col items-stretch justify-start py-2 gap-2 overflow-y-scroll">
-                    <h2 className="text-2xl font-bold">Combos</h2>
+                    <h2 className="text-2xl font-bold px-6">Combos</h2>
                     {
                         combos.map((combo, index) => {
-                            return <div key={index}>
-                                <div className="flex w-full h-96 bg-white relative overflow-clip">
-                                    {/*<Image src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${combo.gallery[0].url}`} alt={""} />*/}
-                                </div>
-                                <h3>{combo.name}</h3>
-                            </div>
+                            return (
+                                <WarehouseCombo key={index} combo={combo}/>
+                            );
                         })
                     }
                 </div>
@@ -57,9 +71,34 @@ const Warehouse = () => {
                             return (
                                 <FilterChip key={index}>{category}</FilterChip>
                             );
-                        })
-                        }
+                        })}
                     </div>
+                    <Pagination
+                        page={page}
+                        numberOfPages={totalPages}
+                        onPageChange={(newPage) => setPage(newPage)}
+                        label={`${from + 1}-${to} de ${total} entradas`}/>
+                    <div className="grid grid-cols-2 gap-2">
+                        {elements.map((element, index) => {
+
+                            return (
+                                <WarehouseItem
+                                    key={index}
+                                    id={element.id} name={element.name}
+                                    description={element.description}
+                                    category={element.category}
+                                    gallery={element.gallery}
+                                />
+                            )
+                        })}
+                    </div>
+                </div>
+                <div
+                    className={"flex w-full px-6 box-border items-center justify-between text-marabunta-cyan text-sm pb-6"}>
+                    <button className={"flex gap-2 items-center"} onClick={goBackQuestion}>
+                        <MaterialSymbol icon={"north_west"} color={"#129cc0"} size={16}/>
+                        <p>Atrás</p>
+                    </button>
                 </div>
             </section>
             <WarehouseBasketOverlay/>

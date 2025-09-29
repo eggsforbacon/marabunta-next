@@ -2,13 +2,11 @@ import {create} from "zustand";
 import {Warehouse} from "@/types/warehouse";
 
 interface WarehouseStore {
-    cart: { item: Warehouse.Element, quantity: number; }[];
+    cart: (Warehouse.Element | Warehouse.Combo)[];
     removeOne: (id: string) => void;
-    removeAll: (id: string) => void;
-    addOne: (id: string, item?: Warehouse.Element) => void;
-    addToCart: (item: Warehouse.Element, quantity: number) => void;
-    getRequestedQuantity: (id: string) => number;
-    pseudoPurchase: () => { item: Warehouse.Element, quantity: number; }[];
+    addOne: (id: string, item?: Warehouse.Element | Warehouse.Combo) => void;
+    itemExists: (id: string) => boolean;
+    pseudoPurchase: () => (Warehouse.Element | Warehouse.Combo)[];
     emptyCart: () => void;
     filters: Warehouse.Category[];
     updateFilters: (filter: Warehouse.Category) => void;
@@ -17,50 +15,23 @@ interface WarehouseStore {
 export const useWarehouseStore = create<WarehouseStore>((set, getState) => ({
     cart: [],
     removeOne: (id) =>
-        set((state) => {
-            const updated = state.cart
-                .map((c) =>
-                    c.item.id === id ? {...c, quantity: c.quantity - 1} : c
-                )
-                .filter((c) => c.quantity > 0);
-            return {...state, cart: updated};
-        }),
-    removeAll: (id) =>
         set((state) => ({
             ...state,
-            cart: state.cart.filter((c) => c.item.id !== id),
+            cart: state.cart.filter((c) => c.id !== id),
         })),
     addOne: (id, item) =>
         set((state) => {
-            const exists = state.cart.find((c) => c.item.id === id);
+            const exists = state.cart.find((c) => c.id === id);
             let updated;
             if (!exists && item) {
-                updated = [...state.cart, {item: item, quantity: 1}];
-            } else {
-                updated = state.cart.map((c) =>
-                    c.item.id === id ? {...c, quantity: c.quantity + 1} : c
-                );
+                updated = [...state.cart, item];
             }
             return {...state, cart: updated};
         }),
-    addToCart: (item, quantity) => set((state) => {
-        const exists = state.cart.find((c) => c.item.id === item.id);
-        let updated;
-        if (exists) {
-            updated = state.cart.map((c) =>
-                c.item.id === item.id
-                    ? {...c, quantity: c.quantity + quantity}
-                    : c
-            );
-        } else {
-            updated = [...state.cart, {item, quantity}];
-        }
-        return {...state, cart: updated};
-    }),
-    getRequestedQuantity: (id: string) => {
+    itemExists: (id: string) => {
         const state = getState();
-        const entry = state.cart.find((c) => c.item.id === id);
-        return entry ? entry.quantity : 0;
+        const entry = state.cart.find((c) => c.id === id);
+        return !!entry;
     },
     pseudoPurchase: () => {
         const state = getState();
@@ -69,7 +40,7 @@ export const useWarehouseStore = create<WarehouseStore>((set, getState) => ({
     emptyCart: () => set((state) => ({...state, cart: []})),
     filters: [],
     updateFilters: (filter) => set((state) => {
-        let newFilters: Warehouse.Category[] = [];
+        let newFilters: Warehouse.Category[];
         const oldFilters = state.filters;
         if (oldFilters.includes(filter)) {
             newFilters = oldFilters.filter(item => item !== filter);
