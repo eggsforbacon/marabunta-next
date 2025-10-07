@@ -1532,7 +1532,7 @@ export const questions = (lang: Locale): Question[] => [
     id: "P0",
     prompt: getText(lang, "P0", "prompt") as string,
     highlight: (getText(lang, "P0", "highlight") ?? "") as string,
-    types: QuestionTypes.DEFAULT,
+    types: QuestionTypes.MULTIPLE_SELECT,
     previous: ["0"],
     next: ["P1.1", "BODEGA"],
     choices: getText(lang, "P0", "answers") as Choice[],

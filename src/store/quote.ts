@@ -1,12 +1,13 @@
 import { create } from "zustand";
-import { Answer, Question, QuestionTypes, QuoteMode } from "@/types/quote";
+import { Answer, QuestionTypes, QuoteMode } from "@/types/quote";
 import { getQuestion } from "@/model/quote";
 import { questions as allQuestions } from "@/constants/quote";
-import { buildQuestionMap, QuestionMap } from "@/utils/quote-progress";
+import { buildQuestionMap } from "@/utils/quote-progress";
 
 type Locale = "es" | "en";
 
 const INTRO_ID = "intro";
+const WAREHOUSE_ID = "BODEGA";
 
 const questionMap = buildQuestionMap(allQuestions("es"));
 
@@ -46,6 +47,8 @@ interface QuoteStore {
     totalStepsHistory: number[];
     warehouseActive: boolean;
     setWarehouseActive: (toggle: boolean) => void;
+    finish: boolean,
+    setFinish: (finish: boolean) => void;
 }
 
 const determineNextState = (
@@ -58,7 +61,7 @@ const determineNextState = (
     quoteMode: QuoteMode | null
 ) => {
 
-    if (current === INTRO_ID) {
+    if (current === INTRO_ID || current === WAREHOUSE_ID) {
         const nextId = rawIds[0];
         return {
             current: nextId,
@@ -285,4 +288,6 @@ export const useQuoteStore = create<QuoteStore>((set, get) => ({
     totalStepsHistory: [],
     warehouseActive: false,
     setWarehouseActive: (toggle: boolean) => set(() => ({ warehouseActive: toggle })),
+    finish: false,
+    setFinish: (finish: boolean) => set(() => ({ finish })),
 }));

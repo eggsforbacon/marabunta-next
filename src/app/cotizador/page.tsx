@@ -12,7 +12,7 @@ export default function Quote(
     }: {
         params: { lang: Locale };
     }) {
-    const {nav, quote} = getLanguage(lang);
+    const {nav} = getLanguage(lang);
 
     return (
         <main className="">
@@ -23,10 +23,9 @@ export default function Quote(
                 }
             >
                 <ProgressBar />
-                <Question lang={"es"} />
-                <Question lang={"es"}/>
-                <Introduction lang={"es"}/>
                 <Warehouse />
+                <Question lang={"es"} />
+                <Introduction lang={"es"}/>
             </section>
         </main>
     );

@@ -43,7 +43,6 @@ export async function getWarehouseElements(currentPage: number, lang?: Locale, f
 }
 
 function mapStrapiToWarehouse(attributes: { [key: string]: any }, id: string): Warehouse.Element {
-    console.info("RAW >>>: ", attributes);
     return {
         id: id,
         name: attributes.nombre,

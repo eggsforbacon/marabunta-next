@@ -10,6 +10,7 @@ import { Choice, QuestionTypes } from "@/types/quote";
 import { useQuoteStore } from "@/store/quote";
 import OptionAnswer from "@/components/quote/OptionAnswer";
 import OpenAnswer from "@/components/quote/OpenAnswer";
+import {useWarehouseStore} from "@/store/warehouse";
 
 type _Props = {
     id: string;
@@ -30,7 +31,8 @@ const MultipleChoice = ({
     options,
     types,
 }: _Props) => {
-    const { continueQuestion, setAnswer, answers, selectedOptions, setSelectedOptions, setWarehouseActive } = useQuoteStore();
+    const { continueQuestion, setAnswer, answers, selectedOptions, setSelectedOptions, setWarehouseActive, setFinish, subflowQueue } = useQuoteStore();
+    const { cart } = useWarehouseStore();
     const swiperRef = useRef<SwiperCore>();
     const isMultipleSelect = types === QuestionTypes.MULTIPLE_SELECT;
     let controlIndex = -1;
@@ -64,6 +66,16 @@ const MultipleChoice = ({
         }
     }, [activeOption, closed, id, answers, setSelectedOptions, isMultipleSelect]);
 
+    useEffect(() => {
+        if (next.length === 0 && !subflowQueue.includes("BODEGA")) {
+            setFinish(true);
+            if (typeof window !== 'undefined') {
+                const basket = { answers, cart }
+                sessionStorage.setItem('answers', JSON.stringify(basket));
+            }
+        }
+    }, [answers, cart, next, setFinish, subflowQueue]);
+
     const handleToggleOption = (index: number) => {
         if (!closed && !isMultipleSelect) {
             setAnswer(id, index);
@@ -72,6 +84,9 @@ const MultipleChoice = ({
             if (nextId) {
                 if (nextId === "BODEGA") setWarehouseActive(true);
                 continueQuestion([nextId]);
+            } else if (subflowQueue.includes("BODEGA")) {
+                setWarehouseActive(true);
+                continueQuestion(["BODEGA"]);
             }
         } else if (isMultipleSelect) {
             const timestamp = Date.now();
