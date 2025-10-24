@@ -23,4 +23,15 @@ export const fetchURI = async <T>(
         });
     }
     return await response.json();
-};
+}
+
+export const sendContactForm = async (data : {[key : string]: string}) => {
+    return fetch('/api/contact', {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        }
+    });
+}

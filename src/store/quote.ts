@@ -17,6 +17,7 @@ interface QuoteStore {
     floor: number;
     ceiling: number;
     basket: Answer[];
+    setBasket: (basket: Answer[]) => void;
     addToBasket: (p: Answer) => void;
     removeFromBasket: (id: string) => void;
     current: string;
@@ -150,6 +151,7 @@ export const useQuoteStore = create<QuoteStore>((set, get) => ({
     floor: 0,
     ceiling: 0,
     basket: [],
+    setBasket: (basket: Answer[]) => set((state) => ({basket})),
     addToBasket: (p: Answer) =>
         set((state) => ({ basket: [...state.basket, p] })),
     removeFromBasket: (id: string) =>
@@ -201,7 +203,6 @@ export const useQuoteStore = create<QuoteStore>((set, get) => ({
 
             const potentialProgress = totalSteps > 0 ? (currentStep / totalSteps) * 100 : state.progress;
 
-            // BUG FIX: El progreso nunca disminuye al avanzar
             const progress = Math.max(potentialProgress, state.progress);
 
             return {

@@ -3,6 +3,7 @@ import {Warehouse} from "@/types/warehouse";
 
 interface WarehouseStore {
     cart: (Warehouse.Element | Warehouse.Combo)[];
+    setCart: (cart: Warehouse.Element[]) => void;
     removeOne: (id: string) => void;
     addOne: (id: string, item?: Warehouse.Element | Warehouse.Combo) => void;
     itemExists: (id: string) => boolean;
@@ -14,6 +15,7 @@ interface WarehouseStore {
 
 export const useWarehouseStore = create<WarehouseStore>((set, getState) => ({
     cart: [],
+    setCart: (cart: Warehouse.Element[]) => set((_) => ({cart})),
     removeOne: (id) =>
         set((state) => ({
             ...state,

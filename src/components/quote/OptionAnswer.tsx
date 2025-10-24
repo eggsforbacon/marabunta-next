@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import {useState} from "react";
 import {DashCircle, PlusCircle} from "react-bootstrap-icons";
+import {useQuoteStore} from "@/store/quote";
 
 type _Props = {
   index: number;
@@ -12,9 +13,8 @@ type _Props = {
 const OptionAnswer = ({ index, title, options }: _Props) => {
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const [shownOptions, setShownOptions] = useState<string[]>([]);
-  const [selectedOptions, setSelectedOptions] = useState<{
-    [key: number]: string;
-  }>({});
+
+  const {selectedOptions, setSelectedOptions} = useQuoteStore();
 
   return (
     <div
@@ -39,7 +39,7 @@ const OptionAnswer = ({ index, title, options }: _Props) => {
         className={`flex flex-col items-center justify-start gap-2 transition-all duration-200 ease-in-out overflow-hidden ${showOptions ? `h-[calc(1.5rem*${shownOptions.length}+1rem)]` : "h-0"}`}
       >
         {shownOptions.map((option, i) => {
-          const isSelected = selectedOptions.hasOwnProperty(i);
+          const isSelected = selectedOptions.some(o => o.index === i);
           return (
             <>
               <button
@@ -48,15 +48,17 @@ const OptionAnswer = ({ index, title, options }: _Props) => {
                   ${showOptions ? "h-auto opacity-100" : "h-0 opacity-0 select-none pointer-events-none"}
                   ${isSelected ? "bg-marabunta-cyan" : ""}`}
                 onClick={() => {
-                  setSelectedOptions((prev) => {
-                    const newOptions = { ...prev };
-                    if (isSelected) {
-                      delete newOptions[i];
+                  const f = (prev : {index: number, timestamp: number}[]) : {index: number, timestamp: number}[] => {
+                    const exists = prev.some(e => e.index === i);
+
+                    if (exists) {
+                      return prev.filter(e => e.index !== i);
                     } else {
-                      newOptions[i] = option;
+                      return [...prev, {index: i, timestamp: Date.now()}];
                     }
-                    return newOptions;
-                  });
+
+                  };
+                  setSelectedOptions(f(selectedOptions));
                 }}
               >
                 {option}

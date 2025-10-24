@@ -17,6 +17,7 @@ type _CProps = {
     name?: string,
     autoComplete?: string,
     label?: string,
+    value?: string,
 }
 
 const _defaults: { [key: string]: string } = {
@@ -59,7 +60,7 @@ export const TextField = (props: _CProps) => {
             {props.type !== "area" ?
                 <input type={props.type} className={finalClassName} name={props.name}
                        required={props.required} autoComplete={props.autoComplete}
-                       onFocus={handleFocus} onBlur={handleBlur}/>
+                       onFocus={handleFocus} onBlur={handleBlur} />
                 :
                 <textarea className={finalClassName} name={props.name}
                           required={props.required} autoComplete={props.autoComplete}

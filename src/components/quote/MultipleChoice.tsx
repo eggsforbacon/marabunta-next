@@ -1,13 +1,13 @@
 "use client";
 
-import { MaterialSymbol } from "react-material-symbols";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperCore } from "swiper/types";
+import {MaterialSymbol} from "react-material-symbols";
+import {Swiper, SwiperSlide} from "swiper/react";
+import {Swiper as SwiperCore} from "swiper/types";
 import Image from "next/image";
 import Answer from "@/components/quote/Answer";
-import { useRef, useEffect } from "react";
-import { Choice, QuestionTypes } from "@/types/quote";
-import { useQuoteStore } from "@/store/quote";
+import {useEffect, useRef} from "react";
+import {Answer as QuoteAnswer, Choice, ProductTypes, QuestionTypes} from "@/types/quote";
+import {useQuoteStore} from "@/store/quote";
 import OptionAnswer from "@/components/quote/OptionAnswer";
 import OpenAnswer from "@/components/quote/OpenAnswer";
 import {useWarehouseStore} from "@/store/warehouse";
@@ -17,22 +17,36 @@ type _Props = {
     choices: Choice[];
     state: { activeOption: number; setActiveOption: (i: number) => void };
     next: string[];
+    prompt: string;
     closed?: boolean;
     options?: { unique: boolean[]; values: string[][] };
     types?: QuestionTypes | QuestionTypes[];
 };
 
-const MultipleChoice = ({
-    id,
-    choices,
-    state: { activeOption, setActiveOption },
-    next,
-    closed,
-    options,
-    types,
-}: _Props) => {
-    const { continueQuestion, setAnswer, answers, selectedOptions, setSelectedOptions, setWarehouseActive, setFinish, subflowQueue } = useQuoteStore();
-    const { cart } = useWarehouseStore();
+const MultipleChoice = (
+    {
+        id,
+        choices,
+        state: {activeOption, setActiveOption},
+        next,
+        closed,
+        options,
+        types,
+        prompt,
+    }: _Props) => {
+    const {
+        continueQuestion,
+        setAnswer,
+        answers,
+        selectedOptions,
+        setSelectedOptions,
+        setWarehouseActive,
+        setFinish,
+        subflowQueue,
+        addToBasket,
+        basket,
+    } = useQuoteStore();
+    const {cart} = useWarehouseStore();
     const swiperRef = useRef<SwiperCore>();
     const isMultipleSelect = types === QuestionTypes.MULTIPLE_SELECT;
     let controlIndex = -1;
@@ -48,6 +62,10 @@ const MultipleChoice = ({
 
         return `/images/quote/questions/${area}/${formattedId}_${answerIndex + 1}.webp`;
     };
+
+    useEffect(() => {
+        console.info("BASKET: ", basket);
+    }, [basket]);
 
     useEffect(() => {
         if (!closed && swiperRef.current && swiperRef.current.activeIndex !== activeOption) {
@@ -70,11 +88,11 @@ const MultipleChoice = ({
         if (next.length === 0 && !subflowQueue.includes("BODEGA")) {
             setFinish(true);
             if (typeof window !== 'undefined') {
-                const basket = { answers, cart }
-                sessionStorage.setItem('answers', JSON.stringify(basket));
+                const answers = {basket, cart}
+                sessionStorage.setItem('answers', JSON.stringify(answers));
             }
         }
-    }, [answers, cart, next, setFinish, subflowQueue]);
+    }, [basket, cart, next, setFinish, subflowQueue]);
 
     const handleToggleOption = (index: number) => {
         if (!closed && !isMultipleSelect) {
@@ -83,6 +101,14 @@ const MultipleChoice = ({
             const nextId = next[index];
             if (nextId) {
                 if (nextId === "BODEGA") setWarehouseActive(true);
+                const storeAnswer: QuoteAnswer = {
+                    id: id,
+                    prompt: prompt,
+                    choices: [activeOption],
+                    values: `${choices[activeOption].title}${choices[activeOption].description && ":"} ${choices[activeOption].description ?? ""}`,
+                }
+                
+                addToBasket(storeAnswer);
                 continueQuestion([nextId]);
             } else if (subflowQueue.includes("BODEGA")) {
                 setWarehouseActive(true);
@@ -93,7 +119,7 @@ const MultipleChoice = ({
             const isSelected = selectedOptions.some((opt) => opt.index === index);
             const newSelected = isSelected
                 ? selectedOptions.filter((opt) => opt.index !== index)
-                : [...selectedOptions, { index, timestamp }];
+                : [...selectedOptions, {index, timestamp}];
             setSelectedOptions(newSelected);
             setAnswer(id, newSelected);
         }
@@ -104,6 +130,14 @@ const MultipleChoice = ({
         setActiveOption(index);
         const nextId = next[index];
         if (nextId) {
+            const storeAnswer: QuoteAnswer = {
+                id: id,
+                prompt: prompt,
+                choices: [activeOption],
+                values: `${choices[activeOption].title}${choices[activeOption].description && ":"} ${choices[activeOption].description ?? ""}`,
+            }
+
+            addToBasket(storeAnswer);
             continueQuestion([nextId]);
         }
     };
@@ -112,19 +146,21 @@ const MultipleChoice = ({
         <>
             {!closed ? (
                 <>
-                    <span className="h-full w-1/2 absolute bg-gradient-to-r from-black/70 via-25% via-black/10 pointer-events-none select-none left-0 top-0 z-10" />
-                    <span className="h-full w-1/2 absolute bg-gradient-to-l from-black/70 via-25% via-black/10 pointer-events-none select-none right-0 top-0 z-10" />
+                    <span
+                        className="h-full w-1/2 absolute bg-gradient-to-r from-black/70 via-25% via-black/10 pointer-events-none select-none left-0 top-0 z-10"/>
+                    <span
+                        className="h-full w-1/2 absolute bg-gradient-to-l from-black/70 via-25% via-black/10 pointer-events-none select-none right-0 top-0 z-10"/>
                     <button
                         className={`absolute top-1/2 -translate-y-1/2 left-0 z-10 transition-all duration-200 ease-in-out ${swiperRef.current?.isBeginning ? "opacity-0 pointer-events-none" : "opacity-100"}`}
                         onClick={() => swiperRef.current?.slidePrev()}
                     >
-                        <MaterialSymbol icon={"chevron_left"} size={48} weight={500} />
+                        <MaterialSymbol icon={"chevron_left"} size={48} weight={500}/>
                     </button>
                     <button
                         className={`absolute top-1/2 -translate-y-1/2 right-0 z-10 transition-all duration-200 ease-in-out ${swiperRef.current?.isEnd ? "opacity-0 pointer-events-none" : "opacity-100"}`}
                         onClick={() => swiperRef.current?.slideNext()}
                     >
-                        <MaterialSymbol icon={"chevron_right"} size={48} weight={500} />
+                        <MaterialSymbol icon={"chevron_right"} size={48} weight={500}/>
                     </button>
                     <Swiper
                         initialSlide={activeOption}
@@ -135,7 +171,7 @@ const MultipleChoice = ({
                         onSlideChange={(swiper) => setActiveOption(swiper.activeIndex)}
                         onSwiper={(swiper) => (swiperRef.current = swiper)}
                     >
-                        {choices.map(({ title, description }, index) => (
+                        {choices.map(({title, description}, index) => (
                             <SwiperSlide key={index} className={"!w-56"}>
                                 <Answer
                                     title={title}
@@ -154,11 +190,11 @@ const MultipleChoice = ({
                                         className={`h-full w-full object-cover rounded-3xl cursor-pointer transition-all duration-200 ease-in-out ${selectedOptions.some((opt) => opt.index === index) || (!isMultipleSelect && index === activeOption)
                                             ? "border-4 border-marabunta-red"
                                             : "border-0 border-transparent"
-                                            }`}
+                                        }`}
                                     />
                                     {isMultipleSelect && selectedOptions.some((opt) => opt.index === index) && (
                                         <div className="absolute top-2 right-2 bg-black/50 rounded-full p-1">
-                                            <MaterialSymbol icon="check" size={24} className="text-marabunta-red" />
+                                            <MaterialSymbol icon="check" size={24} className="text-marabunta-red"/>
                                         </div>
                                     )}
                                 </Answer>
@@ -168,7 +204,7 @@ const MultipleChoice = ({
                 </>
             ) : (
                 <div className={"flex flex-col items-stretch justify-start gap-3 px-8"}>
-                    {choices.map(({ title }, index) => {
+                    {choices.map(({title}, index) => {
                         let currentChoiceType: QuestionTypes | undefined;
                         if (Array.isArray(types)) {
                             currentChoiceType = types[index];
@@ -190,7 +226,7 @@ const MultipleChoice = ({
                                 />
                             );
                         } else if (isOpenAnswer) {
-                            return <OpenAnswer key={index} prompt={title} />;
+                            return <OpenAnswer key={index} prompt={title}/>;
                         } else {
                             return (
                                 <Answer

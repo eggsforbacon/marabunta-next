@@ -50,7 +50,7 @@ const ModeSelector = ({ lang }: ModeSelectorProps) => {
 
                     <button
                         onClick={() => startQuestionnaire(QuoteMode.COMPLEX)}
-                        className="font-bold text-white bg-marabunta-red rounded-full px-4 py-4 w-[75%] max-w-[20rem] text-lg border-2 border-marabunta-red transition-all duration-200 hover:bg-transparent hover:text-marabunta-red"
+                        className="whitespace-nowrap font-bold text-white bg-marabunta-red rounded-full px-4 py-4 w-[75%] max-w-[20rem] text-lg border-2 border-marabunta-red transition-all duration-200 hover:bg-transparent hover:text-marabunta-red"
                     >
                         Cotización detallada
                     </button>

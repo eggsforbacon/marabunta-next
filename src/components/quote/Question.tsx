@@ -4,7 +4,7 @@ import {useMemo, useEffect} from "react";
 import {Locale} from "@/_i18n.config";
 import {useQuoteStore} from "@/store/quote";
 import {getQuestion} from "@/model/quote";
-import {Question as QuestionType, QuestionTypes} from "@/types/quote";
+import {Answer as QuoteAnswer, Question as QuestionType, QuestionTypes} from "@/types/quote";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -31,7 +31,8 @@ const Question = ({lang}: QuestionComponentProps) => {
         setAnswer,
         setLang,
         quoteMode,
-        setWarehouseActive
+        setWarehouseActive,
+        addToBasket,
     } = useQuoteStore();
 
     useEffect(() => {
@@ -75,6 +76,9 @@ const Question = ({lang}: QuestionComponentProps) => {
     } = question;
 
     const isMultipleSelect = types === QuestionTypes.MULTIPLE_SELECT;
+    const isOptionsSelect =
+        types === QuestionTypes.OPTIONS ||
+        (Array.isArray(types) && types.includes(QuestionTypes.OPTIONS));
 
     const handleNext = () => {
         if (isMultipleSelect) {
@@ -84,12 +88,43 @@ const Question = ({lang}: QuestionComponentProps) => {
                 .filter((id) => id !== "-1" && id !== undefined);
             setAnswer(id, sortedSelections);
             if (nextIds.includes("BODEGA")) setWarehouseActive(true);
+            const storeAnswer: QuoteAnswer = {
+                id: id,
+                prompt: prompt.replaceAll("$", highlight ?? "$"),
+                choices: sortedSelections.map((selection) => selection.index),
+                values: sortedSelections.map((selection) => `${choices?.[selection.index].title}${choices?.[selection.index].description && ":"} ${choices?.[selection.index].description}`),
+            }
+
+            addToBasket(storeAnswer);
             continueQuestion(nextIds.length > 0 ? nextIds : ['-1']);
+        } else if (isOptionsSelect) {
+            const nextId = next.length === 1 ? next[0] : next[activeOption];
+            setAnswer(id, activeOption);
+            const storeAnswer: QuoteAnswer = {
+                id: id,
+                prompt: prompt.replaceAll("$", highlight ?? "$"),
+                options: selectedOptions.length === 0 ? undefined : selectedOptions
+                    .map(sel => options?.values?.[0]?.[sel.index])
+                    .filter((v): v is string => typeof v === "string"),
+                values: `${prompt.replaceAll("$", highlight ?? "$")}`,
+            }
+
+            addToBasket(storeAnswer);
+            continueQuestion(nextId ? [nextId] : ['-1']);
         } else {
             const nextId = next.length === 1 ? next[0] : next[activeOption];
             setAnswer(id, activeOption);
+            const storeAnswer: QuoteAnswer = {
+                id: id,
+                prompt: prompt.replaceAll("$", highlight ?? "$"),
+                values: `${prompt.replaceAll("$", highlight ?? "$")}`,
+                numericAnswer: rangeValue,
+            }
+
+            addToBasket(storeAnswer);
             continueQuestion(nextId ? [nextId] : ['-1']);
         }
+        setRangeValue(-1);
     };
 
     return (
@@ -112,6 +147,7 @@ const Question = ({lang}: QuestionComponentProps) => {
                 {choices && choices.length > 0 && (
                     <MultipleChoice
                         id={id}
+                        prompt={prompt.replaceAll("$", highlight ?? "$")}
                         choices={choices}
                         state={{activeOption, setActiveOption}}
                         next={next}
@@ -126,9 +162,12 @@ const Question = ({lang}: QuestionComponentProps) => {
                             type={"number"}
                             className={"border-2 border-off-white rounded-xl bg-transparent w-full p-2 text-center"}
                             placeholder={"Ingresa un valor numérico"}
-                            value={rangeValue}
+                            value={rangeValue === -1 ? "" : rangeValue}
                             onChange={(e) => {
-                                setRangeValue(parseInt(e.currentTarget.value) || 0);
+                                const value = e.currentTarget.value;
+                                if (value !== "") {
+                                    setRangeValue(parseInt(e.currentTarget.value));
+                                } else setRangeValue(-1);
                             }}
                             onKeyDown={(e) => {
                                 if (e.code === "Enter") {

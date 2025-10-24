@@ -3,6 +3,15 @@ import {options} from "@/services/common";
 import {fetchURI} from "@/lib/api";
 import {Strapi} from "@/types/strapi";
 import {Warehouse} from "@/types/warehouse";
+import { sendContactForm } from "@/lib/api";
+
+export async function submit(email: string, message: string, e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        return await sendContactForm({
+            email,
+            message,
+        });
+}
 
 export async function getWarehouseCombos(lang?: Locale) {
     const url = `${process.env.NEXT_PUBLIC_API_URL}/combos?pagination[limit]=${process.env.NEXT_PUBLIC_STRAPI_LIMIT}&sort[0]=nombre&populate=*`;

@@ -42,7 +42,8 @@ export type Question = {
 export type Answer = {
     id: string;
     prompt: string;
-    choice?: number;
+    values: string | string[];
+    choices?: number[];
     options?: string[];
-    type: ProductTypes;
+    numericAnswer?: number;
 };
