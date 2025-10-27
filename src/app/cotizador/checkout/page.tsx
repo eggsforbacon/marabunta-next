@@ -25,7 +25,6 @@ export default function Checkout(
     const router = useRouter();
 
     const [email, setEmail] = useState<string>("");
-    const [normalizedBasket, setNormalizedBasket] = useState<string>("");
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -41,22 +40,17 @@ export default function Checkout(
                 setCart([]);
             }
         }
-    }, [setBasket, setCart]);
+    }, []);
 
     const getDisplayValue = (ans: Answer) => {
-        const prompt = ans.prompt;
         if (ans.numericAnswer) {
-            const num = ans.numericAnswer;
-            setNormalizedBasket((prev) => prev + `${ans.id} ${prompt}: ${num}\n`);
             return (
                 <p>{ans.numericAnswer}</p>
             );
         } else if (ans.options) {
-            const opts = ans.options;
-            setNormalizedBasket((prev) => prev + `${ans.id} ${prompt}: ${opts.toString()}\n`);
             return (
                 <ul>
-                    {opts.map((op, jndex) => {
+                    {ans.options.map((op, jndex) => {
                         return (
                             <li key={jndex}>{op}</li>
                         )
@@ -64,8 +58,6 @@ export default function Checkout(
                 </ul>
             );
         } else {
-            const vals = ans.values;
-            setNormalizedBasket((prev) => prev + `${ans.id} ${prompt}: ${vals.toString()}\n`);
             return (
                 <p className="text-neutral-500 text-sm w-full">{ans.values}</p>
             );
@@ -151,7 +143,34 @@ export default function Checkout(
                         className="whitespace-nowrap font-bold text-marabunta-red rounded-full w-full px-4 py-4 text-lg border-2 border-marabunta-red transition-all duration-200 hover:bg-transparent hover:text-marabunta-red">
                         Rehacer cuestionario
                     </button>
-                    <form onSubmit={(e) => submit(email, normalizedBasket, e)}
+                    <form onSubmit={(e) => {
+                        let normalizedBasket = "Servicios:\n";
+                        // Services
+                        if (basket) {
+                            for (let i = 0; i < basket.length; i++) {
+                                const ans = basket[i];
+                                if (ans.numericAnswer) {
+                                    normalizedBasket += `${ans.id} ${ans.prompt}: ${ans.numericAnswer}\n`
+                                } else if (ans.options) {
+                                    for (let j = 0; j < ans.options.length; j++) {
+                                        const options = ans.options[j];
+                                        normalizedBasket += `${ans.id} ${ans.prompt}: ${options.toString()}\n`
+                                    }
+                                } else {
+                                    normalizedBasket += `${ans.id} ${ans.prompt}: ${ans.values}\n`
+                                }
+                            }
+                        }
+                        // Products
+                        if (cart) {
+                            normalizedBasket += "\n\n---\n\nElementos:\n"
+                            for (let i = 0; i < cart.length; i++) {
+                                const item = cart[i];
+                                normalizedBasket += `${item.id} ${item.name}: ${item.description}\n`;
+                            }
+                        }
+                        return submit(email, normalizedBasket, e);
+                    }}
                           className="flex flex-col items-stretch justify-start gap-8 w-full">
                         <div>
                             <label className={"font-medium text-marabunta-red"}>Tu correo</label>
