@@ -11,7 +11,6 @@ import {useQuoteStore} from "@/store/quote";
 import {useWarehouseStore} from "@/store/warehouse";
 import {useRouter} from "next/navigation";
 import {submit} from "@/services/warehouse";
-import {TextField} from "@/components/ui/TextField";
 
 export default function Checkout(
     {
@@ -26,6 +25,7 @@ export default function Checkout(
     const router = useRouter();
 
     const [email, setEmail] = useState<string>("");
+    const [normalizedBasket, setNormalizedBasket] = useState<string>("");
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -41,22 +41,35 @@ export default function Checkout(
                 setCart([]);
             }
         }
-    }, []);
+    }, [setBasket, setCart]);
 
     const getDisplayValue = (ans: Answer) => {
-        if (ans.numericAnswer) return (
-            <p>{ans.numericAnswer}</p>
-        ); else if (ans.options) return (
-            <ul>
-                {ans.options.map((op, jndex) => {
-                    return (
-                        <li key={jndex}>{op}</li>
-                    )
-                })}
-            </ul>
-        ); else return (
-            <p className="text-neutral-500 text-sm w-full">{ans.values}</p>
-        );
+        const prompt = ans.prompt;
+        if (ans.numericAnswer) {
+            const num = ans.numericAnswer;
+            setNormalizedBasket((prev) => prev + `${ans.id} ${prompt}: ${num}\n`);
+            return (
+                <p>{ans.numericAnswer}</p>
+            );
+        } else if (ans.options) {
+            const opts = ans.options;
+            setNormalizedBasket((prev) => prev + `${ans.id} ${prompt}: ${opts.toString()}\n`);
+            return (
+                <ul>
+                    {opts.map((op, jndex) => {
+                        return (
+                            <li key={jndex}>{op}</li>
+                        )
+                    })}
+                </ul>
+            );
+        } else {
+            const vals = ans.values;
+            setNormalizedBasket((prev) => prev + `${ans.id} ${prompt}: ${vals.toString()}\n`);
+            return (
+                <p className="text-neutral-500 text-sm w-full">{ans.values}</p>
+            );
+        }
     }
 
     return (
@@ -99,24 +112,30 @@ export default function Checkout(
                             data: { id: number, attributes: Strapi.BodyImageAttributes }[]
                         };
                         return (
-                            <div key={index}
-                                 className="py-2 flex flex-row gap-4">
-                                <div
-                                    className="aspect-square h-24 border rounded-lg border-white relative overflow-clip">
-                                    {item.gallery && (
-                                        <Image
-                                            src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${gallery.data[0].attributes.url}`}
-                                            alt={"Alt text"} width={1920} height={1080}
-                                            quality={100}
-                                            className="absolute top-0 left-0 object-cover h-full w-full"/>
-                                    )}
+                            <div key={index} className="flex flex-col items-stretch">
+                                <div className="py-2 flex flex-row gap-4">
+                                    <div
+                                        className="aspect-square h-24 border rounded-lg border-white relative overflow-clip">
+                                        {item.gallery && (
+                                            <Image
+                                                src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${gallery.data[0].attributes.url}`}
+                                                alt={"Alt text"} width={1920} height={1080}
+                                                quality={100}
+                                                className="absolute top-0 left-0 object-cover h-full w-full"/>
+                                        )}
+                                    </div>
+                                    <div className="flex flex-col items-start justify-start">
+                                        <h3 className="text-lg font-semibold">
+                                            {item.name}
+                                        </h3>
+                                        <p className="text-xs">{item.description}</p>
+                                    </div>
                                 </div>
-                                <div className="flex flex-col items-start justify-start">
-                                    <h3 className="text-lg font-semibold">
-                                        {item.name}
-                                    </h3>
-                                    <p className="text-xs">{item.description}</p>
-                                </div>
+                                <button
+                                    onClick={() => removeOne(item.id)}
+                                    className="rounded-full whitespace-nowrap border flex-1 p-2 w-full lg:max-w-[32rem] border-marabunta-cyan text-marabunta-cyan font-bold text-center">
+                                    Remover del carrito
+                                </button>
                             </div>
                         )
                     })}
@@ -132,7 +151,7 @@ export default function Checkout(
                         className="whitespace-nowrap font-bold text-marabunta-red rounded-full w-full px-4 py-4 text-lg border-2 border-marabunta-red transition-all duration-200 hover:bg-transparent hover:text-marabunta-red">
                         Rehacer cuestionario
                     </button>
-                    <form onSubmit={(e) => submit("", "", e)}
+                    <form onSubmit={(e) => submit(email, normalizedBasket, e)}
                           className="flex flex-col items-stretch justify-start gap-8 w-full">
                         <div>
                             <label className={"font-medium text-marabunta-red"}>Tu correo</label>
