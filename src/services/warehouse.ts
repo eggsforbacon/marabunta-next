@@ -13,9 +13,9 @@ export async function submit(email: string, message: string, e: React.FormEvent<
         });
 }
 
-export async function getWarehouseCombos(lang?: Locale) {
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/combos?pagination[limit]=${process.env.NEXT_PUBLIC_STRAPI_LIMIT}&sort[0]=nombre&populate=*`;
-    const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
+export async function getWarehouseCombos(currentPage: number, lang?: Locale) {
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/combos?pagination[limit]=1&sort[0]=nombre&populate=*`;
+    const {data, meta} = await fetchURI<Strapi.MultipleResponse>(url, options);
     const combos: Warehouse.Combo[] = [];
     if (data !== null) {
         for (let i = 0; i < data.length; i++) {
@@ -25,7 +25,7 @@ export async function getWarehouseCombos(lang?: Locale) {
             combos.push(mapped);
         }
     }
-    return {combos};
+    return {combos, total: meta?.pagination.total};
 }
 
 export async function getWarehouseElements(currentPage: number, lang?: Locale, filters?: Warehouse.Category[] | "") {
@@ -38,7 +38,7 @@ export async function getWarehouseElements(currentPage: number, lang?: Locale, f
         return filterString;
     }
     const LIMIT = process.env.NEXT_PUBLIC_STRAPI_LIMIT as unknown as number ?? 6;
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/elementos?${filters?.length !== 0 && filters !== undefined ? `${generateFilterString(filters as Warehouse.Category[])}` : ""}pagination[limit]=${process.env.NEXT_PUBLIC_STRAPI_LIMIT}&pagination[start]=${LIMIT * currentPage}&sort[0]=nombre&populate=*`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/elementos?${filters?.length !== 0 && filters !== undefined ? `${generateFilterString(filters as Warehouse.Category[])}` : ""}pagination[limit]=${process.env.NEXT_PUBLIC_STRAPI_ELEMENT_LIMIT}&pagination[start]=${LIMIT * currentPage}&sort[0]=nombre&populate=*`;
     const {data, meta} = await fetchURI<Strapi.MultipleResponse>(url, options);
     const elements: Warehouse.Element[] = [];
     if (data !== null) {

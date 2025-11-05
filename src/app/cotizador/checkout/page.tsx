@@ -33,7 +33,7 @@ export default function Checkout(
                 if (stored) {
                     const {basket: b, cart: c} = JSON.parse(stored);
                     setBasket(b ?? null);
-                    setCart(c ?? []);
+                    setCart(c ?? null);
                 }
             } catch {
                 setBasket([]);
@@ -45,11 +45,11 @@ export default function Checkout(
     const getDisplayValue = (ans: Answer) => {
         if (ans.numericAnswer) {
             return (
-                <p>{ans.numericAnswer}</p>
+                <p className="text-xl text-neutral-500 w-full">{ans.numericAnswer}</p>
             );
         } else if (ans.options) {
             return (
-                <ul>
+                <ul className="ml-5 list-disc text-neutral-500 text-sm w-full">
                     {ans.options.map((op, jndex) => {
                         return (
                             <li key={jndex}>{op}</li>
@@ -64,22 +64,36 @@ export default function Checkout(
         }
     }
 
+    const COLUMNS = 3;
+    const length = basket.length;
+    const CONGRUENT = COLUMNS - length % COLUMNS;
+    const HAS_EXACT_COLUMNS = CONGRUENT !== COLUMNS;
+
+    console.log("Cols: ", COLUMNS);
+    console.log("Has E. Cols: ", HAS_EXACT_COLUMNS, "\nLength: ", length);
+
     return (
         <main className="text-white bg-off-black overflow-x-clip">
             <Navbar s={nav} lang={lang} current={"/cotizador"}/>
             <section
-                className="relative w-full flex flex-col items-center justify-start gap-12 pt-32 lg:pt-96 pb-16 px-6 overflow-y-scroll">
-                <section className="flex flex-col items-stretch justify-start gap-4 w-full lg:px-24 xl:px-[19rem]">
+                className="relative w-full flex flex-col items-center justify-start gap-12 pt-32 md:pt-72 lg:pt-96 pb-16 px-6 overflow-y-scroll">
+                <section className="flex flex-col items-stretch lg:items-start justify-start gap-4 w-full xl:px-32">
                     <h1 className="font-bold text-3xl">Resumen de tu cotización</h1>
                     <p>Gracias por completar el cuestionario. Aquí puedes ver el resumen de tus respuestas</p>
                 </section>
                 {basket && basket.length !== 0 && <section
-                    className="flex flex-col lg:flex-row lg:flex-wrap lg:px-80 items-stretch justify-start gap-4">
+                    className="flex flex-col lg:flex-row lg:flex-wrap lg:px-64 xl:px-32 items-stretch justify-start gap-4">
                     <h2 className="font-bold text-2xl lg:w-full">Resumen de servicios</h2>
                     {basket.map((ans, index) => {
+                        const INDEX_IS_LAST_COLUMN = index % 3 === 2;
+                        const INDEX_IN_LAST_ROW = index > (length + CONGRUENT) - COLUMNS - 1;
+
+                        console.log("I. Last Col: ", INDEX_IS_LAST_COLUMN, "\nIndex: ", index);
+                        console.log("I. Last Row: ", INDEX_IN_LAST_ROW);
+
                         return (
-                            <div key={index} className="flex flex-row gap-4 border p-4 rounded-lg border-neutral-700">
-                                <div className="flex flex-col items-start justify-start w-full lg:w-96">
+                            <div key={index} className={`flex ${HAS_EXACT_COLUMNS && !INDEX_IS_LAST_COLUMN && INDEX_IN_LAST_ROW ? "md:flex-1 lg:!w-1/3" : "md:flex-1"} flex-row gap-4 border p-4 rounded-lg border-neutral-700 items-center justify-center`}>
+                                <div className="flex flex-col items-center justify-start w-full lg:w-96">
                                     <h3 className="text-lg font-semibold w-full">
                                         {ans.prompt}
                                     </h3>
@@ -133,7 +147,7 @@ export default function Checkout(
                     })}
                 </section>}
                 <div
-                    className="flex flex-col items-stretch justify-start gap-4 w-full lg:w-80 lg:fixed lg:top-120 lg:right-80">
+                    className="flex flex-col items-stretch justify-start gap-4 w-full lg:w-128">
                     <button
                         onClick={() => {
                             reset();
@@ -193,7 +207,7 @@ export default function Checkout(
                 width={1000}
                 height={1000}
                 quality={100}
-                className={`transition-opacity duration-300 ease-in-out pointer-events-none select-none w-full absolute -top-0 lg:-top-80 -rotate-180 xs:bottom-0 md:-bottom-16 2xl:-bottom-144 left-0 scale-[2]`}
+                className={`transition-opacity duration-300 ease-in-out pointer-events-none select-none w-full absolute -top-0 md:-top-6 lg:-top-80 -rotate-180 xs:bottom-0 md:-bottom-16 2xl:-bottom-144 left-0 scale-[2]`}
             />
         </main>
     );

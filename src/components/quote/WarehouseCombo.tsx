@@ -20,7 +20,7 @@ const WarehouseCombo = ({combo}: _Props) => {
     const [added, setAdded] = useState<boolean>(false);
 
     return (
-        <div>
+        <div className="lg:flex lg:flex-row lg:items-center lg:gap-6">
             <Swiper className=""
                     autoplay={{
                         delay: 5000,
@@ -34,8 +34,8 @@ const WarehouseCombo = ({combo}: _Props) => {
                 {
                     gallery.data.map((item, index) => {
                         return (
-                            <SwiperSlide key={index}>
-                                <div className="relative w-full h-96">
+                            <SwiperSlide key={index} >
+                                <div className="relative w-full h-96 lg:h-136 lg:rounded-lg lg:overflow-clip">
                                     <Image
                                         src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.attributes.url}`}
                                         alt={"Alt text"} width={1920} height={1080}
@@ -47,18 +47,18 @@ const WarehouseCombo = ({combo}: _Props) => {
                     })
                 }
             </Swiper>
-            <div className="px-6 flex flex-col gap-2 py-3">
-                <h3 className="text-xl font-semibold">{combo.name}</h3>
+            <div className="px-6 flex flex-col gap-2 py-3 lg:w-full">
+                <h3 className="text-xl lg:text-4xl font-semibold">{combo.name}</h3>
                 <p>{combo.description}</p>
                 <button
-                    className={`flex flex-row items-center justify-center rounded-full border-2 border-white py-2 mt-2 transition-all duration-200 ease-in-out ${added ? "bg-marabunta-red font-bold" : ""}`}
+                    className={`lg:w-44 flex flex-row items-center justify-center rounded-full border-2 border-white py-2 lg:py-3 lg:text-lg mt-2 transition-all duration-200 ease-in-out ${added ? "bg-marabunta-red font-bold" : ""}`}
                     onClick={() => {
                         !added ? addOne(combo.id, {...combo}) : removeOne(combo.id);
                         setAdded(!added);
                     }}>
                     {!added ? "Añadir" : "Remover"}
                     <XCircle size={20}
-                             className={`transition-all duration-200 ease-in-out ${added ? "ml-4 w-8" : "w-0"}`}/>
+                             className={`transition-all duration-200 ease-in-out ${added ? "ml-4 lg:ml-2 w-8" : "w-0"}`}/>
                 </button>
             </div>
         </div>
