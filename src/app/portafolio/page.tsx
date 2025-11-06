@@ -46,7 +46,7 @@ export default function Work({ params: { lang } }: { params: { lang: Locale } })
       <Navbar current={"/portafolio"} withBorder s={nav} lang={lang} />
       <span className={"absolute top-0 w-full left-0 h-full pointer-events-none packed-dotted-background opacity-30 overflow-hidden"} />
 
-      <div className={`  w-full flex  !z-[999] ${width <= 780
+      <div className={`  w-full flex ${width <= 780
           ? "fixed bottom-6 justify-center items-center"
           : "absolute top-28  left-14 justify-start  items-start"
         }`}
@@ -88,7 +88,7 @@ export default function Work({ params: { lang } }: { params: { lang: Locale } })
             navigation
             pagination={{ clickable: true }}
             mousewheel
-            className={`h-36 md:!h-max pb-12 !z-[60] rounded-2xl w-full !ml-10 mt-20 absolute -bottom-10 left-4 hidden`}
+            className={`h-36 md:!h-max pb-12 rounded-2xl w-full !ml-10 mt-20 absolute -bottom-10 left-4 hidden`}
           >
             {filteredCovers.map((s, i) => {
               return (
