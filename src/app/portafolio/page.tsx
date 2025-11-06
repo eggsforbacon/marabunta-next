@@ -46,7 +46,7 @@ export default function Work({ params: { lang } }: { params: { lang: Locale } })
       <Navbar current={"/portafolio"} withBorder s={nav} lang={lang} />
       <span className={"absolute top-0 w-full left-0 h-full pointer-events-none packed-dotted-background opacity-30 overflow-hidden"} />
 
-      <div className={`  w-full flex ${width <= 780
+      <div className={`  w-full flex z-10 ${width <= 780
           ? "fixed bottom-6 justify-center items-center"
           : "absolute top-28  left-14 justify-start  items-start"
         }`}
