@@ -24,7 +24,6 @@ export default function Quote(
             >
                 <ProgressBar />
                 <Question lang={"es"} />
-                <Question lang={"es"}/>
                 <Introduction lang={"es"}/>
                 <Warehouse />
             </section>
