@@ -30,37 +30,35 @@ const Answer = ({
           className="flex flex-col items-center justify-start gap-4"
           onClick={isSimpleView ? onClick : undefined}
         >
-          <div
-            className={`
-              rounded-3xl overflow-clip relative w-full md:w-72 lg:w-80 shadow-[0_10px_40px_-18px_rgba(0,0,0,0.6)]
-              transition-all duration-300 group
+          <div className={`${active ? "rounded-3xl p-1" : "rounded-3xl p-0"} transition-all duration-300`}>
+            <div className={`${active ? "ring-4 ring-marabunta-red/60 rounded-3xl" : ""}`}>
 
-              ${isSimpleView
-                ? 'h-48 bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/15'
-                : 'h-56'
-              }
+              <div
+                className={`
+                  rounded-3xl overflow-hidden relative w-full md:w-72 lg:w-80 shadow-[0_10px_40px_-18px_rgba(0,0,0,0.6)]
+                  transition-all duration-300 group
+                  ${isSimpleView
+                    ? 'h-48 bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/15'
+                    : 'h-56'
+                  }
 
-              ${active && (isSimpleView || isMultipleSelect) ? "ring-4 ring-marabunta-red/60" : "ring-0"}
+                  ${isSimpleView ? "cursor-pointer" : ""}
+                  ${!active && isSimpleView ? "hover:border-white/30" : ""}
+                `}
+              >
+                {children}
 
-              ${isSimpleView ? "cursor-pointer" : ""}
-              ${!active && isSimpleView ? "hover:border-white/30" : ""}
-            `}
-          >
-
-            {children}
-
-            {isSimpleView && (
-              <div className="h-full w-full">
-
+                {isSimpleView && (
+                  <div className="h-full w-full"></div>
+                )}
               </div>
-            )}
+            </div>
           </div>
 
           <div
             className={`
               px-4 flex flex-col justify-center transition-all duration-300 ease-in-out 
               ${isMultipleSelect ? "" : "-mx-4"}
-
               ${isSimpleView ? 'items-center text-center' : 'items-start'}
             `}
           >

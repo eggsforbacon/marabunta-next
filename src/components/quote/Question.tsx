@@ -13,6 +13,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "react-material-symbols/rounded";
+import { useEffect } from "react";
 
 interface QuestionProps {
   lang: Locale;
@@ -33,6 +34,12 @@ const Question = ({ lang }: QuestionProps) => {
     selectedOptions,
     setActiveOption,
   } = useQuestionFlow(lang);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && question?.id && isVisible) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [question?.id, isVisible]);
 
   if (!question || !isVisible) return null;
 
