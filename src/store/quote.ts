@@ -1,12 +1,13 @@
 import { create } from "zustand";
-import { Answer, Question, QuestionTypes, QuoteMode } from "@/types/quote";
+import { Answer, QuestionTypes, QuoteMode } from "@/types/quote";
 import { getQuestion } from "@/model/quote";
 import { questions as allQuestions } from "@/constants/quote";
-import { buildQuestionMap, QuestionMap } from "@/utils/quote-progress";
+import { buildQuestionMap } from "@/utils/quote-progress";
 
 type Locale = "es" | "en";
 
 const INTRO_ID = "intro";
+const WAREHOUSE_ID = "BODEGA";
 
 const questionMap = buildQuestionMap(allQuestions("es"));
 
@@ -16,6 +17,7 @@ interface QuoteStore {
     floor: number;
     ceiling: number;
     basket: Answer[];
+    setBasket: (basket: Answer[]) => void;
     addToBasket: (p: Answer) => void;
     removeFromBasket: (id: string) => void;
     current: string;
@@ -46,6 +48,8 @@ interface QuoteStore {
     totalStepsHistory: number[];
     warehouseActive: boolean;
     setWarehouseActive: (toggle: boolean) => void;
+    finish: boolean,
+    setFinish: (finish: boolean) => void;
 }
 
 const determineNextState = (
@@ -58,7 +62,7 @@ const determineNextState = (
     quoteMode: QuoteMode | null
 ) => {
 
-    if (current === INTRO_ID) {
+    if (current === INTRO_ID || current === WAREHOUSE_ID) {
         const nextId = rawIds[0];
         return {
             current: nextId,
@@ -147,6 +151,7 @@ export const useQuoteStore = create<QuoteStore>((set, get) => ({
     floor: 0,
     ceiling: 0,
     basket: [],
+    setBasket: (basket: Answer[]) => set((state) => ({basket})),
     addToBasket: (p: Answer) =>
         set((state) => ({ basket: [...state.basket, p] })),
     removeFromBasket: (id: string) =>
@@ -198,7 +203,6 @@ export const useQuoteStore = create<QuoteStore>((set, get) => ({
 
             const potentialProgress = totalSteps > 0 ? (currentStep / totalSteps) * 100 : state.progress;
 
-            // BUG FIX: El progreso nunca disminuye al avanzar
             const progress = Math.max(potentialProgress, state.progress);
 
             return {
@@ -285,4 +289,6 @@ export const useQuoteStore = create<QuoteStore>((set, get) => ({
     totalStepsHistory: [],
     warehouseActive: false,
     setWarehouseActive: (toggle: boolean) => set(() => ({ warehouseActive: toggle })),
+    finish: false,
+    setFinish: (finish: boolean) => set(() => ({ finish })),
 }));

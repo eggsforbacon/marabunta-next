@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { DashCircle, PlusCircle } from "react-bootstrap-icons";
+import { useQuoteStore } from "@/store/quote";
 
 type _Props = {
   index: number;
@@ -12,7 +13,7 @@ type _Props = {
 const OptionAnswer = ({ index, title, options }: _Props) => {
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const [shownOptions, setShownOptions] = useState<string[]>([]);
-  const [selectedOptions, setSelectedOptions] = useState<{ [key: number]: string }>({});
+  const { selectedOptions, setSelectedOptions } = useQuoteStore();
 
   return (
     <div
@@ -24,7 +25,7 @@ const OptionAnswer = ({ index, title, options }: _Props) => {
         onClick={() => {
           setShowOptions(!showOptions);
           if (!showOptions) {
-            setShownOptions(options.values[index]);
+            setShownOptions(options.values[index] || []);
           }
         }}
       >
@@ -33,24 +34,27 @@ const OptionAnswer = ({ index, title, options }: _Props) => {
       </button>
 
       <div
-        className={`flex flex-col items-center justify-start gap-2 transition-all duration-300 ease-in-out overflow-hidden w-full ${showOptions ? "h-auto py-2" : "h-0 py-0"}`}
+        className={`flex flex-col items-center justify-start gap-2 transition-all duration-300 ease-in-out overflow-hidden w-full ${showOptions ? "h-auto py-2" : "h-0 py-0"
+          }`}
       >
         {shownOptions.map((option, i) => {
-          const isSelected = selectedOptions.hasOwnProperty(i);
+          const isSelected = selectedOptions.some(o => o.index === i);
+
           return (
             <div key={i} className="w-full">
               <button
-                className={`w-full text-left text-base font-medium transition-all duration-200 ease-in-out py-2 rounded-lg ${isSelected ? "bg-marabunta-cyan/20" : "hover:bg-white/3"}`}
+                className={`w-full text-left text-base font-medium transition-all duration-200 ease-in-out py-2 rounded-lg ${isSelected ? "bg-marabunta-cyan/20" : "hover:bg-white/3"
+                  }`}
                 onClick={() => {
-                  setSelectedOptions((prev) => {
-                    const newOptions = { ...prev };
-                    if (isSelected) {
-                      delete newOptions[i];
+                  const f = (prev: { index: number, timestamp: number }[]): { index: number, timestamp: number }[] => {
+                    const exists = prev.some(e => e.index === i);
+                    if (exists) {
+                      return prev.filter(e => e.index !== i);
                     } else {
-                      newOptions[i] = option;
+                      return [...prev, { index: i, timestamp: Date.now() }];
                     }
-                    return newOptions;
-                  });
+                  };
+                  setSelectedOptions(f(selectedOptions));
                 }}
               >
                 {option}

@@ -4,12 +4,12 @@ import { MaterialSymbol } from "react-material-symbols";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperCore } from "swiper/types";
 import Image from "next/image";
-import Answer from "@/components/quote/Answer";
+import Answer from "./Answer";
 import { useRef, useEffect, useState } from "react";
-import { Choice, QuestionTypes } from "@/types/quote";
-import { useQuoteStore } from "@/store/quote";
-import OptionAnswer from "@/components/quote/OptionAnswer";
-import OpenAnswer from "@/components/quote/OpenAnswer";
+import { Choice, QuestionTypes, Answer as QuoteAnswer } from "../../types/quote";
+import { useQuoteStore } from "../../store/quote";
+import OptionAnswer from "./OptionAnswer";
+import OpenAnswer from "./OpenAnswer";
 import { motion, AnimatePresence } from "framer-motion";
 
 type _Props = {
@@ -17,10 +17,12 @@ type _Props = {
   choices: Choice[];
   state: { activeOption: number; setActiveOption: (i: number) => void };
   next: string[];
+  prompt?: string;
   closed?: boolean;
   options?: { unique: boolean[]; values: string[][] };
   types?: QuestionTypes | QuestionTypes[];
   isSimpleView?: boolean;
+  handleOptionClick: (index: number) => void;
 };
 
 const MOBILE_BREAKPOINT = 1024;
@@ -30,12 +32,22 @@ const MultipleChoice = ({
   choices,
   state: { activeOption, setActiveOption },
   next,
+  prompt,
   closed,
   options,
   types,
   isSimpleView = false,
+  handleOptionClick,
 }: _Props) => {
-  const { continueQuestion, setAnswer, answers, selectedOptions, setSelectedOptions, setWarehouseActive } = useQuoteStore();
+  const {
+    continueQuestion,
+    setAnswer,
+    answers,
+    selectedOptions,
+    setSelectedOptions,
+    setWarehouseActive,
+    addToBasket,
+  } = useQuoteStore();
   const swiperRef = useRef<SwiperCore | null>(null);
   const isMultipleSelect = types === QuestionTypes.MULTIPLE_SELECT;
   const suppressSlideChangeRef = useRef(false);
@@ -55,10 +67,12 @@ const MultipleChoice = ({
   }, []);
 
   const getImagePath = (questionId: string, answerIndex: number): string => {
-    if (questionId === "0") return `/images/quote/questions/initial/${answerIndex + 1}.webp`;
+    if (questionId === "0")
+      return `/images/quote/questions/initial/${answerIndex + 1}.webp`;
     const area = questionId.charAt(0).toUpperCase();
     const formattedId = questionId.replace(/\./g, "");
-    return `/images/quote/questions/${area}/${formattedId}_${answerIndex + 1}.webp`;
+    return `/images/quote/questions/${area}/${formattedId}_${answerIndex + 1
+      }.webp`;
   };
 
   useEffect(() => {
@@ -66,51 +80,34 @@ const MultipleChoice = ({
       const savedAnswer = answers[id];
       if (
         Array.isArray(savedAnswer) &&
-        savedAnswer.every((item) => typeof item === "object" && "index" in item && "timestamp" in item)
+        savedAnswer.every(
+          (item) =>
+            typeof item === "object" && "index" in item && "timestamp" in item
+        )
       ) {
         setSelectedOptions(savedAnswer as { index: number; timestamp: number }[]);
       } else {
         setSelectedOptions([]);
       }
     }
-  }, [answers, id, isMultipleSelect, setSelectedOptions]);
-
-  const handleToggleOption = (index: number) => {
-    if (!closed && !isMultipleSelect) {
-      setActiveOption(index);
-      setAnswer(id, index);
-
-      if (!isSimpleView && swiperRef.current && swiperRef.current.activeIndex !== index) {
-        suppressSlideChangeRef.current = true;
-        swiperRef.current.slideTo(index, 350);
-        setTimeout(() => {
-          suppressSlideChangeRef.current = false;
-        }, 400);
-      }
-
-      const nextId = next[index];
-      if (nextId) {
-        if (nextId === "BODEGA") setWarehouseActive(true);
-        setTimeout(() => continueQuestion([nextId]), 300);
-      }
-    }
-
-    else if (isMultipleSelect) {
-      const timestamp = Date.now();
-      const isSelected = selectedOptions.some((opt) => opt.index === index);
-      const newSelected = isSelected
-        ? selectedOptions.filter((opt) => opt.index !== index)
-        : [...selectedOptions, { index, timestamp }];
-      setSelectedOptions(newSelected);
-      setAnswer(id, newSelected);
-    }
-  };
+  }, [answers, id, isSimpleView, isMultipleSelect, setSelectedOptions]);
 
   const handleClosedAnswerClick = (index: number) => {
     setAnswer(id, index);
     setActiveOption(index);
     const nextId = next[index];
-    if (nextId) continueQuestion([nextId]);
+    if (nextId) {
+      const storeAnswer: QuoteAnswer = {
+        id: id,
+        prompt: prompt ?? "",
+        choices: [index],
+        values: `${choices[index].title}${choices[index].description && ":"
+          } ${choices[index].description ?? ""}`,
+      };
+      addToBasket(storeAnswer);
+
+      continueQuestion([nextId]);
+    }
   };
 
   if (isSimpleView && isMobile && !closed) {
@@ -118,7 +115,8 @@ const MultipleChoice = ({
       <div className="w-full flex flex-col gap-4 px-6">
         {choices.map(({ title, description }, index) => {
           const active = isMultipleSelect ? selectedOptions.some(opt => opt.index === index) : index === activeOption;
-          const selectionOrderIndex = selectedOptions.findIndex((opt) => opt.index === index);
+          const sortedOptions = [...selectedOptions].sort((a, b) => a.timestamp - b.timestamp);
+          const selectionOrderIndex = sortedOptions.findIndex((opt) => opt.index === index);
           const selectionOrder = selectionOrderIndex !== -1 ? selectionOrderIndex + 1 : null;
 
           return (
@@ -139,7 +137,7 @@ const MultipleChoice = ({
               </AnimatePresence>
 
               <button
-                onClick={() => handleToggleOption(index)}
+                onClick={() => handleOptionClick(index)}
                 className={`w-full rounded-2xl p-5 transition-all duration-300 text-left
                   bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/10
                   ${active ? "ring-4 ring-marabunta-red/60 shadow-[0_10px_30px_-12px_rgba(255,0,60,0.5)]" : "hover:ring-2 hover:ring-white/10"}
@@ -166,7 +164,9 @@ const MultipleChoice = ({
 
           <button
             aria-label="prev"
-            className={`absolute top-1/2 -translate-y-1/2 left-3 z-20 transition-all duration-200 ease-in-out ${swiperRef.current?.isBeginning ? "opacity-0 pointer-events-none" : "opacity-100"
+            className={`absolute top-1/2 -translate-y-1/2 left-3 z-20 transition-all duration-200 ease-in-out ${swiperRef.current?.isBeginning
+              ? "opacity-0 pointer-events-none"
+              : "opacity-100"
               }`}
             onClick={() => swiperRef.current?.slidePrev()}
           >
@@ -174,7 +174,9 @@ const MultipleChoice = ({
           </button>
           <button
             aria-label="next"
-            className={`absolute top-1/2 -translate-y-1/2 right-3 z-20 transition-all duration-200 ease-in-out ${swiperRef.current?.isEnd ? "opacity-0 pointer-events-none" : "opacity-100"
+            className={`absolute top-1/2 -translate-y-1/2 right-3 z-20 transition-all duration-200 ease-in-out ${swiperRef.current?.isEnd
+              ? "opacity-0 pointer-events-none"
+              : "opacity-100"
               }`}
             onClick={() => swiperRef.current?.slideNext()}
           >
@@ -198,12 +200,17 @@ const MultipleChoice = ({
               const active = isMultipleSelect
                 ? selectedOptions.some((opt) => opt.index === index)
                 : index === activeOption;
-              const selectionOrderIndex = selectedOptions.findIndex((opt) => opt.index === index);
+
+              const sortedOptions = [...selectedOptions].sort((a, b) => a.timestamp - b.timestamp);
+              const selectionOrderIndex = sortedOptions.findIndex((opt) => opt.index === index);
               const selectionOrder = selectionOrderIndex !== -1 ? selectionOrderIndex + 1 : null;
 
               return (
                 <SwiperSlide key={index} className="!w-56 md:!w-72 lg:!w-80">
-                  <motion.div whileHover={{ scale: 1.03 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  >
                     <Answer
                       title={title}
                       description={description}
@@ -211,7 +218,7 @@ const MultipleChoice = ({
                       closed={closed}
                       isMultipleSelect={isMultipleSelect}
                       isSimpleView={isSimpleView}
-                      onClick={() => handleToggleOption(index)}
+                      onClick={() => handleOptionClick(index)}
                     >
                       {!isSimpleView && (
                         <>
@@ -221,8 +228,10 @@ const MultipleChoice = ({
                             height={512}
                             width={512}
                             quality={100}
-                            onClick={() => handleToggleOption(index)}
-                            className={`h-full w-full object-cover rounded-3xl cursor-pointer transition-all duration-300 ease-in-out ${active && !isMultipleSelect ? "ring-4 ring-marabunta-red/60" : "ring-0"
+                            onClick={() => handleOptionClick(index)}
+                            className={`h-full w-full object-cover rounded-3xl cursor-pointer transition-all duration-300 ease-in-out ${active && !isMultipleSelect
+                              ? "ring-4 ring-marabunta-red/60"
+                              : "ring-0"
                               }`}
                           />
 
@@ -233,10 +242,16 @@ const MultipleChoice = ({
                                 initial={{ scale: 0, rotate: -180, opacity: 0 }}
                                 animate={{ scale: 1, rotate: 0, opacity: 1 }}
                                 exit={{ scale: 0, rotate: 180, opacity: 0 }}
-                                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                                transition={{
+                                  type: "spring",
+                                  stiffness: 260,
+                                  damping: 20,
+                                }}
                                 className="absolute top-2 right-2 w-12 h-12 rounded-full bg-gradient-to-br from-marabunta-red via-red-600 to-red-700 flex items-center justify-center z-10 shadow-[0_4px_20px_rgba(255,0,60,0.6)] ring-4 ring-white/20"
                               >
-                                <span className="text-white font-black text-lg">{selectionOrder}</span>
+                                <span className="text-white font-black text-lg">
+                                  {selectionOrder}
+                                </span>
                               </motion.div>
                             )}
                           </AnimatePresence>
@@ -259,11 +274,20 @@ const MultipleChoice = ({
               currentChoiceType = types;
             }
 
-            const isOptionAnswer = options && currentChoiceType === QuestionTypes.OPTIONS;
-            const isOpenAnswer = currentChoiceType === QuestionTypes.USER_INPUT;
+            const isOptionAnswer =
+              options && currentChoiceType === QuestionTypes.OPTIONS;
+            const isOpenAnswer =
+              currentChoiceType === QuestionTypes.USER_INPUT;
 
             if (isOptionAnswer) {
-              return <OptionAnswer key={index} index={index} title={title} options={options!} />;
+              return (
+                <OptionAnswer
+                  key={index}
+                  index={index}
+                  title={title}
+                  options={options!}
+                />
+              );
             } else if (isOpenAnswer) {
               return <OpenAnswer key={index} prompt={title} />;
             } else {

@@ -38,7 +38,8 @@ const QuestionChoices = ({
     }
     const area = questionId.charAt(0).toUpperCase();
     const formattedId = questionId.replace(/\./g, "");
-    return `/images/quote/questions/${area}/${formattedId}_${answerIndex + 1}.webp`;
+    return `/images/quote/questions/${area}/${formattedId}_${answerIndex + 1
+      }.webp`;
   };
 
   if (!choices?.length) return null;
@@ -49,6 +50,7 @@ const QuestionChoices = ({
         const isSelected = isMultipleSelect
           ? selectedOptions.some((opt) => opt.index === index)
           : activeOption === index;
+
         const selectionOrder = getSelectionOrder(index);
 
         return (
@@ -68,7 +70,10 @@ const QuestionChoices = ({
             <motion.button
               onClick={() => handleOptionClick(index)}
               className={`relative w-full h-full rounded-2xl xl:rounded-3xl overflow-hidden transition-all duration-300 group
-                ${isSimpleView ? "min-h-min xl:min-h-min" : "min-h-[320px] xl:min-h-[360px]"}
+                ${isSimpleView
+                  ? "min-h-min xl:min-h-min"
+                  : "min-h-[320px] xl:min-h-[360px]"
+                }
                 ${isSelected
                   ? "ring-4 ring-marabunta-red shadow-[0_0_50px_-8px_rgba(255,0,60,0.7)]"
                   : "ring-2 ring-white/15 hover:ring-white/30 hover:shadow-[0_0_40px_-12px_rgba(255,255,255,0.25)]"
@@ -123,7 +128,11 @@ const QuestionChoices = ({
 
               {!isMultipleSelect && !isSelected && (
                 <div className="absolute top-5 right-5 w-10 h-10 rounded-full border-2 border-white/40 group-hover:border-white/80 group-hover:bg-white/10 backdrop-blur-sm flex items-center justify-center z-20 transition-all duration-300 opacity-0 group-hover:opacity-100">
-                  <MaterialSymbol icon="touch_app" size={20} className="text-white" />
+                  <MaterialSymbol
+                    icon="touch_app"
+                    size={20}
+                    className="text-white"
+                  />
                 </div>
               )}
 

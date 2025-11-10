@@ -36,7 +36,7 @@ const WarehouseItem = ({gallery, name, id, category, description, color}: _Props
 
     return (
         <div className="w-full text-white flex flex-col items-center justify-start gap-2 px-4 h-128">
-            <div className="rounded-lg relative overflow-clip w-full h-64 flex flex-col items-center justify-center">
+            <div className="rounded-lg relative overflow-clip w-full h-64 lg:h-96 flex flex-col items-center justify-center">
                 <Swiper className="w-full h-full bg-white"
                         autoplay={{
                             delay: 5000,
