@@ -101,9 +101,9 @@ const ModeSelector = ({ lang }: ModeSelectorProps) => {
             src="/images/quote/questions/initial/1.webp"
             alt="Visual Cotizador"
             fill
-            className="object-cover rounded-[2rem] brightness-90 contrast-110 hover:scale-105 transition-transform duration-700 ease-out shadow-[0_0_60px_-10px_rgba(255,0,60,0.4)]"
+            className="object-cover rounded-[2rem] brightness-90 contrast-110 transition-transform duration-700 ease-out hover:scale-105 peer shadow-[0_0_60px_-10px_rgba(255,0,60,0.4)]"
           />
-          <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-t from-black/60 to-transparent pointer-events-none transition-transform duration-700 ease-out peer-hover:scale-105" />
         </motion.div>
       </div>
     </>

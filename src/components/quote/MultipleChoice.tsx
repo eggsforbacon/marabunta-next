@@ -51,6 +51,7 @@ const MultipleChoice = ({
   const swiperRef = useRef<SwiperCore | null>(null);
   const isMultipleSelect = types === QuestionTypes.MULTIPLE_SELECT;
   const suppressSlideChangeRef = useRef(false);
+  let controlIndex = -1;
 
   const [isMobile, setIsMobile] = useState<boolean>(() => {
     if (typeof window === "undefined") return false;
@@ -280,10 +281,11 @@ const MultipleChoice = ({
               currentChoiceType === QuestionTypes.USER_INPUT;
 
             if (isOptionAnswer) {
+              controlIndex++;
               return (
                 <OptionAnswer
                   key={index}
-                  index={index}
+                  index={controlIndex}
                   title={title}
                   options={options!}
                 />

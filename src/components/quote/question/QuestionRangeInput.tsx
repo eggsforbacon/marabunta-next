@@ -27,14 +27,14 @@ const QuestionRangeInput = ({ value, onChange, onNext }: QuestionRangeInputProps
     >
       <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl border border-white/8 rounded-2xl lg:rounded-3xl p-8 lg:p-10">
         <input
-          type="number"
+          type={"number"}
           className="bg-transparent border-b-2 border-white/25 focus:border-marabunta-red text-white placeholder-white/40 outline-none transition-all duration-300 w-full py-4 text-center text-2xl lg:text-3xl font-semibold"
           placeholder="Ingresa un valor numérico"
-          value={!touched && (value === 0 || value === -1) ? "" : value}
+          value={value === 0 || value <= -1 ? "" : value}
           onChange={(e) => {
             setTouched(true);
             const strValue = e.currentTarget.value;
-            if (strValue === "") {
+            if (strValue === "" || strValue.match("/[^\D]/g") !== null) {
               onChange(-1);
             } else {
               const numValue = parseInt(strValue);
