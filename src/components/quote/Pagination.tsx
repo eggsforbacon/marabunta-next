@@ -26,26 +26,28 @@ const Pagination = (
     const IS_THIRD_TO_LAST = page === numberOfPages - 3;
     const IS_SINGLE = numberOfPages === 1;
     const pageClassName = "border border-white";
-    const selectedClassName = "bg-white";
+    const selectedClassName = "bg-marabunta-red";
 
     const renderPages = () => {
         if (numberOfPages <= 5) {
             return (
                 <>
-                    {Array.from({length: numberOfPages}).map((_, i) => (
-                        <button
-                            key={i}
-                            onClick={() => {
-                                setCurrent(i);
-                                onPageChange(i);
-                            }}
-                            className={`flex aspect-square flex-row items-center justify-center rounded-full p-3 transition-all duration-200 ease-in-out ${page === current ? selectedClassName : pageClassName}`}>
-                            <p
-                                className={`w-6 text-center transition-all duration-200 ease-in-out ${page === i ? "font-bold text-marabunta-red" : "text-primary-600"}`}>
-                                {i + 1}
-                            </p>
-                        </button>
-                    ))}
+                    {Array.from({length: numberOfPages}).map((_, i) => {
+                        return (
+                            <button
+                                key={i}
+                                onClick={() => {
+                                    setCurrent(i);
+                                    onPageChange(i);
+                                }}
+                                className={`flex aspect-square flex-row items-center justify-center rounded-full p-3 transition-all duration-200 ease-in-out ${page === i ? selectedClassName : pageClassName}`}>
+                                <p
+                                    className={`w-6 text-center transition-all duration-200 ease-in-out ${page === i ? "font-bold text-white" : "text-primary-600"}`}>
+                                    {i + 1}
+                                </p>
+                            </button>
+                        );
+                    })}
                 </>
             );
         } else {

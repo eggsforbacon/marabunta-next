@@ -53,7 +53,7 @@ const Warehouse = () => {
 
     return (
         <section
-            className={`h-screen overflow-y-scroll absolute w-screen pt-24 lg:pt-44 lg:px-64 text-white gap-3 lg:gap-8 flex flex-col justify-start items-center transition-opacity delay-200 ease-in-out duration-200 ${warehouseActive ? "opacity-100" : "opacity-0 select-none pointer-events-none"}`}>
+            className={`h-screen overflow-y-scroll absolute w-screen pt-24 lg:pt-44 md:px-6 lg:px-64 text-white gap-3 lg:gap-8 flex flex-col justify-start items-center transition-opacity delay-200 ease-in-out duration-200 ${warehouseActive ? "opacity-100" : "opacity-0 select-none pointer-events-none"}`}>
             <div className="bg-black">
                 <h2 className="text-center px-9 lg:px-0 font-bold text-3xl lg:text-6xl w-full relative z-10">Explora
                     nuestro
@@ -63,7 +63,7 @@ const Warehouse = () => {
             <section className="bg-black relative w-full flex flex-col items-center justify-start gap-4">
                 <div
                     className="w-full flex flex-col items-stretch justify-start py-2 gap-8 overflow-y-scroll">
-                    <h2 className="text-2xl lg:text-4xl font-bold px-6 lg:px-0">Combos</h2>
+                    <h2 className="text-2xl lg:text-4xl font-bold px-6 lg:px-0 text-center lg:text-start">Combos</h2>
                     {
                         combos.map((combo, index) => {
                             return (
@@ -76,12 +76,12 @@ const Warehouse = () => {
                             page={pageCombos}
                             numberOfPages={totalPagesCombos}
                             onPageChange={(newPage) => setPageCombos(newPage)}
-                            label={`${fromCombos + 1} de ${totalCombos} entradas`}/>
+                            label={`Entrada ${fromCombos + 1} de ${totalCombos}`}/>
                     </div>
                 </div>
                 <div
                     className="w-full flex flex-col items-center justify-start py-2 gap-2 overflow-y-scroll">
-                    <h2 className="text-2xl font-bold">Elementos</h2>
+                    <h2 className="text-2xl font-bold w-full text-center lg:text-start">Elementos</h2>
                     <div
                         className="flex flex-row gap-2 px-6 py-4 w-full items-center overflow-x-scroll lg:overflow-x-clip lg:flex-wrap">
                         {warehouseCategories.map((category, index) => {

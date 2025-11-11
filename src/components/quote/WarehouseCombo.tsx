@@ -20,7 +20,7 @@ const WarehouseCombo = ({combo}: _Props) => {
     const [added, setAdded] = useState<boolean>(false);
 
     return (
-        <div className="lg:flex lg:flex-row lg:items-center lg:gap-6">
+        <div className="md:flex md:flex-row md:items-center md:gap-2 lg:gap-6">
             <Swiper className=""
                     autoplay={{
                         delay: 5000,
@@ -35,7 +35,7 @@ const WarehouseCombo = ({combo}: _Props) => {
                     gallery.data.map((item, index) => {
                         return (
                             <SwiperSlide key={index} >
-                                <div className="relative w-full h-96 lg:h-136 lg:rounded-lg lg:overflow-clip">
+                                <div className="relative w-full h-96 lg:h-136 md:rounded-lg md:overflow-clip">
                                     <Image
                                         src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item.attributes.url}`}
                                         alt={"Alt text"} width={1920} height={1080}
