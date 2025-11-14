@@ -510,7 +510,7 @@ export const es: TranslationEntry[] = [
         highlight: "datos sensibles",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description:
                     "Tu app manejará información confidencial y requiere altos estándares de seguridad.",
 
@@ -664,7 +664,7 @@ export const es: TranslationEntry[] = [
         highlight: "Benchmarking",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description:
                     "Realizamos un análisis detallado de tu industria y competidores para identificar oportunidades y posicionar tu marca de manera efectiva.",
 
@@ -700,7 +700,7 @@ export const es: TranslationEntry[] = [
                     "Revisamos los valores actuales de tu marca para confirmar que son coherentes y efectivos, ofreciendo ajustes si es necesario.",
             },
             {
-                title: "Si, no necesito definirlos.",
+                title: "Sí, no necesito definirlos.",
                 description:
                     "Si tus valores ya están definidos, nos enfocamos en integrarlos en tu estrategia de marca y diseño visual",
 
@@ -713,7 +713,7 @@ export const es: TranslationEntry[] = [
         highlight: "diagnostico de marca",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description:
                     "Realizamos un análisis completo de tu marca actual para evaluar su posicionamiento, coherencia y oportunidades de mejora.",
 
@@ -732,7 +732,7 @@ export const es: TranslationEntry[] = [
         highlight: "análisis de mercado",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description:
                     "Estudiamos tu mercado objetivo para identificar tendencias, necesidades y oportunidades que fortalezcan la estrategia de tu marca.",
 
@@ -769,7 +769,7 @@ export const es: TranslationEntry[] = [
 
             },
             {
-                title: "Si, no necesito.",
+                title: "Sí, no necesito.",
                 description:
                     "Si ya tienes misión, visión y objetivos definidos, nos enfocamos en integrarlos en tu estrategia de branding y diseño.",
 
@@ -782,7 +782,7 @@ export const es: TranslationEntry[] = [
         highlight: "análisis de competencia",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description:
                     "Analizamos a tus competidores para identificar fortalezas, debilidades y oportunidades que posicionen tu marca de manera única.",
 
@@ -801,7 +801,7 @@ export const es: TranslationEntry[] = [
         highlight: "lanzamiento de marca",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description:
                     "Planificamos y ejecutamos una estrategia de lanzamiento impactante para presentar tu marca al mercado con éxito.",
 
@@ -823,13 +823,13 @@ export const es: TranslationEntry[] = [
         highlight: "insumos",
         answers: [
             {
-                title: "Si, ya cuento con imagenes de archivo.",
+                title: "Sí, ya cuento con imagenes de archivo.",
                 description:
                     "Usamos tus imágenes de archivo para crear contenido audiovisual de alta calidad, optimizando tiempo y recursos.",
 
             },
             {
-                title: "Si, cuento con recursos pero quiero realizar nuevo rodaje.",
+                title: "Sí, cuento con recursos pero quiero realizar nuevo rodaje.",
                 description:
                     "Combinamos tus recursos existentes con un nuevo rodaje para producir contenido fresco y alineado con tu visión.",
 
@@ -898,7 +898,7 @@ export const es: TranslationEntry[] = [
         highlight: "equipos",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description:
                     "Proporcionamos equipos profesionales de iluminación y sonido para garantizar una producción audiovisual de alta calidad.",
 
@@ -926,7 +926,7 @@ export const es: TranslationEntry[] = [
 
     {
         id: "G3.6",
-        prompt: "¿De cuanto es la $ aproximada del video?",
+        prompt: "¿De cuanto es la $ aproximada del video? En segundos",
         highlight: "duracion",
         hint: "",
     },
@@ -964,7 +964,7 @@ export const es: TranslationEntry[] = [
         highlight: "publicaciones",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description: "Creamos y programamos publicaciones según tu calendario editorial."
             },
             {
@@ -980,7 +980,7 @@ export const es: TranslationEntry[] = [
         highlight: "gestionar",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description: "Moderamos y fomentamos la interacción para fortalecer el vínculo con tu audiencia."
             },
             {
@@ -1092,7 +1092,7 @@ export const es: TranslationEntry[] = [
         highlight: "hosting",
         answers: [
             {
-                title: "Si",
+                title: "Sí.",
                 description:
                     "Tengo hosting/plataforma; gestionamos integración, configuración y despliegue.",
 
@@ -1113,7 +1113,7 @@ export const es: TranslationEntry[] = [
         highlight: "naming",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description:
                     "Creamos, analizamos o revisamos un nombre único y memorable para tu marca.",
 
@@ -1134,7 +1134,7 @@ export const es: TranslationEntry[] = [
         highlight: "insumos o recursos",
         answers: [
             {
-                title: "Si, tengo material existente.",
+                title: "Sí, tengo material existente.",
                 description:
                     "Usamos tus imágenes de archivo para crear contenido audiovisual de alta calidad, optimizando tiempo y recursos.",
 
@@ -1154,7 +1154,7 @@ export const es: TranslationEntry[] = [
         highlight: "iluminación y sonido",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description:
                     "Proporcionamos equipos profesionales de iluminación y sonido para garantizar una producción audiovisual de alta calidad.",
 
@@ -1309,7 +1309,7 @@ export const es: TranslationEntry[] = [
         highlight: "manual",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description: "Desarrollamos manual de marca con lineamientos de identidad visual y uso correcto."
             },
             {
@@ -1325,7 +1325,7 @@ export const es: TranslationEntry[] = [
         highlight: "diseño",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description: "Creamos un logotipo único y alineado con la identidad de tu marca."
             },
             {
@@ -1916,9 +1916,9 @@ export const es: TranslationEntry[] = [
         highlight: "idea",
         answers: [
             {
-                title: "Si, tengo clara la idea.",
+                title: "Sí, tengo clara la idea.",
                 description:
-                    "Tienes guion/brief; producimos el diseño fiel a tu concepto.",
+                    "Producimos el diseño siguiendo los lineamientos del guión o brief.",
             },
             {
                 title: "No, necesito ayuda creativa.",
@@ -2195,7 +2195,7 @@ export const es: TranslationEntry[] = [
         highlight: "producir",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description: "Creamos reels y spots con grabación, edición y producción profesional."
             },
             {
@@ -2211,7 +2211,7 @@ export const es: TranslationEntry[] = [
         highlight: "sesión",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description: "Organizamos sesión fotográfica profesional con iluminación, dirección y retoque de alta calidad."
             },
             {
@@ -2227,7 +2227,7 @@ export const es: TranslationEntry[] = [
         highlight: "adaptar",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description: "Adaptamos y editamos tu video existente para mejorar calidad y estilo."
             },
             {
@@ -2243,7 +2243,7 @@ export const es: TranslationEntry[] = [
         highlight: "retoque ",
         answers: [
             {
-                title: "Si.",
+                title: "Sí.",
                 description: "Realizamos retoque digital profesional para mejorar color, iluminación y detalles."
             },
             {

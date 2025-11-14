@@ -60,7 +60,7 @@ const QuestionFooter = (
                     lang={"es"}>
                     Finalizar
                 </LocaleLink>
-                {showNext && (
+                {showNext && !finish && (
                     <button
                         className={`flex gap-2.5 items-center rounded-full px-6 lg:px-8 py-3 lg:py-3.5
               bg-gradient-to-r from-marabunta-red via-marabunta-red to-marabunta-red/90

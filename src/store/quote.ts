@@ -153,7 +153,17 @@ export const useQuoteStore = create<QuoteStore>((set, get) => ({
     basket: [],
     setBasket: (basket: Answer[]) => set((state) => ({basket})),
     addToBasket: (p: Answer) =>
-        set((state) => ({ basket: [...state.basket, p] })),
+    set((state) => {
+        const index = state.basket.findIndex((item) => item.id === p.id);
+
+        if (index === -1) {
+            return { basket: [...state.basket, p] };
+        }
+
+        const updated = [...state.basket];
+        updated[index] = p;
+        return { basket: updated };
+    }),
     removeFromBasket: (id: string) =>
         set((state) => ({ basket: state.basket.filter((p) => p.id !== id) })),
     current: INTRO_ID,
@@ -265,6 +275,7 @@ export const useQuoteStore = create<QuoteStore>((set, get) => ({
             currentStep: 0,
             progress: 0,
             totalStepsHistory: [],
+            finish: false,
         })),
     activeOption: 0,
     setActiveOption: (i: number) => set({ activeOption: i }),

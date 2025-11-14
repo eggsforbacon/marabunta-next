@@ -1,10 +1,10 @@
 "use client";
 
-import {useEffect, useMemo, useCallback} from "react";
-import {Locale} from "@/_i18n.config";
-import {getQuestion} from "@/model/quote";
-import {useQuoteStore} from "@/store/quote";
-import {useWarehouseStore} from "@/store/warehouse";
+import { useEffect, useMemo, useCallback } from "react";
+import { Locale } from "@/_i18n.config";
+import { getQuestion } from "@/model/quote";
+import { useQuoteStore } from "@/store/quote";
+import { useWarehouseStore } from "@/store/warehouse";
 import {
     Question as QuestionType,
     QuestionTypes,
@@ -34,7 +34,7 @@ export const useQuestionFlow = (lang: Locale) => {
         finish,
     } = useQuoteStore();
 
-    const {cart} = useWarehouseStore();
+    const { cart } = useWarehouseStore();
 
     useEffect(() => {
         setLang(lang);
@@ -62,18 +62,32 @@ export const useQuestionFlow = (lang: Locale) => {
     }, [question, answers, setActiveOption, setSelectedOptions]);
 
     useEffect(() => {
-        if (
-            question &&
-            question.next.length === 0 &&
-            !subflowQueue.includes("BODEGA")
-        ) {
-            setFinish(true);
-            if (typeof window !== "undefined") {
-                const answers = {basket, cart};
-                sessionStorage.setItem("answers", JSON.stringify(answers));
-            }
+        if (!question) {
+            setFinish(false);
+            return;
         }
-    }, [question, subflowQueue, setFinish, basket, cart]);
+
+        const hasRealNext = question.next.some(
+            (id) => id !== undefined && id !== "-1"
+        );
+
+        const noMoreSubflows = subflowQueue.length === 0;
+
+        const isFinal =
+            !hasRealNext &&
+            noMoreSubflows &&
+            question.id !== "intro" &&
+            question.id !== "BODEGA";
+
+        setFinish(isFinal);
+    }, [question, subflowQueue.length, setFinish]);
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+
+        const payload = { basket, cart };
+        sessionStorage.setItem("answers", JSON.stringify(payload));
+    }, [basket, cart]);
 
     const isSimpleView = useMemo(() => {
         if (!question?.id) return false;
@@ -82,7 +96,7 @@ export const useQuestionFlow = (lang: Locale) => {
 
     const handleNext = useCallback(() => {
         if (!question) return;
-        const {id, next, types, prompt, highlight, choices, options} = question;
+        const { id, next, types, prompt, highlight, choices, options } = question;
         const isMultipleSelect = types === QuestionTypes.MULTIPLE_SELECT;
         const safePrompt = prompt.replaceAll("$", highlight ?? "$");
 
@@ -149,7 +163,7 @@ export const useQuestionFlow = (lang: Locale) => {
     const handleOptionClick = useCallback(
         (index: number) => {
             if (!question) return;
-            const {id, next, closed, types, prompt, highlight, choices} = question;
+            const { id, next, closed, types, prompt, highlight, choices } = question;
             const isMultipleSelect = types === QuestionTypes.MULTIPLE_SELECT;
 
             if (isMultipleSelect) {
@@ -157,28 +171,64 @@ export const useQuestionFlow = (lang: Locale) => {
                 const isSelected = selectedOptions.some((opt) => opt.index === index);
                 const newSelected = isSelected
                     ? selectedOptions.filter((opt) => opt.index !== index)
-                    : [...selectedOptions, {index, timestamp}];
+                    : [...selectedOptions, { index, timestamp }];
+
                 setSelectedOptions(newSelected);
                 setAnswer(id, newSelected);
+
+                if (finish) {
+                    const safePrompt = prompt.replaceAll("$", highlight ?? "$");
+                    const sortedSelections = [...newSelected].sort(
+                        (a, b) => a.timestamp - b.timestamp
+                    );
+                    const storeAnswer: QuoteAnswer = {
+                        id,
+                        prompt: safePrompt,
+                        choices: sortedSelections.map((selection) => selection.index),
+                        values: sortedSelections.map(
+                            (selection) =>
+                                `${choices?.[selection.index].title}${choices?.[selection.index].description && ":"
+                                } ${choices?.[selection.index].description ?? ""}`
+                        ),
+                    };
+                    addToBasket(storeAnswer);
+                }
             } else {
                 setActiveOption(index);
                 setAnswer(id, index);
+
+                const safePrompt = prompt.replaceAll("$", highlight ?? "$");
+                const storeAnswer: QuoteAnswer = {
+                    id,
+                    prompt: safePrompt,
+                    choices: [index],
+                    values: `${choices?.[index].title}${choices?.[index].description && ":"
+                        } ${choices?.[index].description ?? ""}`,
+                };
+
+                addToBasket(storeAnswer);
+
                 if (!closed) {
-                    const nextId = next.length === 1 ? next[0] : next[index];
-                    if (nextId) {
-                        if (nextId === "BODEGA") setWarehouseActive(true);
+                    let targetIds: string[] = [];
 
-                        const safePrompt = prompt.replaceAll("$", highlight ?? "$");
-                        const storeAnswer: QuoteAnswer = {
-                            id: id,
-                            prompt: safePrompt,
-                            choices: [index],
-                            values: `${choices?.[index].title}${choices?.[index].description && ":"
-                            } ${choices?.[index].description ?? ""}`,
-                        };
-                        addToBasket(storeAnswer);
+                    const hasRealNext = next.some(
+                        (n) => n && n !== "-1"
+                    );
 
-                        setTimeout(() => continueQuestion([nextId]), 400);
+                    if (hasRealNext) {
+                        const nextId = next.length === 1 ? next[0] : next[index];
+                        if (nextId && nextId !== "-1") {
+                            targetIds = [nextId];
+                        } else if (subflowQueue.length > 0) {
+                            targetIds = ["-1"];
+                        }
+                    } else if (subflowQueue.length > 0) {
+                        targetIds = ["-1"];
+                    }
+
+                    if (targetIds.length > 0) {
+                        if (targetIds[0] === "BODEGA") setWarehouseActive(true);
+                        setTimeout(() => continueQuestion(targetIds), 400);
                     }
                 }
             }
@@ -192,6 +242,8 @@ export const useQuestionFlow = (lang: Locale) => {
             continueQuestion,
             setWarehouseActive,
             addToBasket,
+            finish,
+            subflowQueue,
         ]
     );
 
