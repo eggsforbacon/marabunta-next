@@ -1,202 +1,141 @@
 "use client";
 
-import {useMemo, useEffect} from "react";
-import {Locale} from "@/_i18n.config";
-import {useQuoteStore} from "@/store/quote";
-import {getQuestion} from "@/model/quote";
-import {Answer as QuoteAnswer, Question as QuestionType, QuestionTypes} from "@/types/quote";
+import { AnimatePresence, motion } from "framer-motion";
+import { Locale } from "@/_i18n.config";
+import { QuestionTypes } from "@/types/quote";
+import { useQuestionFlow } from "@/hooks/useQuestionFlow";
+import MultipleChoice from "./MultipleChoice";
+import QuestionHeader from "./question/QuestionHeader";
+import QuestionChoices from "./question/QuestionChoices";
+import QuestionRangeInput from "./question/QuestionRangeInput";
+import QuestionFooter from "./question/QuestionFooter";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import {MaterialSymbol} from "react-material-symbols";
 import "react-material-symbols/rounded";
-import MultipleChoice from "@/components/quote/MultipleChoice";
+import { useEffect } from "react";
 
-interface QuestionComponentProps {
-    lang: Locale;
+interface QuestionProps {
+  lang: Locale;
 }
 
-const Question = ({lang}: QuestionComponentProps) => {
-    const {
-        current,
-        continueQuestion,
-        goBackQuestion,
-        activeOption,
-        setActiveOption,
-        rangeValue,
-        setRangeValue,
-        answers,
-        selectedOptions,
-        setSelectedOptions,
-        setAnswer,
-        setLang,
-        quoteMode,
-        setWarehouseActive,
-        addToBasket,
-    } = useQuoteStore();
+const Question = ({ lang }: QuestionProps) => {
+  const {
+    question,
+    isVisible,
+    isSimpleView,
+    handleNext,
+    handleOptionClick,
+    getSelectionOrder,
+    goBackQuestion,
+    rangeValue,
+    setRangeValue,
+    activeOption,
+    selectedOptions,
+    setActiveOption,
+  } = useQuestionFlow(lang);
 
-    useEffect(() => {
-        setLang(lang);
-    }, [lang, setLang]);
-
-    const isVisible = current !== "intro" && current !== "BODEGA";
-
-    const question: QuestionType | null = useMemo(() => {
-        if (!isVisible || !quoteMode) return null;
-        return getQuestion(current, lang, quoteMode) ?? null;
-    }, [current, lang, isVisible, quoteMode]);
-
-    useEffect(() => {
-        if (!question || !question.id) return;
-        const savedAnswer = answers[question.id];
-        const isMultiple = question.types === QuestionTypes.MULTIPLE_SELECT;
-        if (!isMultiple) {
-            setActiveOption(savedAnswer !== undefined ? (savedAnswer as number) : 0);
-        } else if (Array.isArray(savedAnswer)) {
-            setSelectedOptions(savedAnswer as { index: number; timestamp: number }[]);
-        } else {
-            setSelectedOptions([]);
-        }
-    }, [question, answers, setActiveOption, setSelectedOptions]);
-
-    if (!question || !isVisible) {
-        return null;
+  useEffect(() => {
+    if (typeof window !== "undefined" && question?.id && isVisible) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
+  }, [question?.id, isVisible]);
 
-    const {
-        id,
-        options,
-        choices,
-        prompt,
-        highlight,
-        next,
-        closed,
-        types,
-        context,
-    } = question;
+  if (!question || !isVisible) return null;
 
-    const isMultipleSelect = types === QuestionTypes.MULTIPLE_SELECT;
-    const isOptionsSelect =
-        types === QuestionTypes.OPTIONS ||
-        (Array.isArray(types) && types.includes(QuestionTypes.OPTIONS));
+  const { id, choices, context, prompt, highlight, types, closed, next } =
+    question;
 
-    const handleNext = () => {
-        if (isMultipleSelect) {
-            const sortedSelections = [...selectedOptions].sort((a, b) => a.timestamp - b.timestamp);
-            const nextIds = sortedSelections
-                .map((selection) => next[selection.index])
-                .filter((id) => id !== "-1" && id !== undefined);
-            setAnswer(id, sortedSelections);
-            if (nextIds.includes("BODEGA")) setWarehouseActive(true);
-            const storeAnswer: QuoteAnswer = {
-                id: id,
-                prompt: prompt.replaceAll("$", highlight ?? "$"),
-                choices: sortedSelections.map((selection) => selection.index),
-                values: sortedSelections.map((selection) => `${choices?.[selection.index].title}${choices?.[selection.index].description && ":"} ${choices?.[selection.index].description}`),
-            }
+  const safeTypes = (types ??
+    QuestionTypes.MULTIPLE_SELECT) as QuestionTypes | QuestionTypes[];
+  const safeClosed = !!closed;
+  const safePrompt = prompt?.replaceAll("$", highlight ?? "$") ?? "";
 
-            addToBasket(storeAnswer);
-            continueQuestion(nextIds.length > 0 ? nextIds : ['-1']);
-        } else if (isOptionsSelect) {
-            const nextId = next.length === 1 ? next[0] : next[activeOption];
-            setAnswer(id, activeOption);
-            const storeAnswer: QuoteAnswer = {
-                id: id,
-                prompt: prompt.replaceAll("$", highlight ?? "$"),
-                options: selectedOptions.length === 0 ? undefined : selectedOptions
-                    .map(sel => options?.values?.[0]?.[sel.index])
-                    .filter((v): v is string => typeof v === "string"),
-                values: `${prompt.replaceAll("$", highlight ?? "$")}`,
-            }
+  const isMultipleSelect =
+    Array.isArray(safeTypes) ? false : safeTypes === QuestionTypes.MULTIPLE_SELECT;
 
-            addToBasket(storeAnswer);
-            continueQuestion(nextId ? [nextId] : ['-1']);
-        } else {
-            const nextId = next.length === 1 ? next[0] : next[activeOption];
-            setAnswer(id, activeOption);
-            const storeAnswer: QuoteAnswer = {
-                id: id,
-                prompt: prompt.replaceAll("$", highlight ?? "$"),
-                values: `${prompt.replaceAll("$", highlight ?? "$")}`,
-                numericAnswer: rangeValue,
-            }
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={id}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.5 }}
+        className="min-h-screen w-full overflow-clip py-20 md:py-28 lg:py-32 text-white flex flex-col items-center"
+      >
+        <section className="w-full flex flex-col items-center gap-6 lg:gap-10 pt-4 md:pt-0 px-6 md:px-12 lg:px-24 xl:px-32 2xl:px-48 pb-20 lg:pb-24">
+          <QuestionHeader context={context} prompt={prompt} highlight={highlight} />
 
-            addToBasket(storeAnswer);
-            continueQuestion(nextId ? [nextId] : ['-1']);
-        }
-        setRangeValue(-1);
-    };
+          {!safeClosed && choices && choices.length > 0 && (
+            <>
+              <QuestionChoices
+                id={id}
+                choices={choices}
+                activeOption={activeOption}
+                selectedOptions={selectedOptions}
+                handleOptionClick={handleOptionClick}
+                getSelectionOrder={getSelectionOrder}
+                types={safeTypes}
+                isSimpleView={isSimpleView}
+                closed={safeClosed}
+                next={next}
+              />
 
-    return (
-        <div
-            className={`min-h-full w-screen overflow-clip pt-24 text-white gap-3 flex flex-col justify-between items-center transition-opacity delay-200 ease-in-out duration-200 ${isVisible ? "opacity-100" : "opacity-0 select-none pointer-events-none"}`}
-        >
-            <section className={"w-full flex flex-col items-stretch gap-6"}>
-                <h2 className="text-center px-9 font-bold text-3xl w-full relative z-10">
-                    {context && <p className="text-sm mb-2 text-gray-700">{context}</p>}
-                    {highlight ? (
-                        <>
-                            {(prompt || "").split("$")[0]}
-                            <span className="text-marabunta-red">{highlight}</span>
-                            {(prompt || "").split("$")[1]}
-                        </>
-                    ) : (
-                        prompt
-                    )}
-                </h2>
-                {choices && choices.length > 0 && (
-                    <MultipleChoice
-                        id={id}
-                        prompt={prompt.replaceAll("$", highlight ?? "$")}
-                        choices={choices}
-                        state={{activeOption, setActiveOption}}
-                        next={next}
-                        closed={closed}
-                        options={options}
-                        types={types}
-                    />
-                )}
-                {types === QuestionTypes.NUM_RANGE && (
-                    <div className={"flex px-8 w-full"}>
-                        <input
-                            type={"number"}
-                            className={"border-2 border-off-white rounded-xl bg-transparent w-full p-2 text-center"}
-                            placeholder={"Ingresa un valor numérico"}
-                            value={rangeValue === -1 ? "" : rangeValue}
-                            onChange={(e) => {
-                                const value = e.currentTarget.value;
-                                if (value !== "") {
-                                    setRangeValue(parseInt(e.currentTarget.value));
-                                } else setRangeValue(-1);
-                            }}
-                            onKeyDown={(e) => {
-                                if (e.code === "Enter") {
-                                    handleNext();
-                                }
-                            }}
-                        />
-                    </div>
-                )}
-            </section>
-            <div
-                className={"flex w-full px-6 box-border items-center justify-between text-marabunta-cyan text-sm pb-6"}>
-                <button className={"flex gap-2 items-center"} onClick={goBackQuestion}>
-                    <MaterialSymbol icon={"north_west"} color={"#129cc0"} size={16}/>
-                    <p>Atrás</p>
-                </button>
-                {(closed || isMultipleSelect || types === QuestionTypes.NUM_RANGE) && (
-                    <button
-                        className={`flex gap-2 items-center ${isMultipleSelect && selectedOptions.length === 0 ? "opacity-50 cursor-not-allowed" : ""}`}
-                        disabled={isMultipleSelect && selectedOptions.length === 0}
-                        onClick={handleNext}
-                    >
-                        <p>Siguiente</p>
-                        <MaterialSymbol icon={"north_east"} color={"#129cc0"} size={16}/>
-                    </button>
-                )}
+              <div className="lg:hidden w-full">
+                <MultipleChoice
+                  id={id}
+                  choices={choices}
+                  state={{ activeOption, setActiveOption }}
+                  next={next}
+                  closed={safeClosed}
+                  options={question.options}
+                  types={safeTypes}
+                  isSimpleView={isSimpleView}
+                  prompt={safePrompt}
+                  handleOptionClick={handleOptionClick}
+                />
+              </div>
+            </>
+          )}
+
+          {safeClosed && choices && choices.length > 0 && (
+            <div className="w-full max-w-[85rem]">
+              <MultipleChoice
+                id={id}
+                choices={choices}
+                state={{ activeOption, setActiveOption }}
+                next={next}
+                closed={safeClosed}
+                options={question.options}
+                types={safeTypes}
+                isSimpleView={isSimpleView}
+                prompt={safePrompt}
+                handleOptionClick={handleOptionClick}
+              />
             </div>
-        </div>
-    );
+          )}
+
+          {safeTypes === QuestionTypes.NUM_RANGE && (
+            <QuestionRangeInput
+              value={rangeValue}
+              onChange={setRangeValue}
+              onNext={handleNext}
+            />
+          )}
+        </section>
+
+        <QuestionFooter
+          onBack={goBackQuestion}
+          onNext={handleNext}
+          showNext={
+            safeClosed || isMultipleSelect || safeTypes === QuestionTypes.NUM_RANGE
+          }
+          isNextDisabled={isMultipleSelect && selectedOptions.length === 0}
+        />
+      </motion.div>
+    </AnimatePresence>
+  );
 };
 
 export default Question;
