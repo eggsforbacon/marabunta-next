@@ -71,7 +71,8 @@ export const covers: coverType[] = [
     category: ["Desarrollo Software", "Medio ambiente"]
   },
   {
-    cover: "/images/projects/gesprode/cover.jpg",
+    cover: "/images/projects/gesprode/cover.png",
+    fore: "/images/projects/gesprode/forer.png",
     link: "/portafolio/gesprode",
     name: "Gesprode",
     category: ["Desarrollo Software", "Social", "Gobierno", "Corporativo"]
