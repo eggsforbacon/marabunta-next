@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 export async function sendMail(
     {subject, text, html}: {
         subject: string;
-        text: string;
+        text: string[];
         html?: string;
     }) {
     try {
@@ -32,7 +32,7 @@ export async function sendMail(
         from: SMTP_SERVER_USERNAME,
         to: SITE_MAIL_RECEIVER,
         subject: subject,
-        text: text,
+        text: text.join('\n'),
         html: html ? html : '',
     });
     console.log('Message Sent', info.messageId);

@@ -6,9 +6,10 @@ import {render} from "@react-email/render";
 export async function POST(request: NextRequest) {
     const data: { email: string, message: string } = await request.json();
     const subject = `Nueva cotización en Marabunta! | (${data.email})`;
-    const text = data.message;
+    const text = data.message.split("\n");
+    console.log(">>> TEXT: ", text);
     const html = await render(GeneralEmail({
-        email: data.email, message: data.message,
+        email: data.email, message: text,
     }), {
         pretty: true,
     });
