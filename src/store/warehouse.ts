@@ -11,6 +11,9 @@ interface WarehouseStore {
     emptyCart: () => void;
     filters: Warehouse.Category[];
     updateFilters: (filter: Warehouse.Category) => void;
+    modal: "ok" | "error" | "none";
+    modalError: string;
+    setModal: (modal: "ok" | "error" | "none", errorMessage? : string) => void;
 }
 
 export const useWarehouseStore = create<WarehouseStore>((set, getState) => ({
@@ -50,6 +53,10 @@ export const useWarehouseStore = create<WarehouseStore>((set, getState) => ({
             newFilters = oldFilters.concat(filter);
         }
         return {...state, filters: newFilters};
-    })
+    }),
+    modal: "none",
+    modalError: "",
+    setModal: (modal, modalError) => set((state) => ({...state, modalError, modal}))
+
 }));
 

@@ -1,7 +1,7 @@
 "use client";
 
 import {BasketFill, Trash} from "react-bootstrap-icons";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useWarehouseStore} from "@/store/warehouse";
 import Image from "next/image";
 import {Strapi} from "@/types/strapi";
@@ -13,10 +13,6 @@ const WarehouseBasketOverlay = () => {
     const {answers, subflowQueue, warehouseActive} = useQuoteStore();
     const [open, setOpen] = useState<boolean>(false);
     const router = useRouter();
-
-    useEffect(() => {
-        console.log("I'm ", open ? "open!" : "closed!");
-    }, [open]);
 
     return (
         <>
@@ -69,7 +65,6 @@ const WarehouseBasketOverlay = () => {
                                 className="text-center font-bold text-white bg-marabunta-red rounded-full px-4 py-4 w-[75%] max-w-[20rem] text-lg border-2 border-marabunta-red transition-all duration-200 hover:bg-transparent hover:text-marabunta-red"
                                 onClick={() => {
                                     if (typeof window !== 'undefined' && subflowQueue.length === 0 || (subflowQueue.length === 1 && subflowQueue.includes("BODEGA"))) {
-                                        console.log(cart);
                                         const basket = { answers, cart }
                                         sessionStorage.setItem('answers', JSON.stringify(basket));
                                         router.push("/cotizador/checkout");

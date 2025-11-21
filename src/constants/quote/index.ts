@@ -211,7 +211,7 @@ export const questions = (lang: Locale): Question[] => [
     types: [QuestionTypes.DEFAULT, QuestionTypes.OPTIONS, QuestionTypes.DEFAULT],
     closed: true,
     previous: ["SG1b.3"],
-    next: ["SG1b.5", "SG1b.5", "SG1b.5"],
+    next: ["SG1b.5"],
     choices: getText(lang, "G1b.4", "answers") as Choice[],
     options: {
       unique: [true],
@@ -260,7 +260,7 @@ export const questions = (lang: Locale): Question[] => [
     types: [QuestionTypes.OPTIONS, QuestionTypes.DEFAULT],
     closed: true,
     previous: ["SG1b.7"],
-    next: ["SG1b.9", "SG1b.9"],
+    next: ["SG1b.9"],
     choices: getText(lang, "G1b.8", "answers") as Choice[],
     options: {
       unique: [true],

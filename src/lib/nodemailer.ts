@@ -28,14 +28,11 @@ export async function sendMail(
         return;
     }
     const SITE_MAIL_RECEIVER = process.env.SITE_MAIL_RECEIVER ?? "sistemas.marabunta@marabunta.co";
-    const info = await transporter.sendMail({
+    return await transporter.sendMail({
         from: SMTP_SERVER_USERNAME,
         to: SITE_MAIL_RECEIVER,
         subject: subject,
         text: text.join('\n'),
         html: html ? html : '',
     });
-    console.log('Message Sent', info.messageId);
-    console.log('Mail sent to', SITE_MAIL_RECEIVER);
-    return info;
 }
