@@ -98,7 +98,7 @@ const ModeSelector = ({ lang }: ModeSelectorProps) => {
           className="hidden lg:block relative w-[480px] xl:w-[580px] aspect-square"
         >
           <Image
-            src="/images/quote/questions/initial/1.webp"
+            src="/images/quote/questions/initial/0.webp"
             alt="Visual Cotizador"
             fill
             className="object-cover rounded-[2rem] brightness-90 contrast-110 transition-transform duration-700 ease-out hover:scale-105 peer shadow-[0_0_60px_-10px_rgba(255,0,60,0.4)]"

@@ -34,12 +34,12 @@ const QuestionChoices = ({
 
   const getImagePath = (questionId: string, answerIndex: number): string => {
     if (questionId === "0") {
-      return `/images/quote/questions/initial/${answerIndex + 1}.webp`;
+      return `/images/quote/questions/initial/${answerIndex + 1}.jpg`;
     }
     const area = questionId.charAt(0).toUpperCase();
     const formattedId = questionId.replace(/\./g, "");
     return `/images/quote/questions/${area}/${formattedId}_${answerIndex + 1
-      }.webp`;
+      }.jpg`;
   };
 
   if (!choices?.length) return null;
