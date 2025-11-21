@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { DashCircle, PlusCircle } from "react-bootstrap-icons";
 import { useQuoteStore } from "@/store/quote";
 
@@ -14,6 +14,12 @@ const OptionAnswer = ({ index, title, options }: _Props) => {
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const [shownOptions, setShownOptions] = useState<string[]>([]);
   const { selectedOptions, setSelectedOptions } = useQuoteStore();
+  
+  useEffect(() => {
+    console.log(index)
+    console.log(options.values);
+    console.log(shownOptions);
+  }, [index, options, shownOptions]);
 
   return (
     <div

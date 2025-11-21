@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
-import { useQuoteStore } from "@/store/quote";
-import { motion, useSpring, useTransform } from "framer-motion";
+import {useEffect} from "react";
+import {useQuoteStore} from "@/store/quote";
+import {motion, useSpring, useTransform} from "framer-motion";
 import LocaleLink from "@/components/ui/LocaleLink";
 
 const ProgressBar = () => {
-    const { progress, current, finish, setFinish, subflowQueue } = useQuoteStore();
+    const {progress, current, setFinish, subflowQueue, stack} = useQuoteStore();
     const size = 90;
     const center = size / 2;
 
@@ -18,36 +18,37 @@ const ProgressBar = () => {
 
     useEffect(() => {
         progressSpring.set(progress);
-        if (progress >= 100 && !subflowQueue.includes("BODEGA")) setFinish(true);
+        console.log("STACK: ", !stack.includes("intro"));
+        if (!stack.includes("intro") && (progress >= 100 || subflowQueue.length <= 1) && !subflowQueue.includes("BODEGA")) setFinish(true);
         else setFinish(false);
-    }, [progress, progressSpring, setFinish, subflowQueue]);
+    }, [progress, progressSpring, setFinish, stack, subflowQueue]);
 
     const liquidY = useTransform(progressSpring, [0, 100], [size + 5, 0]);
 
     const wavePath = useTransform(liquidY, (y) => {
         return `M 0 ${y} C ${size / 2} ${y - 15}, ${size / 2} ${y + 15}, ${size} ${y
-            } L ${size} ${size} L 0 ${size} Z`;
+        } L ${size} ${size} L 0 ${size} Z`;
     });
 
     const wavePath2 = useTransform(liquidY, (y) => {
         return `M 0 ${y} C ${size / 2} ${y + 15}, ${size / 2} ${y - 15}, ${size} ${y
-            } L ${size} ${size} L 0 ${size} Z`;
+        } L ${size} ${size} L 0 ${size} Z`;
     });
 
-    const isVisible = current !== "intro" && current !== "BODEGA" && !finish;
+    const isVisible = current !== "intro" && current !== "BODEGA";
 
     return (
         <>
             <motion.div
                 className="fixed bottom-16 right-6 translate-x-1/2 md:bottom-8 md:right-8 md:translate-x-0 z-50"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{opacity: 0, y: 50}}
                 animate={{
                     opacity: isVisible ? 1 : 0,
                     y: isVisible ? 0 : 50,
                 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                transition={{duration: 0.5, ease: "easeOut"}}
             >
-                <div className="relative" style={{ width: size, height: size }}>
+                <div className="relative" style={{width: size, height: size}}>
                     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
                         <defs>
                             <filter id="gooey-liquid">
@@ -62,7 +63,7 @@ const ProgressBar = () => {
                                     values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
                                     result="goo"
                                 />
-                                <feBlend in="SourceGraphic" in2="goo" />
+                                <feBlend in="SourceGraphic" in2="goo"/>
                             </filter>
 
                             <linearGradient
@@ -72,12 +73,12 @@ const ProgressBar = () => {
                                 x2="0%"
                                 y2="100%"
                             >
-                                <stop offset="0%" stopColor="#E60023" />
-                                <stop offset="100%" stopColor="#129CC0" />
+                                <stop offset="0%" stopColor="#E60023"/>
+                                <stop offset="100%" stopColor="#129CC0"/>
                             </linearGradient>
 
                             <mask id="circle-mask">
-                                <circle cx={center} cy={center} r={size / 2 - 4} fill="white" />
+                                <circle cx={center} cy={center} r={size / 2 - 4} fill="white"/>
                             </mask>
                         </defs>
 
@@ -116,12 +117,6 @@ const ProgressBar = () => {
                     </div>
                 </div>
             </motion.div>
-            <LocaleLink
-                href={"/cotizador/checkout"}
-                className={`text-center absolute bottom-16 left-1/2 -translate-x-1/2 font-bold text-white bg-marabunta-red rounded-full px-4 py-4 w-[75%] max-w-[20rem] text-lg border-2 border-marabunta-red transition-all duration-200 ${finish ? "opacity-100" : "opacity-0"} hover:bg-transparent hover:text-marabunta-red`}
-                lang={"es"}>
-                Finalizar
-            </LocaleLink>
         </>
     );
 };
