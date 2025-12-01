@@ -9,7 +9,76 @@ import {
     Question as QuestionType,
     QuestionTypes,
     Answer as QuoteAnswer,
+    QuoteMode,
 } from "@/types/quote";
+const inferFlowMeta = (
+    questionId: string,
+    lang: Locale,
+    quoteMode: QuoteMode | null
+): { flowRootId: string | null; flowRootOptionLabel: string | null } => {
+    const { flowRootId, answers } = useQuoteStore.getState();
+
+    if (!flowRootId || questionId === flowRootId) {
+        return { flowRootId: null, flowRootOptionLabel: null };
+    }
+
+    const rootQuestion = getQuestion(flowRootId, lang, quoteMode);
+    if (!rootQuestion || rootQuestion.types !== QuestionTypes.MULTIPLE_SELECT) {
+        return { flowRootId: null, flowRootOptionLabel: null };
+    }
+
+    const storedSelections = answers[flowRootId];
+    if (!Array.isArray(storedSelections)) {
+        return { flowRootId: null, flowRootOptionLabel: null };
+    }
+
+    const selections = storedSelections as { index: number; timestamp: number }[];
+
+    const isReachableFrom = (
+        startId: string,
+        targetId: string,
+        visited: Set<string>
+    ): boolean => {
+        if (startId === targetId) return true;
+        if (visited.has(startId)) return false;
+        visited.add(startId);
+
+        const q = getQuestion(startId, lang, quoteMode);
+        if (!q) return false;
+
+        for (const nextId of q.next) {
+            if (
+                !nextId ||
+                nextId === "-1" ||
+                nextId === "intro" ||
+                nextId === "BODEGA"
+            )
+                continue;
+
+            if (isReachableFrom(nextId, targetId, visited)) return true;
+        }
+
+        return false;
+    };
+
+    for (const sel of selections) {
+        const idx = sel.index;
+        const startId = rootQuestion.next[idx];
+
+        if (!startId || startId === "-1") continue;
+
+        const visited = new Set<string>();
+        if (isReachableFrom(startId, questionId, visited)) {
+            const label = rootQuestion.choices?.[idx]?.title ?? null;
+            return {
+                flowRootId,
+                flowRootOptionLabel: label,
+            };
+        }
+    }
+
+    return { flowRootId: null, flowRootOptionLabel: null };
+};
 
 export const useQuestionFlow = (lang: Locale) => {
     const {
@@ -109,28 +178,34 @@ export const useQuestionFlow = (lang: Locale) => {
                 .filter((id) => id !== "-1" && id !== undefined);
             setAnswer(id, sortedSelections);
 
-            if (nextIds.includes("BODEGA")) setWarehouseActive(true);
+            const meta = inferFlowMeta(id, lang, quoteMode);
+
             const storeAnswer: QuoteAnswer = {
-                id: id,
+                id,
                 prompt: safePrompt,
-                choices: sortedSelections.map((selection) => selection.index),
+                choices: sortedSelections.map((s) => s.index),
                 values: sortedSelections.map(
-                    (selection) =>
-                        `${choices?.[selection.index].title}${choices?.[selection.index].description && ":"
-                        } ${choices?.[selection.index].description}`
+                    (s) =>
+                        `${choices?.[s.index].title}${choices?.[s.index].description ? ":" : ""
+                        } ${choices?.[s.index].description ?? ""}`
                 ),
+                flowRootId: meta.flowRootId,
+                flowRootOptionLabel: meta.flowRootOptionLabel,
             };
             addToBasket(storeAnswer);
 
+            if (nextIds.includes("BODEGA")) setWarehouseActive(true);
             continueQuestion(nextIds.length > 0 ? nextIds : ["-1"]);
-        } else if (
+        }
+        else if (
             types === QuestionTypes.OPTIONS ||
             (Array.isArray(types) && types.includes(QuestionTypes.OPTIONS))
         ) {
             const nextId = next.length === 1 ? next[0] : next[activeOption];
             setAnswer(id, activeOption);
+            const meta = inferFlowMeta(id, lang, quoteMode);
             const storeAnswer: QuoteAnswer = {
-                id: id,
+                id,
                 prompt: safePrompt,
                 options:
                     selectedOptions.length === 0
@@ -138,18 +213,25 @@ export const useQuestionFlow = (lang: Locale) => {
                         : selectedOptions
                             .map((sel) => options?.values?.[0]?.[sel.index])
                             .filter((v): v is string => typeof v === "string"),
-                values: `${safePrompt}`,
+                values: safePrompt,
+                flowRootId: meta.flowRootId,
+                flowRootOptionLabel: meta.flowRootOptionLabel,
             };
             addToBasket(storeAnswer);
             continueQuestion(nextId ? [nextId] : ["-1"]);
-        } else {
+        }
+        else {
             const nextId = next.length === 1 ? next[0] : next[activeOption];
             setAnswer(id, activeOption);
+            const meta = inferFlowMeta(id, lang, quoteMode);
             const storeAnswer: QuoteAnswer = {
-                id: id,
+                id,
                 prompt: safePrompt,
-                values: `${safePrompt}`,
-                numericAnswer: types === QuestionTypes.NUM_RANGE ? rangeValue : undefined,
+                values: safePrompt,
+                numericAnswer:
+                    types === QuestionTypes.NUM_RANGE ? rangeValue : undefined,
+                flowRootId: meta.flowRootId,
+                flowRootOptionLabel: meta.flowRootOptionLabel,
             };
             addToBasket(storeAnswer);
             continueQuestion(nextId ? [nextId] : ["-1"]);
@@ -158,7 +240,19 @@ export const useQuestionFlow = (lang: Locale) => {
         if (types === QuestionTypes.NUM_RANGE) {
             setRangeValue(-1);
         }
-    }, [question, selectedOptions, activeOption, continueQuestion, setAnswer, addToBasket, setWarehouseActive, rangeValue, setRangeValue]);
+    }, [
+        question,
+        selectedOptions,
+        activeOption,
+        continueQuestion,
+        setAnswer,
+        addToBasket,
+        setWarehouseActive,
+        rangeValue,
+        setRangeValue,
+        lang,
+        quoteMode,
+    ]);
 
     const handleOptionClick = useCallback(
         (index: number) => {
@@ -181,29 +275,37 @@ export const useQuestionFlow = (lang: Locale) => {
                     const sortedSelections = [...newSelected].sort(
                         (a, b) => a.timestamp - b.timestamp
                     );
+                    const meta = inferFlowMeta(id, lang, quoteMode);
                     const storeAnswer: QuoteAnswer = {
                         id,
                         prompt: safePrompt,
-                        choices: sortedSelections.map((selection) => selection.index),
+                        choices: sortedSelections.map((s) => s.index),
                         values: sortedSelections.map(
-                            (selection) =>
-                                `${choices?.[selection.index].title}${choices?.[selection.index].description && ":"
-                                } ${choices?.[selection.index].description ?? ""}`
+                            (s) =>
+                                `${choices?.[s.index].title}${choices?.[s.index].description ? ":" : ""
+                                } ${choices?.[s.index].description ?? ""}`
                         ),
+                        flowRootId: meta.flowRootId,
+                        flowRootOptionLabel: meta.flowRootOptionLabel,
                     };
                     addToBasket(storeAnswer);
                 }
-            } else {
+            }
+            else {
                 setActiveOption(index);
                 setAnswer(id, index);
 
                 const safePrompt = prompt.replaceAll("$", highlight ?? "$");
+                const meta = inferFlowMeta(id, lang, quoteMode);
                 const storeAnswer: QuoteAnswer = {
                     id,
                     prompt: safePrompt,
                     choices: [index],
-                    values: `${choices?.[index].title}${choices?.[index].description && ":"
-                        } ${choices?.[index].description ?? ""}`,
+                    values: `${choices?.[index].title
+                        }${choices?.[index].description ? ":" : ""} ${choices?.[index].description ?? ""
+                        }`,
+                    flowRootId: meta.flowRootId,
+                    flowRootOptionLabel: meta.flowRootOptionLabel,
                 };
 
                 addToBasket(storeAnswer);
@@ -211,9 +313,7 @@ export const useQuestionFlow = (lang: Locale) => {
                 if (!closed) {
                     let targetIds: string[] = [];
 
-                    const hasRealNext = next.some(
-                        (n) => n && n !== "-1"
-                    );
+                    const hasRealNext = next.some((n) => n && n !== "-1");
 
                     if (hasRealNext) {
                         const nextId = next.length === 1 ? next[0] : next[index];
@@ -244,6 +344,8 @@ export const useQuestionFlow = (lang: Locale) => {
             addToBasket,
             finish,
             subflowQueue,
+            lang,
+            quoteMode,
         ]
     );
 
