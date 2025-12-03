@@ -85,6 +85,11 @@ export default function CheckoutSidebar({
   };
 
   const handleResetAndBack = () => {
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem("answers");
+      sessionStorage.setItem("quote_skip_restore_once", "true");
+    }
+
     reset();
     emptyCart();
     router.push("/cotizador");

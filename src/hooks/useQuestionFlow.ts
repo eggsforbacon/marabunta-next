@@ -163,6 +163,13 @@ export const useQuestionFlow = (lang: Locale) => {
         return question.id.startsWith("S");
     }, [question?.id]);
 
+    const flowMeta = useMemo(() => {
+        if (!question?.id || !quoteMode) {
+            return { flowRootId: null, flowRootOptionLabel: null };
+        }
+        return inferFlowMeta(question.id, lang, quoteMode);
+    }, [question?.id, lang, quoteMode]);
+
     const handleNext = useCallback(() => {
         if (!question) return;
         const { id, next, types, prompt, highlight, choices, options } = question;
@@ -377,5 +384,6 @@ export const useQuestionFlow = (lang: Locale) => {
         selectedOptions,
         setActiveOption,
         finish,
+        flowMeta,
     };
 };
