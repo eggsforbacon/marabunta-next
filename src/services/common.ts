@@ -11,6 +11,7 @@ export type TranslationEntry = {
     highlight?: string;
     answers?: Choice[];
     options?: string[][];
+    placeholder?: string;
     hint?: string;
 }
 

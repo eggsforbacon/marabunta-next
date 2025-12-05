@@ -7,9 +7,10 @@ interface QuestionRangeInputProps {
   value: number;
   onChange: (value: number) => void;
   onNext: () => void;
+  placeholder?: string;
 }
 
-const QuestionRangeInput = ({ value, onChange, onNext }: QuestionRangeInputProps) => {
+const QuestionRangeInput = ({ value, onChange, onNext, placeholder }: QuestionRangeInputProps) => {
   const [touched, setTouched] = useState(false);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const QuestionRangeInput = ({ value, onChange, onNext }: QuestionRangeInputProps
         <input
           type={"number"}
           className="bg-transparent border-b-2 border-white/25 focus:border-marabunta-red text-white placeholder-white/40 outline-none transition-all duration-300 w-full py-4 text-center text-2xl lg:text-3xl font-semibold"
-          placeholder="Ingresa un valor numérico"
+          placeholder={placeholder ?? "Ingresa un valor numérico"}
           value={value === 0 || value <= -1 ? "" : value}
           onChange={(e) => {
             setTouched(true);

@@ -456,6 +456,7 @@ export const questions = (lang: Locale): Question[] => [
     previous: ["SG3.5"],
     next: [],
     mode: [QuoteMode.COMPLEX],
+    placeholder: getText(lang, "G3.6", "placeholder") as string,
   },
 
   // --- GESTION DE REDES (G4) ---

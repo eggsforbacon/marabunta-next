@@ -815,7 +815,7 @@ export const es: TranslationEntry[] = [
         ],
     },
 
-    // PRODUCCION AUDIOVISUAL
+    // PRODUCCIÓN AUDIOVISUAL
     {
         id: "G3.1",
         context: "PRODUCCIÓN AUDIOVISUAL",
@@ -823,7 +823,7 @@ export const es: TranslationEntry[] = [
         highlight: "insumos",
         answers: [
             {
-                title: "Sí, ya cuento con imagenes de archivo.",
+                title: "Sí, ya cuento con imágenes de archivo.",
                 description:
                     "Usamos tus imágenes de archivo para crear contenido audiovisual de alta calidad, optimizando tiempo y recursos.",
 
@@ -927,8 +927,9 @@ export const es: TranslationEntry[] = [
     {
         id: "G3.6",
         prompt: "¿De cuanto es la $ aproximada del video? En segundos",
-        highlight: "duracion",
+        highlight: "duración",
         hint: "",
+        placeholder: "Ingresa el valor por segundos de grabación",
     },
 
     // GESTION DE REDES SOCIALES

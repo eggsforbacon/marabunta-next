@@ -45,7 +45,7 @@ const Question = (
 
     if (!question || !isVisible) return null;
 
-    const {id, choices, context, prompt, highlight, types, closed, next} =
+    const {id, choices, context, prompt, highlight, placeholder, types, closed, next} =
         question;
 
     const safeTypes = (types ??
@@ -124,6 +124,7 @@ const Question = (
                             value={rangeValue}
                             onChange={setRangeValue}
                             onNext={handleNext}
+                            placeholder={placeholder}
                         />
                     )}
                 </section>

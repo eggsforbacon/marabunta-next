@@ -26,6 +26,7 @@ export type Question = {
     id: string;
     prompt: string;
     highlight?: string;
+    placeholder?: string;
     closed?: boolean;
     multi?: boolean;
     types?: QuestionTypes | QuestionTypes[];
