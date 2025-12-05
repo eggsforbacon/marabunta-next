@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import Image from "next/image";
 import { Locale } from "@/_i18n.config";
 import { getLanguage } from "@/dictionaries";
@@ -32,9 +32,6 @@ export default function Checkout({
     modal,
     modalError,
   } = useWarehouseStore();
-
-  const [email, setEmail] = useState<string>("");
-  const [sent, setSent] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -107,10 +104,6 @@ export default function Checkout({
           </div>
 
           <CheckoutSidebar
-            email={email}
-            setEmail={setEmail}
-            sent={sent}
-            setSent={setSent}
             basket={basket as Answer[]}
             cart={cart as any[]}
             reset={reset}

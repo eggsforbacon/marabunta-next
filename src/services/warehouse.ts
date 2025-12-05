@@ -3,14 +3,26 @@ import {options} from "@/services/common";
 import {fetchURI} from "@/lib/api";
 import {Strapi} from "@/types/strapi";
 import {Warehouse} from "@/types/warehouse";
-import { sendContactForm } from "@/lib/api";
+import {sendContactForm} from "@/lib/api";
+import React from "react";
 
-export async function submit(email: string, message: string, e: React.FormEvent<HTMLFormElement>) {
-        e.preventDefault();
-        return await sendContactForm({
-            email,
-            message,
-        });
+export async function submit(
+    name: string,
+    project: string,
+    industries: string,
+    city: string,
+    phone: string,
+    email: string, message: string, e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    return await sendContactForm({
+        name,
+        project,
+        industries,
+        city,
+        phone,
+        email,
+        message,
+    });
 }
 
 export async function getWarehouseCombos(currentPage: number, lang?: Locale) {

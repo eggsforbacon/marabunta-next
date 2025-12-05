@@ -4,11 +4,25 @@ import GeneralEmail from "@/emails/general-email";
 import {render} from "@react-email/render";
 
 export async function POST(request: NextRequest) {
-    const data: { email: string, message: string } = await request.json();
+    const data: {
+        name: string;
+        project: string;
+        industries: string;
+        city: string;
+        phone: string;
+        email: string;
+        message: string } = await request.json();
+    console.log(data);
     const subject = `Nueva cotización en Marabunta! | (${data.email})`;
     const text = data.message.split("\n");
     const html = await render(GeneralEmail({
-        email: data.email, message: text,
+        name: data.name,
+        project: data.project,
+        industries: data.industries,
+        city: data.city,
+        phone: data.phone,
+        email: data.email,
+        message: text,
     }), {
         pretty: true,
     });

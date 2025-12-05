@@ -8,11 +8,22 @@ import {
     Section,
     Row,
     Container,
-    Hr,
+    Hr
 } from "@react-email/components";
 
 const GeneralEmail = (
-    {email, message}: { email: string, message: string[] }) => {
+    {name, project, industries, city, phone, email, message}: {
+        name: string;
+        project: string;
+        industries: string;
+        city: string;
+        phone: string;
+        email: string;
+        message: string[]
+    }) => {
+
+    let previous = ""
+    let render = true;
 
     return (
         <Html>
@@ -24,6 +35,42 @@ const GeneralEmail = (
                         <Row>
                             <Text style={headingStyle}>Nueva cotización</Text>
                         </Row>
+                        <Row>
+                            <Text style={textStyle}>
+                                <strong style={strongStyle}>Nombre: </strong>{" "}
+                                {name}
+                            </Text>
+                        </Row>
+                        <Row>
+                            <Text style={textStyle}>
+                                <strong style={strongStyle}>Empresa/Proyecto: </strong>{" "}
+                                {project}
+                            </Text>
+                        </Row>
+                        <Row>
+                            <Text style={textStyle}>
+                                <strong style={strongStyle}>Industria(s): </strong>{" "}
+                                {industries.replaceAll("\[\]", "").replaceAll(",", ", ")}
+                            </Text>
+                        </Row>
+                        <Row>
+                            <Text style={textStyle}>
+                                <strong style={strongStyle}>Ciudad: </strong>{" "}
+                                {city}
+                            </Text>
+                        </Row>
+                        <Row>
+                            <Text style={textStyle}>
+                                <strong style={strongStyle}>Teléfono: </strong>{" "}
+                                {phone}
+                            </Text>
+                        </Row>
+                        <Row>
+                            <Text style={textStyle}>
+                                <strong style={strongStyle}>Correo electrónico: </strong>{" "}
+                                <Link href={`mailto:${email}`} style={linkStyle}>{email}</Link>
+                            </Text>
+                        </Row>
                     </Section>
                     <Hr style={hrStyle}/>
                     <Section>
@@ -32,21 +79,22 @@ const GeneralEmail = (
                             if (line === "---") return <Hr key={i} style={hrStyle}/>;
                             if (line === "Servicios:" || line === "Elementos:") return <Text key={i}
                                                                                              style={classStyle}>{line}</Text>;
-                            const parts = line.split("?")
+                            const parts = line.split("?");
+                            render = previous.split("?")[0] !== parts[0];
+                            previous = line;
                             return (
                                 <Row key={i}>
                                     <Text style={textStyle}>
-                                        <span style={titleInlineStyle}>{parts[0]}?</span> {parts[1]}
+                                        {render &&
+                                            <>
+                                                <span style={titleInlineStyle}>¿{parts[0].split("¿")[1]}?</span><br/>
+                                            </>
+                                        }
+                                        {parts[1].replaceAll(":", "\n")}
                                     </Text>
                                 </Row>
                             );
                         })}
-                        <Row>
-                            <Text style={textStyle}>
-                                <strong style={strongStyle}>Correo de contacto provisto:</strong>{" "}
-                                <Link href={`mailto:${email}`} style={linkStyle}>{email}</Link>
-                            </Text>
-                        </Row>
                     </Section>
                     <Hr style={hrStyle}/>
                 </Container>
