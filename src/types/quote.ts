@@ -47,4 +47,6 @@ export type Answer = {
     choices?: number[];
     options?: string[];
     numericAnswer?: number;
+    flowRootId?: string | null;
+    flowRootOptionLabel?: string | null;
 };
