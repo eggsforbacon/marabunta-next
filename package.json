@@ -26,7 +26,7 @@
     "husky": "^9.1.7",
     "meilisearch": "^0.36.0",
     "negotiator": "^0.6.3",
-    "next": "^14.0.4",
+    "next": "14.2.35",
     "nodemailer": "^7.0.10",
     "postcss": "^8.4.32",
     "react": "^18.2.0",
