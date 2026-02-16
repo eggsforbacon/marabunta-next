@@ -9,6 +9,7 @@ import Strategy from "@/components/home/Strategy";
 import CallToAction from "@/components/home/CallToAction";
 import Image from "next/image";
 import { getLanguage } from "@/dictionaries";
+import ClientsSection from "@/components/home/ClientsSection";
 
 export default async function Home({params: {lang}}: { params: { lang: Locale } }) {
   const {nav, home} = getLanguage(lang);
@@ -27,6 +28,7 @@ export default async function Home({params: {lang}}: { params: { lang: Locale } 
               <Reel t={{reel: home.reel}}/>
           </section>
           <Strategy s={home.strategy}/>
+          <ClientsSection/>
           <CallToAction/>
         </section>
       </main>
