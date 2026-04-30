@@ -47,7 +47,7 @@ export default async function Footer ({lang} : {lang : Locale}) {
                                 <p className={linkHoverStyle}>Behance</p></Link></li>
                             <li className={"text-center w-24 grow"}><Link passHref
                                       className={socials}
-                                      href={"https://www.instagram.com/marabuntaagenciacreativa/"} target={"_blank"}
+                                      href={"https://www.instagram.com/agenciamarabunta/"} target={"_blank"}
                                       rel={"noreferrer"}><p className={linkHoverStyle}>Instagram</p></Link>
                             </li>
                         </ul>

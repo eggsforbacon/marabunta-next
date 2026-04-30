@@ -47,7 +47,7 @@ export default async function Home({params : {lang}} : {params : {lang : Locale}
                               className={"rounded-lg aspect-square p-2 border-solid border-red-50 border-2"}>
                             <Facebook className={"fill-red-50"} size={22}/>
                         </Link>
-                        <Link passHref href={"https://www.instagram.com/marabuntaagenciacreativa/"}
+                        <Link passHref href={"https://www.instagram.com/agenciamarabunta/"}
                               target={"_blank"} rel={"noreferrer"}
                               className={"rounded-lg aspect-square p-2 border-solid border-red-50 border-2"}>
                             <Instagram className={"fill-red-50"} size={22}/>

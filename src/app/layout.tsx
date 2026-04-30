@@ -34,7 +34,7 @@ const organizationData = {
     "sameAs": [
         "https://www.facebook.com/marabuntaagencia",
         "https://www.linkedin.com/company/marabunta",
-        "https://www.instagram.com/marabuntaagenciacreativa/",
+        "https://www.instagram.com/agenciamarabunta/",
         "https://www.behance.net/MarabuntaAgencia"
     ],
     "address": {
@@ -76,6 +76,21 @@ export default function RootLayout(
         <html lang={params.lang}>
         <head>
             <title>Marabunta Agencia Creativa</title>
+
+            <Script
+                src="https://www.googletagmanager.com/gtag/js?id=G-4K4L12S3HC"
+                strategy="afterInteractive"
+            />
+
+            <Script id="google-analytics" strategy="afterInteractive">
+                {`
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-4K4L12S3HC');
+                `}
+            </Script>
+
             <Script
                 id="facebook-pixel"
                 strategy="afterInteractive">
