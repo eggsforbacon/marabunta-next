@@ -33,7 +33,7 @@ export default function NotFound() {
                               className={"rounded-lg aspect-square p-2 border-solid border-red-50 border-2 group transition duration-200 ease-in-out hover:border-marabunta-red"}>
                             <Facebook className={"fill-red-50 transition duration-200 ease-in-out group-hover:fill-marabunta-red"} size={22}/>
                         </Link>
-                        <Link passHref href={"https://www.instagram.com/marabuntaagenciacreativa/"}
+                        <Link passHref href={"https://www.instagram.com/agenciamarabunta/"}
                               target={"_blank"} rel={"noreferrer"}
                               className={"rounded-lg aspect-square p-2 border-solid border-red-50 border-2 group transition duration-200 ease-in-out hover:border-marabunta-red"}>
                             <Instagram className={"fill-red-50 transition duration-200 ease-in-out group-hover:fill-marabunta-red"} size={22}/>

@@ -3,5 +3,5 @@ export type coverType = {
   link: string,
   fore?: string,
   name?: string,
-  category?: string
+  category?: string[]
 }
