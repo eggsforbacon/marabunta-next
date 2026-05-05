@@ -40,7 +40,7 @@ export default function Checkout(
         setCart([]);
       }
     }
-  }, []);
+  }, [setBasket, setCart]);
 
   const getDisplayValue = (ans: Answer) => {
     if (ans.numericAnswer) {
@@ -59,7 +59,7 @@ export default function Checkout(
       );
     } else {
       return (
-        <p className="text-neutral-500 text-sm w-full">{ans.values}</p>
+        <p className="text-neutral-500 text-sm w-full">{ans.values as string}</p>
       );
     }
   }
@@ -134,7 +134,7 @@ export default function Checkout(
                     <h3 className="text-lg font-semibold">
                       {item.name}
                     </h3>
-                    <p className="text-xs">{item.description}</p>
+                    <p className="text-xs">{item.description ?? ""}</p>
                   </div>
                 </div>
                 <button
