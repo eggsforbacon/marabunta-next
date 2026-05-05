@@ -2,7 +2,7 @@ import './globals.css'
 import {Montserrat} from 'next/font/google';
 import React from "react";
 import Footer from "@/components/Footer/Footer";
-import {Locale} from "@/_i18n.config";
+// import {Locale} from "@/_i18n.config";
 import {WhatsappButton} from "@/components/ui/WhatsAppButton";
 import Script from "next/script";
 
@@ -65,15 +65,13 @@ const organizationData = {
 export default function RootLayout(
     {
         children,
-        params,
     }: {
         children: React.ReactNode,
-        params: { lang: Locale },
     }) {
     //const [lenguage, setLenguage] = useState<"es" | "en">('es')
     const language = 'es';
     return (
-        <html lang={params.lang}>
+        <html lang={language}>
         <head>
             <title>Marabunta Agencia Creativa</title>
 
