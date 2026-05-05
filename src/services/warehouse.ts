@@ -3,23 +3,32 @@ import {options} from "@/services/common";
 import {fetchURI} from "@/lib/api";
 import {Strapi} from "@/types/strapi";
 import {Warehouse} from "@/types/warehouse";
+import { sendContactForm } from "@/lib/api";
 
-export async function getWarehouseCombos(lang?: Locale) {
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/combos?pagination[limit]=${process.env.NEXT_PUBLIC_STRAPI_LIMIT}&sort[0]=nombre&populate=*`;
-    const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
+export async function submit(email: string, message: string, e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        return await sendContactForm({
+            email,
+            message,
+        });
+}
+
+export async function getWarehouseCombos(currentPage: number, lang?: Locale) {
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/combos?pagination[limit]=1&sort[0]=nombre&populate=*`;
+    const {data, meta} = await fetchURI<Strapi.MultipleResponse>(url, options);
     const combos: Warehouse.Combo[] = [];
     if (data !== null) {
         for (let i = 0; i < data.length; i++) {
             const combo = data[i];
             const attributes: { [key: string]: any } = combo.attributes;
-            const mapped = mapStrapiToWarehouseCombo(attributes, combo.id+"");
+            const mapped = mapStrapiToWarehouseCombo(attributes, combo.id + "");
             combos.push(mapped);
         }
     }
-    return {combos};
+    return {combos, total: meta?.pagination.total};
 }
 
-export async function getWarehouseElements(lang?: Locale, filters?: Warehouse.Category[] | "") {
+export async function getWarehouseElements(currentPage: number, lang?: Locale, filters?: Warehouse.Category[] | "") {
     const generateFilterString = (filters: Warehouse.Category[]) => {
         let filterString = "";
         for (let i = 0; i < filters.length; i++) {
@@ -28,9 +37,10 @@ export async function getWarehouseElements(lang?: Locale, filters?: Warehouse.Ca
         }
         return filterString;
     }
-    const url = `${process.env.NEXT_PUBLIC_API_URL}/elementos?${filters?.length !== 0 && filters !== undefined ? `${generateFilterString(filters as Warehouse.Category[])}` : ""}pagination[limit]=${process.env.NEXT_PUBLIC_STRAPI_LIMIT}&sort[0]=nombre&populate=*`;
-    const {data} = await fetchURI<Strapi.MultipleResponse>(url, options);
-    const elements: Warehouse.Element[] = []
+    const LIMIT = process.env.NEXT_PUBLIC_STRAPI_LIMIT as unknown as number ?? 6;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/elementos?${filters?.length !== 0 && filters !== undefined ? `${generateFilterString(filters as Warehouse.Category[])}` : ""}pagination[limit]=${process.env.NEXT_PUBLIC_STRAPI_ELEMENT_LIMIT}&pagination[start]=${LIMIT * currentPage}&sort[0]=nombre&populate=*`;
+    const {data, meta} = await fetchURI<Strapi.MultipleResponse>(url, options);
+    const elements: Warehouse.Element[] = [];
     if (data !== null) {
         data.forEach((element) => {
             const attributes: { [key: string]: any } = element.attributes;
@@ -38,7 +48,7 @@ export async function getWarehouseElements(lang?: Locale, filters?: Warehouse.Ca
         });
     }
 
-    return {elements};
+    return {elements, total: meta?.pagination.total};
 }
 
 function mapStrapiToWarehouse(attributes: { [key: string]: any }, id: string): Warehouse.Element {
@@ -48,13 +58,13 @@ function mapStrapiToWarehouse(attributes: { [key: string]: any }, id: string): W
         category: attributes.categoria,
         color: attributes.color,
         description: attributes.descripcion,
-        imageUrls: attributes.imagenes,
+        gallery: attributes.imagenes,
     }
 }
 
 function mapStrapiToWarehouseCombo(attributes: { [key: string]: any }, id: string): Warehouse.Combo {
-    let elements : Warehouse.Element[] = [];
-    for (let i = 0; i < attributes.elementos.length; i++){
+    let elements: Warehouse.Element[] = [];
+    for (let i = 0; i < attributes.elementos.length; i++) {
         const element: any = attributes.elementos[i];
         elements.push({
             id: element.id,
@@ -64,11 +74,11 @@ function mapStrapiToWarehouseCombo(attributes: { [key: string]: any }, id: strin
             category: element.attributes.category
         });
     }
-    console.log(elements);
     return {
         id: id,
         name: attributes.nombre,
+        description: attributes.description,
         elements: elements,
-        gallery: attributes.gallery,
+        gallery: attributes.galeria,
     };
 }

@@ -5,6 +5,7 @@ import Introduction from "@/components/quote/ModeSelector";
 import Question from "@/components/quote/Question";
 import ProgressBar from "@/components/quote/ProgressBar";
 import Warehouse from "@/components/quote/Warehouse";
+import ContactSection from "@/components/contact/ContactSection";
 
 export default function Quote(
     {
@@ -12,7 +13,7 @@ export default function Quote(
     }: {
         params: { lang: Locale };
     }) {
-    const {nav, quote} = getLanguage(lang);
+    const {nav, contact} = getLanguage(lang);
 
     return (
         <main className="">
@@ -23,10 +24,12 @@ export default function Quote(
                 }
             >
                 <ProgressBar />
-                <Question lang={"es"} />
-                <Question lang={"es"}/>
-                <Introduction lang={"es"}/>
                 <Warehouse />
+                <Question lang={"es"} />
+                <div className="relative flex flex-col">
+                    <Introduction lang={"es"}/>
+                    <ContactSection contact={contact} />
+                </div>
             </section>
         </main>
     );

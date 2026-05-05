@@ -1,5 +1,3 @@
-import {Strapi} from "@/types/strapi";
-
 export const warehouseCategories = [
     "Dispositivos Electrónicos",
     "Oficina y Muebles",
@@ -20,13 +18,14 @@ export namespace Warehouse {
         name: string;
         description?: string;
         color?: string;
-        imageUrls?: [Object];
+        gallery?: [Object][];
         category: Category;
     };
 
     export type Combo = {
         id: string;
         name: string;
+        description: string;
         elements: Element[];
         gallery: [Object][];
     }
