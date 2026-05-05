@@ -20,7 +20,7 @@ const ModeSelector = ({lang}: ModeSelectorProps) => {
     const isVisible = current === "intro";
 
     return (
-        <>
+        <div className="relative h-screen">
             <motion.div
                 initial={{opacity: 0}}
                 animate={{opacity: isVisible ? 1 : 0}}
@@ -41,7 +41,6 @@ const ModeSelector = ({lang}: ModeSelectorProps) => {
                     !isVisible ? "opacity-0 pointer-events-none" : "opacity-100"
                 }`}
             >
-
                 <motion.div
                     initial={{opacity: 0, y: 30}}
                     animate={{
@@ -88,26 +87,27 @@ const ModeSelector = ({lang}: ModeSelectorProps) => {
                     </motion.div>
                 </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{
-            opacity: isVisible ? 1 : 0,
-            x: isVisible ? 0 : 40,
-          }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="hidden lg:block relative w-[480px] xl:w-[580px] aspect-square"
-        >
-          <Image
-            src="/images/quote/questions/initial/0.webp"
-            alt="Visual Cotizador"
-            fill
-            className="object-cover rounded-[2rem] brightness-90 contrast-110 transition-transform duration-700 ease-out hover:scale-105 peer shadow-[0_0_60px_-10px_rgba(255,0,60,0.4)]"
-          />
-          <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-t from-black/60 to-transparent pointer-events-none transition-transform duration-700 ease-out peer-hover:scale-105" />
-        </motion.div>
-      </div>
-    </>
-  );
+                <motion.div
+                    initial={{opacity: 0, x: 40}}
+                    animate={{
+                        opacity: isVisible ? 1 : 0,
+                        x: isVisible ? 0 : 40,
+                    }}
+                    transition={{duration: 0.8, delay: 0.3}}
+                    className="hidden lg:block relative w-[480px] xl:w-[580px] aspect-square"
+                >
+                    <Image
+                        src="/images/quote/questions/initial/0.webp"
+                        alt="Visual Cotizador"
+                        fill
+                        className="object-cover rounded-[2rem] brightness-90 contrast-110 transition-transform duration-700 ease-out hover:scale-105 peer shadow-[0_0_60px_-10px_rgba(255,0,60,0.4)]"
+                    />
+                    <div
+                        className="absolute inset-0 rounded-[2rem] bg-gradient-to-t from-black/60 to-transparent pointer-events-none transition-transform duration-700 ease-out peer-hover:scale-105"/>
+                </motion.div>
+            </div>
+        </div>
+    );
 };
 
 export default ModeSelector;
