@@ -18,7 +18,7 @@ const ContactSection = ({contact} : _Props ) => {
         <section className={`transition-all duration-200 ${!isVisible ? "opacity-0 pointer-events-none h-0" : "opacity-100"} w-full flex relative flex-col bg-off-black items-center justify-start pt-24 2xl:pt-0 px-4 md:px-12 lg:px-24 xl:px-32 overflow-x-clip mt-24`}>
             <Image src={"/images/contact/footer-bezel.png"} alt={""} width={1920} height={1080} className={"bottom-64 left-44 lg:bottom-0 lg:left-0 absolute lg:scale-100 scale-[3.2]"}/>
             <section
-                className={"relative flex flex-col bg-off-white rounded-2xl bottom-8 2xl:max-h-[56rem] max-w-[56rem] w-full 2xl:absolute 2xl:right-16 2xl:top-8 py-8 px-6 md:px-10 lg:px-20 shadow-2xl"}>
+                className={"relative z-50 flex flex-col bg-off-white rounded-2xl bottom-8 2xl:max-h-[56rem] max-w-[56rem] w-full 2xl:absolute 2xl:right-16 2xl:top-8 py-8 px-6 md:px-10 lg:px-20 shadow-2xl"}>
                 <div
                     className={"text-off-black text-lg font-semibold flex flex-col items-start justify-start gap-6"}>
                     <h1 className={"text-3xl md:text-5xl font-bold"}>{contact.card.title} <br className={"lg:inline-block hidden"}/><span
@@ -46,7 +46,7 @@ const ContactSection = ({contact} : _Props ) => {
                           className={"rounded-lg aspect-square p-2 border-solid border-red-50 border-2"}>
                         <Facebook className={"fill-red-50"} size={22}/>
                     </Link>
-                    <Link passHref href={"https://www.instagram.com/marabuntaagenciacreativa/"}
+                    <Link passHref href={"https://www.instagram.com/agenciamarabunta/"}
                           target={"_blank"} rel={"noreferrer"}
                           className={"rounded-lg aspect-square p-2 border-solid border-red-50 border-2"}>
                         <Instagram className={"fill-red-50"} size={22}/>

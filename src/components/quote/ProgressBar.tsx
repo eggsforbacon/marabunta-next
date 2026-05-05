@@ -55,7 +55,7 @@ const ProgressBar = () => {
 
     return (
         <motion.div
-            className="fixed bottom-16 right-6 translate-x-1/2 md:bottom-8 md:right-8 md:translate-x-0 z-50"
+            className="fixed bottom-20 right-6 translate-x-1/2 md:bottom-24 md:right-8 md:translate-x-0 z-50"
             initial={{ opacity: 0, y: 50 }}
             animate={{
                 opacity: isVisible ? 1 : 0,
