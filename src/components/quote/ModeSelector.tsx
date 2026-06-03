@@ -57,7 +57,7 @@ const ModeSelector = ({ lang }: ModeSelectorProps) => {
 
                             <p className="text-slate-100 font-light text-sm xs:text-base md:text-lg xl:text-xl leading-relaxed max-w-[32rem] mb-10">
                                 Elige cómo quieres empezar. Puedes obtener una estimación rápida
-                                o una cotización detallada para resultados más precisos
+                                o una cotización detallada para resultados más precisos.
                             </p>
 
                             <motion.div
