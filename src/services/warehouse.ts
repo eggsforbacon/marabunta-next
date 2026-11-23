@@ -31,6 +31,7 @@ export async function getWarehouseCombos(currentPage: number, lang?: Locale) {
 export async function getWarehouseElements(currentPage: number, lang?: Locale, filters?: Warehouse.Category[] | "") {
     const generateFilterString = (filters: Warehouse.Category[]) => {
         let filterString = "";
+        if (filters.length === 0) return filterString;
         for (let i = 0; i < filters.length; i++) {
             const filter = filters[i];
             filterString += `filters[$or][${i}][categoria][$eq]=${filter}&`

@@ -2302,15 +2302,15 @@ export const es: TranslationEntry[] = [
             },
             {
                 title: "De 10 a 50 logísticos",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
+                description: "Con un equipo mediano podrás cubrir más espacio y compartimentalizar de manera autosuficiente.",
             },
             {
                 title: "De 50 a 100 logísticos",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
+                description: "¿Tienes un proyecto grande? Nuestro equipo de logística se adapta.",
             },
             {
                 title: "No lo tengo claro, o requiero más de 100 logísticos",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
+                // description: "",
             },
         ]
     },
@@ -2321,15 +2321,15 @@ export const es: TranslationEntry[] = [
         answers: [
             {
                 title: "En la ciudad o el departamento",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
+                description: "Eventos en el municipio de Cali o localidades en el Valle del Cauca.",
             },
             {
                 title: "Fuera del departamento, dentro del país",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
+                description: "Facilitamos tu evento fuera del departamento a lo largo del territorio nacional.",
             },
             {
                 title: "Fuera del país",
-                description: "Un equipo logístico de apoyo pequeño, bien sea para un evento del mismo tamaño o para complementar grupos logísticos existentes.",
+                description: "Hacemos de tu evento internacional.",
             },
         ]
     },

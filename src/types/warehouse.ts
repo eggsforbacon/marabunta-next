@@ -1,7 +1,6 @@
 export const warehouseCategories = [
     "Dispositivos Electrónicos",
     "Oficina y Muebles",
-    "Herramientas y Mantenimiento",
     "Cableado y Electricidad",
     "Infraestructura de Eventos",
     "Señalización",

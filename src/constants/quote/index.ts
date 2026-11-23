@@ -1565,7 +1565,7 @@ export const questions = (lang: Locale): Question[] => [
     types: QuestionTypes.DEFAULT,
     previous: ["SP1.2"],
     next: [],
-    choices: getText(lang, "P1.2", "answers") as Choice[],
+    choices: getText(lang, "P1.3", "answers") as Choice[],
     mode: [QuoteMode.SIMPLE, QuoteMode.COMPLEX],
   },
 ];
